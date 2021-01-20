@@ -6,27 +6,7 @@ ModelImporter:
   - first:
       74: -8727190667447877746
     second: Car Rig|Car RigAction
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Jeep_3_+_
-    second: {fileID: 2100000, guid: b3681aaca40172143b9e46927b34f611, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Jeep_car_light_3_+_
-    second: {fileID: 2100000, guid: 9f3c5f276377d49479f1ce9cfd6ca888, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: 4eaa1cd1a0468c14d8d70bc9b9dbf271, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: glass_apgret_1_
-    second: {fileID: 2100000, guid: 171f5cf6d3d476d47816d3a20353569c, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -44,9 +24,9 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    importAnimatedCustomProperties: 1
-    importConstraints: 1
-    animationCompression: 3
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5

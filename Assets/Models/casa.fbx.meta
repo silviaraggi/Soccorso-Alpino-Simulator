@@ -1,14 +1,8 @@
 fileFormatVersion: 2
-guid: a943da9508826ef4da90c4483b6a92be
+guid: a83ca359eaaa90d449f6d635a1dd9eaf
 ModelImporter:
   serializedVersion: 19301
-  internalIDToNameTable:
-  - first:
-      74: 301334236461852858
-    second: Casa_Plane.001|Casa_Plane.001Action
-  - first:
-      74: 8707283131888099645
-    second: Casa_Plane.002|Casa_Plane.001Action
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
     materialImportMode: 1
