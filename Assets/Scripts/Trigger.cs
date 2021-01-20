@@ -11,7 +11,7 @@ public class Trigger : MonoBehaviour
 
     void Start()
     {
-        cont = -1;
+        cont = 0;
     }
 
     private void OnTriggerEnter(Collider other)
