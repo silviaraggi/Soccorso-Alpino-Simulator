@@ -1,11 +1,17 @@
 fileFormatVersion: 2
-guid: c2f64f54a3950a54386ed5f5c83fab61
+guid: 1c7c631c6ac58be488c8ee8c1e2f838a
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
-      74: -8727190667447877746
-    second: Car Rig|Car RigAction
+      74: -826941428819392001
+    second: Car Rig|Run
+  - first:
+      74: -1346182057280215758
+    second: Car Rig|Start
+  - first:
+      74: -9161241878992657937
+    second: Car Rig|Stop
   externalObjects: {}
   materials:
     materialImportMode: 1
