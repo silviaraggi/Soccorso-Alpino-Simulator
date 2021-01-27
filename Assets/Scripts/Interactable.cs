@@ -4,5 +4,11 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
 {
-    public abstract void Interact(GameObject caller);
+    protected abstract void Start();
+
+    public abstract void Interact(GameObject interacter);
+
+    public abstract void GlowUp(GameObject interacter);
+
+    public abstract void TurnOff();
 }

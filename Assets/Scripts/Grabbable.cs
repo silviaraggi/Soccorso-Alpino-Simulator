@@ -1,7 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public abstract class Grabbable : MonoBehaviour
 {
     protected Transform _originalParent;
@@ -19,4 +19,5 @@ public abstract class Grabbable : MonoBehaviour
 
     public abstract void Grab(GameObject grabber);
     public abstract void Drop();
+
 }

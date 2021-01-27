@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 
 public class FPSInteractionManager : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class FPSInteractionManager : MonoBehaviour
     private Vector3 _rayOrigin;
 
     private Grabbable _grabbedObject = null;
-
+    private Interactable _interactableObject;
 
     void Start()
     {
@@ -33,6 +34,7 @@ public class FPSInteractionManager : MonoBehaviour
 
         if (_grabbedObject != null && Input.GetMouseButtonDown(0))
             Drop();
+
 
         UpdateUITarget();
 
@@ -50,7 +52,8 @@ public class FPSInteractionManager : MonoBehaviour
             //Check if is interactable
             _pointingInteractable = hit.transform.GetComponent<Interactable>();
             if (_pointingInteractable)
-            { 
+            {
+                _pointingInteractable.GlowUp(gameObject);
                 if(Input.GetMouseButtonDown(0))
                     _pointingInteractable.Interact(gameObject);
             }
@@ -74,6 +77,7 @@ public class FPSInteractionManager : MonoBehaviour
             _pointingGrabbable = null;
         }
     }
+
 
     private void UpdateUITarget()
     {
@@ -109,4 +113,11 @@ public class FPSInteractionManager : MonoBehaviour
     {
         Debug.DrawRay(_rayOrigin, _fpsCameraT.forward * _interactionDistance, Color.red);
     }
+
+    /*private void GlowUp(Interactable interactable)
+    {
+        _interactableObject = interactable;
+        MeshRenderer mr = interactable.GetComponent<MeshRenderer>();
+        mr.material.shader = interactable.glowUp;
+    }*/
 }
