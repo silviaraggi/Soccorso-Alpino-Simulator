@@ -14,4 +14,21 @@ public abstract class Interactable : MonoBehaviour
 
     public abstract void TurnOff();
 
+    public abstract bool GetAnimatable();
+
+    public abstract bool GetCollectable();
+
+    public abstract bool GetInteract();
+
+
+    public abstract bool GetCollect();
+
+    public abstract void SetAnimatable(bool newvalue);
+
+    public abstract void SetCollectable(bool newvalue);
+
+    public abstract void SetInteract(bool newvalue);
+
+    public abstract void SetCollect(bool newvalue);
+
 }
