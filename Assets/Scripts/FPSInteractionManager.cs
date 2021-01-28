@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 
 public class FPSInteractionManager : MonoBehaviour
 {
@@ -17,7 +18,8 @@ public class FPSInteractionManager : MonoBehaviour
     private Vector3 _rayOrigin;
 
     private Grabbable _grabbedObject = null;
-
+    private Interactable _pointedInteractable=null;
+    private Grabbable _pointedGrabbable = null;
 
     void Start()
     {
@@ -28,11 +30,12 @@ public class FPSInteractionManager : MonoBehaviour
     {
         _rayOrigin = _fpsCameraT.position + _fpsController.radius * _fpsCameraT.forward;
 
-        if(_grabbedObject == null)
+        //if(_grabbedObject == null)
             CheckInteraction();
 
-        if (_grabbedObject != null && Input.GetMouseButtonDown(0))
-            Drop();
+        /*if (_grabbedObject != null && Input.GetMouseButtonDown(0))
+            Drop();*/
+
 
         UpdateUITarget();
 
@@ -47,25 +50,53 @@ public class FPSInteractionManager : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, _interactionDistance))
         {
+            if (_grabbedObject != null && Input.GetMouseButtonDown(0)) { 
+                Drop();
+                return; 
+            }
             //Check if is interactable
             _pointingInteractable = hit.transform.GetComponent<Interactable>();
+            if (_pointingInteractable != _pointedInteractable && _pointedInteractable!= null)
+            {
+                _pointedInteractable.TurnOff();
+            }
             if (_pointingInteractable)
-            { 
+            {
+                _pointedInteractable = _pointingInteractable;
+                _pointingInteractable.GlowUp(gameObject);
                 if(Input.GetMouseButtonDown(0))
                     _pointingInteractable.Interact(gameObject);
             }
-
             //Check if is grabbable
             _pointingGrabbable = hit.transform.GetComponent<Grabbable>();
-            if (_grabbedObject == null && _pointingGrabbable)
+
+            if (_grabbedObject == null)
             {
-                if (Input.GetMouseButtonDown(1))
+                if (_pointingGrabbable)
                 {
-                    _pointingGrabbable.Grab(gameObject);
-                    Grab(_pointingGrabbable);
+                    if (_pointedGrabbable != _pointingGrabbable && _pointedGrabbable != null)
+                    {
+                        _pointedGrabbable.TurnOff();
+                    }
+                    _pointedGrabbable = _pointingGrabbable;
+                    _pointingGrabbable.LightUp(gameObject);
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        _pointingGrabbable.TurnOff();
+                        _pointingGrabbable.Grab(gameObject);
+                        Grab(_pointingGrabbable);
+                    }
+                }
+                else
+                {
+                    if (_pointedGrabbable!=null)
+                    {
+                        _pointedGrabbable.TurnOff();
+                    }
                 }
                     
             }
+
         }
         //If NOTHING is detected set all to null
         else
@@ -74,6 +105,7 @@ public class FPSInteractionManager : MonoBehaviour
             _pointingGrabbable = null;
         }
     }
+
 
     private void UpdateUITarget()
     {
@@ -109,4 +141,5 @@ public class FPSInteractionManager : MonoBehaviour
     {
         Debug.DrawRay(_rayOrigin, _fpsCameraT.forward * _interactionDistance, Color.red);
     }
+
 }
