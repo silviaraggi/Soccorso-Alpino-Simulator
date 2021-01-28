@@ -19,5 +19,7 @@ public abstract class Grabbable : MonoBehaviour
 
     public abstract void Grab(GameObject grabber);
     public abstract void Drop();
+    public abstract void LightUp(GameObject interacter);
+    public abstract void TurnOff();
 
 }
