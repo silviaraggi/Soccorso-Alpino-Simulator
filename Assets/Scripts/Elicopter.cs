@@ -14,15 +14,15 @@ public class Elicopter : MonoBehaviour
 
     public void Rotate(int flag)
     {
-        if (flag==0)
-            transform.DORotate(new Vector3(0f, 360f, 0f), 0.1f, RotateMode.WorldAxisAdd).SetLoops(-1, LoopType.Restart);
-        else if (flag==1)
-            transform.DORotate(new Vector3(0f, 90f, 0f), 0.1f, RotateMode.WorldAxisAdd).SetLoops(-1, LoopType.Incremental);
+        if (flag == 0)
+            transform.DORotate(new Vector3(0f, 360f, 0f), 0.4f, RotateMode.WorldAxisAdd).SetLoops(-1, LoopType.Restart);
+        else if (flag == 1)
+            transform.DORotate(new Vector3(0f, 360f, 0f), 1.2f, RotateMode.WorldAxisAdd).SetLoops(-1, LoopType.Restart);
     }
 
     public void Move()
     {
-        transform.DOMove(new Vector3(2.15f, -6f, -2.09f), 5f);
+        transform.DOMove(new Vector3(0f, -6f, 0f), 5f);
     }
 
 

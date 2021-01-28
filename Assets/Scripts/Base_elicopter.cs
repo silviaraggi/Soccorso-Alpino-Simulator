@@ -14,7 +14,7 @@ public class Base_elicopter : MonoBehaviour
 
     public void Move()
     {
-        transform.DOMove(new Vector3(0f, 0f, 0f), 5f);
+        transform.DOMove(new Vector3(2.15f, 0f, -2.09f), 5f);
     }
 
 

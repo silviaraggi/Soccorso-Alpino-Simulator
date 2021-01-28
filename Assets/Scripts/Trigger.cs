@@ -8,10 +8,12 @@ public class Trigger : MonoBehaviour
     [SerializeField] private Base_elicopter _base_elicopter;
     [SerializeField] private Elica_dietro _elica_dietro;
     public int cont;
+    private Collider collider;
 
     void Start()
     {
         cont = 0;
+        collider = GetComponent<Collider>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -26,6 +28,7 @@ public class Trigger : MonoBehaviour
             _elicopter.Rotate(1);
             _elica_dietro.Rotate(1);
             _base_elicopter.Move();
+            collider.isTrigger = false;
         }
     }
 
