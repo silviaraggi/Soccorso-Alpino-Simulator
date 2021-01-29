@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class LightUpInteractable : Interactable
 {
-    bool animatable;
-    bool collectable;
-    bool interact = false;
-    bool collect = false;
+    public bool animatable;
+    public bool collectable;
+    public bool interact = false;
+    public bool collect = false;
     private Animator _animator;
-    Material mat;
+    Material[] mat;
+
+
     // Start is called before the first frame update
     protected override void Start()
     {
-        mat = GetComponent<Renderer>().material;
+
+        if (GetComponent<Renderer>())
+        {
+            gameObject.GetComponent<Renderer>().enabled = true;
+            gameObject.GetComponent<Collider>().enabled = true;
+            mat = GetComponent<Renderer>().materials;
+        }
         if (GetComponent<Animator>() == null)
         {
             collectable = true;
@@ -26,34 +34,97 @@ public class LightUpInteractable : Interactable
         }
     }
 
- 
-    public override void GlowUp(GameObject interacter)
+
+    public override void GlowUp(GameObject changeColor)
     {
-        mat.EnableKeyword("_EMISSION");
-        mat.SetColor("_EmissionColor", new Vector4(0.15f, 0.15f, 0.15f, 0));
-        
+        {
+            if (mat != null)
+            {
+                for (int i = 0; i < mat.Length; i++)
+                {
+                    mat[i].EnableKeyword("_EMISSION");
+                    mat[i].SetColor("_EmissionColor", new Vector4(0.15f, 0.15f, 0.15f, 0));
+                }
+            }
+            else
+            {
+                mat = changeColor.transform.GetComponent<Renderer>().materials;
+                for (int i = 0; i < mat.Length; i++)
+                {
+                    mat[i].EnableKeyword("_EMISSION");
+                    mat[i].SetColor("_EmissionColor", new Vector4(0.15f, 0.15f, 0.15f, 0));
+                }
+            }
+        }
+       
+
     }
+
     public override void TurnOff()
     {
-        mat.DisableKeyword("_EMISSION");
+        if(mat!=null)
+        for (int i = 0; i < mat.Length; i++)
+        {
+            mat[i].DisableKeyword("_EMISSION");
+        }
     }
 
     public override void Interact(GameObject interacter)
     {
-        if (_animator.GetBool("interact"))
+        if (!collectable)
         {
-            _animator.SetBool("interact", false);
+            if (_animator.GetBool("interact"))
+            {
+                _animator.SetBool("interact", false);
+                interact = false;
+            }
+            else
+            {
+                _animator.SetBool("interact", true);
+                interact = true;
+            }
         }
         else
         {
-            _animator.SetBool("interact", true);
+            gameObject.GetComponent<Renderer>().enabled = false;
+            gameObject.GetComponent<Collider>().enabled = false;
+            collect = true;
         }
     }
 
-    /*protected override void Update()
+    public override bool GetAnimatable()
     {
-     
-    }*/
+        return animatable;
+    }
+    public override bool GetCollectable()
+    {
+        return collectable;
+    }
+    public override bool GetInteract()
+    {
+        return interact;
+    }
 
-
+    public override bool GetCollect()
+    {
+        return collect;
+    }
+    public override void SetAnimatable(bool newvalue)
+    {
+        animatable = newvalue;
+    }
+    public override void SetCollectable(bool newvalue)
+    {
+        collectable = newvalue;
+    }
+    public override void SetInteract(bool newvalue)
+    {
+        interact = newvalue;
+    }
+    public override void SetCollect(bool newvalue)
+    {
+        collect = newvalue;
+    }
 }
+
+

@@ -127,6 +127,6 @@ Material:
     - _SColor: {r: 0.16243884, g: 0.1401384, b: 0.17647058, a: 1}
     - _SpecColor: {r: 0, g: 0, b: 0, a: 1}
     - _SwayDir: {r: 0.01, g: 0, b: 0, a: 0}
-    - _TranslucencyColor: {r: 0.73, g: 0.85, b: 0.40999997, a: 1}
+    - _TranslucencyColor: {r: 0.6192348, g: 0.8773585, b: 0.5007565, a: 1}
     - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}

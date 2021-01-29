@@ -20,6 +20,7 @@ public class FPSInteractionManager : MonoBehaviour
     private Grabbable _grabbedObject = null;
     private Interactable _pointedInteractable=null;
     private Grabbable _pointedGrabbable = null;
+    private GameObject changeColor = null;
 
     void Start()
     {
@@ -56,14 +57,24 @@ public class FPSInteractionManager : MonoBehaviour
             }
             //Check if is interactable
             _pointingInteractable = hit.transform.GetComponent<Interactable>();
+            changeColor = hit.transform.gameObject;
+            if (_pointingInteractable == null && hit.transform.parent != null)
+            {
+                (GameObject item1, GameObject changeColor) = FindParentInteractable(hit.transform.gameObject, hit.transform.gameObject);
+                if (item1 != null && changeColor != null)
+                {
+                    _pointingInteractable = item1.transform.GetComponent<Interactable>();
+                }
+            }
+            
             if (_pointingInteractable != _pointedInteractable && _pointedInteractable!= null)
             {
                 _pointedInteractable.TurnOff();
             }
-            if (_pointingInteractable)
+            if (_pointingInteractable && (_pointingInteractable.GetAnimatable()||_pointingInteractable.GetCollectable()))
             {
                 _pointedInteractable = _pointingInteractable;
-                _pointingInteractable.GlowUp(gameObject);
+                _pointingInteractable.GlowUp(changeColor);
                 if(Input.GetMouseButtonDown(0))
                     _pointingInteractable.Interact(gameObject);
             }
@@ -141,5 +152,19 @@ public class FPSInteractionManager : MonoBehaviour
     {
         Debug.DrawRay(_rayOrigin, _fpsCameraT.forward * _interactionDistance, Color.red);
     }
-
+    public static (GameObject, GameObject) FindParentInteractable(GameObject childObject, GameObject changeColor)
+    {
+        if (childObject == null)
+            return (null, changeColor);
+        Transform t = childObject.transform;
+        while (t.parent != null)
+        {
+            if (t.parent.GetComponent<Interactable>() == true)
+            {
+                return (t.parent.gameObject, changeColor);
+            }
+            t = t.parent.transform;
+        }
+            return (null,changeColor); 
+    }
 }
