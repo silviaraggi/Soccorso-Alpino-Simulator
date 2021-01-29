@@ -47,12 +47,15 @@ public class LightUpInteractable : Interactable
                 }
             }
             else
-            {
+            { 
                 mat = changeColor.transform.GetComponent<Renderer>().materials;
-                for (int i = 0; i < mat.Length; i++)
+                if (mat != null)
                 {
-                    mat[i].EnableKeyword("_EMISSION");
-                    mat[i].SetColor("_EmissionColor", new Vector4(0.15f, 0.15f, 0.15f, 0));
+                    for (int i = 0; i < mat.Length; i++)
+                    {
+                        mat[i].EnableKeyword("_EMISSION");
+                        mat[i].SetColor("_EmissionColor", new Vector4(0.15f, 0.15f, 0.15f, 0));
+                    }
                 }
             }
         }

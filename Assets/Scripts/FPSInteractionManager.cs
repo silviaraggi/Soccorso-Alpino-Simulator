@@ -167,4 +167,14 @@ public class FPSInteractionManager : MonoBehaviour
         }
             return (null,changeColor); 
     }
+
+    public Color GetPointerColor()
+    {
+        return _target.color;
+    }
+
+    public void SetPointerColor(Color colore)
+    {
+        _target.color = colore;
+    }
 }
