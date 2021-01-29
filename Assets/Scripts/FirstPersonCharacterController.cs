@@ -15,6 +15,8 @@ public class FirstPersonCharacterController : MonoBehaviour
     [SerializeField] private float _jumpHeight = 3f;
 
     private Color pointerColor;
+    private Color visible = new Color(1, 1, 1, 1);
+    private Color invisible = new Color(0, 0, 0, 0);
     private CharacterController _characterController;
     private float cameraXRotation = 0f;
     private Vector3 _velocity;
@@ -91,11 +93,10 @@ public class FirstPersonCharacterController : MonoBehaviour
     }
     public void HidePointer()
     {
-        pointerColor = gameObject.GetComponent<FPSInteractionManager>().GetPointerColor();
-        gameObject.GetComponent<FPSInteractionManager>().SetPointerColor(new Color(0,0,0,0));
+        pointerColor = invisible;
     }
     public void ShowPointer()
     {
-        gameObject.GetComponent<FPSInteractionManager>().SetPointerColor(pointerColor);
+        pointerColor = visible;
     }
 }
