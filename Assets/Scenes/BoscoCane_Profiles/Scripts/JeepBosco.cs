@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Jeep : MonoBehaviour
+public class JeepBosco : MonoBehaviour
 {
     private int NumCamera = -1;
     Scene scena;

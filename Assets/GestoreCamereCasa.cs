@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class GestoreCamereCasa : MonoBehaviour
 { 
-    Jeep jeep;
+    JeepCasa jeep;
     Camera[] telecamere;
     Camera cameranow = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        jeep = GameObject.Find("Jeep").GetComponent<Jeep>();
+        jeep = GameObject.Find("Jeep").GetComponent<JeepCasa>();
         telecamere = GetComponentsInChildren<Camera>();
     }
 
