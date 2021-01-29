@@ -14,6 +14,8 @@ public class Trigger : MonoBehaviour
     {
         cont = 0;
         collider = GetComponent<Collider>();
+        //_elicopter.Rotate(0);
+        //_elica_dietro.Rotate(0);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -23,18 +25,16 @@ public class Trigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        cont = cont - 1;
+        /*cont = cont - 1;
         if (cont == 0){
             _elicopter.Rotate(1);
             _elica_dietro.Rotate(1);
             _base_elicopter.Move();
             collider.isTrigger = false;
-        }
+        }*/
     }
 
     private void OnTriggerStay(Collider other)
     {
-        _elicopter.Rotate(0);
-        _elica_dietro.Rotate(0);
     }
 }
