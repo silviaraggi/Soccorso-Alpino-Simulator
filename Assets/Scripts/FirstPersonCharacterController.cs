@@ -22,10 +22,12 @@ public class FirstPersonCharacterController : MonoBehaviour
     private Vector3 _velocity;
     private bool _isGrounded;
     public bool isLocked = false;
+    private GameObject Light;
     void Start()
     {
         _characterController = GetComponent<CharacterController>();
-
+        if (transform.Find("Spot Light"))
+            Light = transform.Find("Spot Light").gameObject;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -55,7 +57,8 @@ public class FirstPersonCharacterController : MonoBehaviour
             cameraXRotation -= mouseY;
             cameraXRotation = Mathf.Clamp(cameraXRotation, -90f, 90f);
             _cameraT.localRotation = Quaternion.Euler(cameraXRotation, 0f, 0f);
-
+            if(Light!=null)
+            Light.GetComponent<Transform>().localRotation = _cameraT.localRotation;
 
             float h = Input.GetAxis("Horizontal");
             float v = Input.GetAxis("Vertical");
