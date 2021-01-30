@@ -31,7 +31,7 @@ public class JeepCasa : MonoBehaviour
             {
                 GetComponent<LightUpInteractable>().SetAnimatable(false);
                 giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(true);
-                giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(true);
+                giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
                 GameObject.Find("MainCamera").GetComponent<Camera>().enabled = true;
                 giocatore.GetComponent<CharacterController>().enabled = true ;
                 canStart = GameObject.Find("magliasolida").GetComponent<LightUpInteractable>().GetCollect();
@@ -46,6 +46,8 @@ public class JeepCasa : MonoBehaviour
     }
     public void FineScenaCasa()
     {
+        if(!(GameObject.Find("Cam2").GetComponent<Camera>().enabled||GameObject.Find("Cam3").GetComponent<Camera>().enabled))
+        GameObject.Find("Cam1").GetComponent<Camera>().enabled = true;
         giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(false);
         giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
         GameObject.Find("MainCamera").GetComponent<Camera>().enabled = false;
@@ -77,5 +79,9 @@ public class JeepCasa : MonoBehaviour
     public void DisableCamera(int NumCamera)
     {
         GameObject.Find("GestoreCamere").GetComponent<GestoreCamereCasa>().DisableCamera(NumCamera);
+    }
+    public void CaricaScenaBosco()
+    {
+        GameObject.Find("GestoreScene").GetComponent<GestoreScene>().LoadSceneByID(1);
     }
 }

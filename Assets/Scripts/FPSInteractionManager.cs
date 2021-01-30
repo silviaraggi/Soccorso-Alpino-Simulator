@@ -23,6 +23,7 @@ public class FPSInteractionManager : MonoBehaviour
     private GameObject changeColor = null;
     private bool unlocked = true;
     private bool UIenabled = true;
+
     void Start()
     {
         _fpsController = GetComponent<CharacterController>();
@@ -193,9 +194,15 @@ public class FPSInteractionManager : MonoBehaviour
     {
         unlocked = valore;
         this.gameObject.GetComponent<FirstPersonCharacterController>().SetLocked(!valore);
+        if (this.gameObject.transform.Find("MainCamera")) 
+        this.gameObject.transform.Find("MainCamera").GetComponent<AudioListener>().enabled=!valore;
     }
     public bool GetUnlocked()
     {
         return unlocked;
+    }
+    public void SetTorchStatus(bool status)
+    {
+        transform.Find("Spotl Light").GetComponent<Light>().enabled = status;
     }
 }

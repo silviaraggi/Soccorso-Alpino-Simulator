@@ -10,6 +10,7 @@ public class JeepBosco : MonoBehaviour
     private int NumCamera = -1;
     Scene scena;
     GameObject giocatore = null;
+    Camera telecameraGiocatore = null;
     private bool intro;
     bool canStart = false;
     // Start is called before the first frame update
@@ -18,42 +19,43 @@ public class JeepBosco : MonoBehaviour
         intro = true;
         scena = gameObject.scene;
         giocatore = GameObject.FindGameObjectWithTag("Player");
-        if (scena.name == "CasaParenti")
-            IntroScenaCasa();
+        telecameraGiocatore = giocatore.transform.Find("Camera").GetComponent<Camera>();
+        if (scena.name == "BoscoCane")
+            IntroScenaBosco();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (scena.name == "CasaParenti")
+        if (scena.name == "BoscoCane")
         {
             if (!intro)
             {
                 GetComponent<LightUpInteractable>().SetAnimatable(false);
                 giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(true);
-                giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(true);
-                GameObject.Find("MainCamera").GetComponent<Camera>().enabled = true;
+                giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
+                telecameraGiocatore.enabled = true;
                 giocatore.GetComponent<CharacterController>().enabled = true ;
-                canStart = GameObject.Find("magliasolida").GetComponent<LightUpInteractable>().GetCollect();
-                if (canStart)
+                //canStart = GameObject.Find("magliasolida").GetComponent<LightUpInteractable>().GetCollect();
+                /*if (canStart)
                 {
                     GetComponent<LightUpInteractable>().SetAnimatable(true);
                     if (GetComponent<LightUpInteractable>().GetInteract())
                         FineScenaCasa();
-                }
+                }*/
             }
         }
     }
-    public void FineScenaCasa()
+    public void FineScenaBosco()
     {
         giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(false);
         giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
-        GameObject.Find("MainCamera").GetComponent<Camera>().enabled = false;
+        telecameraGiocatore.enabled = false;
         GameObject.Find("Cube").GetComponent<BoxCollider>().enabled = false;
     }
-    public void IntroScenaCasa()
+    public void IntroScenaBosco()
     {
-        giocatore.GetComponent<Camera>().enabled = false;
+        telecameraGiocatore.enabled = false;
         giocatore.GetComponent<CharacterController>().enabled = false;
         giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(false);
         giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
@@ -76,6 +78,6 @@ public class JeepBosco : MonoBehaviour
 
     public void DisableCamera(int NumCamera)
     {
-        GameObject.Find("GestoreCamere").GetComponent<GestoreCamereCasa>().DisableCamera(NumCamera);
+        GameObject.Find("GestoreCamere").GetComponent<GestoreCamereBosco>().DisableCamera(NumCamera);
     }
 }
