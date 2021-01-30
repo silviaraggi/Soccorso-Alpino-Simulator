@@ -25,8 +25,8 @@ public class Trigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        /*cont = cont - 1;
-        if (cont == 0){
+        cont = cont - 1;
+        /*if (cont == 0){
             _elicopter.Rotate(1);
             _elica_dietro.Rotate(1);
             _base_elicopter.Move();
