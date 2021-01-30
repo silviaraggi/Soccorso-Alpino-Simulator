@@ -21,7 +21,8 @@ public class FPSInteractionManager : MonoBehaviour
     private Interactable _pointedInteractable=null;
     private Grabbable _pointedGrabbable = null;
     private GameObject changeColor = null;
-
+    private bool unlocked = true;
+    private bool UIenabled = true;
     void Start()
     {
         _fpsController = GetComponent<CharacterController>();
@@ -31,13 +32,13 @@ public class FPSInteractionManager : MonoBehaviour
     {
         _rayOrigin = _fpsCameraT.position + _fpsController.radius * _fpsCameraT.forward;
 
-        //if(_grabbedObject == null)
+        if(unlocked)
             CheckInteraction();
 
         /*if (_grabbedObject != null && Input.GetMouseButtonDown(0))
             Drop();*/
 
-
+        if(UIenabled)
         UpdateUITarget();
 
         if (_debugRay)
@@ -75,8 +76,11 @@ public class FPSInteractionManager : MonoBehaviour
             {
                 _pointedInteractable = _pointingInteractable;
                 _pointingInteractable.GlowUp(changeColor);
-                if(Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0))
+                {
                     _pointingInteractable.Interact(gameObject);
+                    _pointingInteractable.TurnOff();
+                }
             }
             //Check if is grabbable
             _pointingGrabbable = hit.transform.GetComponent<Grabbable>();
@@ -166,5 +170,32 @@ public class FPSInteractionManager : MonoBehaviour
             t = t.parent.transform;
         }
             return (null,changeColor); 
+    }
+
+    public void SetUIVisible(bool valore)
+    {
+        _target.enabled = valore;
+        if (!UIenabled)
+        {
+            gameObject.GetComponent<FirstPersonCharacterController>().HidePointer();
+        }
+        if (UIenabled)
+        {
+            gameObject.GetComponent<FirstPersonCharacterController>().ShowPointer();
+        }
+        UIenabled = valore;
+    }
+    public bool GetUIVisible()
+    {
+        return UIenabled;
+    }
+    public void SetUnlocked(bool valore)
+    {
+        unlocked = valore;
+        this.gameObject.GetComponent<FirstPersonCharacterController>().SetLocked(!valore);
+    }
+    public bool GetUnlocked()
+    {
+        return unlocked;
     }
 }

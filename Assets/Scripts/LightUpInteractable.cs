@@ -43,16 +43,22 @@ public class LightUpInteractable : Interactable
                 for (int i = 0; i < mat.Length; i++)
                 {
                     mat[i].EnableKeyword("_EMISSION");
-                    mat[i].SetColor("_EmissionColor", new Vector4(0.15f, 0.15f, 0.15f, 0));
+                    mat[i].SetColor("_EmissionColor", new Vector4(0.15f, 0.30f, 0.30f, 0));
                 }
             }
             else
             {
-                mat = changeColor.transform.GetComponent<Renderer>().materials;
-                for (int i = 0; i < mat.Length; i++)
+                if (changeColor.transform.GetComponent<Renderer>())
                 {
-                    mat[i].EnableKeyword("_EMISSION");
-                    mat[i].SetColor("_EmissionColor", new Vector4(0.15f, 0.15f, 0.15f, 0));
+                    mat = changeColor.transform.GetComponent<Renderer>().materials;
+                    if (mat != null)
+                    {
+                        for (int i = 0; i < mat.Length; i++)
+                        {
+                            mat[i].EnableKeyword("_EMISSION");
+                            mat[i].SetColor("_EmissionColor", new Vector4(0.30f, 0.30f, 0.30f, 0));
+                        }
+                    }
                 }
             }
         }
@@ -67,6 +73,7 @@ public class LightUpInteractable : Interactable
         {
             mat[i].DisableKeyword("_EMISSION");
         }
+
     }
 
     public override void Interact(GameObject interacter)
@@ -90,6 +97,7 @@ public class LightUpInteractable : Interactable
             gameObject.GetComponent<Collider>().enabled = false;
             collect = true;
         }
+        TurnOff();
     }
 
     public override bool GetAnimatable()
