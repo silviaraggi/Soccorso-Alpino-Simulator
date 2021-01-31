@@ -5,33 +5,41 @@ using UnityEngine;
 public class Trigger : MonoBehaviour
 {
     [SerializeField] private Elicopter _elicopter;
-    [SerializeField] private Base_elicopter _base_elicopter;
-    [SerializeField] private Elica_dietro _elica_dietro;
     public int cont;
-    private Collider collider;
+    private Collider _collider;
+    private Animator _animator;
 
     void Start()
     {
-        cont = 0;
-        collider = GetComponent<Collider>();
-        //_elicopter.Rotate(0);
-        //_elica_dietro.Rotate(0);
+        cont = 1;
+        _collider = GetComponent<Collider>();
+        _animator = GetComponent<Animator>();
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
         cont = cont + 1;
+        if (cont == 5)
+            cont = cont - 1;
     }
 
     private void OnTriggerExit(Collider other)
     {
         cont = cont - 1;
-        /*if (cont == 0){
-            _elicopter.Rotate(1);
-            _elica_dietro.Rotate(1);
-            _base_elicopter.Move();
-            collider.isTrigger = false;
-        }*/
+        if (cont == 0){
+            if (_animator == null)
+                return;
+
+            _animator.SetBool("free", true);
+        }
+        else
+        {
+            if (_animator == null)
+                return;
+
+            _animator.SetBool("free", false);
+        }
     }
 
     private void OnTriggerStay(Collider other)

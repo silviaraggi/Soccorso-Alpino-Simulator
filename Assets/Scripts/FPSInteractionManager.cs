@@ -51,12 +51,15 @@ public class FPSInteractionManager : MonoBehaviour
         Ray ray = new Ray(_rayOrigin, _fpsCameraT.forward);
         RaycastHit hit;
 
+        if (_grabbedObject != null && Input.GetMouseButtonDown(0))
+        {
+            Drop();
+            return;
+        }
+
         if (Physics.Raycast(ray, out hit, _interactionDistance))
         {
-            if (_grabbedObject != null && Input.GetMouseButtonDown(0)) { 
-                Drop();
-                return; 
-            }
+            
             //Check if is interactable
             _pointingInteractable = hit.transform.GetComponent<Interactable>();
             changeColor = hit.transform.gameObject;
