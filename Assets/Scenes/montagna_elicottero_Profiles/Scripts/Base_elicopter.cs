@@ -22,11 +22,11 @@ public class Base_elicopter : MonoBehaviour
         {
             
             _child.parent = null;
-            move();
+            Move();
         }
     }
 
-    public void move()
+    public void Move()
     {
         if (_animator == null)
             return;

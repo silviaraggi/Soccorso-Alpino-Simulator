@@ -1,14 +1,43 @@
 fileFormatVersion: 2
-guid: b7f728c6000090744a114639fcd20f12
+guid: d9f1e97a621018f479743d3e0481910a
 ModelImporter:
   serializedVersion: 19301
-  internalIDToNameTable: []
-  externalObjects:
+  internalIDToNameTable:
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Pelle
-    second: {fileID: 2100000, guid: f7320ecc98347f245b849d84b9479882, type: 2}
+      74: -5151430132157573656
+    second: canerigging.001|canerigging.001|canerigging|Howl_baked|canerigging|Howl_baked
+  - first:
+      74: 490967372648276377
+    second: canerigging.001|canerigging.001|canerigging|Howl|canerigging|Howl
+  - first:
+      74: 293269708677325203
+    second: canerigging.001|canerigging.001|canerigging|Idle_baked|canerigging|Idle_baked
+  - first:
+      74: -4093234757483435788
+    second: canerigging.001|canerigging.001|canerigging|Idle|canerigging|Idle
+  - first:
+      74: -3691622317795285331
+    second: canerigging.001|canerigging.001|canerigging|Sit down|canerigging|Sit
+      down
+  - first:
+      74: -1267345449193757587
+    second: canerigging.001|canerigging.001|canerigging|Sit_down_baked|canerigging|Sit_down
+  - first:
+      74: 6881280244892271395
+    second: canerigging.001|canerigging.001|canerigging|Sit_idle_baked|canerigging|Sit_idle
+  - first:
+      74: 8221039426553052982
+    second: canerigging.001|canerigging.001|canerigging|Sit_Idle|canerigging|Sit_Idle
+  - first:
+      74: -7681620534443756169
+    second: canerigging.001|canerigging.001|canerigging|Sniff_baked|canerigging|Sniff_baked
+  - first:
+      74: 378382893422593895
+    second: canerigging.001|canerigging.001|canerigging|Sniff|canerigging|Sniff
+  - first:
+      74: -8448217406189918699
+    second: canerigging.001|canerigging.001|canerigging|Walk_baked|canerigging|Walk_baked
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -17,7 +46,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleCurves: 1
+    resampleCurves: 0
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
@@ -27,8 +56,8 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 0
-    animationCompression: 1
+    importConstraints: 1
+    animationCompression: 0
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
