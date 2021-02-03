@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
 {
@@ -22,6 +23,10 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
     private bool _move;
     private Transform _parent;
     private float dist;
+    public bool isLocked = false;
+    private Color pointerColor;
+    private Color visible = new Color(1, 1, 1, 1);
+    private Color invisible = new Color(0, 0, 0, 0);
 
 
     void Start()
@@ -36,59 +41,61 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
 
     void Update()
     {
-        UpdateCursor();
-
-      
-
-        if (Cursor.lockState == CursorLockMode.None)
-            return;
-
-        //Ground Check
-        _isGrounded = Physics.CheckSphere(_groundCheck.position, _groundDistance, _groundMask);
-
-        if (_isGrounded && _velocity.y < 0f)
+        if (!isLocked)
         {
-            _velocity.y = -2f;
-        }
+            UpdateCursor();
 
-        float mouseX = Input.GetAxis("Mouse X") * _mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * _mouseSensitivity * Time.deltaTime;
 
-        //Compute direction According to Camera Orientation
-        transform.Rotate(Vector3.up, mouseX);
-        cameraXRotation -= mouseY;
-        cameraXRotation = Mathf.Clamp(cameraXRotation, -90f, 90f);
-        _cameraT.localRotation = Quaternion.Euler(cameraXRotation, 0f, 0f);
+            if (Cursor.lockState == CursorLockMode.None)
+                return;
 
-        if (_move == false)
-        {
-            _parent = transform.parent;
-            dist = Vector3.Distance(_parent.position, new Vector3(87.69f, 18.63f, 148.78f));
-            if (dist <= 1.5f)
+            //Ground Check
+            _isGrounded = Physics.CheckSphere(_groundCheck.position, _groundDistance, _groundMask);
+
+            if (_isGrounded && _velocity.y < 0f)
             {
-                _move = true;
+                _velocity.y = -2f;
             }
-        }
-        
-        if (_move == true)
-        {
-            
 
-            float h = Input.GetAxis("Horizontal");
-            float v = Input.GetAxis("Vertical");
-            Vector3 move = (transform.right * h + transform.forward * v).normalized;
-            _characterController.Move(move * _speed * Time.deltaTime);
-        }
+            float mouseX = Input.GetAxis("Mouse X") * _mouseSensitivity * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * _mouseSensitivity * Time.deltaTime;
 
-        //JUMPING
-        if (Input.GetKey(KeyCode.Space) && _isGrounded)
-        {
-            _velocity.y = Mathf.Sqrt(_jumpHeight * -2 * _gravity);
-        }
+            //Compute direction According to Camera Orientation
+            transform.Rotate(Vector3.up, mouseX);
+            cameraXRotation -= mouseY;
+            cameraXRotation = Mathf.Clamp(cameraXRotation, -90f, 90f);
+            _cameraT.localRotation = Quaternion.Euler(cameraXRotation, 0f, 0f);
 
-        //FALLING
-        _velocity.y += _gravity * Time.deltaTime;
-        _characterController.Move(_velocity * Time.deltaTime);
+            if (_move == false)
+            {
+                _parent = transform.parent;
+                dist = Vector3.Distance(_parent.position, new Vector3(87.69f, 18.63f, 148.78f));
+                if (dist <= 1.5f)
+                {
+                    _move = true;
+                }
+            }
+
+            if (_move == true)
+            {
+
+
+                float h = Input.GetAxis("Horizontal");
+                float v = Input.GetAxis("Vertical");
+                Vector3 move = (transform.right * h + transform.forward * v).normalized;
+                _characterController.Move(move * _speed * Time.deltaTime);
+            }
+
+            //JUMPING
+            if (Input.GetKey(KeyCode.Space) && _isGrounded)
+            {
+                _velocity.y = Mathf.Sqrt(_jumpHeight * -2 * _gravity);
+            }
+
+            //FALLING
+            _velocity.y += _gravity * Time.deltaTime;
+            _characterController.Move(_velocity * Time.deltaTime);
+        }
     }
 
     private void UpdateCursor()
@@ -99,4 +106,22 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
         if (Cursor.lockState == CursorLockMode.Locked && Input.GetKeyDown(KeyCode.Escape))
             Cursor.lockState = CursorLockMode.None;
     }
+    public bool GetLocked()
+    {
+        return isLocked;
+    }
+
+    public void SetLocked(bool newLock)
+    {
+        isLocked = newLock;
+    }
+    public void HidePointer()
+    {
+        pointerColor = invisible;
+    }
+    public void ShowPointer()
+    {
+        pointerColor = visible;
+    }
 }
+

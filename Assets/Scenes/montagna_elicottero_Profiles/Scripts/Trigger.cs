@@ -32,6 +32,7 @@ public class Trigger : MonoBehaviour
                 return;
 
             _animator.SetBool("free", true);
+            _collider.isTrigger = false;
         }
         else
         {

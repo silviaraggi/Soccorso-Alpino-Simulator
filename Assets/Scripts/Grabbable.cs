@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Grabbable : MonoBehaviour
 {
     protected Transform _originalParent;
+    public bool grab = true;
 
     public Transform OriginalParent
     {

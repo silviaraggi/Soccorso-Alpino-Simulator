@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System;
 
-public class FPSInteractionManager : MonoBehaviour
+public class FPSInteractionManagerHelicopter : MonoBehaviour
 {
     [SerializeField] private Transform _fpsCameraT;
     [SerializeField] private bool _debugRay;
@@ -183,11 +183,11 @@ public class FPSInteractionManager : MonoBehaviour
         _target.enabled = valore;
         if (!UIenabled)
         {
-            gameObject.GetComponent<FirstPersonCharacterController>().HidePointer();
+            gameObject.GetComponent<FirstPersonCharacterControllerHelicopter>().HidePointer();
         }
         if (UIenabled)
         {
-            gameObject.GetComponent<FirstPersonCharacterController>().ShowPointer();
+            gameObject.GetComponent<FirstPersonCharacterControllerHelicopter>().ShowPointer();
         }
         UIenabled = valore;
     }
@@ -198,7 +198,7 @@ public class FPSInteractionManager : MonoBehaviour
     public void SetUnlocked(bool valore)
     {
         unlocked = valore;
-        this.gameObject.GetComponent<FirstPersonCharacterController>().SetLocked(!valore);
+        this.gameObject.GetComponent<FirstPersonCharacterControllerHelicopter>().SetLocked(!valore);
         if (this.gameObject.transform.Find("MainCamera")) 
         this.gameObject.transform.Find("MainCamera").GetComponent<AudioListener>().enabled=!valore;
     }
