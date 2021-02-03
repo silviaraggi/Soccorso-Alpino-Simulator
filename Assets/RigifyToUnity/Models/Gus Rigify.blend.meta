@@ -45,6 +45,27 @@ ModelImporter:
   - first:
       74: -623603649343465320
     second: Scene
+  - first:
+      74: 1989289236423521904
+    second: Default Take
+  - first:
+      74: 4755562829733995257
+    second: Funky_Hip
+  - first:
+      74: 3945546801479227170
+    second: Head
+  - first:
+      74: 5539831331247536789
+    second: Jump
+  - first:
+      74: -8301610909719666830
+    second: Pose
+  - first:
+      74: 5271057811465452176
+    second: Screenshot_Pose
+  - first:
+      74: -7256890645521366992
+    second: Wink
   externalObjects:
   - first:
       type: UnityEngine:Material

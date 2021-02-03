@@ -37,7 +37,6 @@ public class Base_elicopter : MonoBehaviour
         {
             
             _child.parent = null;
-<<<<<<< HEAD
             if (_animator == null)
                 return;
 
@@ -46,19 +45,6 @@ public class Base_elicopter : MonoBehaviour
             GameObject.Find("first-aid-kit").GetComponent<LightUpInteractable>().SetCollectable(true);
         }
     }
-
-=======
-            Move();
-        }
-    }
-
-    public void Move()
-    {
-        if (_animator == null)
-            return;
->>>>>>> 3dc606ad1a37641ee87bcac184d085a1eb80aac1
-
-
     
     public void IntroScenaHelicopter()
     {
