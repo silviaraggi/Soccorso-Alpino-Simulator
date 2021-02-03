@@ -3,7 +3,12 @@ guid: b7f728c6000090744a114639fcd20f12
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pelle
+    second: {fileID: 2100000, guid: f7320ecc98347f245b849d84b9479882, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
