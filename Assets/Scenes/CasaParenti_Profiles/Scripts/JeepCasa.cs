@@ -12,12 +12,14 @@ public class JeepCasa : MonoBehaviour
     GameObject giocatore = null;
     private bool intro;
     bool canStart = false;
+    GameObject cane;
     // Start is called before the first frame update
     void Start()
     {
         intro = true;
         scena = gameObject.scene;
         giocatore = GameObject.FindGameObjectWithTag("Player");
+        cane = GameObject.Find("CaneUnity2");
         if (scena.name == "CasaParenti")
             IntroScenaCasa();
     }
@@ -32,6 +34,8 @@ public class JeepCasa : MonoBehaviour
                 GetComponent<LightUpInteractable>().SetAnimatable(false);
                 giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(true);
                 giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
+                cane.GetComponent<CaneCasa>().SetVisible(true);
+                cane.GetComponent<Animator>().enabled = true;
                 GameObject.Find("MainCamera").GetComponent<Camera>().enabled = true;
                 giocatore.GetComponent<CharacterController>().enabled = true ;
                 canStart = GameObject.Find("magliasolida").GetComponent<LightUpInteractable>().GetCollect();
@@ -46,6 +50,7 @@ public class JeepCasa : MonoBehaviour
     }
     public void FineScenaCasa()
     {
+        cane.GetComponent<CaneCasa>().SetVisible(false);
         if(!(GameObject.Find("Cam2").GetComponent<Camera>().enabled||GameObject.Find("Cam3").GetComponent<Camera>().enabled))
         GameObject.Find("Cam1").GetComponent<Camera>().enabled = true;
         giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(false);
@@ -59,6 +64,7 @@ public class JeepCasa : MonoBehaviour
         giocatore.GetComponent<CharacterController>().enabled = false;
         giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(false);
         giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
+        cane.GetComponent<CaneCasa>().SetVisible(false);
     }
 
     public void SetCamera(int number)
