@@ -48,7 +48,7 @@ public class LightUpInteractable : Interactable
             }
             else
             {
-                if (changeColor.transform.GetComponent<Renderer>())
+                /*if (changeColor.transform.GetComponent<Renderer>())
                 {
                     mat = changeColor.transform.GetComponent<Renderer>().materials;
                     if (mat != null)
@@ -59,6 +59,21 @@ public class LightUpInteractable : Interactable
                             mat[i].SetColor("_EmissionColor", new Vector4(0.30f, 0.30f, 0.30f, 0));
                         }
                     }
+                }*/
+                Transform[] allChildren = GetComponentsInChildren<Transform>();
+                foreach (Transform child in allChildren)
+                {
+                    if (child.gameObject.GetComponent<Renderer>())
+                    {
+                        if (child.gameObject.GetComponent<Renderer>().materials.Length > 0)
+
+                            for (int i = 0; i < child.gameObject.GetComponent<Renderer>().materials.Length; i++)
+                            {
+                                child.gameObject.GetComponent<Renderer>().materials[i].EnableKeyword("_EMISSION");
+                                child.gameObject.GetComponent<Renderer>().materials[i].SetColor("_EmissionColor", new Vector4(0.15f, 0.30f, 0.30f, 0));
+                            }
+                    }
+
                 }
             }
         }
@@ -68,12 +83,28 @@ public class LightUpInteractable : Interactable
 
     public override void TurnOff()
     {
-        if(mat!=null)
-        for (int i = 0; i < mat.Length; i++)
+        if (mat != null)
+            for (int i = 0; i < mat.Length; i++)
+            {
+                mat[i].DisableKeyword("_EMISSION");
+            }
+        else
         {
-            mat[i].DisableKeyword("_EMISSION");
-        }
+            Transform[] allChildren = GetComponentsInChildren<Transform>();
+            foreach (Transform child in allChildren)
+            {
+                if (child.gameObject.GetComponent<Renderer>())
+                {
+                    if (child.gameObject.GetComponent<Renderer>().materials.Length > 0)
 
+                        for (int i = 0; i < child.gameObject.GetComponent<Renderer>().materials.Length; i++)
+                        {
+                            child.gameObject.GetComponent<Renderer>().materials[i].DisableKeyword("_EMISSION");
+                        }
+                }
+            }
+
+        }
     }
 
     public override void Interact(GameObject interacter)
