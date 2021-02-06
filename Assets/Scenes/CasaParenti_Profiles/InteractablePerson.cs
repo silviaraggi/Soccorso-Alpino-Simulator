@@ -29,7 +29,7 @@ public class InteractablePerson : Interactable
 
     public override void GlowUp(GameObject changeColor)
     {
-        if (!interact)
+        if (!interact&&!collect)
         {
             {
                 if (mat != null)
@@ -111,7 +111,7 @@ public class InteractablePerson : Interactable
         else
         {
             collect = true;
-            //do follow
+            GetComponent<SC_NPCFollow>().enabled = true;
         }
         TurnOff();
     }
