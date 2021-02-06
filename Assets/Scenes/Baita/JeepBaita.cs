@@ -28,16 +28,11 @@ public class JeepBaita : MonoBehaviour
         intro = false;
         finale = false;
         if (scenario == 1) //elicottero
-        {
-            this.GetComponent<LightUpInteractable>().SetAnimatable(false);
-            elicottero.GetComponent<LightUpInteractable>().SetAnimatable(false);
+        this.GetComponent<LightUpInteractable>().SetAnimatable(false);
+        elicottero.GetComponent<LightUpInteractable>().SetAnimatable(false);
+        this.GetComponent<LightUpInteractable>().enabled = false;
+        elicottero.GetComponent<LightUpInteractable>().enabled = false;
 
-            //robaelicottero
-        }
-        if(scenario == 2) //jeep
-        {
-            this.GetComponent<LightUpInteractable>().SetAnimatable(false);
-        }
     }
 
     // Update is called once per frame
@@ -45,15 +40,15 @@ public class JeepBaita : MonoBehaviour
     {
         if (!intro && !finale)
         {
-            if (zaino.GetComponent<LightUpInteractable>().collect == true && collega1.GetComponent<LightUpInteractable>().interact == true && collega2.GetComponent<LightUpInteractable>().interact == true)
+            if (zaino.GetComponent<LightUpInteractable>().collect == true && collega1.GetComponent<InteractablePerson>().collect == true && collega2.GetComponent<InteractablePerson>().collect == true)
             {
                 AttivaScena();
 
-                if (elicottero.GetComponent<LightUpInteractable>().GetInteract())
+                if (scenario==1 && elicottero.GetComponent<LightUpInteractable>().GetInteract())
                 {
                     FinaleElicottero();
                 }
-                if (this.GetComponent<LightUpInteractable>().GetInteract())
+                if (scenario == 2 && this.GetComponent<LightUpInteractable>().GetInteract())
                 {
                     FinaleJeep();
                 }
@@ -65,10 +60,12 @@ public class JeepBaita : MonoBehaviour
     {
         if (scenario == 1)
         {
+            elicottero.GetComponent<LightUpInteractable>().enabled = true;
             elicottero.GetComponent<LightUpInteractable>().SetAnimatable(true);
         }
         if (scenario == 2)
         {
+            this.GetComponent<LightUpInteractable>().enabled = true;
             this.GetComponent<LightUpInteractable>().SetAnimatable(true);
         }
     }
