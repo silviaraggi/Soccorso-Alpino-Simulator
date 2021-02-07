@@ -113,19 +113,35 @@ public class LightUpInteractable : Interactable
         {
             if (_animator.GetBool("interact"))
             {
-                _animator.SetBool("interact", false);
                 interact = false;
+                _animator.SetBool("interact", false);
+
             }
             else
             {
-                _animator.SetBool("interact", true);
                 interact = true;
+                _animator.SetBool("interact", true);
+
             }
         }
         else
         {
-            gameObject.GetComponent<Renderer>().enabled = false;
-            gameObject.GetComponent<Collider>().enabled = false;
+            if (gameObject.GetComponent<Renderer>())
+            {
+                gameObject.GetComponent<Renderer>().enabled = false;
+                gameObject.GetComponent<Collider>().enabled = false;
+            }
+            else
+            {
+                for(int i=0; i<gameObject.GetComponentsInChildren<Renderer>().Length; i++)
+                {
+                    gameObject.GetComponentsInChildren<Renderer>()[i].enabled = false;
+                }
+                for (int i = 0; i < gameObject.GetComponentsInChildren<Collider>().Length; i++)
+                {
+                    gameObject.GetComponentsInChildren<Collider>()[i].enabled = false;
+                }
+            }
             collect = true;
         }
         TurnOff();
