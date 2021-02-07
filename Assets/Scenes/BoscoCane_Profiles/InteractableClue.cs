@@ -82,15 +82,16 @@ public class InteractableClue : Interactable
 
     public override void Interact(GameObject interacter)
     {
-        if (interacter.GetComponent<CaneBosco>())
+        if (interacter.GetComponent<CaneBosco>()&&!interact)
         {
-            interacter.GetComponent<CaneBosco>().Howl();
             interact = true;
+            interacter.GetComponent<CaneBosco>().Howl();
             //abilita sistema visibilità oggetto
         }
         else
         {
             gameObject.GetComponent<Renderer>().enabled = false;
+            gameObject.GetComponent<BoxCollider>().enabled = false;
             gameObject.GetComponent<Collider>().enabled = false;
             collect = true;
             //disabilita sistema visibilità oggetto

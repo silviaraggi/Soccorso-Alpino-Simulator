@@ -92,4 +92,9 @@ public class JeepBosco : MonoBehaviour
     {
         GameObject.Find("GestoreCamere").GetComponent<GestoreCamereBosco>().DisableCamera(NumCamera);
     }
+    public void CaricaScenaMenu()
+    {
+        GameObject.Find("GestoreScene").GetComponent<GestoreScene>().LoadSceneByID(0);
+    }
+
 }
