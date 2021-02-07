@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightUpInteractable : Interactable
+public class InteractableClue : Interactable
 {
     public bool animatable;
     public bool collectable;
-    public bool interact = false;
+    public bool interact = false; //found
     public bool collect = false;
-    private Animator _animator;
     Material[] mat;
 
 
@@ -16,22 +15,8 @@ public class LightUpInteractable : Interactable
     protected override void Start()
     {
 
-        if (GetComponent<Renderer>())
-        {
-            gameObject.GetComponent<Renderer>().enabled = true;
-            gameObject.GetComponent<Collider>().enabled = true;
-            mat = GetComponent<Renderer>().materials;
-        }
-        if (GetComponent<Animator>() == null)
-        {
             collectable = true;
-        }
-        else
-        {
             animatable = true;
-            _animator = GetComponent<Animator>();
-            interact = GetComponent<Animator>().GetBool("interact");
-        }
     }
 
 
@@ -48,18 +33,6 @@ public class LightUpInteractable : Interactable
             }
             else
             {
-                /*if (changeColor.transform.GetComponent<Renderer>())
-                {
-                    mat = changeColor.transform.GetComponent<Renderer>().materials;
-                    if (mat != null)
-                    {
-                        for (int i = 0; i < mat.Length; i++)
-                        {
-                            mat[i].EnableKeyword("_EMISSION");
-                            mat[i].SetColor("_EmissionColor", new Vector4(0.30f, 0.30f, 0.30f, 0));
-                        }
-                    }
-                }*/
                 Transform[] allChildren = GetComponentsInChildren<Transform>();
                 foreach (Transform child in allChildren)
                 {
@@ -109,40 +82,18 @@ public class LightUpInteractable : Interactable
 
     public override void Interact(GameObject interacter)
     {
-        if (!collectable)
+        if (interacter.GetComponent<CaneBosco>())
         {
-            if (_animator.GetBool("interact"))
-            {
-                interact = false;
-                _animator.SetBool("interact", false);
-
-            }
-            else
-            {
-                interact = true;
-                _animator.SetBool("interact", true);
-
-            }
+            interacter.GetComponent<CaneBosco>().Howl();
+            interact = true;
+            //abilita sistema visibilità oggetto
         }
         else
         {
-            if (gameObject.GetComponent<Renderer>())
-            {
-                gameObject.GetComponent<Renderer>().enabled = false;
-                gameObject.GetComponent<Collider>().enabled = false;
-            }
-            else
-            {
-                for(int i=0; i<gameObject.GetComponentsInChildren<Renderer>().Length; i++)
-                {
-                    gameObject.GetComponentsInChildren<Renderer>()[i].enabled = false;
-                }
-                for (int i = 0; i < gameObject.GetComponentsInChildren<Collider>().Length; i++)
-                {
-                    gameObject.GetComponentsInChildren<Collider>()[i].enabled = false;
-                }
-            }
+            gameObject.GetComponent<Renderer>().enabled = false;
+            gameObject.GetComponent<Collider>().enabled = false;
             collect = true;
+            //disabilita sistema visibilità oggetto
         }
         TurnOff();
     }

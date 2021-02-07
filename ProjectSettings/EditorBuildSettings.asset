@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 2f413fd1116a93548a50fcc9b86e4749
   - enabled: 1
+    path: Assets/Scenes/Baita/Baita.unity
+    guid: 0ce6120f69c7d486392bb9075aec495c
+  - enabled: 1
+    path: Assets/Scenes/montagna_elicottero.unity
+    guid: 9f1c880e6ae674fb88a77b7bf2fe7fa7
+  - enabled: 1
     path: Assets/Scenes/CasaParenti_Profiles/CasaParenti.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
