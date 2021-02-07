@@ -8,6 +8,7 @@ public class InteractablePerson : Interactable
     public bool collectable; //follow
     public bool interact = false; //dialog
     public bool collect = false; //follow
+    public DialogueTrigger dialoguetrigger;
     Material[] mat;
     Renderer[] renChild;
     Material[] matChild;
@@ -78,13 +79,14 @@ public class InteractablePerson : Interactable
 
     public override void TurnOff()
     {
-        if(mat!=null)
-        for (int i = 0; i < mat.Length; i++)
+        if (mat != null)
+            for (int i = 0; i < mat.Length; i++)
+            {
+                mat[i].DisableKeyword("_EMISSION");
+            }
+        else
         {
-            mat[i].DisableKeyword("_EMISSION");
-        }
-        else { 
-        Transform[] allChildren = GetComponentsInChildren<Transform>();
+            Transform[] allChildren = GetComponentsInChildren<Transform>();
             foreach (Transform child in allChildren)
             {
                 if (child.gameObject.GetComponent<Renderer>())
@@ -101,11 +103,13 @@ public class InteractablePerson : Interactable
 
     }
 
+
     public override void Interact(GameObject interacter)
     {
         if (!collectable)
         {
             interact = true;
+            dialoguetrigger.TriggerDialogue();
             //do dialogue
         }
         else
