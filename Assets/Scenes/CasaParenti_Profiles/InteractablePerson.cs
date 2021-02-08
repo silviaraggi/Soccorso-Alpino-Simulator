@@ -109,6 +109,7 @@ public class InteractablePerson : Interactable
         if (!collectable)
         {
             interact = true;
+            Debug.Log("sono entrato");
             dialoguetrigger.TriggerDialogue();
             //do dialogue
         }

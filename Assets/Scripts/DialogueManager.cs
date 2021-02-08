@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +8,8 @@ public class DialogueManager : MonoBehaviour
 {
     public Text nameText;
     public Text dialogueText;
+
+    public Animator animator;
     private Queue<string> sentences;
     // Start is called before the first frame update
     void Start()
@@ -16,8 +19,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        Debug.Log("Starting conversation with " + dialogue.name);
-
+        animator.SetBool("IsOpen", true);
         nameText.text = dialogue.name;
         sentences.Clear();
 
@@ -25,6 +27,16 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(sentence);
         }
         DisplayNextSentence();
+    }
+
+    IEnumerable TypeSentence(string sentence)
+    {
+        dialogueText.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return null;
+        }
     }
 
     public void DisplayNextSentence()
@@ -36,16 +48,15 @@ public class DialogueManager : MonoBehaviour
         }
 
         string sentence=sentences.Dequeue();
-        dialogueText.text = sentence;
+        StopAllCoroutines();
+        StartCoroutine((IEnumerator)TypeSentence(sentence));
     }
 
-    public void EndDialogue()
+
+
+    void EndDialogue()
     {
-        Debug.Log("End of conversation.");
+        animator.SetBool("IsOpen", false);
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

@@ -639,7 +639,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &112009128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1212,9 +1212,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatable: 1
   collectable: 0
-  interact: 0
+  interact: 1
   collect: 0
-  dialoguetrigger: {fileID: 0}
+  dialoguetrigger: {fileID: 485956640}
 --- !u!4 &485956638
 Transform:
   m_ObjectHideFlags: 0
@@ -1260,9 +1260,10 @@ MonoBehaviour:
   dialogue:
     name: Signora e Signor Strada
     sentences:
-    - Grazie per essere venuti...
-    - Potete prendere la maglia di Francesco che vi abbiamo preparato in camera da
-      letto
+    - holaaaaa
+    - 'mortacci
+
+'
     - Per favore trovatelo!
 --- !u!1 &524706095
 GameObject:
