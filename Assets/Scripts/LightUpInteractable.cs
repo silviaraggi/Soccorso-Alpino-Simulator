@@ -9,7 +9,7 @@ public class LightUpInteractable : Interactable
     public bool interact = false;
     public bool collect = false;
     private Animator _animator;
-    Material[] mat;
+   // Material[] mat;
 
 
     // Start is called before the first frame update
@@ -20,7 +20,7 @@ public class LightUpInteractable : Interactable
         {
             gameObject.GetComponent<Renderer>().enabled = true;
             gameObject.GetComponent<Collider>().enabled = true;
-            mat = GetComponent<Renderer>().materials;
+            //mat = GetComponent<Renderer>().materials;
         }
         if (GetComponent<Animator>() == null)
         {
@@ -28,9 +28,10 @@ public class LightUpInteractable : Interactable
         }
         else
         {
-            animatable = true;
-            _animator = GetComponent<Animator>();
-            interact = GetComponent<Animator>().GetBool("interact");
+            if (GetComponent<Animator>() != null)
+                animatable = true;
+                _animator = GetComponent<Animator>();
+                interact = GetComponent<Animator>().GetBool("interact");
         }
     }
 
@@ -38,15 +39,15 @@ public class LightUpInteractable : Interactable
     public override void GlowUp(GameObject changeColor)
     {
         {
-            if (mat != null)
+            /*if (mat != null)
             {
                 for (int i = 0; i < mat.Length; i++)
                 {
                     mat[i].EnableKeyword("_EMISSION");
                     mat[i].SetColor("_EmissionColor", new Vector4(0.15f, 0.30f, 0.30f, 0));
                 }
-            }
-            else
+            }*/
+            //else
             {
                 /*if (changeColor.transform.GetComponent<Renderer>())
                 {
@@ -83,13 +84,13 @@ public class LightUpInteractable : Interactable
 
     public override void TurnOff()
     {
-        if (mat != null)
+        /* (mat != null)
             for (int i = 0; i < mat.Length; i++)
             {
                 mat[i].DisableKeyword("_EMISSION");
             }
         else
-        {
+        {*/
             Transform[] allChildren = GetComponentsInChildren<Transform>();
             foreach (Transform child in allChildren)
             {
@@ -104,7 +105,7 @@ public class LightUpInteractable : Interactable
                 }
             }
 
-        }
+        //}
     }
 
     public override void Interact(GameObject interacter)
