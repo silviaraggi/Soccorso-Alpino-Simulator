@@ -21,16 +21,23 @@ public class FPSInteractionManager : MonoBehaviour
     private Interactable _pointedInteractable=null;
     private Grabbable _pointedGrabbable = null;
     private GameObject changeColor = null;
+    private bool IsDialogue = false;
     private bool unlocked = true;
     private bool UIenabled = true;
 
     void Start()
     {
         _fpsController = GetComponent<CharacterController>();
+       
     }
 
     void Update()
     {
+        if (GameObject.FindObjectOfType<DialogueTrigger>())
+        {
+            IsDialogue = GameObject.FindObjectOfType<DialogueManager>().dialogue_bool;
+
+        }
         _rayOrigin = _fpsCameraT.position + _fpsController.radius * _fpsCameraT.forward;
 
         if(unlocked)
@@ -48,16 +55,22 @@ public class FPSInteractionManager : MonoBehaviour
 
     private void CheckInteraction()
     {
+
         Ray ray = new Ray(_rayOrigin, _fpsCameraT.forward);
         RaycastHit hit;
 
+        if(IsDialogue==true && Input.GetMouseButtonDown(0))
+        {
+            GameObject.FindObjectOfType<DialogueManager>().DisplayNextSentence();
+        }
         if (_grabbedObject != null && Input.GetMouseButtonDown(0))
         {
+            
             Drop();
             return;
         }
 
-        if (Physics.Raycast(ray, out hit, _interactionDistance))
+        if (Physics.Raycast(ray, out hit, _interactionDistance)&& IsDialogue==false)
         {
             
             //Check if is interactable
@@ -84,6 +97,7 @@ public class FPSInteractionManager : MonoBehaviour
                 {
                     _pointingInteractable.Interact(gameObject);
                     _pointingInteractable.TurnOff();
+                   
                 }
             }
             //Check if is grabbable

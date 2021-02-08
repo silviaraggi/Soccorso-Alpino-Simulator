@@ -9,6 +9,7 @@ public class InteractablePerson : Interactable
     public bool interact = false; //dialog
     public bool collect = false; //follow
     public DialogueTrigger dialoguetrigger;
+    public bool dialogue = false;
     Material[] mat;
     Renderer[] renChild;
     Material[] matChild;
@@ -109,8 +110,8 @@ public class InteractablePerson : Interactable
         if (!collectable)
         {
             interact = true;
-            Debug.Log("sono entrato");
             dialoguetrigger.TriggerDialogue();
+        
             //do dialogue
         }
         else
