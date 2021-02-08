@@ -23,7 +23,6 @@ public class GestoreCamereHelicopter : MonoBehaviour
     {
         if (helicopter.GetCamera() >= 0)
         {
-            Debug.Log(helicopter.GetCamera());
             if (helicopter.GetCamera() != 3)
             {
                 if (cameranow != telecamere[helicopter.GetCamera()])

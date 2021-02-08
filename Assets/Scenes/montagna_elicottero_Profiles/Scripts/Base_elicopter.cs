@@ -12,6 +12,8 @@ public class Base_elicopter : MonoBehaviour
     public bool getOut;
     private int NumCamera = -1;
     private bool intro;
+    private GameObject _firstAidKit;
+    private GameObject _ferito;
 
     private void Start()
     {
@@ -19,7 +21,10 @@ public class Base_elicopter : MonoBehaviour
         _animator = GetComponent<Animator>();
         getOut = false;
         intro = true;
-        GameObject.Find("first-aid-kit").GetComponent<LightUpInteractable>().SetCollectable(false);
+        _firstAidKit = GameObject.Find("first-aid-kit");
+        _firstAidKit.GetComponent<LightUpInteractable>().SetCollectable(false);
+        _ferito = GameObject.Find("ferito");
+        _ferito.GetComponent<LightUpInteractable>().SetCollectable(false);
     }
 
     private void Update()
@@ -42,7 +47,8 @@ public class Base_elicopter : MonoBehaviour
 
             _animator.SetBool("getOut", true);
             getOut = true;
-            GameObject.Find("first-aid-kit").GetComponent<LightUpInteractable>().SetCollectable(true);
+
+            _firstAidKit.GetComponent<LightUpInteractable>().SetCollectable(true);
         }
     }
     
