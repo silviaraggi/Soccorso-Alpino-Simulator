@@ -93,6 +93,6 @@ public class JeepCasa : MonoBehaviour
     }
     public void CaricaScenaBosco()
     {
-        GameObject.Find("GestoreScene").GetComponent<GestoreScene>().LoadSceneByID(1);
+        GameObject.Find("GestoreScene").GetComponent<GestoreScene>().LoadSceneByID(4);
     }
 }

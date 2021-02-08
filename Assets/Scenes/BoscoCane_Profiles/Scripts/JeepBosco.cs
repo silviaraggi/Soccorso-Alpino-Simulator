@@ -10,6 +10,9 @@ public class JeepBosco : MonoBehaviour
     private int NumCamera = -1;
     Scene scena;
     GameObject giocatore = null;
+    GameObject collega1 = null;
+    GameObject collega2 = null;
+    GameObject cane = null;
     Camera telecameraGiocatore = null;
     private bool intro;
     bool canStart = false;
@@ -18,7 +21,10 @@ public class JeepBosco : MonoBehaviour
     {
         intro = true;
         scena = gameObject.scene;
+        cane = GameObject.Find("CaneUnity2");
         giocatore = GameObject.FindGameObjectWithTag("Player");
+        collega1 = GameObject.Find("Collega1");
+        collega2 = GameObject.Find("Collega2");
         telecameraGiocatore = giocatore.transform.Find("Camera").GetComponent<Camera>();
         if (scena.name == "BoscoCane")
             IntroScenaBosco();
@@ -31,6 +37,10 @@ public class JeepBosco : MonoBehaviour
         {
             if (!intro)
             {
+                collega1.GetComponent<Renderer>().enabled = true;
+                collega2.GetComponent<Renderer>().enabled = true;
+                cane.gameObject.transform.Find("Cane.001").GetComponent<Renderer>().enabled = true;
+                cane.gameObject.transform.Find("Cane.002").GetComponent<Renderer>().enabled = true;
                 GetComponent<LightUpInteractable>().SetAnimatable(false);
                 giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(true);
                 giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
@@ -48,6 +58,8 @@ public class JeepBosco : MonoBehaviour
     }
     public void FineScenaBosco()
     {
+        collega1.GetComponent<Renderer>().enabled = false;
+        collega2.GetComponent<Renderer>().enabled = false;
         giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(false);
         giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
         telecameraGiocatore.enabled = false;
@@ -80,4 +92,9 @@ public class JeepBosco : MonoBehaviour
     {
         GameObject.Find("GestoreCamere").GetComponent<GestoreCamereBosco>().DisableCamera(NumCamera);
     }
+    public void CaricaScenaMenu()
+    {
+        GameObject.Find("GestoreScene").GetComponent<GestoreScene>().LoadSceneByID(0);
+    }
+
 }
