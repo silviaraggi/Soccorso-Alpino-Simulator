@@ -59,9 +59,18 @@ public class FPSInteractionManager : MonoBehaviour
         Ray ray = new Ray(_rayOrigin, _fpsCameraT.forward);
         RaycastHit hit;
 
-        if(IsDialogue==true && Input.GetMouseButtonDown(0))
+        if (IsDialogue == true)
         {
-            GameObject.FindObjectOfType<DialogueManager>().DisplayNextSentence();
+            this.gameObject.GetComponent<FirstPersonCharacterController>().SetLocked(true);
+            if (Input.GetMouseButtonDown(0))
+            {
+                GameObject.FindObjectOfType<DialogueManager>().DisplayNextSentence();
+
+            }
+        }
+        else
+        {
+            this.gameObject.GetComponent<FirstPersonCharacterController>().SetLocked(false);
         }
         if (_grabbedObject != null && Input.GetMouseButtonDown(0))
         {

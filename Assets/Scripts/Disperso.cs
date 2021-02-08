@@ -95,5 +95,10 @@ public class Disperso : MonoBehaviour
         return (_target.transform.position - transform.position).sqrMagnitude <= distance * distance;
     }
 
+    public DispersoState GetDispersoState()
+    {
+        return _currentDispersoState;
+    }
+
 
 }

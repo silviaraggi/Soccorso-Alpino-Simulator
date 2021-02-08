@@ -11,8 +11,6 @@ public class InteractablePerson : Interactable
     public DialogueTrigger dialoguetrigger;
     public bool dialogue = false;
     Material[] mat;
-    Renderer[] renChild;
-    Material[] matChild;
 
 
     // Start is called before the first frame update
@@ -29,20 +27,29 @@ public class InteractablePerson : Interactable
     }
 
 
+    public void Update()
+    {
+        if (this.animatable)
+        {
+            dialogue = GameObject.Find("DialogueManager").GetComponent<DialogueManager>().dialogue_bool;
+            interact = dialogue;
+        }
+    }
+
     public override void GlowUp(GameObject changeColor)
     {
         if (!interact&&!collect)
         {
             {
-                if (mat != null)
+               /* if (mat != null)
                 {
                     for (int i = 0; i < mat.Length; i++)
                     {
                         mat[i].EnableKeyword("_EMISSION");
                         mat[i].SetColor("_EmissionColor", new Vector4(0.15f, 0.30f, 0.30f, 0));
                     }
-                }
-                else
+                }*/
+                //else
                 {
                     /*if (changeColor.transform.GetComponent<Renderer>())
                     {
@@ -80,13 +87,13 @@ public class InteractablePerson : Interactable
 
     public override void TurnOff()
     {
-        if (mat != null)
+        /*if (mat != null)
             for (int i = 0; i < mat.Length; i++)
             {
                 mat[i].DisableKeyword("_EMISSION");
             }
         else
-        {
+        {*/
             Transform[] allChildren = GetComponentsInChildren<Transform>();
             foreach (Transform child in allChildren)
             {
@@ -100,18 +107,16 @@ public class InteractablePerson : Interactable
                         }
                 }
             }
-        }
+        //}
 
     }
 
 
     public override void Interact(GameObject interacter)
     {
-        if (!collectable)
+        if (!collectable&&!dialogue)
         {
-            interact = true;
             dialoguetrigger.TriggerDialogue();
-        
             //do dialogue
         }
         else
@@ -155,6 +160,7 @@ public class InteractablePerson : Interactable
     {
         collect = newvalue;
     }
+
 }
 
 
