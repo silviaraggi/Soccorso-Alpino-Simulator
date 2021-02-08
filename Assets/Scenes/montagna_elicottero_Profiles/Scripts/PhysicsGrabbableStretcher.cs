@@ -20,14 +20,6 @@ public class PhysicsGrabbableStretcher : Grabbable
         _parent = transform.parent.GetComponentInParent<Base_elicopter>();
     }
 
-    public void Update()
-    {
-        //Debug.Log("Update");
-        if (_parent.getOut==true)
-            grab = true;
-
-    }
-
     public override void Grab(GameObject grabber)
     {
         if (grab == false)
@@ -49,7 +41,6 @@ public class PhysicsGrabbableStretcher : Grabbable
     {
         if (grab == false)
             return;
-        Debug.Log("Grab");
         mat.EnableKeyword("_EMISSION");
         mat.SetColor("_EmissionColor", new Vector4(0.1f, 0.2f, 0, 0));
 
@@ -59,7 +50,6 @@ public class PhysicsGrabbableStretcher : Grabbable
     {
         if (grab == false)
             return;
-        Debug.Log("Grab1");
         mat.DisableKeyword("_EMISSION");
     }
 }
