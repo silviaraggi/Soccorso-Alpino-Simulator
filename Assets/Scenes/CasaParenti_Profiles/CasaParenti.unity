@@ -723,7 +723,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112009127}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -1215,7 +1215,6 @@ MonoBehaviour:
   interact: 0
   collect: 0
   dialoguetrigger: {fileID: 0}
-  dialogo: {fileID: 112009127}
 --- !u!4 &485956638
 Transform:
   m_ObjectHideFlags: 0
@@ -1259,8 +1258,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: 
-    sentences: []
+    name: Signora e Signor Strada
+    sentences:
+    - Grazie per essere venuti...
+    - Potete prendere la maglia di Francesco che vi abbiamo preparato in camera da
+      letto
+    - Per favore trovatelo!
 --- !u!1 &524706095
 GameObject:
   m_ObjectHideFlags: 0
@@ -3026,8 +3029,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: 
-    sentences: []
+    name: Pulsante
+    sentences:
+    - ciao
+    - 'sono '
+    - silvia
 --- !u!114 &1034617054
 MonoBehaviour:
   m_ObjectHideFlags: 0

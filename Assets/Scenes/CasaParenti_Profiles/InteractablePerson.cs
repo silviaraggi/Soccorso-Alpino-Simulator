@@ -12,7 +12,6 @@ public class InteractablePerson : Interactable
     Material[] mat;
     Renderer[] renChild;
     Material[] matChild;
-    public GameObject dialogo;
 
 
     // Start is called before the first frame update
@@ -110,7 +109,7 @@ public class InteractablePerson : Interactable
         if (!collectable)
         {
             interact = true;
-            GameObject.Find("DialogueManager").GetComponent<DialogueManager>().StartDialogue(dialogo.transform.GetComponent<Dialogue>());
+            dialoguetrigger.TriggerDialogue();
             //do dialogue
         }
         else
