@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SceneInfo : MonoBehaviour
 {
-    static int SceneNumber = 2;
+    static int SceneNumber = 1;
 
     public void SetScene(int scena)
     {

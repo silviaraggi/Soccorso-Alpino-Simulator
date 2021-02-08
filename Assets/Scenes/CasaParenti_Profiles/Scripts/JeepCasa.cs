@@ -8,48 +8,47 @@ using UnityEngine.SceneManagement;
 public class JeepCasa : MonoBehaviour
 {
     private int NumCamera = -1;
-    Scene scena;
     GameObject giocatore = null;
     private bool intro;
-    bool canStart = false;
+    public bool canStart = false;
+    GameObject maglia;
     //GameObject cane;
     // Start is called before the first frame update
     void Start()
     {
         intro = true;
-        scena = gameObject.scene;
         giocatore = GameObject.FindGameObjectWithTag("Player");
-        //cane = GameObject.Find("CaneUnity2");
-        GameObject.Find("magliasolida").GetComponent<LightUpInteractable>().SetCollectable(false);
-        if (scena.name == "CasaParenti")
-            IntroScenaCasa();
+        maglia = GameObject.Find("magliasolida");
+        maglia.GetComponent<LightUpInteractable>().SetCollectable(false);
+        IntroScenaCasa();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (scena.name == "CasaParenti")
-        {
             if (!intro)
             {
+                if(!canStart)
                 GetComponent<LightUpInteractable>().SetAnimatable(false);
+                //if(!GameObject.Find("Parenti").GetComponent<InteractablePerson>().GetInteract())
+                //maglia.GetComponent<LightUpInteractable>().SetCollectable(false);
                 giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(true);
                 giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
                 //cane.GetComponent<CaneCasa>().SetVisible(true);
                 //cane.GetComponent<Animator>().enabled = true;
                 GameObject.Find("MainCamera").GetComponent<Camera>().enabled = true;
                 giocatore.GetComponent<CharacterController>().enabled = true;
-                if (GameObject.Find("Parenti").GetComponent<Interactable>().GetInteract())
+                if (GameObject.Find("Parenti").GetComponent<InteractablePerson>().GetInteract())
                 {
-                    GameObject.Find("magliasolida").GetComponent<LightUpInteractable>().SetCollectable(true);
-                    canStart = GameObject.Find("magliasolida").GetComponent<LightUpInteractable>().GetCollect();
-                    if (canStart)
-                    {
-                        GetComponent<LightUpInteractable>().SetAnimatable(true);
-                        if (GetComponent<LightUpInteractable>().GetInteract())
-                            FineScenaCasa();
-                    }
+                    maglia.GetComponent<LightUpInteractable>().SetCollectable(true);
+                    
                 }
+            canStart = maglia.GetComponent<LightUpInteractable>().GetCollect();
+            if (canStart)
+            {
+                GetComponent<LightUpInteractable>().SetAnimatable(true);
+                if (GetComponent<LightUpInteractable>().GetInteract())
+                    FineScenaCasa();
             }
         }
     }

@@ -3129,7 +3129,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149377797728}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31e54f632c89e1846899f3186118112d, type: 3}
   m_Name: 
@@ -7016,6 +7016,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 87236700}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1374794562
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374794555}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.65, y: 2.03, z: 4.77}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1391492759
 GameObject:
   m_ObjectHideFlags: 0
@@ -10869,6 +10882,7 @@ GameObject:
   - component: {fileID: 466985167}
   - component: {fileID: 919132149377797730}
   - component: {fileID: 919132149377797729}
+  - component: {fileID: 919132149377797731}
   m_Layer: 0
   m_Name: CaneUnity2
   m_TagString: Untagged
@@ -10988,6 +11002,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &919132149377797731
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149377797728}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f929ae74ca456b94fb71ca38524baac4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1026268274175138153
 GameObject:
   m_ObjectHideFlags: 0
