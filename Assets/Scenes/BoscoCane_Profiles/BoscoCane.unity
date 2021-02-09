@@ -107,15 +107,15 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
-    agentHeight: 2
-    agentSlope: 45
-    agentClimb: 0.4
+    agentRadius: 0.11
+    agentHeight: 0.8
+    agentSlope: 45.5
+    agentClimb: 0.7
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.036666665
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -11179,7 +11179,7 @@ Transform:
   m_GameObject: {fileID: 919132148887512804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -586.949, y: 2.54, z: 44.09}
-  m_LocalScale: {x: 0.91586, y: 0.91586, z: 0.91586}
+  m_LocalScale: {x: 0.70612353, y: 0.70612353, z: 0.70612353}
   m_Children:
   - {fileID: 3745622627542738747}
   - {fileID: 5465940247326678218}
@@ -11195,7 +11195,7 @@ Transform:
   m_GameObject: {fileID: 919132148583453367}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -591.26, y: 2.18, z: 44.24}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.72236484, y: 0.72236484, z: 0.72236484}
   m_Children:
   - {fileID: 5465940246976489625}
   - {fileID: 2695423328825834802}
@@ -15456,7 +15456,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &5022986125162192412
 MeshCollider:
