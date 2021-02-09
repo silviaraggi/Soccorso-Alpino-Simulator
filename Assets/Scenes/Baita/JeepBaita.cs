@@ -95,8 +95,14 @@ public class JeepBaita : MonoBehaviour
         giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(false);
         giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
         GameObject.Find("CamElicottero").GetComponent<Camera>().enabled = true;
-        collega1.GetComponent<Renderer>().enabled = false;
-        collega2.GetComponent<Renderer>().enabled = false;
+        foreach (Renderer daAttivare in collega1.GetComponentsInChildren<Renderer>())
+        {
+            daAttivare.enabled = false;
+        }
+        foreach (Renderer daAttivare in collega2.GetComponentsInChildren<Renderer>())
+        {
+            daAttivare.enabled = false;
+        }
     }
 
     private void FinaleJeep()

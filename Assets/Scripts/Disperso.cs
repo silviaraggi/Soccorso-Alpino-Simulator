@@ -74,7 +74,7 @@ public class Disperso : MonoBehaviour
 
     private void Found()
     {
-        _navMeshAgent.isStopped = true;
+        this.GetComponent<Animator>().SetBool("isFound", true);
         //playanimationfound
     }
 
@@ -100,5 +100,9 @@ public class Disperso : MonoBehaviour
         return _currentDispersoState;
     }
 
+    public void SetDispersoState(DispersoState stato)
+    {
+        _currentDispersoState = stato;
+    }
 
 }

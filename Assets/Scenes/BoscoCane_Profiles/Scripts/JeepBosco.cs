@@ -39,8 +39,13 @@ public class JeepBosco : MonoBehaviour
         {
             if (!intro&&!finale)
             {
-                collega1.GetComponent<Renderer>().enabled = true;
-                collega2.GetComponent<Renderer>().enabled = true;
+                foreach( Renderer daAttivare in collega1.GetComponentsInChildren<Renderer>()){
+                    daAttivare.enabled = true;
+                }
+                foreach (Renderer daAttivare in collega2.GetComponentsInChildren<Renderer>())
+                {
+                    daAttivare.enabled = true;
+                }
                 cane.gameObject.transform.Find("Cane.001").GetComponent<Renderer>().enabled = true;
                 cane.gameObject.transform.Find("Cane.002").GetComponent<Renderer>().enabled = true;
                 cane.GetComponent<Animator>().enabled = true;
