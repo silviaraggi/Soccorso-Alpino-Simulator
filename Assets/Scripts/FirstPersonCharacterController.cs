@@ -23,6 +23,7 @@ public class FirstPersonCharacterController : MonoBehaviour
     private bool _isGrounded;
     public bool isLocked = false;
     private GameObject Light;
+    private InventoryUI inventoryui;
     void Start()
     {
         _characterController = GetComponent<CharacterController>();
@@ -78,11 +79,14 @@ public class FirstPersonCharacterController : MonoBehaviour
     }
     private void UpdateCursor()
     {
-        if (Cursor.lockState == CursorLockMode.None && Input.GetMouseButtonDown(1))
+        if (Cursor.lockState == CursorLockMode.None && Input.GetMouseButtonDown(1) )
             Cursor.lockState = CursorLockMode.Locked;
-
-        if (Cursor.lockState == CursorLockMode.Locked && Input.GetKeyDown(KeyCode.Escape))
+        
+        if (Cursor.lockState == CursorLockMode.Locked && (Input.GetKeyDown(KeyCode.Escape)))
             Cursor.lockState = CursorLockMode.None;
+    
+
+
     }
 
     public bool GetLocked()

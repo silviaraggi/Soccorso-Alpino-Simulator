@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LightUpInteractable : Interactable
 {
+    public Item item;
     public bool animatable;
     public bool collectable;
     public bool interact = false;
@@ -144,6 +145,10 @@ public class LightUpInteractable : Interactable
                 }
             }
             collect = true;
+            Debug.Log("Prendo l'oggetto: " + item.name);
+            bool wasPickedUp= Inventory.instance.Add(item);
+
+            
         }
         TurnOff();
     }

@@ -4,34 +4,61 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    Dictionary<Item, int> inventory;
+
+    #region Singleton
+
+    public static Inventory instance;
 
     private void Awake()
     {
-        inventory = new Dictionary<Item, int>();
+        if (instance != null)
+        {
+            Debug.LogWarning("More than one instance od Inventory found");
+            return;
+        }
+        instance = this;
     }
 
-    public void Add(Item item, int count = 1)
+
+    #endregion
+
+    public delegate void OnItemChanged();
+
+    public OnItemChanged onItemChangeCallback;
+
+    public List<Item> items = new List<Item>();
+    public int space = 20;
+
+   
+
+    public bool Add(Item item)
     {
-        if (!inventory.TryGetValue(item, out int current))
+        if (!item.isDefaultItem)
         {
-            inventory.Add(item, count);
+            if (items.Count >= space)
+            {
+                Debug.Log("Non c'è più spazio");
+                return false;
+            }
+            items.Add(item);
+
+            if (onItemChangeCallback != null) {
+                onItemChangeCallback.Invoke();
+            }
+            
         }
-        else
+        return true;
+
+    }
+
+    public void Remove(Item item)
+    {
+        items.Remove(item);
+        if (onItemChangeCallback != null)
         {
-            inventory[item] += count;
+            onItemChangeCallback.Invoke();
         }
     }
-    public int Get(Item item)
-    {
-        if (inventory.TryGetValue(item, out int current))
-        {
-            return current;
-        }
-        else
-        {
-            throw new KeyNotFoundException();
-        }
-    }
+   
 }
-
+;
