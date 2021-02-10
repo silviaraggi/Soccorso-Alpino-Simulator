@@ -26,6 +26,7 @@ public class Base_elicopter : MonoBehaviour
         _firstAidKit.GetComponent<LightUpInteractable>().SetCollectable(false);
         _ferito = GameObject.Find("ferito");
         _ferito.GetComponent<LightUpInteractable>().SetCollectable(false);
+        _NPC.transform.GetChild(0).GetComponent<Renderer>().enabled = false;
     }
 
     private void Update()

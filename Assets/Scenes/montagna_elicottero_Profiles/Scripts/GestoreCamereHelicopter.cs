@@ -9,6 +9,7 @@ public class GestoreCamereHelicopter : MonoBehaviour
     Camera cameranow = null;
     private Transform _parent;
     Camera main;
+    [SerializeField] GameObject _NPC;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,7 @@ public class GestoreCamereHelicopter : MonoBehaviour
                     if (cameranow != null)
                         cameranow.enabled = false;
                     cameranow = main;
+                    _NPC.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().enabled = true;
                 }
             }
         }
