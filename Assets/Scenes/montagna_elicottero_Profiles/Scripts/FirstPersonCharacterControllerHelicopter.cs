@@ -14,6 +14,7 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
     [SerializeField] private float _groundDistance = 0.4f;
     [SerializeField] private LayerMask _groundMask;
     [SerializeField] private float _jumpHeight = 3f;
+   
 
 
     private CharacterController _characterController;
@@ -30,10 +31,12 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
     private GameObject _firstAidKit;
     private GameObject _ferito;
     private GameObject _barella;
-    private GameObject _helicopter;
+    private Transform _helicopter;
     private int _grabFerito;
     private Vector3 _targetDirection;
-    private Quaternion a;
+    private Quaternion _direction;
+    public bool _soccorso;
+    public bool _dialogo;
 
 
     void Start()
@@ -49,7 +52,10 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
         _ferito.GetComponent<Grabbable>().grab=false;
         _barella.GetComponent<Grabbable>().grab = false;
         _grabFerito = 0;
-        _helicopter = GameObject.Find("Helicopter");
+        _helicopter = GameObject.Find("Helicopter").transform.GetChild(1);
+        _soccorso = false;
+        _dialogo = false;
+        _ferito.GetComponent<LightUpInteractable>().SetInteract(true);
 
     }
 
@@ -93,8 +99,6 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
 
             if (_move == true)
             {
-
-
                 float h = Input.GetAxis("Horizontal");
                 float v = Input.GetAxis("Vertical");
                 Vector3 move = (transform.right * h + transform.forward * v).normalized;
@@ -106,55 +110,97 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
             {
                 _velocity.y = Mathf.Sqrt(_jumpHeight * -2 * _gravity);
             }
-
             //FALLING
             _velocity.y += _gravity * Time.deltaTime;
             _characterController.Move(_velocity * Time.deltaTime);
             if (transform.parent == null) {
                 _barella.GetComponent<Grabbable>().grab = true;
             }
-            if (_firstAidKit.GetComponent<LightUpInteractable>().GetCollect()) {
-                if(_grabFerito!=2)
-                    _ferito.GetComponent<LightUpInteractable>().SetInteract(true);
-                if(_barella.transform.parent==_helicopter.transform)
+            if (_dialogo == false && _ferito.GetComponent<LightUpInteractable>().GetInteract()==true)
+            {
+                _dialogo = true;
+                _ferito.GetComponent<LightUpInteractable>().SetInteract(false);
+            }
+            if (_firstAidKit.GetComponent<LightUpInteractable>().GetCollect())
+            {
+                if (_soccorso == false&& _dialogo==true && _ferito.GetComponent<LightUpInteractable>().GetInteract() == true)
+                {
+                    _ferito.transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().enabled = true;
+                    _ferito.transform.GetChild(2).GetComponent<SkinnedMeshRenderer>().enabled = true;
+                    _ferito.transform.GetChild(3).GetComponent<SkinnedMeshRenderer>().enabled = true;
+                    _ferito.transform.GetChild(4).GetComponent<SkinnedMeshRenderer>().enabled = false;
+                    _ferito.GetComponent<Animator>().SetBool("soccorso", true);
+                    _soccorso = true;
+                    //_ferito.GetComponent<LightUpInteractable>().GetInteract();
+                    //Cambio ferito
+                }
+                if (_barella.transform.parent == _helicopter.transform)
                     _barella.transform.parent = null;
-                if (1==1){//_ferito.GetComponent<LightUpInteractable>().GetInteract()) {
-                    if (Vector3.Distance(_barella.transform.position, _ferito.transform.position) < 3f || _grabFerito>0 )
+                if (_soccorso == true)
+                {
+                    if (Vector3.Distance(_barella.transform.position, _ferito.transform.position) < 3f || _grabFerito > 0)
                     {
-                        if (_grabFerito == 0)
+                        if (_grabFerito == 0 && _soccorso==true)
                         {
                             _ferito.GetComponent<Grabbable>().grab = true;
                             _grabFerito = 1;
 
                         }
-                        if (Vector3.Distance(_barella.transform.position, _ferito.transform.position) < 0.5f && _ferito.transform.IsChildOf(transform)==false) {
+                        if (_grabFerito ==1 && Vector3.Distance(_barella.transform.position, (_ferito.transform.position+new Vector3(0f,1f,0f))) < 1f && _ferito.transform.IsChildOf(transform) == false)
+                        {
+                            if(_ferito.GetComponent<LightUpInteractable>()!=null)
+                                _ferito.GetComponent<LightUpInteractable>().TurnOff();
+                            //_ferito.GetComponent<LightUpInteractable>().enabled = false;
                             Destroy(_ferito.GetComponent<LightUpInteractable>());
+                            //_ferito.GetComponent<PhysicsGrabbable>().grab = false;
                             Destroy(_ferito.GetComponent<PhysicsGrabbable>());
+                            //Destroy(_ferito.GetComponent<BoxCollider>());
                             Destroy(_ferito.GetComponent<BoxCollider>());
+                            _ferito.transform.GetComponent<BoxCollider>().enabled = false;
                             Destroy(_ferito.GetComponent<Rigidbody>());
                             _ferito.transform.parent = _barella.transform;
                             _grabFerito = 2;
-                            _ferito.transform.localPosition = new Vector3(0.1f, -0.2f, 0.1f);
+                            _ferito.transform.localPosition = new Vector3(1.1f, -0.2f, -0.1f);
+                            _targetDirection = _barella.transform.eulerAngles;
+                            _direction = Quaternion.Euler(_barella.transform.eulerAngles);
+                            _helicopter.transform.GetComponent<BoxCollider>().enabled = true;
                             //_ferito.transform.position=_barella.transform.position+ new Vector3(0.1f, -0.2f, 0.1f);
                         }
-                        if (_ferito.transform.IsChildOf(transform) && _grabFerito!=2) {
-                            _targetDirection = _barella.transform.forward.normalized;
+                        if (_ferito.transform.IsChildOf(transform) && _grabFerito ==1)
+                        {
+                            Quaternion b = Quaternion.Euler(_barella.transform.eulerAngles - new Vector3(0, 90, -90));
+                            Quaternion a = _ferito.transform.rotation;
+                            a = Quaternion.Lerp(a, b, Time.deltaTime * 0.5f);
+                            _ferito.transform.rotation = a;
+                            /*_targetDirection = _barella.transform.forward.normalized;
                             Vector3 newDir = Vector3.RotateTowards(_ferito.transform.forward.normalized, _targetDirection, 1f * Time.deltaTime, 0f);
-                            _ferito.transform.rotation = Quaternion.LookRotation(newDir);
+                            _ferito.transform.rotation = Quaternion.LookRotation(newDir);*/
                             //_ferito.transform.rotation= _barella.transform.rotation;
                         }
-                        if (_barella.transform.IsChildOf(transform) && _grabFerito == 2) {
-                            _targetDirection = _helicopter.transform.GetChild(4).transform.forward.normalized;
+                        if (_barella.transform.IsChildOf(transform) && _grabFerito == 2)
+                        {
+                            _direction = Quaternion.Euler(_barella.transform.eulerAngles);
+                            Quaternion finalDirection = Quaternion.Euler(new Vector3(0, 90, 270));
+                            _direction = Quaternion.Lerp(_direction, finalDirection, Time.deltaTime * 0.5f);
+                            _barella.transform.rotation = _direction;
+                            //_targetDirection = _helicopter.transform.forward.normalized;
+                            //_targetDirection.x = _targetDirection.x - 0.5f;
+                            //_targetDirection.y = 0.5f;
+                            //_targetDirection = new Vector3(1f, 0f, 0f).normalized;
                             //_targetDirection.z = -(_targetDirection.z);
                             //_targetDirection.x = -(_targetDirection.x);
-                            Vector3 newDir = Vector3.RotateTowards(_barella.transform.forward.normalized, _targetDirection, 1f * Time.deltaTime, 0f);
-                            _barella.transform.rotation = Quaternion.LookRotation(newDir);
+                            //Vector3 newDir = Vector3.RotateTowards(_barella.transform.forward.normalized, _targetDirection, 1f * Time.deltaTime, 0f);
+                            //_barella.transform.rotation = Quaternion.LookRotation(newDir);
                             //Vector3 newDir = Vector3.RotateTowards(_barella.transform.forward, new Vector3(0,90,270).normalized, 0.5f * Time.deltaTime, 0f);
                             //_barella.transform.rotation. = Quaternion.LookRotation(newDir);
-                            //_barella.transform.eulerAngles = new Vector3(0, 90, 270);
+                            //_targetDirection = Vector3.Lerp(_targetDirection, new Vector3(0, 90, 270), Time.deltaTime * 0.5f);
+                            //_barella.transform.eulerAngles = _targetDirection;
                         }
                     }
                 }
+            }
+            else {
+                _ferito.GetComponent<LightUpInteractable>().SetInteract(false);
             }
         }
     }

@@ -38,28 +38,6 @@ public class LightUpInteractable : Interactable
     public override void GlowUp(GameObject changeColor)
     {
         {
-            if (mat != null)
-            {
-                for (int i = 0; i < mat.Length; i++)
-                {
-                    mat[i].EnableKeyword("_EMISSION");
-                    mat[i].SetColor("_EmissionColor", new Vector4(0.15f, 0.30f, 0.30f, 0));
-                }
-            }
-            else
-            {
-                /*if (changeColor.transform.GetComponent<Renderer>())
-                {
-                    mat = changeColor.transform.GetComponent<Renderer>().materials;
-                    if (mat != null)
-                    {
-                        for (int i = 0; i < mat.Length; i++)
-                        {
-                            mat[i].EnableKeyword("_EMISSION");
-                            mat[i].SetColor("_EmissionColor", new Vector4(0.30f, 0.30f, 0.30f, 0));
-                        }
-                    }
-                }*/
                 Transform[] allChildren = GetComponentsInChildren<Transform>();
                 foreach (Transform child in allChildren)
                 {
@@ -75,7 +53,7 @@ public class LightUpInteractable : Interactable
                     }
 
                 }
-            }
+            
         }
        
 
@@ -83,13 +61,7 @@ public class LightUpInteractable : Interactable
 
     public override void TurnOff()
     {
-        if (mat != null)
-            for (int i = 0; i < mat.Length; i++)
-            {
-                mat[i].DisableKeyword("_EMISSION");
-            }
-        else
-        {
+        
             Transform[] allChildren = GetComponentsInChildren<Transform>();
             foreach (Transform child in allChildren)
             {
@@ -104,7 +76,7 @@ public class LightUpInteractable : Interactable
                 }
             }
 
-        }
+       
     }
 
     public override void Interact(GameObject interacter)

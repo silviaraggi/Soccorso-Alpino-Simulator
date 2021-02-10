@@ -14,6 +14,7 @@ public class Base_elicopter : MonoBehaviour
     private bool intro;
     private GameObject _firstAidKit;
     private GameObject _ferito;
+    [SerializeField] GameObject _NPC;
 
     private void Start()
     {
@@ -45,6 +46,7 @@ public class Base_elicopter : MonoBehaviour
             if (_animator == null)
                 return;
 
+            _NPC.transform.GetComponent<SC_NPCFollow>().enabled = true;
             _animator.SetBool("getOut", true);
             getOut = true;
 

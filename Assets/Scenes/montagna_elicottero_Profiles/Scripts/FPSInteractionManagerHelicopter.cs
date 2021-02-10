@@ -121,6 +121,13 @@ public class FPSInteractionManagerHelicopter : MonoBehaviour
         //If NOTHING is detected set all to null
         else
         {
+            if (_pointedInteractable != null) {
+                _pointedInteractable.TurnOff();
+            }
+            if (_pointedGrabbable != null)
+            {
+                _pointedGrabbable.TurnOff();
+            }
             _pointingInteractable = null;
             _pointingGrabbable = null;
         }
