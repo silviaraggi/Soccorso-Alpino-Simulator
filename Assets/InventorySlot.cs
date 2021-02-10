@@ -3,13 +3,21 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour
 {
-    public Image icon;
-    Item item;
+    public RawImage icon;
+    public Item item;
+
+    private void Update()
+    {
+        if (item != null)
+        {
+            icon = item.icon;
+        }
+    }
 
     public void AddItem(Item newItem)
     {
         item = newItem;
-        icon.sprite = item.icon;
+        icon = item.icon;
         icon.enabled = true;
     }
 
@@ -17,7 +25,7 @@ public class InventorySlot : MonoBehaviour
     {
         item = null;
 
-        icon.sprite = null;
+        icon = null;
         icon.enabled = false;
     }
 
@@ -26,6 +34,8 @@ public class InventorySlot : MonoBehaviour
         if (item != null)
         {
             item.Use();
+            GameObject.Find("Inventory").SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 }

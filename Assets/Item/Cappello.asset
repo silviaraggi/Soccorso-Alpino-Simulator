@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1283d3983209de0409639b0e179ac656, type: 3}
+  m_Script: {fileID: 11500000, guid: bdcc56626a2c4994a9719f9abd417635, type: 3}
   m_Name: Cappello
   m_EditorClassIdentifier: 
-  name: New Item
-  icon: {fileID: 0}
+  name: Cappello
+  icon: {fileID: 21300000, guid: eb5f6e2757c821940b69cf1456f7865a, type: 3}
   isDefaultItem: 0
   ID: 0
