@@ -7,7 +7,6 @@ public class InventoryUI : MonoBehaviour
 {
     public Transform itemsParent;
     public GameObject inventoryUI;
-
     public bool control=false;
     Inventory inventory;
     InventorySlot[] slots;
@@ -27,7 +26,7 @@ public class InventoryUI : MonoBehaviour
         
         if (Input.GetButtonDown("Inventory"))
         {
-
+     
             inventoryUI.SetActive(!inventoryUI.activeSelf);
             Cursor.lockState = CursorLockMode.Locked;
 
@@ -37,16 +36,24 @@ public class InventoryUI : MonoBehaviour
         {
             if (EventSystem.current.IsPointerOverGameObject())
                 return;
-
             Cursor.lockState = CursorLockMode.None;
+            control = true;
 
         }
+
+        if (control) {
+  
+            control = false;
+        }
+
+
+
 
     }
 
     void UpdateUI()
     {
-        for(int i=0; i<slots.Length; i++)
+        for(int i=0; i<slots.Length; i++) 
         {
             if (i < inventory.items.Count)
             {
