@@ -22,62 +22,41 @@ public class InteractableClue : Interactable
 
     public override void GlowUp(GameObject changeColor)
     {
+        Transform[] allChildren = GetComponentsInChildren<Transform>();
+        foreach (Transform child in allChildren)
         {
-            if (mat != null)
+            if (child.gameObject.GetComponent<Renderer>())
             {
-                for (int i = 0; i < mat.Length; i++)
-                {
-                    mat[i].EnableKeyword("_EMISSION");
-                    mat[i].SetColor("_EmissionColor", new Vector4(0.15f, 0.30f, 0.30f, 0));
-                }
-            }
-            else
-            {
-                Transform[] allChildren = GetComponentsInChildren<Transform>();
-                foreach (Transform child in allChildren)
-                {
-                    if (child.gameObject.GetComponent<Renderer>())
+                if (child.gameObject.GetComponent<Renderer>().materials.Length > 0)
+
+                    for (int i = 0; i < child.gameObject.GetComponent<Renderer>().materials.Length; i++)
                     {
-                        if (child.gameObject.GetComponent<Renderer>().materials.Length > 0)
-
-                            for (int i = 0; i < child.gameObject.GetComponent<Renderer>().materials.Length; i++)
-                            {
-                                child.gameObject.GetComponent<Renderer>().materials[i].EnableKeyword("_EMISSION");
-                                child.gameObject.GetComponent<Renderer>().materials[i].SetColor("_EmissionColor", new Vector4(0.15f, 0.30f, 0.30f, 0));
-                            }
+                        child.gameObject.GetComponent<Renderer>().materials[i].EnableKeyword("_EMISSION");
+                        child.gameObject.GetComponent<Renderer>().materials[i].SetColor("_EmissionColor", new Vector4(0.15f, 0.30f, 0.30f, 0));
                     }
-
-                }
             }
+
         }
-       
 
     }
 
     public override void TurnOff()
+
     {
-        if (mat != null)
-            for (int i = 0; i < mat.Length; i++)
-            {
-                mat[i].DisableKeyword("_EMISSION");
-            }
-        else
+        Transform[] allChildren = GetComponentsInChildren<Transform>();
+        foreach (Transform child in allChildren)
         {
-            Transform[] allChildren = GetComponentsInChildren<Transform>();
-            foreach (Transform child in allChildren)
+            if (child.gameObject.GetComponent<Renderer>())
             {
-                if (child.gameObject.GetComponent<Renderer>())
-                {
-                    if (child.gameObject.GetComponent<Renderer>().materials.Length > 0)
+                if (child.gameObject.GetComponent<Renderer>().materials.Length > 0)
 
-                        for (int i = 0; i < child.gameObject.GetComponent<Renderer>().materials.Length; i++)
-                        {
-                            child.gameObject.GetComponent<Renderer>().materials[i].DisableKeyword("_EMISSION");
-                        }
-                }
+                    for (int i = 0; i < child.gameObject.GetComponent<Renderer>().materials.Length; i++)
+                    {
+                        child.gameObject.GetComponent<Renderer>().materials[i].DisableKeyword("_EMISSION");
+                    }
             }
-
         }
+
     }
 
     public override void Interact(GameObject interacter)

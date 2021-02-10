@@ -15,11 +15,13 @@ public class JeepBosco : MonoBehaviour
     GameObject cane = null;
     Camera telecameraGiocatore = null;
     private bool intro;
+    private bool finale;
     bool canStart = false;
     // Start is called before the first frame update
     void Start()
     {
         intro = true;
+        finale = false;
         scena = gameObject.scene;
         cane = GameObject.Find("CaneUnity2");
         giocatore = GameObject.FindGameObjectWithTag("Player");
@@ -35,12 +37,18 @@ public class JeepBosco : MonoBehaviour
     {
         if (scena.name == "BoscoCane")
         {
-            if (!intro)
+            if (!intro&&!finale)
             {
-                collega1.GetComponent<Renderer>().enabled = true;
-                collega2.GetComponent<Renderer>().enabled = true;
+                foreach( Renderer daAttivare in collega1.GetComponentsInChildren<Renderer>()){
+                    daAttivare.enabled = true;
+                }
+                foreach (Renderer daAttivare in collega2.GetComponentsInChildren<Renderer>())
+                {
+                    daAttivare.enabled = true;
+                }
                 cane.gameObject.transform.Find("Cane.001").GetComponent<Renderer>().enabled = true;
                 cane.gameObject.transform.Find("Cane.002").GetComponent<Renderer>().enabled = true;
+                cane.GetComponent<Animator>().enabled = true;
                 GetComponent<LightUpInteractable>().SetAnimatable(false);
                 giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(true);
                 giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
@@ -71,6 +79,9 @@ public class JeepBosco : MonoBehaviour
         giocatore.GetComponent<CharacterController>().enabled = false;
         giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(false);
         giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
+        cane.gameObject.transform.Find("Cane.001").GetComponent<Renderer>().enabled = false;
+        cane.gameObject.transform.Find("Cane.002").GetComponent<Renderer>().enabled = false;
+        cane.GetComponent<Animator>().enabled = false;
     }
 
     public void SetCamera(int number)

@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: manico
-    second: {fileID: 2100000, guid: feb4a8b0613b17945943ca96de39eca5, type: 2}
+    second: {fileID: 2100000, guid: b374e6e512de2934f91f39ca2fc1e867, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: pala
-    second: {fileID: 2100000, guid: caf2f541c6275f54fb05aff6c092087d, type: 2}
+    second: {fileID: 2100000, guid: 1f075254911513c4f895b2ca4176f5fd, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
