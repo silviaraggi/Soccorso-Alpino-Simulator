@@ -28,14 +28,19 @@ public class JeepCasa : MonoBehaviour
     {
             if (!intro)
             {
-                if(!canStart)
+            foreach (Renderer disattiva in GameObject.Find("CaneUnity2").GetComponentsInChildren<Renderer>())
+            {
+                disattiva.enabled = true;
+            }
+            foreach (Renderer disattiva in GameObject.Find("Colleghi").GetComponentsInChildren<Renderer>())
+            {
+                disattiva.enabled = true;
+            }
+            GameObject.Find("CaneUnity2").GetComponent<CaneCasa>().enabled = true;
+            if (!canStart)
                 GetComponent<LightUpInteractable>().SetAnimatable(false);
-                //if(!GameObject.Find("Parenti").GetComponent<InteractablePerson>().GetInteract())
-                //maglia.GetComponent<LightUpInteractable>().SetCollectable(false);
                 giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(true);
                 giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
-                //cane.GetComponent<CaneCasa>().SetVisible(true);
-                //cane.GetComponent<Animator>().enabled = true;
                 GameObject.Find("MainCamera").GetComponent<Camera>().enabled = true;
                 giocatore.GetComponent<CharacterController>().enabled = true;
                 if (GameObject.Find("Parenti").GetComponent<InteractablePerson>().GetInteract())
@@ -52,10 +57,18 @@ public class JeepCasa : MonoBehaviour
             }
         }
     }
-    public void FineScenaCasa()
-    {
-        //cane.GetComponent<CaneCasa>().SetVisible(false);
-        if(!(GameObject.Find("Cam2").GetComponent<Camera>().enabled||GameObject.Find("Cam3").GetComponent<Camera>().enabled))
+    public void FineScenaCasa() {
+
+        foreach (Renderer disattiva in GameObject.Find("CaneUnity2").GetComponentsInChildren<Renderer>())
+        {
+            disattiva.enabled = false;
+        }
+        foreach (Renderer disattiva in GameObject.Find("Colleghi").GetComponentsInChildren<Renderer>())
+        {
+            disattiva.enabled = false;
+        }
+
+        if (!(GameObject.Find("Cam2").GetComponent<Camera>().enabled||GameObject.Find("Cam3").GetComponent<Camera>().enabled))
         GameObject.Find("Cam1").GetComponent<Camera>().enabled = true;
         giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(false);
         giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
@@ -64,11 +77,18 @@ public class JeepCasa : MonoBehaviour
     }
     public void IntroScenaCasa()
     {
+        foreach (Renderer disattiva in GameObject.Find("CaneUnity2").GetComponentsInChildren<Renderer>())
+        {
+            disattiva.enabled = false;
+        }
+        foreach (Renderer disattiva in GameObject.Find("Colleghi").GetComponentsInChildren<Renderer>())
+        {
+            disattiva.enabled = false;
+        }
         giocatore.GetComponent<Camera>().enabled = false;
         giocatore.GetComponent<CharacterController>().enabled = false;
         giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(false);
         giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
-        //cane.GetComponent<CaneCasa>().SetVisible(false);
     }
 
     public void SetCamera(int number)
