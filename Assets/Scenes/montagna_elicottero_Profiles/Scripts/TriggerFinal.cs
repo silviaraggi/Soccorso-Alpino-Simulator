@@ -14,7 +14,7 @@ public class TriggerFinal : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other == _barella.GetComponent<BoxCollider>() && _barella.transform.GetChildCount()==1)
+        if (other == _barella.GetComponent<BoxCollider>() && _barella.transform.childCount==1)
         {
             transform.GetComponent<LightUpInteractable>().enabled = true;
             transform.GetComponent<LightUpInteractable>().SetCollectable(false);
