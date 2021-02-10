@@ -6,19 +6,20 @@ using UnityEngine.EventSystems;
 [CreateAssetMenu(fileName ="New Item", menuName ="Inventory/Item")]
 public class ItemBosco : Item
 {
-    private GameObject cane;
-    private GameObject berretto;
-    private GameObject zaino;
-    private GameObject guanti;
-    private GameObject disperso;
+    public ItemBosco cane;
+    public ItemBosco berretto;
+    public ItemBosco zaino;
+    public ItemBosco guanti;
+    public ItemBosco disperso;
+    public ItemBosco maglia;
     //bool mouseOver = false;
     public override void Start()
     {
-        cane = GameObject.FindObjectOfType<CaneBosco>().gameObject;
+        /*cane = GameObject.FindObjectOfType<CaneBosco>().gameObject;
         disperso = GameObject.FindObjectOfType<Disperso>().gameObject;
         berretto = GameObject.Find("Berretto");
         zaino = GameObject.Find("Zaino");
-        guanti = GameObject.Find("Guanti");
+        guanti = GameObject.Find("Guanti");*/
         // Shader initialShader = Shader.Find("Standard");
         // Shader glowUp = Shader.Find("Toon/Lit Outline");
     }
@@ -43,7 +44,7 @@ public class ItemBosco : Item
 
     public override void Use()
     {
-        switch (this.name)
+        /*switch (this.name)
         {
             case "Maglia":
                 if(berretto.GetComponent<InteractableClue>().GetCollect()==false)
@@ -61,6 +62,6 @@ public class ItemBosco : Item
                 if (disperso.GetComponent<Disperso>().GetDispersoState() == Disperso.DispersoState.Wander)
                     cane.GetComponent<CaneBosco>().GetNewClue(disperso);
                 break;
-        }
+        }*/
     }
 }
