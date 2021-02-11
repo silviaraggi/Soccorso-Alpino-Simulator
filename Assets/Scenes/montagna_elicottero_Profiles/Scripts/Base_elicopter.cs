@@ -15,6 +15,7 @@ public class Base_elicopter : MonoBehaviour
     private GameObject _firstAidKit;
     private GameObject _ferito;
     [SerializeField] GameObject _NPC;
+    private Transform _copter;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class Base_elicopter : MonoBehaviour
         _ferito = GameObject.Find("ferito");
         _ferito.GetComponent<LightUpInteractable>().SetCollectable(false);
         _NPC.transform.GetChild(0).GetComponent<Renderer>().enabled = false;
+        _copter = transform.GetChild(1);
     }
 
     private void Update()
@@ -53,11 +55,23 @@ public class Base_elicopter : MonoBehaviour
 
             _firstAidKit.GetComponent<LightUpInteractable>().SetCollectable(true);
         }
+        if (_copter.GetComponent<LightUpInteractable>().GetInteract() == true)
+        {
+            FineScenaHelicopter();
+            _animator.SetBool("fine", true);
+        }
     }
     
     public void IntroScenaHelicopter()
     {
         _child.GetChild(0).GetComponent<Camera>().enabled = false;
+        _child.GetComponent<CharacterController>().enabled = false;
+        _child.GetComponent<FPSInteractionManagerHelicopter>().SetUnlocked(false);
+        _child.GetComponent<FPSInteractionManagerHelicopter>().SetUIVisible(false);
+    }
+
+    public void FineScenaHelicopter()
+    {
         _child.GetComponent<CharacterController>().enabled = false;
         _child.GetComponent<FPSInteractionManagerHelicopter>().SetUnlocked(false);
         _child.GetComponent<FPSInteractionManagerHelicopter>().SetUIVisible(false);
