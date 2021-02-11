@@ -10,11 +10,15 @@ public class DialogueManager : MonoBehaviour
     public bool dialogue_bool;
     public Animator animator;
     private Queue<string> sentences;
+    private Queue<string> sentencestwo;
+
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
+        sentencestwo = new Queue<string>();
         dialogue_bool = false;
+
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -30,6 +34,22 @@ public class DialogueManager : MonoBehaviour
         }
         DisplayNextSentence();
     }
+
+    public void StartDialogue2(Dialogue dialogue)
+    {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<FPSInteractionManager>().SetUnlocked(false);
+        dialogue_bool = true;
+        animator.SetBool("IsOpen", true);
+        nameText.text = dialogue.name;
+        sentencestwo.Clear();
+
+        foreach (string sentence in dialogue.sentencestwo)
+        {
+            sentences.Enqueue(sentence);
+        }
+        DisplayNextSentence();
+    }
+
 
     IEnumerator TypeSentence(string sentence)
     {
