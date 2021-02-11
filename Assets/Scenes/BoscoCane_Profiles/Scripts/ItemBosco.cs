@@ -6,12 +6,12 @@ using UnityEngine.EventSystems;
 [CreateAssetMenu(fileName ="New Item", menuName ="Inventory/Item")]
 public class ItemBosco : Item
 {
-    public ItemBosco cane;
-    public ItemBosco berretto;
-    public ItemBosco zaino;
-    public ItemBosco guanti;
-    public ItemBosco disperso;
-    public ItemBosco maglia;
+    /*public GameObject cane;
+    public GameObject berretto;
+    public GameObject zaino;
+    public GameObject guanti;
+    public GameObject disperso;
+    public GameObject maglia;*/
     //bool mouseOver = false;
     public override void Start()
     {

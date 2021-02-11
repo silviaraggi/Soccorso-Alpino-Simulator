@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: MagliaBoh
   m_EditorClassIdentifier: 
   name: Maglia
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: f5119141dace1f84a8b3aa0f3e4e78d3, type: 3}
   isDefaultItem: 0
-  ID: 0
+  ID: 2
   cane: {fileID: 0}
   berretto: {fileID: 0}
   zaino: {fileID: 0}

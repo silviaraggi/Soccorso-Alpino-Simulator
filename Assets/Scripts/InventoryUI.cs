@@ -24,7 +24,7 @@ public class InventoryUI : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetButtonDown("Inventory") ||(GameObject.Find("CaneUnity2") && GameObject.Find("CaneUnity2").GetComponent<InteractableDog>().GetInteract()))
+        if (Input.GetButtonDown("Inventory") ||(GameObject.Find("CaneUnity2") && GameObject.Find("CaneUnity2").GetComponent<InteractableDog>()&&GameObject.Find("CaneUnity2").GetComponent<InteractableDog>().GetInteract()))
         {
 
             inventoryUI.SetActive(!inventoryUI.activeSelf);
@@ -32,13 +32,13 @@ public class InventoryUI : MonoBehaviour
             /*if (GameObject.Find("CaneUnity2"))
                 GameObject.Find("CaneUnity2").GetComponent<InteractableDog>().SetInteract(false);*/
         }
-        if (Cursor.lockState == CursorLockMode.Locked && (Input.GetButtonDown("Inventory")) || (GameObject.Find("CaneUnity2") && GameObject.Find("CaneUnity2").GetComponent<InteractableDog>().GetInteract()))
+        if (Cursor.lockState == CursorLockMode.Locked && (Input.GetButtonDown("Inventory")) || (GameObject.Find("CaneUnity2") && GameObject.Find("CaneUnity2").GetComponent<InteractableDog>() && GameObject.Find("CaneUnity2").GetComponent<InteractableDog>().GetInteract()))
         {
             if (EventSystem.current.IsPointerOverGameObject())
                 return;
             Cursor.lockState = CursorLockMode.None;
             control = true;
-            if (GameObject.Find("CaneUnity2"))
+            if (GameObject.Find("CaneUnity2") && GameObject.Find("CaneUnity2").GetComponent<InteractableDog>())
                 GameObject.Find("CaneUnity2").GetComponent<InteractableDog>().SetInteract(false);
         }
 
@@ -47,7 +47,7 @@ public class InventoryUI : MonoBehaviour
 
             control = false;
         }
-        if (GameObject.Find("CaneUnity2"))
+        if (GameObject.Find("CaneUnity2") && GameObject.Find("CaneUnity2").GetComponent<InteractableDog>())
             GameObject.Find("CaneUnity2").GetComponent<InteractableDog>().SetInteract(false);
     }
 

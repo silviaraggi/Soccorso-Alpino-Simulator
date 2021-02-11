@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: Cappello
   m_EditorClassIdentifier: 
   name: Cappello
-  icon: {fileID: 21300000, guid: eb5f6e2757c821940b69cf1456f7865a, type: 3}
+  icon: {fileID: 21300000, guid: 9ea567dc965d2496e868cc627de3bbff, type: 3}
   isDefaultItem: 0
   ID: 0
+  cane: {fileID: 0}
+  berretto: {fileID: 0}
+  zaino: {fileID: 0}
+  guanti: {fileID: 0}
+  disperso: {fileID: 0}
+  maglia: {fileID: 0}

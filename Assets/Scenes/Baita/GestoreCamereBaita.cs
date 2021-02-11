@@ -46,7 +46,6 @@ public class GestoreCamereBaita : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        GameObject.Find("CamTitle").GetComponent<AudioSource>().enabled = true;
         GameObject.Find("Player").GetComponent<FPSInteractionManager>().SetUnlocked(true);
         this.GetComponent<DialogueTrigger>().TriggerDialogue();
         //do something
@@ -55,5 +54,10 @@ public class GestoreCamereBaita : MonoBehaviour
     public void EndIntro()
     {
         GameObject.Find("Jeep").GetComponent<JeepBaita>().intro = false;
+    }
+
+    public void SuonoTelefono()
+    {
+        GameObject.Find("CamTitle").GetComponent<AudioSource>().enabled = true;
     }
 }

@@ -1001,7 +1001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa448710485bf49fe884296a46a41664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 1831028199}
   item: {fileID: 0}
 --- !u!1001 &87236700
 PrefabInstance:
@@ -5265,7 +5265,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 599668630}
+  m_TargetGraphic: {fileID: 1076043146}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -6443,7 +6443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa448710485bf49fe884296a46a41664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 1673180196}
   item: {fileID: 0}
 --- !u!1 &696946539
 GameObject:
@@ -6577,7 +6577,7 @@ RectTransform:
   m_GameObject: {fileID: 706203268}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.8725, y: 2.8725, z: 2.8725}
   m_Children: []
   m_Father: {fileID: 599668628}
   m_RootOrder: 0
@@ -6606,7 +6606,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0c6271a290ef75b4c97d58746c86c5b8, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14180,8 +14180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa448710485bf49fe884296a46a41664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  item: {fileID: 11400000, guid: 47e958ccdae3d4bf9844f3a63f2f66ed, type: 2}
+  icon: {fileID: 131928839}
+  item: {fileID: 0}
 --- !u!1 &1831028197
 GameObject:
   m_ObjectHideFlags: 0
@@ -14557,7 +14557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa448710485bf49fe884296a46a41664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 706203270}
   item: {fileID: 11400000, guid: d1c76e229b50ad44f9dfd916cb57128c, type: 2}
 --- !u!1 &1921687438
 GameObject:
@@ -15571,7 +15571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa448710485bf49fe884296a46a41664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 1654631910}
   item: {fileID: 0}
 --- !u!1 &2065103393
 GameObject:
@@ -15887,7 +15887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa448710485bf49fe884296a46a41664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 1488323521}
   item: {fileID: 0}
 --- !u!1 &2131232054
 GameObject:
@@ -25359,19 +25359,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -462981019419857548, guid: b7f728c6000090744a114639fcd20f12, type: 3}
---- !u!65 &9148622029517396999
-BoxCollider:
+--- !u!114 &9148622029517396999
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9148622029517396996}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 4276, y: 3763, z: 3209}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c7611c31751c734f939ba88d9cd94d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 62f12cb80f9cc450bad0d0029c62cbde, type: 2}
 --- !u!4 &9190900215186494674
 Transform:
   m_ObjectHideFlags: 0
