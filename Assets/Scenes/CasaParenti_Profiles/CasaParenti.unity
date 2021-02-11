@@ -152,6 +152,53 @@ Transform:
   m_Father: {fileID: 1117466538}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2282409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2282410}
+  - component: {fileID: 2282411}
+  m_Layer: 0
+  m_Name: DialogoColleghi2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2282410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2282409}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 363390659}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2282411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2282409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57494661fff518f42bcbbed7c103aa14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogo:
+    name: Collega
+    sentences:
+    - "Hai gi\xE0 preso un oggetto del ragazzo? Ci serve per le nostre ricerche."
 --- !u!1 &6579774
 GameObject:
   m_ObjectHideFlags: 0
@@ -3013,6 +3060,56 @@ Transform:
   m_Father: {fileID: 1600458538}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &313534309
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 313534310}
+  - component: {fileID: 313534311}
+  m_Layer: 0
+  m_Name: DialogoParenti1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &313534310
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313534309}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 363390659}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &313534311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313534309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57494661fff518f42bcbbed7c103aa14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogo:
+    name: Signora e signor Strada
+    sentences:
+    - grazie per essere venuti...
+    - "Vi abbiamo preparato la maglia di Francesco per portarla con voi, \xE8 in
+      camera da letto..."
+    - Vi prego, trovatelo!
 --- !u!1 &316532999
 GameObject:
   m_ObjectHideFlags: 0
@@ -3447,6 +3544,41 @@ Transform:
   - {fileID: 993778030}
   m_Father: {fileID: 711295256}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &363390658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 363390659}
+  m_Layer: 0
+  m_Name: Dialoghi
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &363390659
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363390658}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 140.83124, y: 1.9866247, z: 92.912094}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 313534310}
+  - {fileID: 1134313839}
+  - {fileID: 951527850}
+  - {fileID: 2282410}
+  - {fileID: 634027067}
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &364995086
 GameObject:
@@ -4559,16 +4691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3581fcfb88b4b4ae3a326aead2ae8999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-    name: Signora e Signor Strada
-    sentences:
-    - grazie per essere venuti...
-    - "Vi abbiamo preparato la maglia di Francesco per portarla con voi, \xE8 in
-      camera da letto..."
-    - ...vi prego trovatelo!
-    sentencestwo:
-    - Grazie per essere passati...
-    - Attendiamo notizie.
+  dialogue: {fileID: 313534309}
 --- !u!1 &510770168
 GameObject:
   m_ObjectHideFlags: 0
@@ -5540,6 +5663,54 @@ Transform:
   m_Father: {fileID: 813835522}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &634027066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 634027067}
+  - component: {fileID: 634027068}
+  m_Layer: 0
+  m_Name: DialogoColleghi3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &634027067
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634027066}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 363390659}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &634027068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634027066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57494661fff518f42bcbbed7c103aa14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogo:
+    name: Collega
+    sentences:
+    - Se siamo pronti torniamo alla jeep.
+    - "Non c'\xE8 tempo da perdere!"
 --- !u!1 &641691459
 GameObject:
   m_ObjectHideFlags: 0
@@ -7792,6 +7963,54 @@ Transform:
   m_Father: {fileID: 1509143325}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &951527849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 951527850}
+  - component: {fileID: 951527851}
+  m_Layer: 0
+  m_Name: DialogoColleghi1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &951527850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951527849}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 363390659}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &951527851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951527849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57494661fff518f42bcbbed7c103aa14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogo:
+    name: Collega
+    sentences:
+    - "Dobbiamo trovare altre informazioni sul ragazzo scomparso...\t"
+    - Entriamo e chiediamo ai parenti.
 --- !u!1 &970290630
 GameObject:
   m_ObjectHideFlags: 0
@@ -8300,13 +8519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3581fcfb88b4b4ae3a326aead2ae8999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-    name: Pulsante
-    sentences:
-    - ciao
-    - 'sono '
-    - silvia
-    sentencestwo: []
+  dialogue: {fileID: 0}
 --- !u!114 &1034617054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9053,6 +9266,54 @@ Transform:
   m_Father: {fileID: 1427654755}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1134313838
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1134313839}
+  - component: {fileID: 1134313840}
+  m_Layer: 0
+  m_Name: DialogoParenti2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1134313839
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134313838}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 363390659}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1134313840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134313838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57494661fff518f42bcbbed7c103aa14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogo:
+    name: Signora e signor Strada
+    sentences:
+    - "Grazie per essere passati...\t"
+    - Vi prego, trovatelo!
 --- !u!1 &1134694645
 GameObject:
   m_ObjectHideFlags: 0
@@ -13635,15 +13896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3581fcfb88b4b4ae3a326aead2ae8999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-    name: Soccorritore
-    sentences:
-    - Dobbiamo recuperare un oggetto che ci aiuti a ritrovare il ragazzo disperso...
-    - ...chiediamo ai suoi parenti, ci avranno sicuramente preparato qualcosa di
-      utile.
-    sentencestwo:
-    - Prendiamo la macchina e dirigiamoci verso il bosco...
-    - "...dobbiamo sbrigarci, il ragazzo sar\xE0 sicuramente spaventato."
+  dialogue: {fileID: 951527849}
 --- !u!1 &1727174905
 GameObject:
   m_ObjectHideFlags: 0
@@ -18445,7 +18698,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c6a5628419800e4d93612ca68e54ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canStart: 0
 --- !u!65 &919132149298826685
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -28,10 +28,13 @@ public class GestoreCamereHelicopter : MonoBehaviour
             {
                 if (cameranow != telecamere[helicopter.GetCamera()])
                 {
+                    if (helicopter.GetCamera() == 4)
+                        transform.GetChild(4).GetComponent<Animator>().SetBool("fine", true);
                     telecamere[helicopter.GetCamera()].enabled = true;
                     if (cameranow != null)
                         cameranow.enabled = false;
                     cameranow = telecamere[helicopter.GetCamera()];
+                    _NPC.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().enabled = false;
                 }
             }
             else {

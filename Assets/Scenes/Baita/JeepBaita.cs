@@ -11,14 +11,16 @@ public class JeepBaita : MonoBehaviour
     GameObject collega2;
     GameObject giocatore = null;
     GameObject MainCamera;
-    bool intro;
+    public bool intro;
     bool finale;
+    bool isDialogue;
     Material SkyboxGiorno;
     Material SkyboxPome;
     int NumCamera;
     // Start is called before the first frame update
     void Start()
     {
+        isDialogue = GameObject.Find("DialogueManager").GetComponent<DialogueManager>().dialogue_bool;
         SkyboxGiorno = (Material)Resources.Load("CieloGiorno", typeof(Material));
         SkyboxPome = (Material)Resources.Load("CieloTramonto", typeof(Material));
         MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
@@ -28,17 +30,19 @@ public class JeepBaita : MonoBehaviour
         zaino = GameObject.Find("Zaino");
         collega1 = GameObject.Find("Collega1");
         collega2 = GameObject.Find("Collega2");
-        intro = false;
+        intro = true;
         finale = false;
         if (scenario == 1)
         {
             RenderSettings.skybox = SkyboxGiorno;
             DynamicGI.UpdateEnvironment();
+            GameObject.Find("GestoreCamere").GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoTelefonata1");
         }
         if (scenario == 2)
         {
             RenderSettings.skybox = SkyboxPome;
             DynamicGI.UpdateEnvironment();
+            GameObject.Find("GestoreCamere").GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoTelefonata2");
         }
 
         this.GetComponent<LightUpInteractable>().SetAnimatable(false);
@@ -47,13 +51,16 @@ public class JeepBaita : MonoBehaviour
         elicottero.GetComponent<LightUpInteractable>().enabled = false;
         giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
         giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(false);
+        giocatore.GetComponent<FirstPersonCharacterController>().SetLocked(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!intro && !finale)
+        isDialogue = GameObject.Find("DialogueManager").GetComponent<DialogueManager>().dialogue_bool;
+        if (!intro&&!finale&&!isDialogue)
         {
+            GameObject.Find("CamTitle").GetComponent<AudioListener>().enabled = false;
             giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(true);
             giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(true);
             if (zaino.GetComponent<LightUpInteractable>().collect == true && collega1.GetComponent<InteractablePerson>().collect == true && collega2.GetComponent<InteractablePerson>().collect == true)
@@ -78,11 +85,13 @@ public class JeepBaita : MonoBehaviour
         {
             elicottero.GetComponent<LightUpInteractable>().enabled = true;
             elicottero.GetComponent<LightUpInteractable>().SetAnimatable(true);
+            GameObject.Find("Colleghi").GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoCollegaElicottero");
         }
         if (scenario == 2)
         {
             this.GetComponent<LightUpInteractable>().enabled = true;
             this.GetComponent<LightUpInteractable>().SetAnimatable(true);
+            GameObject.Find("Colleghi").GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoCollegaJeep");
         }
     }
 
@@ -115,8 +124,14 @@ public class JeepBaita : MonoBehaviour
         giocatore.GetComponent<CharacterController>().enabled = false;
         giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(false);
         giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
-        collega1.GetComponent<Renderer>().enabled = false;
-        collega2.GetComponent<Renderer>().enabled = false;
+        foreach (Renderer daAttivare in collega1.GetComponentsInChildren<Renderer>())
+        {
+            daAttivare.enabled = false;
+        }
+        foreach (Renderer daAttivare in collega2.GetComponentsInChildren<Renderer>())
+        {
+            daAttivare.enabled = false;
+        }
     }
 
     public void SetCamera(int number)

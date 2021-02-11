@@ -10,7 +10,7 @@ public class JeepCasa : MonoBehaviour
     private int NumCamera = -1;
     GameObject giocatore = null;
     private bool intro;
-    public bool canStart = false;
+    private bool canStart = false;
     GameObject maglia;
     //GameObject cane;
     // Start is called before the first frame update
@@ -46,11 +46,13 @@ public class JeepCasa : MonoBehaviour
                 if (GameObject.Find("Parenti").GetComponent<InteractablePerson>().GetInteract())
                 {
                     maglia.GetComponent<LightUpInteractable>().SetCollectable(true);
-                    
+                    GameObject.Find("Colleghi").GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoColleghi2");
                 }
             canStart = maglia.GetComponent<LightUpInteractable>().GetCollect();
             if (canStart)
             {
+                GameObject.Find("Parenti").GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoParenti2");
+                GameObject.Find("Colleghi").GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoColleghi3");
                 GetComponent<LightUpInteractable>().SetAnimatable(true);
                 if (GetComponent<LightUpInteractable>().GetInteract())
                     FineScenaCasa();

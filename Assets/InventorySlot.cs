@@ -33,9 +33,15 @@ public class InventorySlot : MonoBehaviour
     {
         if (item != null)
         {
+            if (GameObject.Find("CaneUnity2"))
+            {
+                GameObject.Find("CaneUnity2").GetComponent<InteractableDog>().SetInteract(false);
+                GameObject.Find("CaneUnity2").GetComponent<InteractableDog>().SetAnimatable(false);
+            }
             item.Use();
             GameObject.Find("Inventory").SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
+
         }
     }
 }
