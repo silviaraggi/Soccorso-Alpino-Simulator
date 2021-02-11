@@ -13,6 +13,7 @@ public class JeepBosco : MonoBehaviour
     GameObject collega1 = null;
     GameObject collega2 = null;
     GameObject cane = null;
+    GameObject maglia = null;
     Camera telecameraGiocatore = null;
     private bool intro;
     private bool finale;
@@ -23,11 +24,13 @@ public class JeepBosco : MonoBehaviour
         intro = true;
         finale = false;
         scena = gameObject.scene;
+        maglia = GameObject.Find("magliasolida");
         cane = GameObject.Find("CaneUnity2");
         giocatore = GameObject.FindGameObjectWithTag("Player");
         collega1 = GameObject.Find("Collega1");
         collega2 = GameObject.Find("Collega2");
         telecameraGiocatore = giocatore.transform.Find("Camera").GetComponent<Camera>();
+        GameObject.Find("Strumenti").GetComponent<InventoryUI>().GetInventory().Add(maglia.GetComponent<InteractableClue>().oggetto);
         if (scena.name == "BoscoCane")
             IntroScenaBosco();
     }

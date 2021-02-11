@@ -66,4 +66,8 @@ public class InventoryUI : MonoBehaviour
             }
         }
     }
+    public Inventory GetInventory()
+    {
+        return inventory;
+    }
 }

@@ -5,14 +5,30 @@ public class InventorySlot : MonoBehaviour
 {
     public Image icon;
     public Item item;
-    private GameObject cane;
-    private GameObject berretto;
-    private GameObject zaino;
-    private GameObject guanti;
-    private GameObject disperso;
-    private GameObject maglia;
-
-
+    public GameObject cane;
+    public GameObject berretto;
+    public GameObject zaino;
+    public GameObject guanti;
+    public GameObject disperso;
+    public GameObject maglia;
+    public GameObject sceneInfo;
+    private int scene;
+    private void Start()
+    {
+        sceneInfo = GameObject.Find("SceneInfo");
+        scene = sceneInfo.GetComponent<SceneInfo>().GetScene();
+        switch (scene)
+        {
+            case 2:
+                cane = GameObject.Find("CaneUnity2");
+                berretto = GameObject.Find("Berretto");
+                zaino = GameObject.Find("Zainetto");
+                guanti = GameObject.Find("Guanti");
+                maglia = GameObject.Find("magliasolida");
+                disperso = GameObject.Find("Disperso");
+                break;
+        }
+    }
 
     private void Update()
     {
@@ -41,7 +57,7 @@ public class InventorySlot : MonoBehaviour
     {
         if (item != null&&GameObject.Find("CaneUnity2")&&GameObject.Find("CaneUnity2").GetComponent<CaneBosco>())
         {
-            switch (this.name)
+            switch (this.item.name)
             {
                 case "Maglia":
                     if (berretto.GetComponent<InteractableClue>().GetCollect() == false)

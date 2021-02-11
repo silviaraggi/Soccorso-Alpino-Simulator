@@ -9,12 +9,13 @@ public class InteractableClue : Interactable
     public bool interact = false; //found
     public bool collect = false;
     Material[] mat;
-
+    public Item oggetto;
+    Inventory inventory;
 
     // Start is called before the first frame update
     protected override void Start()
     {
-
+        inventory = GameObject.Find("Strumenti").GetComponent<InventoryUI>().GetInventory();
             collectable = true;
             animatable = true;
     }
@@ -73,6 +74,7 @@ public class InteractableClue : Interactable
             gameObject.GetComponent<BoxCollider>().enabled = false;
             gameObject.GetComponent<Collider>().enabled = false;
             collect = true;
+            inventory.Add(oggetto);
             //disabilita sistema visibilità oggetto
         }
         TurnOff();
