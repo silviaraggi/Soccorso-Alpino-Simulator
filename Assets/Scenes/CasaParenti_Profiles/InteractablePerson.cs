@@ -16,6 +16,8 @@ public class InteractablePerson : Interactable
     // Start is called before the first frame update
     protected override void Start()
     {
+        if (GetComponent<SC_NPCFollow>())
+            collectable = true;
         if (gameObject.GetComponent<Renderer>())
         {
             gameObject.GetComponent<Renderer>().enabled = true;
@@ -38,7 +40,7 @@ public class InteractablePerson : Interactable
 
     public override void GlowUp(GameObject changeColor)
     {
-        if (!interact&&!collect)
+        if (!interact)
         {
             {
                /* if (mat != null)
@@ -114,12 +116,12 @@ public class InteractablePerson : Interactable
 
     public override void Interact(GameObject interacter)
     {
-        if (!collectable&&!dialogue)
+        if (((collectable==true&&collect==true)&&!dialogue)||(collectable==false&&!dialogue))
         {
             dialoguetrigger.TriggerDialogue();
             //do dialogue
         }
-        else
+        if(collectable==true&&collect==false)
         {
             collect = true;
             GetComponent<SC_NPCFollow>().enabled = true;
