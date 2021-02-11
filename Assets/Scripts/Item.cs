@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public abstract class Item : ScriptableObject
 {
     new public string name="New Item";
-    public RawImage icon = null;
+    public Sprite icon = null;
     public bool isDefaultItem = false;
     public int ID;
 

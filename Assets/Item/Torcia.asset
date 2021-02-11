@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: Torcia
   m_EditorClassIdentifier: 
   name: Torcia
-  icon: {fileID: 21300000, guid: a3983c59ebf804b4abba687bd7c9e92f, type: 3}
+  icon: {fileID: 21300000, guid: 7388928e2db83254991d452b9194f8aa, type: 3}
   isDefaultItem: 0
-  ID: 0
+  ID: 3
+  cane: {fileID: 0}
+  berretto: {fileID: 0}
+  zaino: {fileID: 0}
+  guanti: {fileID: 0}
+  disperso: {fileID: 0}
+  maglia: {fileID: 0}

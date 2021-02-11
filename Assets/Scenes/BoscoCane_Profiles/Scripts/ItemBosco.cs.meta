@@ -3,7 +3,16 @@ guid: bdcc56626a2c4994a9719f9abd417635
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - icon: {instanceID: 0}
+  - cane: {fileID: 919132149155446097, guid: d9f1e97a621018f479743d3e0481910a, type: 3}
+  - berretto: {fileID: 919132149155446097, guid: 83d43917d731fdc4288f29d43f8ea1b3,
+      type: 3}
+  - zaino: {fileID: 919132149155446097, guid: c18c0f7ea4040554795fab266ab62f61, type: 3}
+  - guanti: {fileID: 919132149155446097, guid: b7f728c6000090744a114639fcd20f12, type: 3}
+  - disperso: {fileID: 919132149155446097, guid: b9378cacc2e8f4ac4aff86b337975249,
+      type: 3}
+  - maglia: {fileID: 919132149155446097, guid: 9a7b12519e643724b84536460b3389be, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
