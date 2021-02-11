@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System;
+using UnityEngine.EventSystems;
 
 public class FPSInteractionManager : MonoBehaviour
 {
@@ -79,7 +80,7 @@ public class FPSInteractionManager : MonoBehaviour
             return;
         }
 
-        if (Physics.Raycast(ray, out hit, _interactionDistance)&& IsDialogue==false)
+        if (Physics.Raycast(ray, out hit, _interactionDistance)&& IsDialogue==false&& !EventSystem.current.IsPointerOverGameObject())
         {
             
             //Check if is interactable

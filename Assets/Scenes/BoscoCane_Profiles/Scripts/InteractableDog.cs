@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+using System.Windows.Input;
 public class InteractableDog : Interactable
 {
     public bool animatable;
@@ -11,6 +11,8 @@ public class InteractableDog : Interactable
     public bool collect = false;
     Material[] mat;
 
+    private float time = 0.0f;
+    public float interpolationPeriod = 6f;
 
     // Start is called before the first frame update
     protected override void Start()
@@ -20,6 +22,17 @@ public class InteractableDog : Interactable
             animatable = true;
     }
 
+    void Update()
+    {
+        time += Time.deltaTime;
+
+        if (time >= interpolationPeriod)
+        {
+            time = 0.0f;
+            this.SetAnimatable(true);
+            // execute block of code here
+        }
+    }
 
     public override void GlowUp(GameObject changeColor)
     {
@@ -62,8 +75,7 @@ public class InteractableDog : Interactable
 
     public override void Interact(GameObject interacter)
     {
-            interact = true;
-            Input.GetButtonDown("Inventory");
+             interact = true;
             //abilita sistema visibilità oggetto
         TurnOff();
     }
