@@ -46,10 +46,14 @@ public class GestoreCamereBaita : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        //if(!GameObject.Find("Player").GetComponent<AudioSource>().isPlaying)
-        //GameObject.Find("Player").GetComponent<AudioSource>().PlayOneShot(telefonata);
-        if(GetComponent<AudioSource>().isPlaying)
-        GetComponent<AudioSource>().PlayOneShot(telefonata);
+        GameObject.Find("CamTitle").GetComponent<AudioSource>().enabled = true;
+        GameObject.Find("Player").GetComponent<FPSInteractionManager>().SetUnlocked(true);
+        this.GetComponent<DialogueTrigger>().TriggerDialogue();
         //do something
+    }
+
+    public void EndIntro()
+    {
+        GameObject.Find("Jeep").GetComponent<JeepBaita>().intro = false;
     }
 }

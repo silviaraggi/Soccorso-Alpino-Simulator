@@ -6,16 +6,11 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     
-    public Dialogue dialogue;
+    public GameObject dialogue;
 
     public void TriggerDialogue() {
 
-        if (FindObjectOfType<PickUpMaglia>().collectMagliaIsTrue==false)
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-        else if (FindObjectOfType<PickUpMaglia>().collectMagliaIsTrue)
-            FindObjectOfType<DialogueManager>().StartDialogue2(dialogue);
-
-
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue.GetComponent<DialogueItem>().dialogo);
     }
 
 }

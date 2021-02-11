@@ -231,6 +231,6 @@ public class FPSInteractionManager : MonoBehaviour
     }
     public void SetTorchStatus(bool status)
     {
-        transform.Find("Spotl Light").GetComponent<Light>().enabled = status;
+        transform.Find("Spot Light").GetComponent<Light>().enabled = status;
     }
 }
