@@ -4566,6 +4566,9 @@ MonoBehaviour:
     - "Vi abbiamo preparato la maglia di Francesco per portarla con voi, \xE8 in
       camera da letto..."
     - ...vi prego trovatelo!
+    sentencestwo:
+    - Grazie per essere passati...
+    - Attendiamo notizie.
 --- !u!1 &510770168
 GameObject:
   m_ObjectHideFlags: 0
@@ -8303,6 +8306,7 @@ MonoBehaviour:
     - ciao
     - 'sono '
     - silvia
+    sentencestwo: []
 --- !u!114 &1034617054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13586,7 +13590,7 @@ MonoBehaviour:
   collectable: 0
   interact: 0
   collect: 0
-  dialoguetrigger: {fileID: 485956640}
+  dialoguetrigger: {fileID: 1718867820}
   dialogue: 0
 --- !u!4 &1718867818
 Transform:
@@ -13632,8 +13636,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: 
-    sentences: []
+    name: Soccorritore
+    sentences:
+    - Dobbiamo recuperare un oggetto che ci aiuti a ritrovare il ragazzo disperso...
+    - ...chiediamo ai suoi parenti, ci avranno sicuramente preparato qualcosa di
+      utile.
+    sentencestwo:
+    - Prendiamo la macchina e dirigiamoci verso il bosco...
+    - "...dobbiamo sbrigarci, il ragazzo sar\xE0 sicuramente spaventato."
 --- !u!1 &1727174905
 GameObject:
   m_ObjectHideFlags: 0
@@ -23717,6 +23727,7 @@ GameObject:
   - component: {fileID: 2635732712477336376}
   - component: {fileID: 4581564484073095919}
   - component: {fileID: 4581564484073095918}
+  - component: {fileID: 4581564484073095920}
   m_Layer: 0
   m_Name: magliasolida
   m_TagString: Untagged
@@ -23754,6 +23765,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4579454407841743219, guid: 9a7b12519e643724b84536460b3389be, type: 3}
+--- !u!114 &4581564484073095920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4581564484073095917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9afc64dfbe59544d18eb946ca19bd482, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maglia: {fileID: 4581564484073095918}
+  collectMagliaIsTrue: 0
 --- !u!1 &4638572287334529848
 GameObject:
   m_ObjectHideFlags: 0
