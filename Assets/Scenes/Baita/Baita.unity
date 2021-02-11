@@ -7141,7 +7141,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1345753393}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1345753396
 Camera:
   m_ObjectHideFlags: 0
@@ -7149,7 +7149,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1345753393}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
@@ -7884,6 +7884,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1509930733}
   - component: {fileID: 1509930734}
+  - component: {fileID: 1509930735}
   m_Layer: 0
   m_Name: GestoreCamere
   m_TagString: Untagged
@@ -7921,6 +7922,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b4fea5612915c438285347c1bb422e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  telefonata: {fileID: 8300000, guid: 1c5abaa669a11ae42b8678d7c9e60f06, type: 3}
+--- !u!95 &1509930735
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509930732}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 688df37f358fef247b17fa72a6581b68, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1509992316
 GameObject:
   m_ObjectHideFlags: 0
@@ -10639,7 +10660,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066279965}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}

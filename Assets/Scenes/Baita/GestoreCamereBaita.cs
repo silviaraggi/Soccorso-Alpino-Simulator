@@ -7,7 +7,7 @@ public class GestoreCamereBaita : MonoBehaviour
     JeepBaita jeep;
     Camera[] telecamere;
     Camera cameranow = null;
-
+    public AudioClip telefonata;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,5 +33,23 @@ public class GestoreCamereBaita : MonoBehaviour
     public void DisableCamera(int numero)
     {
         telecamere[numero].enabled = false;
+    }
+
+    public void EnablePlayerCamera()
+    {
+        foreach(Camera figlio in telecamere)
+        {
+            figlio.enabled = false;
+        }
+        GameObject.Find("MainCamera").GetComponent<Camera>().enabled = true;
+    }
+
+    public void TriggerDialogue()
+    {
+        //if(!GameObject.Find("Player").GetComponent<AudioSource>().isPlaying)
+        //GameObject.Find("Player").GetComponent<AudioSource>().PlayOneShot(telefonata);
+        if(GetComponent<AudioSource>().isPlaying)
+        GetComponent<AudioSource>().PlayOneShot(telefonata);
+        //do something
     }
 }
