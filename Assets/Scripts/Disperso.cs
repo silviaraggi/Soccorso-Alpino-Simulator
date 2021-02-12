@@ -75,6 +75,8 @@ public class Disperso : MonoBehaviour
     private void Found()
     {
         this.GetComponent<Animator>().SetBool("isFound", true);
+        _navMeshAgent.isStopped = true;
+        //GameObject.Find("CaneUnity2").GetComponent<CaneBosco>().Howl();
         //playanimationfound
     }
 

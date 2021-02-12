@@ -8307,7 +8307,7 @@ MonoBehaviour:
   - {fileID: 815023529}
   _target: {fileID: 919132149377797728}
   _stoppingDistance: 1
-  _minFoundDistance: 2
+  _minFoundDistance: 2.92
 --- !u!136 &974564169
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8317,7 +8317,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 974564167}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 1
   m_Direction: 1
@@ -8344,6 +8344,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &974564171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974564167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3581fcfb88b4b4ae3a326aead2ae8999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 1364139733}
 --- !u!95 &974564172
 Animator:
   serializedVersion: 3
@@ -8363,6 +8376,37 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &974564173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974564167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea02656c2a739a14e91ba100afd2d083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatable: 1
+  collectable: 0
+  interact: 0
+  collect: 0
+  dialoguetrigger: {fileID: 974564171}
+  dialogue: 0
+--- !u!65 &974564174
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974564167}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.63, z: 1}
+  m_Center: {x: 0, y: 1.18, z: 0}
 --- !u!1 &1012872821
 GameObject:
   m_ObjectHideFlags: 0
@@ -11948,7 +11992,7 @@ MonoBehaviour:
   collectable: 0
   interact: 0
   collect: 0
-  dialoguetrigger: {fileID: 0}
+  dialoguetrigger: {fileID: 974564171}
   dialogue: 0
 --- !u!114 &1433503994
 MonoBehaviour:

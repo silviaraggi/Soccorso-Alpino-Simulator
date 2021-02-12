@@ -79,6 +79,7 @@ public class CaneBosco : MonoBehaviour
             Vector3 npcPos = gameObject.transform.position;
             Vector3 delta = new Vector3(GoHere.x - npcPos.x, 0.0f, GoHere.z - npcPos.z);
             Quaternion rotation = Quaternion.LookRotation(delta);
+            if(ToFollow==player)
             gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, rotation, 0.5f);
         }
         if (agent.velocity.magnitude < 0.15f)
@@ -87,12 +88,18 @@ public class CaneBosco : MonoBehaviour
             if(!GetComponent<Animator>().GetBool("isHowl"))
             GetComponent<Animator>().SetBool("isIdle", true);
             if (ToFollow.GetComponent<InteractableClue>() && Vector3.Distance(transform.position, ToFollow.transform.position) <= agent.stoppingDistance)
+            {
                 if (ToFollow.GetComponent<InteractableClue>().GetInteract() == false)
                 {
                     ToFollow.gameObject.GetComponent<InteractableClue>().Interact(this.gameObject);
                 }
-            if (ToFollow.GetComponent<Disperso>())
-                ToFollow.GetComponent<Disperso>().SetDispersoState(Disperso.DispersoState.Found);
+                if (ToFollow.GetComponent<Disperso>())
+                {
+                    ToFollow.GetComponent<Disperso>().SetDispersoState(Disperso.DispersoState.Found);
+                    Howl();
+                }
+            }
+
 
         }
         else
