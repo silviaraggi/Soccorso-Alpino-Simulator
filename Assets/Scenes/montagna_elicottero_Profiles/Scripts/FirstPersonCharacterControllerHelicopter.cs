@@ -37,6 +37,9 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
     private Quaternion _direction;
     public bool _soccorso;
     public bool _dialogo;
+    private bool _kitPreso = false;
+    [SerializeField] GameObject inventory;
+    private Inventory _inventario;
 
 
     void Start()
@@ -56,7 +59,7 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
         _soccorso = false;
         _dialogo = false;
         _ferito.GetComponent<LightUpInteractable>().SetInteract(true);
-
+        _inventario = inventory.GetComponent<InventoryUI>().GetInventory();
     }
 
 
@@ -121,8 +124,15 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
                 _dialogo = true;
                 _ferito.GetComponent<LightUpInteractable>().SetInteract(false);
             }
-            if (_firstAidKit.GetComponent<LightUpInteractable>().GetCollect())
+            if (_firstAidKit.GetComponent<LightUpInteractableHelicopter>().GetCollect())
             {
+                if (_kitPreso == false)
+                {
+                    _inventario.Add(_firstAidKit.GetComponent<LightUpInteractableHelicopter>().bende);
+                    _inventario.Add(_firstAidKit.GetComponent<LightUpInteractableHelicopter>().fissaggi);
+                    _inventario.Add(_firstAidKit.GetComponent<LightUpInteractableHelicopter>().stecca);
+                    _kitPreso = true;
+                }
                 if (_soccorso == false&& _dialogo==true && _ferito.GetComponent<LightUpInteractable>().GetInteract() == true)
                 {
                     _ferito.transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().enabled = true;

@@ -15,7 +15,7 @@ public class Base_elicopter : MonoBehaviour
     private GameObject _firstAidKit;
     private GameObject _ferito;
     [SerializeField] GameObject _NPC;
-    private Transform _copter;
+    [SerializeField] GameObject _copter;
 
     private void Start()
     {
@@ -24,11 +24,10 @@ public class Base_elicopter : MonoBehaviour
         getOut = false;
         intro = true;
         _firstAidKit = GameObject.Find("first-aid-kit");
-        _firstAidKit.GetComponent<LightUpInteractable>().SetCollectable(false);
+        _firstAidKit.GetComponent<LightUpInteractableHelicopter>().SetCollectable(false);
         _ferito = GameObject.Find("ferito");
         _ferito.GetComponent<LightUpInteractable>().SetCollectable(false);
         _NPC.transform.GetChild(0).GetComponent<Renderer>().enabled = false;
-        _copter = transform.GetChild(1);
     }
 
     private void Update()
@@ -53,12 +52,15 @@ public class Base_elicopter : MonoBehaviour
             _animator.SetBool("getOut", true);
             getOut = true;
 
-            _firstAidKit.GetComponent<LightUpInteractable>().SetCollectable(true);
+            _firstAidKit.GetComponent<LightUpInteractableHelicopter>().SetCollectable(true);
         }
-        if (_copter.GetComponent<LightUpInteractable>().GetInteract() == true)
+        if (_copter.GetComponent<Interactable>() != null)
         {
-            FineScenaHelicopter();
-            _animator.SetBool("fine", true);
+            if (_copter.GetComponent<Interactable>().GetInteract() == true)
+            {
+                FineScenaHelicopter();
+                _animator.SetBool("fine", true);
+            }
         }
     }
     

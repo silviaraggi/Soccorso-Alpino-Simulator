@@ -11,6 +11,9 @@ public class InventorySlot : MonoBehaviour
     public GameObject guanti;
     public GameObject disperso;
     public GameObject maglia;
+    public GameObject stecca;
+    public GameObject bende;
+    public GameObject fissaggi;
     public GameObject sceneInfo;
     private int scene;
     private void Start()
@@ -26,6 +29,12 @@ public class InventorySlot : MonoBehaviour
                 guanti = GameObject.Find("Guanti");
                 maglia = GameObject.Find("magliasolida");
                 disperso = GameObject.Find("Disperso");
+                break;
+
+            case 1:
+                stecca = GameObject.Find("stecca");
+                bende = GameObject.Find("bende");
+                fissaggi = GameObject.Find("fissaggi");
                 break;
         }
     }

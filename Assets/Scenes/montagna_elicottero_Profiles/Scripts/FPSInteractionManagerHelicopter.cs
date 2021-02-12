@@ -34,7 +34,7 @@ public class FPSInteractionManagerHelicopter : MonoBehaviour
     void Update()
     {
 
-        if (GameObject.FindObjectOfType<DialogueTrigger>())
+        if (GameObject.FindObjectOfType<DialogueTriggerHelicopter>())
         {
             IsDialogue = GameObject.FindObjectOfType<DialogueManagerHelicopter>().dialogue_bool;
 
@@ -61,7 +61,7 @@ public class FPSInteractionManagerHelicopter : MonoBehaviour
             this.gameObject.GetComponent<FirstPersonCharacterControllerHelicopter>().SetLocked(true);
             if (Input.GetMouseButtonDown(0))
             {
-                GameObject.FindObjectOfType<DialogueManager>().DisplayNextSentence();
+                GameObject.FindObjectOfType<DialogueManagerHelicopter>().DisplayNextSentence();
 
             }
         }
