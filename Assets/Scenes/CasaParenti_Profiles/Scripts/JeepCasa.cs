@@ -12,14 +12,16 @@ public class JeepCasa : MonoBehaviour
     private bool intro;
     private bool canStart = false;
     GameObject maglia;
+    Inventory inventario;
     //GameObject cane;
     // Start is called before the first frame update
     void Start()
     {
+        inventario = GameObject.Find("Strumenti").GetComponent<InventoryUI>().GetInventory();
         intro = true;
         giocatore = GameObject.FindGameObjectWithTag("Player");
         maglia = GameObject.Find("magliasolida");
-        maglia.GetComponent<LightUpInteractable>().SetCollectable(false);
+        maglia.GetComponent<Interactable>().SetCollectable(false);
         IntroScenaCasa();
     }
 
@@ -45,10 +47,10 @@ public class JeepCasa : MonoBehaviour
                 giocatore.GetComponent<CharacterController>().enabled = true;
                 if (GameObject.Find("Parenti").GetComponent<InteractablePerson>().GetInteract())
                 {
-                    maglia.GetComponent<LightUpInteractable>().SetCollectable(true);
+                    maglia.GetComponent<Interactable>().SetCollectable(true);
                     GameObject.Find("Colleghi").GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoColleghi2");
                 }
-            canStart = maglia.GetComponent<LightUpInteractable>().GetCollect();
+            canStart = maglia.GetComponent<Interactable>().GetCollect();
             if (canStart)
             {
                 GameObject.Find("Parenti").GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoParenti2");

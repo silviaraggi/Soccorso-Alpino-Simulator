@@ -150,6 +150,10 @@ public class FPSInteractionManager : MonoBehaviour
         }
     }
 
+    public bool GetTorchStatus()
+    {
+        return transform.Find("Torcia").GetComponent<Light>().enabled;
+    }
 
     private void UpdateUITarget()
     {
@@ -232,6 +236,6 @@ public class FPSInteractionManager : MonoBehaviour
     }
     public void SetTorchStatus(bool status)
     {
-        transform.Find("Spot Light").GetComponent<Light>().enabled = status;
+        transform.Find("Torcia").GetComponent<Light>().enabled = status;
     }
 }

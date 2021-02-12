@@ -43,7 +43,21 @@ public class CaneBosco : MonoBehaviour
             GetComponent<Animator>().SetBool("isHowl", true);
             GetComponent<Animator>().SetBool("isIdle", false);
             audio.PlayOneShot(ululato, 1f);
+            StartCoroutine(waitForSound());
         }
+    }
+
+    IEnumerator waitForSound()
+    {
+        //Wait Until Sound has finished playing
+        while (audio.isPlaying)
+        {
+            yield return null;
+        }
+        GetComponent<Animator>().SetBool("isHowl", false);
+        GetComponent<Animator>().SetBool("isIdle", true);
+        //Auido has finished playing, disable GameObject
+
     }
 
     public GameObject GetTarget()
@@ -58,17 +72,21 @@ public class CaneBosco : MonoBehaviour
 
     private void CheckNewTarget()
     {
-        agent.destination = ToFollow.transform.position;
-        Vector3 GoHere = ToFollow.transform.position;
-        Vector3 npcPos = gameObject.transform.position;
-        Vector3 delta = new Vector3(GoHere.x - npcPos.x, 0.0f, GoHere.z - npcPos.z);
-        Quaternion rotation = Quaternion.LookRotation(delta);
-        gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, rotation, 0.5f);
-        if (agent.velocity == Vector3.zero)
+        if (!(GetComponent<Animator>().GetBool("isHowl") || GetComponent<Animator>().GetBool("isSniff")))
+        {
+            agent.destination = ToFollow.transform.position;
+            Vector3 GoHere = ToFollow.transform.position;
+            Vector3 npcPos = gameObject.transform.position;
+            Vector3 delta = new Vector3(GoHere.x - npcPos.x, 0.0f, GoHere.z - npcPos.z);
+            Quaternion rotation = Quaternion.LookRotation(delta);
+            gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, rotation, 0.5f);
+        }
+        if (agent.velocity.magnitude < 0.15f)
         {
             GetComponent<Animator>().SetBool("isWalking", false);
+            if(!GetComponent<Animator>().GetBool("isHowl"))
             GetComponent<Animator>().SetBool("isIdle", true);
-            if (ToFollow.GetComponent<InteractableClue>())
+            if (ToFollow.GetComponent<InteractableClue>() && Vector3.Distance(transform.position, ToFollow.transform.position) <= agent.stoppingDistance)
                 if (ToFollow.GetComponent<InteractableClue>().GetInteract() == false)
                 {
                     ToFollow.gameObject.GetComponent<InteractableClue>().Interact(this.gameObject);
@@ -79,18 +97,10 @@ public class CaneBosco : MonoBehaviour
         }
         else
         {
-            if ((GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Sniff") || GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("howl")) && GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
-                GetComponent<Animator>().SetBool("isWalking", true);
+            GetComponent<Animator>().SetBool("isWalking", true);
             GetComponent<Animator>().SetBool("isIdle", false);
-            GetComponent<Animator>().SetBool("isSniff", false);
-            if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Walk") || GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Idle"))
-            {
-                GetComponent<Animator>().SetBool("isWalking", true);
-                GetComponent<Animator>().SetBool("isIdle", false);
-                GetComponent<Animator>().SetBool("isSniff", false);
-            }
         }
-        if (ToFollow.GetComponent<InteractableClue>()&&ToFollow.GetComponent<InteractableClue>().GetCollect())
+        if (ToFollow.GetComponent<InteractableClue>() && ToFollow.GetComponent<InteractableClue>().GetCollect())
         {
             ToFollow = player;
         }
@@ -102,7 +112,48 @@ public class CaneBosco : MonoBehaviour
         GetComponent<Animator>().SetBool("isWalking", false);
         GetComponent<Animator>().SetBool("isIdle", false);
         GetComponent<Animator>().SetBool("isSniff", true);
+        StartCoroutine(PlayAndWaitForAnim(GetComponent<Animator>(),"Sniff"));
         SetTarget(clue);
     }
+
+    public IEnumerator PlayAndWaitForAnim(Animator targetAnim, string stateName)
+    {
+
+        //targetAnim.Play(stateName);
+        targetAnim.CrossFadeInFixedTime(stateName, 0.6f);
+
+        //Wait until we enter the current state
+        while (!targetAnim.GetCurrentAnimatorStateInfo(0).IsName(stateName))
+        {
+            yield return null;
+        }
+
+        float counter = 1.5f;
+        float waitTime = targetAnim.GetCurrentAnimatorStateInfo(0).length;
+
+        //Now, Wait until the current state is done playing
+        while (counter < (waitTime))
+        {
+            counter += Time.deltaTime;
+            yield return null;
+        }
+
+        //Done playing. Do something below!
+        GetComponent<Animator>().SetBool("isSniff", false);
+        GetComponent<Animator>().SetBool("isWalking", true);
+
+    }
+    /*IEnumerator waitForSniff()
+    {
+        //Wait Until Sound has finished playing
+        while (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0))
+        {
+            yield return null;
+        }
+        GetComponent<Animator>().SetBool("isSniff", false);
+        GetComponent<Animator>().SetBool("isIdle", true);
+        //Auido has finished playing, disable GameObject
+        
+    }*/
 
 }

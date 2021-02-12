@@ -61,8 +61,8 @@ public class Disperso : MonoBehaviour
                     newDispersoState = DispersoState.Found;
                 break;
             
-            default:
-                throw new ArgumentOutOfRangeException();
+            //default:
+                //throw new ArgumentOutOfRangeException();
         }
 
         if (newDispersoState != _currentDispersoState)

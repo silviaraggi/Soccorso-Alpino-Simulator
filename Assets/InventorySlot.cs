@@ -55,8 +55,9 @@ public class InventorySlot : MonoBehaviour
 
     public void UseItem()
     {
-        if (item != null&&GameObject.Find("CaneUnity2")&&GameObject.Find("CaneUnity2").GetComponent<CaneBosco>())
+        if (item != null&&scene==2)
         {
+            if(GameObject.Find("Torcia"))
             switch (this.item.name)
             {
                 case "Maglia":
@@ -75,8 +76,31 @@ public class InventorySlot : MonoBehaviour
                     if (disperso.GetComponent<Disperso>().GetDispersoState() == Disperso.DispersoState.Wander)
                         cane.GetComponent<CaneBosco>().GetNewClue(disperso);
                     break;
+                    case "Torcia":
+                        GameObject.Find("Player").GetComponent<FPSInteractionManager>().SetTorchStatus(!GameObject.Find("Player").GetComponent<FPSInteractionManager>().GetTorchStatus());
+                        break;
             }
-                    GameObject.Find("Inventory").SetActive(false);
+            else
+                switch (this.item.name)
+                {
+                    case "Maglia":
+                        if (berretto.GetComponent<InteractableClue>().GetCollect() == false)
+                            cane.GetComponent<CaneBosco>().GetNewClue(berretto);
+                        break;
+                    case "Cappello":
+                        if (zaino.GetComponent<InteractableClue>().GetCollect() == false)
+                            cane.GetComponent<CaneBosco>().GetNewClue(zaino);
+                        break;
+                    case "Zaino":
+                        if (guanti.GetComponent<InteractableClue>().GetCollect() == false)
+                            cane.GetComponent<CaneBosco>().GetNewClue(guanti);
+                        break;
+                    case "Guanti":
+                        if (disperso.GetComponent<Disperso>().GetDispersoState() == Disperso.DispersoState.Wander)
+                            cane.GetComponent<CaneBosco>().GetNewClue(disperso);
+                        break;
+                }
+            GameObject.Find("Inventory").SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
 
         }

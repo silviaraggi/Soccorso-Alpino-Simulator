@@ -17,7 +17,7 @@ public class InteractableClue : Interactable
     {
         inventory = GameObject.Find("Strumenti").GetComponent<InventoryUI>().GetInventory();
             collectable = true;
-            animatable = true;
+        //animatable = true;
     }
 
 
@@ -71,7 +71,6 @@ public class InteractableClue : Interactable
         else
         {
             gameObject.GetComponent<Renderer>().enabled = false;
-            gameObject.GetComponent<BoxCollider>().enabled = false;
             gameObject.GetComponent<Collider>().enabled = false;
             collect = true;
             inventory.Add(oggetto);
@@ -112,6 +111,11 @@ public class InteractableClue : Interactable
     public override void SetCollect(bool newvalue)
     {
         collect = newvalue;
+    }
+
+    public Item GetItem()
+    {
+        return oggetto;
     }
 }
 

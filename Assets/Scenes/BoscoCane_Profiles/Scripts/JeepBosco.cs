@@ -18,9 +18,14 @@ public class JeepBosco : MonoBehaviour
     private bool intro;
     private bool finale;
     bool canStart = false;
+    GameObject torcia;
+    Inventory inventario;
     // Start is called before the first frame update
     void Start()
     {
+        torcia = GameObject.Find("Torcia");
+        inventario = GameObject.Find("Strumenti").GetComponent<InventoryUI>().GetInventory();
+        inventario.Add(torcia.GetComponent<InteractableClue>().GetItem());
         intro = true;
         finale = false;
         scena = gameObject.scene;
@@ -30,7 +35,7 @@ public class JeepBosco : MonoBehaviour
         collega1 = GameObject.Find("Collega1");
         collega2 = GameObject.Find("Collega2");
         telecameraGiocatore = giocatore.transform.Find("Camera").GetComponent<Camera>();
-        GameObject.Find("Strumenti").GetComponent<InventoryUI>().GetInventory().Add(maglia.GetComponent<InteractableClue>().oggetto);
+        GameObject.Find("Strumenti").GetComponent<InventoryUI>().GetInventory().Add(GameObject.Find("magliasolida").GetComponent<InteractableClue>().GetItem());
         if (scena.name == "BoscoCane")
             IntroScenaBosco();
     }
@@ -40,14 +45,25 @@ public class JeepBosco : MonoBehaviour
     {
         if (scena.name == "BoscoCane")
         {
-            if (!intro&&!finale)
+            if (!intro && !finale)
             {
-                foreach( Renderer daAttivare in collega1.GetComponentsInChildren<Renderer>()){
+                foreach (Renderer daAttivare in collega1.GetComponentsInChildren<Renderer>())
+                {
                     daAttivare.enabled = true;
                 }
                 foreach (Renderer daAttivare in collega2.GetComponentsInChildren<Renderer>())
                 {
                     daAttivare.enabled = true;
+                }
+                if (giocatore.GetComponent<FPSInteractionManager>().GetTorchStatus() == false)
+                {
+                    GameObject.Find("Collega1").GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoColleghi2");
+                    GameObject.Find("Collega2").GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoColleghi2");
+                }
+                else
+                {
+                    GameObject.Find("Collega2").GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoColleghi1");
+                    GameObject.Find("Collega1").GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoColleghi1");
                 }
                 cane.gameObject.transform.Find("Cane.001").GetComponent<Renderer>().enabled = true;
                 cane.gameObject.transform.Find("Cane.002").GetComponent<Renderer>().enabled = true;
