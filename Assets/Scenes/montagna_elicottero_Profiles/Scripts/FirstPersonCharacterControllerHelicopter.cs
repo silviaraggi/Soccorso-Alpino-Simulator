@@ -135,15 +135,21 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
                 }
                 if (_soccorso == false&& _dialogo==true && _ferito.GetComponent<LightUpInteractable>().GetInteract() == true)
                 {
-                    _ferito.transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().enabled = true;
-                    _ferito.transform.GetChild(2).GetComponent<SkinnedMeshRenderer>().enabled = true;
-                    _ferito.transform.GetChild(3).GetComponent<SkinnedMeshRenderer>().enabled = true;
-                    _ferito.transform.GetChild(4).GetComponent<SkinnedMeshRenderer>().enabled = false;
-                    _ferito.GetComponent<Animator>().SetBool("soccorso", true);
-                    _soccorso = true;
-                    //_ferito.GetComponent<LightUpInteractable>().GetInteract();
-                    //Cambio ferito
-                }
+                    
+                    if (_ferito.transform.GetChild(2).GetComponent<SkinnedMeshRenderer>().enabled == true)
+                    {
+                        _ferito.GetComponent<Animator>().SetBool("soccorso", true);
+                        _soccorso = true;
+                        _ferito.GetComponent<LightUpInteractable>().SetInteract(false);
+                    }
+                    if (_ferito.transform.GetChild(4).GetComponent<SkinnedMeshRenderer>().enabled == true)
+                    {
+                        _ferito.transform.GetChild(4).GetComponent<SkinnedMeshRenderer>().enabled = false;
+                        _ferito.GetComponent<LightUpInteractable>().SetInteract(false);
+                    }
+                        //_ferito.GetComponent<LightUpInteractable>().GetInteract();
+                        //Cambio ferito
+                    }
                 if (_barella.transform.parent == _helicopter.transform)
                     _barella.transform.parent = null;
                 if (_soccorso == true)

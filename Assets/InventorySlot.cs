@@ -16,6 +16,7 @@ public class InventorySlot : MonoBehaviour
     public GameObject fissaggi;
     public GameObject sceneInfo;
     private int scene;
+    private GameObject _stivali; 
     private void Start()
     {
         sceneInfo = GameObject.Find("SceneInfo");
@@ -35,6 +36,7 @@ public class InventorySlot : MonoBehaviour
                 stecca = GameObject.Find("stecca");
                 bende = GameObject.Find("bende");
                 fissaggi = GameObject.Find("fissaggi");
+                _stivali = GameObject.Find("stivali");
                 break;
         }
     }
@@ -64,7 +66,28 @@ public class InventorySlot : MonoBehaviour
 
     public void UseItem()
     {
-        if (item != null&&scene==2)
+        if (item != null && scene == 1)
+        {
+            switch (this.item.name)
+            {
+                case "stecca":
+                    if (_stivali.GetComponent<SkinnedMeshRenderer>().enabled == false)
+                        stecca.GetComponent<SkinnedMeshRenderer>().enabled = true;
+                    break;
+                case "bende":
+                    if (stecca.GetComponent<SkinnedMeshRenderer>().enabled == true)
+                        bende.GetComponent<SkinnedMeshRenderer>().enabled = true;
+                    break;
+                case "fissaggi":
+                    if (bende.GetComponent<SkinnedMeshRenderer>().enabled == true)
+                        fissaggi.GetComponent<SkinnedMeshRenderer>().enabled = true;
+                    break;
+            }
+            GameObject.Find("Inventory").SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
+            if (item != null&&scene==2)
         {
             if(GameObject.Find("Torcia"))
             switch (this.item.name)

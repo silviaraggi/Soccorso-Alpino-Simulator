@@ -54,14 +54,12 @@ public class Base_elicopter : MonoBehaviour
 
             _firstAidKit.GetComponent<LightUpInteractableHelicopter>().SetCollectable(true);
         }
-        if (_copter.GetComponent<Interactable>() != null)
-        {
             if (_copter.GetComponent<Interactable>().GetInteract() == true)
             {
                 FineScenaHelicopter();
                 _animator.SetBool("fine", true);
             }
-        }
+
     }
     
     public void IntroScenaHelicopter()
