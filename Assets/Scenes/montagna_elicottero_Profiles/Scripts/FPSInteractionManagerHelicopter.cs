@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System;
+using UnityEngine.EventSystems;
 
 public class FPSInteractionManagerHelicopter : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class FPSInteractionManagerHelicopter : MonoBehaviour
     private GameObject changeColor = null;
     private bool unlocked = true;
     private bool UIenabled = true;
+    private bool IsDialogue = false;
 
     void Start()
     {
@@ -31,6 +33,12 @@ public class FPSInteractionManagerHelicopter : MonoBehaviour
 
     void Update()
     {
+
+        if (GameObject.FindObjectOfType<DialogueTrigger>())
+        {
+            IsDialogue = GameObject.FindObjectOfType<DialogueManagerHelicopter>().dialogue_bool;
+
+        }
         _rayOrigin = _fpsCameraT.position + _fpsController.radius * _fpsCameraT.forward;
 
         if(unlocked)
@@ -48,6 +56,19 @@ public class FPSInteractionManagerHelicopter : MonoBehaviour
 
     private void CheckInteraction()
     {
+        if (IsDialogue == true)
+        {
+            this.gameObject.GetComponent<FirstPersonCharacterControllerHelicopter>().SetLocked(true);
+            if (Input.GetMouseButtonDown(0))
+            {
+                GameObject.FindObjectOfType<DialogueManager>().DisplayNextSentence();
+
+            }
+        }
+        else
+        {
+            this.gameObject.GetComponent<FirstPersonCharacterControllerHelicopter>().SetLocked(false);
+        }
         Ray ray = new Ray(_rayOrigin, _fpsCameraT.forward);
         RaycastHit hit;
 
@@ -57,7 +78,7 @@ public class FPSInteractionManagerHelicopter : MonoBehaviour
             return;
         }
 
-        if (Physics.Raycast(ray, out hit, _interactionDistance))
+        if (Physics.Raycast(ray, out hit, _interactionDistance) && IsDialogue == false && !EventSystem.current.IsPointerOverGameObject())
         {
             
             //Check if is interactable
