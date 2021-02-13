@@ -14,12 +14,14 @@ public class MainMenu : MonoBehaviour
 
     public void PlayElicopter()
     {
-        SceneManager.LoadScene("montagna_elicottero");
+        GameObject.Find("SceneInfo").GetComponent<SceneInfo>().SetScene(1);
+        SceneManager.LoadScene("Baita");
     }
 
     public void PlayDog()
     {
-        SceneManager.LoadScene("montagna_elicottero");
+        GameObject.Find("SceneInfo").GetComponent<SceneInfo>().SetScene(2);
+        SceneManager.LoadScene("Baita");
     }
 
     public void PlaySnow()
