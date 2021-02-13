@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class InventoryUI : MonoBehaviour
     public bool control = false;
     Inventory inventory;
     InventorySlot[] slots;
+    public Text dialogueText;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,17 @@ public class InventoryUI : MonoBehaviour
 
         if (Input.GetButtonDown("Inventory")||(GameObject.Find("stivali")&& (GameObject.Find("stivali").GetComponent<SkinnedMeshRenderer>().enabled==false)&& (GameObject.Find("ferito"))&& (GameObject.Find("ferito").GetComponent<LightUpInteractableHelicopter>())&&(GameObject.Find("ferito").GetComponent<LightUpInteractableHelicopter>().GetInteract())&& GameObject.Find("fissaggi") && (GameObject.Find("fissaggi").GetComponent<SkinnedMeshRenderer>().enabled == false)) ||(GameObject.Find("CaneUnity2") && GameObject.Find("CaneUnity2").GetComponent<InteractableDog>()&&GameObject.Find("CaneUnity2").GetComponent<InteractableDog>().GetInteract()))
         {
-
+            if (GameObject.Find("ferito"))
+            {
+                if (Input.GetButtonDown("Inventory"))
+                    dialogueText.text = "Aiuta il ferito!";
+                else if (GameObject.Find("stecca").GetComponent<SkinnedMeshRenderer>().enabled == false)
+                    dialogueText.text = "Cerca di bloccare la gamba!";
+                else if (GameObject.Find("bende").GetComponent<SkinnedMeshRenderer>().enabled == false)
+                    dialogueText.text = "Usa le bende!";
+                else if (GameObject.Find("fissaggi").GetComponent<SkinnedMeshRenderer>().enabled == false)
+                    dialogueText.text ="Fissa il tutto";
+            }
             inventoryUI.SetActive(!inventoryUI.activeSelf);
             Cursor.lockState = CursorLockMode.Locked;
             /*if (GameObject.Find("CaneUnity2"))
