@@ -16356,6 +16356,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Collega1
       objectReference: {fileID: 0}
+    - target: {fileID: 8417361359673230750, guid: 35160b9c96709af4f81a39d078e8333b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35160b9c96709af4f81a39d078e8333b, type: 3}
 --- !u!1 &1929159433 stripped
@@ -18069,7 +18074,7 @@ SkinnedMeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6170525538388176186}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
