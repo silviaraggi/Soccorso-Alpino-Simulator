@@ -13,6 +13,10 @@ public class LightUpInteractableHelicopter : Interactable
     public Item bende;
     public Item fissaggi;
     public Item stecca;
+    [SerializeField] private GameObject _player;
+    [SerializeField] private GameObject _NPC;
+    public DialogueTriggerHelicopter dialoguetrigger;
+    public bool dialogue = false;
 
 
     // Start is called before the first frame update
@@ -37,6 +41,15 @@ public class LightUpInteractableHelicopter : Interactable
         }
     }
 
+    public void Update()
+    {
+        /*if (_player!= null &&_player.transform.GetComponent<FirstPersonCharacterControllerHelicopter>()._dialogo == false && dialoguetrigger != null &&this.animatable)
+        //if(this.animatable&&_NPC.GetComponent<LightUpInteractableHelicopter>().dialogue == false)
+        {
+            dialogue = GameObject.Find("DialogueManager").GetComponent<DialogueManagerHelicopter>().dialogue_bool;
+            interact = dialogue;
+        }*/
+    }
 
     public override void GlowUp(GameObject changeColor)
     {
@@ -86,7 +99,17 @@ public class LightUpInteractableHelicopter : Interactable
     {
         if (!collectable)
         {
-            if (_animator.GetBool("interact"))
+            if (_player.transform.GetComponent<FirstPersonCharacterControllerHelicopter>()._dialogo == false)
+            {
+                dialoguetrigger.TriggerDialogue();
+                _player.transform.GetComponent<FirstPersonCharacterControllerHelicopter>()._dialogo = true;
+            }
+            else
+            {
+                interact = true;
+
+            }
+            /*if (_animator.GetBool("interact"))
             {
                 interact = false;
                 _animator.SetBool("interact", false);
@@ -97,7 +120,7 @@ public class LightUpInteractableHelicopter : Interactable
                 interact = true;
                 _animator.SetBool("interact", true);
 
-            }
+            }*/
         }
         else
         {
