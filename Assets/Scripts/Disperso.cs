@@ -7,6 +7,7 @@ using UnityEngine.AI;
 
 public class Disperso : MonoBehaviour
 {
+    public int flag;
     public enum DispersoState
     {
         Wander,
@@ -26,6 +27,7 @@ public class Disperso : MonoBehaviour
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _currentDispersoState = DispersoState.Wander;
+        flag = 0;
 
     }
 
@@ -33,6 +35,10 @@ public class Disperso : MonoBehaviour
     {
         UpdateState();
         CheckTransition();
+        if (this.GetComponentInParent<InteractablePerson>().GetInteract() && this.GetComponentInParent<InteractablePerson>().dialogue)
+            flag = 1;
+        if (flag == 1 && this.GetComponentInParent<InteractablePerson>().dialogue == false)
+            flag = 2;
     }
 
     private void UpdateState()

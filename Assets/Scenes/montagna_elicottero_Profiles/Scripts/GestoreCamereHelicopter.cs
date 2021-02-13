@@ -10,6 +10,7 @@ public class GestoreCamereHelicopter : MonoBehaviour
     private Transform _parent;
     Camera main;
     [SerializeField] GameObject _NPC;
+   
 
     // Start is called before the first frame update
     void Start()

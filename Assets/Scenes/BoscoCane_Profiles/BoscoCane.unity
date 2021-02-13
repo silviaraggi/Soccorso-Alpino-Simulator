@@ -8479,6 +8479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a7c5b992afb9d4389dcba26ba285c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flag: 0
   _waypoints:
   - {fileID: 139402806}
   - {fileID: 1569185516}
@@ -11801,6 +11802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90dd492012b6f54408fafd7a71de1c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fine: {fileID: 1691952912}
 --- !u!95 &1391492764
 Animator:
   serializedVersion: 3
@@ -11827,15 +11829,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391492759}
-  m_LocalRotation: {x: 0.18134491, y: -0.7237991, z: -0.615623, w: -0.25345063}
-  m_LocalPosition: {x: -579.4269, y: 1.5391405, z: 45.814613}
+  m_LocalRotation: {x: 0.72604924, y: 0.17211536, z: 0.24559246, w: -0.61879987}
+  m_LocalPosition: {x: -579.97754, y: 1.7160473, z: 46.64985}
   m_LocalScale: {x: 4.266041, y: 4.266041, z: 4.266041}
   m_Children:
   - {fileID: 1921687439}
   - {fileID: 650893651}
   m_Father: {fileID: 0}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: -79.451004, y: 128.33, z: -344.298}
+  m_LocalEulerAnglesHint: {x: -79.451004, y: 128.33, z: -522.839}
 --- !u!82 &1391492766
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12316,7 +12318,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1466183830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15306,6 +15308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a7c5b992afb9d4389dcba26ba285c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flag: 0
   _waypoints:
   - {fileID: 139402806}
   - {fileID: 1569185516}

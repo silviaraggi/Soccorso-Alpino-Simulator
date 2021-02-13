@@ -13,12 +13,17 @@ public class CompleteMission : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            Time.timeScale = 0.5f;
             Time.fixedDeltaTime = 0.02f * Time.timeScale; //SlowmotionEffect
             Debug.Log("Missione Complete");
             missionCompleteUI.SetActive(true);
             
         }
+    }
+     public void Fine()
+    {
+        Time.fixedDeltaTime = 0.02f * Time.timeScale; //SlowmotionEffect
+        Debug.Log("Missione Complete");
+        missionCompleteUI.SetActive(true);
     }
 }
 

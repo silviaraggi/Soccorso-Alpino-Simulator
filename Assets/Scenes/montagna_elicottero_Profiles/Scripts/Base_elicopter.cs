@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class Base_elicopter : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Base_elicopter : MonoBehaviour
     private GameObject _ferito;
     [SerializeField] GameObject _NPC;
     [SerializeField] GameObject _copter;
+    [SerializeField] GameObject _fine;
 
     private void Start()
     {
@@ -77,6 +79,7 @@ public class Base_elicopter : MonoBehaviour
         _child.GetComponent<CharacterController>().enabled = false;
         _child.GetComponent<FPSInteractionManagerHelicopter>().SetUnlocked(false);
         _child.GetComponent<FPSInteractionManagerHelicopter>().SetUIVisible(false);
+        _fine.transform.GetComponent<CompleteMission>().Fine();
     }
 
     public void SetCamera(int number)
@@ -99,7 +102,14 @@ public class Base_elicopter : MonoBehaviour
     {
         _child.GetComponent<GestoreCamereHelicopter>().DisableCamera(NumCamera);
     }
-    
+
+    public void LoadMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Menu");
+        Debug.Log("Loading menu...");
+    }
+
 }
 
 
