@@ -20,6 +20,7 @@ public class JeepBosco : MonoBehaviour
     bool canStart = false;
     GameObject torcia;
     Inventory inventario;
+    [SerializeField] GameObject fine;
     // Start is called before the first frame update
     void Start()
     {
@@ -80,17 +81,25 @@ public class JeepBosco : MonoBehaviour
                     if (GetComponent<LightUpInteractable>().GetInteract())
                         FineScenaCasa();
                 }*/
+                if (GameObject.Find("Disperso").GetComponent<Disperso>().flag==2)
+                    FineScenaBosco();
             }
         }
     }
     public void FineScenaBosco()
     {
-        collega1.GetComponent<Renderer>().enabled = false;
-        collega2.GetComponent<Renderer>().enabled = false;
+        foreach (Renderer daAttivare in collega1.GetComponentsInChildren<Renderer>())
+        {
+            daAttivare.enabled = false;
+        }
+        foreach (Renderer daAttivare in collega2.GetComponentsInChildren<Renderer>())
+        {
+            daAttivare.enabled = false;
+        }
         giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(false);
         giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
         telecameraGiocatore.enabled = false;
-        GameObject.Find("Cube").GetComponent<BoxCollider>().enabled = false;
+        fine.transform.GetComponent<CompleteMission>().Fine();
     }
     public void IntroScenaBosco()
     {
