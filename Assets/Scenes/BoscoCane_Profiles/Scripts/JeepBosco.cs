@@ -74,13 +74,6 @@ public class JeepBosco : MonoBehaviour
                 giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
                 telecameraGiocatore.enabled = true;
                 giocatore.GetComponent<CharacterController>().enabled = true ;
-                //canStart = GameObject.Find("magliasolida").GetComponent<LightUpInteractable>().GetCollect();
-                /*if (canStart)
-                {
-                    GetComponent<LightUpInteractable>().SetAnimatable(true);
-                    if (GetComponent<LightUpInteractable>().GetInteract())
-                        FineScenaCasa();
-                }*/
                 if (GameObject.Find("Disperso").GetComponent<Disperso>().flag==2)
                     FineScenaBosco();
             }
@@ -88,6 +81,8 @@ public class JeepBosco : MonoBehaviour
     }
     public void FineScenaBosco()
     {
+        Vector3 nuovarotazionejeep = new Vector3(-85.6f, 89.47f, 59.84f);
+        this.gameObject.transform.rotation = Quaternion.Euler(nuovarotazionejeep);
         foreach (Renderer daAttivare in collega1.GetComponentsInChildren<Renderer>())
         {
             daAttivare.enabled = false;
@@ -100,6 +95,9 @@ public class JeepBosco : MonoBehaviour
         giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
         telecameraGiocatore.enabled = false;
         fine.transform.GetComponent<CompleteMission>().Fine();
+        this.GetComponent<Animator>().SetBool("finale", true);
+        this.GetComponent<Animator>().SetBool("intro", false);
+        GameObject.Find("Cam1").GetComponent<Camera>().enabled = true;
     }
     public void IntroScenaBosco()
     {
@@ -110,6 +108,7 @@ public class JeepBosco : MonoBehaviour
         cane.gameObject.transform.Find("Cane.001").GetComponent<Renderer>().enabled = false;
         cane.gameObject.transform.Find("Cane.002").GetComponent<Renderer>().enabled = false;
         cane.GetComponent<Animator>().enabled = false;
+
     }
 
     public void SetCamera(int number)
@@ -131,9 +130,11 @@ public class JeepBosco : MonoBehaviour
     {
         GameObject.Find("GestoreCamere").GetComponent<GestoreCamereBosco>().DisableCamera(NumCamera);
     }
-    public void CaricaScenaMenu()
+    public void LoadMenu()
     {
-        GameObject.Find("GestoreScene").GetComponent<GestoreScene>().LoadSceneByID(0);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Menu");
+        Debug.Log("Loading menu...");
     }
 
 }
