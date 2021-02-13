@@ -40,6 +40,7 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
     private bool _kitPreso = false;
     [SerializeField] GameObject inventory;
     private Inventory _inventario;
+    [SerializeField] private GameObject _NPC;
 
 
     void Start()
@@ -58,7 +59,7 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
         _helicopter = GameObject.Find("Helicopter").transform.GetChild(1);
         _soccorso = false;
         _dialogo = false;
-        _ferito.GetComponent<LightUpInteractable>().SetInteract(true);
+        //_ferito.GetComponent<LightUpInteractableHelicopter>().SetInteract(true);
         _inventario = inventory.GetComponent<InventoryUI>().GetInventory();
     }
 
@@ -119,10 +120,10 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
             if (transform.parent == null) {
                 _barella.GetComponent<Grabbable>().grab = true;
             }
-            if (_dialogo == false && _ferito.GetComponent<LightUpInteractable>().GetInteract()==true)
+            if (_dialogo == false && _ferito.GetComponent<Interactable>().GetInteract()==true)
             {
                 _dialogo = true;
-                _ferito.GetComponent<LightUpInteractable>().SetInteract(false);
+                //_ferito.GetComponent<LightUpInteractableHelicopter>().SetInteract(false);
             }
             if (_firstAidKit.GetComponent<LightUpInteractableHelicopter>().GetCollect())
             {
@@ -132,20 +133,21 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
                     _inventario.Add(_firstAidKit.GetComponent<LightUpInteractableHelicopter>().fissaggi);
                     _inventario.Add(_firstAidKit.GetComponent<LightUpInteractableHelicopter>().stecca);
                     _kitPreso = true;
+                    _NPC.GetComponent<DialogueTriggerHelicopter>().dialogue = GameObject.Find("DialogoColleghi3");
                 }
-                if (_soccorso == false&& _dialogo==true && _ferito.GetComponent<LightUpInteractable>().GetInteract() == true)
+                if (_soccorso == false&& _dialogo==true && _ferito.GetComponent<Interactable>().GetInteract() == true)
                 {
                     
                     if (_ferito.transform.GetChild(2).GetComponent<SkinnedMeshRenderer>().enabled == true)
                     {
                         _ferito.GetComponent<Animator>().SetBool("soccorso", true);
                         _soccorso = true;
-                        _ferito.GetComponent<LightUpInteractable>().SetInteract(false);
+                        //_ferito.GetComponent<Interactable>().SetInteract(false);
                     }
                     if (_ferito.transform.GetChild(4).GetComponent<SkinnedMeshRenderer>().enabled == true)
                     {
                         _ferito.transform.GetChild(4).GetComponent<SkinnedMeshRenderer>().enabled = false;
-                        _ferito.GetComponent<LightUpInteractable>().SetInteract(false);
+                        _ferito.GetComponent<Interactable>().SetInteract(false);
                     }
                         //_ferito.GetComponent<LightUpInteractable>().GetInteract();
                         //Cambio ferito
@@ -164,10 +166,10 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
                         }
                         if (_grabFerito ==1 && Vector3.Distance(_barella.transform.position, (_ferito.transform.position+new Vector3(0f,1f,0f))) < 1f && _ferito.transform.IsChildOf(transform) == false)
                         {
-                            if(_ferito.GetComponent<LightUpInteractable>()!=null)
-                                _ferito.GetComponent<LightUpInteractable>().TurnOff();
+                            if(_ferito.GetComponent<Interactable>()!=null)
+                                _ferito.GetComponent<Interactable>().TurnOff();
                             //_ferito.GetComponent<LightUpInteractable>().enabled = false;
-                            Destroy(_ferito.GetComponent<LightUpInteractable>());
+                            Destroy(_ferito.GetComponent<Interactable>());
                             //_ferito.GetComponent<PhysicsGrabbable>().grab = false;
                             Destroy(_ferito.GetComponent<PhysicsGrabbable>());
                             //Destroy(_ferito.GetComponent<BoxCollider>());
@@ -180,6 +182,7 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
                             _targetDirection = _barella.transform.eulerAngles;
                             _direction = Quaternion.Euler(_barella.transform.eulerAngles);
                             _helicopter.transform.GetComponent<BoxCollider>().enabled = true;
+                            _NPC.GetComponent<DialogueTriggerHelicopter>().dialogue = GameObject.Find("DialogoColleghi4");
                             //_ferito.transform.position=_barella.transform.position+ new Vector3(0.1f, -0.2f, 0.1f);
                         }
                         if (_ferito.transform.IsChildOf(transform) && _grabFerito ==1)
@@ -216,7 +219,7 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
                 }
             }
             else {
-                _ferito.GetComponent<LightUpInteractable>().SetInteract(false);
+                _ferito.GetComponent<LightUpInteractableHelicopter>().SetInteract(false);
             }
         }
     }
