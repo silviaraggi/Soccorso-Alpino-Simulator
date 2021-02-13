@@ -7,9 +7,11 @@ public class soccorritoreNeve2 : MonoBehaviour
 {
     NavMeshAgent agent;
     Transform ToFollow;
+    GameObject soccorsoNeve2;
     // Start is called before the first frame update
     void Start()
     {
+        soccorsoNeve2 = GameObject.Find("soccorsoneve2");
         agent = GameObject.Find("SoccorritoreNeve2").GetComponent<NavMeshAgent>();
     }
 
@@ -29,13 +31,13 @@ public class soccorritoreNeve2 : MonoBehaviour
         gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, rotation, 0.5f);
         if (agent.velocity.magnitude < 0.15f)
         {
-            GetComponent<Animator>().SetBool("isWalking", false);
-            GetComponent<Animator>().SetBool("isIdle", true);
+            soccorsoNeve2.GetComponent<Animator>().SetBool("isWalking", false);
+            soccorsoNeve2.GetComponent<Animator>().SetBool("isIdle", true);
         }
         else
         {
-            GetComponent<Animator>().SetBool("isWalking", true);
-            GetComponent<Animator>().SetBool("isIdle", false);
+            soccorsoNeve2.GetComponent<Animator>().SetBool("isWalking", true);
+            soccorsoNeve2.GetComponent<Animator>().SetBool("isIdle", false);
         }
     }
 

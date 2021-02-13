@@ -26,7 +26,6 @@ public class GestoreScenaValanga : MonoBehaviour
         {
             daAttivare.enabled = true;
         }
-        Soccorritore2.transform.position = new Vector3(72.22f, 36.43f, 134.61f);
     }
 
     // Update is called once per frame
