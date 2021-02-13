@@ -73,7 +73,6 @@ GameObject:
   m_Component:
   - component: {fileID: 976760383468405697}
   - component: {fileID: 6588215057030764987}
-  - component: {fileID: 721876773674374776}
   m_Layer: 0
   m_Name: soccorso_neve
   m_TagString: Untagged
@@ -116,21 +115,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &721876773674374776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 488067475070474619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18a41dd96479b2649b5ec46e6f31e38b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cameraT: {fileID: 0}
-  _speed: 5
-  _rotationSpeed: 3
 --- !u!1 &584268805705508460
 GameObject:
   m_ObjectHideFlags: 0

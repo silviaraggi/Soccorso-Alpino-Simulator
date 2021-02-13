@@ -12,6 +12,21 @@ public class MainMenu : MonoBehaviour
 
     }
 
+    public void PlayElicopter()
+    {
+        SceneManager.LoadScene("montagna_elicottero");
+    }
+
+    public void PlayDog()
+    {
+        SceneManager.LoadScene("montagna_elicottero");
+    }
+
+    public void PlaySnow()
+    {
+        SceneManager.LoadScene("montagna_elicottero");
+    }
+
     public void QuitGame()
     {
         Debug.Log("QUIT!");
