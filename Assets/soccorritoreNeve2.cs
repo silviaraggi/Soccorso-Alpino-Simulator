@@ -8,18 +8,34 @@ public class soccorritoreNeve2 : MonoBehaviour
     NavMeshAgent agent;
     Transform ToFollow;
     GameObject soccorsoNeve2;
+    bool intro;
+    bool finale;
+
     // Start is called before the first frame update
     void Start()
     {
-        soccorsoNeve2 = GameObject.Find("soccorsoneve2");
-        agent = GameObject.Find("SoccorritoreNeve2").GetComponent<NavMeshAgent>();
+        intro = GameObject.Find("GestoreScena").GetComponent<GestoreScenaValanga>().intro;
+        finale = GameObject.Find("GestoreScena").GetComponent<GestoreScenaValanga>().finale;
+        soccorsoNeve2 = GameObject.Find("SoccorritoreNeve2_cutscene");
+        agent = GameObject.Find("SoccorritoreNeve2_gameplay").GetComponent<NavMeshAgent>();
+        agent.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        ToFollow = GameObject.Find("Player").transform;
-        UpdatePosition();
+        intro = GameObject.Find("GestoreScena").GetComponent<GestoreScenaValanga>().intro;
+        finale = GameObject.Find("GestoreScena").GetComponent<GestoreScenaValanga>().finale;
+        if (!intro && !finale)
+        {
+
+            agent.enabled = true;
+            GameObject.Find("SoccorritoreNeve2_gameplay").GetComponent<SC_NPCFollow>().enabled = true;
+            ToFollow = GameObject.Find("Player").transform;
+            if(GameObject.Find("SoccorritoreNeve2_cutscene").GetComponent<Animator>().GetBool("isStandingUp"))
+            GameObject.Find("SoccorritoreNeve2_cutscene").GetComponent<Animator>().SetBool("isStandingUp", false);
+            UpdatePosition();
+        }
     }
 
     void UpdatePosition() {
@@ -39,6 +55,19 @@ public class soccorritoreNeve2 : MonoBehaviour
             soccorsoNeve2.GetComponent<Animator>().SetBool("isWalking", true);
             soccorsoNeve2.GetComponent<Animator>().SetBool("isIdle", false);
         }
+    }
+
+    public void SetWalking()
+    {
+        GetComponent<Animator>().SetBool("isWalking", true);
+        GetComponent<Animator>().SetBool("isIdle", false);
+        GetComponent<Animator>().SetBool("isStandingUp", false);
+    }
+    public void SetStanding()
+    {
+        GetComponent<Animator>().SetBool("isWalking", false);
+        GetComponent<Animator>().SetBool("isIdle", false);
+        GetComponent<Animator>().SetBool("isStandingUp", true);
     }
 
 }
