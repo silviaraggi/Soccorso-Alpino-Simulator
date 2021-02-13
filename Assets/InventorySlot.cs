@@ -16,11 +16,12 @@ public class InventorySlot : MonoBehaviour
     public GameObject fissaggi;
     public GameObject sceneInfo;
     private int scene;
-    private GameObject _stivali; 
+    private GameObject _stivali;
     private void Start()
     {
         sceneInfo = GameObject.Find("SceneInfo");
         scene = sceneInfo.GetComponent<SceneInfo>().GetScene();
+        
         switch (scene)
         {
             case 2:
@@ -72,11 +73,15 @@ public class InventorySlot : MonoBehaviour
             {
                 case "stecca":
                     if (_stivali.GetComponent<SkinnedMeshRenderer>().enabled == false)
+                    {
                         stecca.GetComponent<SkinnedMeshRenderer>().enabled = true;
+                    }
                     break;
                 case "bende":
                     if (stecca.GetComponent<SkinnedMeshRenderer>().enabled == true)
+                    {
                         bende.GetComponent<SkinnedMeshRenderer>().enabled = true;
+                    }
                     break;
                 case "fissaggi":
                     if (bende.GetComponent<SkinnedMeshRenderer>().enabled == true)
