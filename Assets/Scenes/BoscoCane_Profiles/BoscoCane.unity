@@ -2558,6 +2558,7 @@ MonoBehaviour:
   itemsParent: {fileID: 1267302244}
   inventoryUI: {fileID: 1466183829}
   control: 0
+  dialogueText: {fileID: 0}
 --- !u!114 &210879478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12176,7 +12177,7 @@ MonoBehaviour:
   collectable: 0
   interact: 0
   collect: 0
-  dialoguetrigger: {fileID: 974564171}
+  dialoguetrigger: {fileID: 1433503994}
   dialogue: 0
 --- !u!114 &1433503994
 MonoBehaviour:
