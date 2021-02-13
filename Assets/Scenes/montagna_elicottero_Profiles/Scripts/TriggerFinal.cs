@@ -19,6 +19,7 @@ public class TriggerFinal : MonoBehaviour
             transform.GetComponent<LightUpInteractable>().enabled = true;
             transform.GetComponent<LightUpInteractable>().SetCollectable(false);
             transform.GetComponent<LightUpInteractable>().SetAnimatable(true);
+            GameObject.Find("NPC").GetComponent<DialogueTriggerHelicopter>().dialogue = GameObject.Find("DialogoColleghi5");
         }
     }
 }

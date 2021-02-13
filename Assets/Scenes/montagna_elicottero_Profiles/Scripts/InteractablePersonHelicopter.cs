@@ -11,6 +11,7 @@ public class InteractablePersonHelicopter : Interactable
     public DialogueTriggerHelicopter dialoguetrigger;
     public bool dialogue = false;
     Material[] mat;
+    [SerializeField] private GameObject _ferito;
 
 
     // Start is called before the first frame update

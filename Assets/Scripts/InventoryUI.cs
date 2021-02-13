@@ -24,7 +24,7 @@ public class InventoryUI : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetButtonDown("Inventory")||(GameObject.Find("stivali")&& (GameObject.Find("stivali").GetComponent<SkinnedMeshRenderer>().enabled==false)&& (GameObject.Find("ferito"))&& (GameObject.Find("ferito").GetComponent<LightUpInteractable>())&&(GameObject.Find("ferito").GetComponent<LightUpInteractable>().GetInteract())&& GameObject.Find("fissaggi") && (GameObject.Find("fissaggi").GetComponent<SkinnedMeshRenderer>().enabled == false)) ||(GameObject.Find("CaneUnity2") && GameObject.Find("CaneUnity2").GetComponent<InteractableDog>()&&GameObject.Find("CaneUnity2").GetComponent<InteractableDog>().GetInteract()))
+        if (Input.GetButtonDown("Inventory")||(GameObject.Find("stivali")&& (GameObject.Find("stivali").GetComponent<SkinnedMeshRenderer>().enabled==false)&& (GameObject.Find("ferito"))&& (GameObject.Find("ferito").GetComponent<LightUpInteractableHelicopter>())&&(GameObject.Find("ferito").GetComponent<LightUpInteractableHelicopter>().GetInteract())&& GameObject.Find("fissaggi") && (GameObject.Find("fissaggi").GetComponent<SkinnedMeshRenderer>().enabled == false)) ||(GameObject.Find("CaneUnity2") && GameObject.Find("CaneUnity2").GetComponent<InteractableDog>()&&GameObject.Find("CaneUnity2").GetComponent<InteractableDog>().GetInteract()))
         {
 
             inventoryUI.SetActive(!inventoryUI.activeSelf);
@@ -32,7 +32,7 @@ public class InventoryUI : MonoBehaviour
             /*if (GameObject.Find("CaneUnity2"))
                 GameObject.Find("CaneUnity2").GetComponent<InteractableDog>().SetInteract(false);*/
         }
-        if (Cursor.lockState == CursorLockMode.Locked && (Input.GetButtonDown("Inventory"))|| (GameObject.Find("stivali") && (GameObject.Find("stivali").GetComponent<SkinnedMeshRenderer>().enabled == true) && (GameObject.Find("ferito")) && (GameObject.Find("ferito").GetComponent<LightUpInteractable>())&&(GameObject.Find("ferito").GetComponent<LightUpInteractable>().GetInteract()))||(GameObject.Find("stivali")&& (GameObject.Find("stivali").GetComponent<SkinnedMeshRenderer>().enabled==false)&& (GameObject.Find("ferito"))&& (GameObject.Find("ferito").GetComponent<LightUpInteractable>())&&(GameObject.Find("ferito").GetComponent<LightUpInteractable>().GetInteract())&&GameObject.Find("fissaggi") && (GameObject.Find("fissaggi").GetComponent<SkinnedMeshRenderer>().enabled == false)) || (GameObject.Find("CaneUnity2") && GameObject.Find("CaneUnity2").GetComponent<InteractableDog>() && GameObject.Find("CaneUnity2").GetComponent<InteractableDog>().GetInteract()))
+        if (Cursor.lockState == CursorLockMode.Locked && (Input.GetButtonDown("Inventory"))|| (GameObject.Find("stivali") && (GameObject.Find("stivali").GetComponent<SkinnedMeshRenderer>().enabled == true) && (GameObject.Find("ferito")) && (GameObject.Find("ferito").GetComponent<LightUpInteractableHelicopter>())&&(GameObject.Find("ferito").GetComponent<LightUpInteractableHelicopter>().GetInteract()))||(GameObject.Find("stivali")&& (GameObject.Find("stivali").GetComponent<SkinnedMeshRenderer>().enabled==false)&& (GameObject.Find("ferito"))&& (GameObject.Find("ferito").GetComponent<LightUpInteractableHelicopter>())&&(GameObject.Find("ferito").GetComponent<LightUpInteractableHelicopter>().GetInteract())&&GameObject.Find("fissaggi") && (GameObject.Find("fissaggi").GetComponent<SkinnedMeshRenderer>().enabled == false)) || (GameObject.Find("CaneUnity2") && GameObject.Find("CaneUnity2").GetComponent<InteractableDog>() && GameObject.Find("CaneUnity2").GetComponent<InteractableDog>().GetInteract()))
         {
             if (EventSystem.current.IsPointerOverGameObject())
                 return;
@@ -40,8 +40,8 @@ public class InventoryUI : MonoBehaviour
             control = true;
             if (GameObject.Find("CaneUnity2") && GameObject.Find("CaneUnity2").GetComponent<InteractableDog>())
                 GameObject.Find("CaneUnity2").GetComponent<InteractableDog>().SetInteract(false);
-            if (GameObject.Find("ferito") && GameObject.Find("ferito").GetComponent<LightUpInteractable>())
-                GameObject.Find("ferito").GetComponent<LightUpInteractable>().SetInteract(false);
+            if (GameObject.Find("ferito") && GameObject.Find("ferito").GetComponent<LightUpInteractableHelicopter>())
+                GameObject.Find("ferito").GetComponent<LightUpInteractableHelicopter>().SetInteract(false);
         }
 
         if (control)
@@ -51,8 +51,8 @@ public class InventoryUI : MonoBehaviour
         }
         if (GameObject.Find("CaneUnity2") && GameObject.Find("CaneUnity2").GetComponent<InteractableDog>())
             GameObject.Find("CaneUnity2").GetComponent<InteractableDog>().SetInteract(false);
-        if (GameObject.Find("ferito") && GameObject.Find("ferito").GetComponent<LightUpInteractable>() && GameObject.Find("fissaggi") && (GameObject.Find("fissaggi").GetComponent<SkinnedMeshRenderer>().enabled == false))
-            GameObject.Find("ferito").GetComponent<LightUpInteractable>().SetInteract(false);
+        if (GameObject.Find("ferito") && GameObject.Find("ferito").GetComponent<LightUpInteractableHelicopter>() && GameObject.Find("fissaggi") && (GameObject.Find("fissaggi").GetComponent<SkinnedMeshRenderer>().enabled == false))
+            GameObject.Find("ferito").GetComponent<LightUpInteractableHelicopter>().SetInteract(false);
     }
 
     void UpdateUI()

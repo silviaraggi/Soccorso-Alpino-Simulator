@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.091898315, g: 0.4145398, b: 0.9608934, a: 1}
+  m_IndirectSpecularColor: {r: 0.07049093, g: 0.35360757, b: 0.97003746, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 94458103}
   - component: {fileID: 94458104}
   m_Layer: 0
-  m_Name: DialogoParenti1
+  m_Name: DialogoFerito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -449,12 +449,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogo:
-    name: Signora e signor Strada
+    name: Ferito
     sentences:
-    - grazie per essere venuti...
-    - "Vi abbiamo preparato la maglia di Francesco per portarla con voi, \xE8 in
-      camera da letto..."
-    - Vi prego, trovatelo!
+    - Aiutami, ti prego!
+    - Non riesco a muovere la gamba sinistra.
 --- !u!1 &105915826
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,6 +942,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f7b7a7c7d70dd94b801cdc0488311fe, type: 3}
+--- !u!1 &260457477
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 260457478}
+  - component: {fileID: 260457479}
+  m_Layer: 0
+  m_Name: DialogoColleghi4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &260457478
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260457477}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2042807871}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &260457479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260457477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57494661fff518f42bcbbed7c103aa14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogo:
+    name: Collega
+    sentences:
+    - Forza trasportiamolo sull'elicottero.
 --- !u!1 &289479965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1250,54 +1295,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 316252880}
   m_CullTransparentMesh: 0
---- !u!1 &321685586
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 321685587}
-  - component: {fileID: 321685588}
-  m_Layer: 0
-  m_Name: DialogoParenti2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &321685587
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 321685586}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2042807871}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &321685588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 321685586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57494661fff518f42bcbbed7c103aa14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogo:
-    name: Signora e signor Strada
-    sentences:
-    - "Grazie per essere passati...\t"
-    - Vi prego, trovatelo!
 --- !u!1 &329909687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1734,6 +1731,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 428509976}
   m_CullTransparentMesh: 0
+--- !u!1 &442524670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 442524671}
+  - component: {fileID: 442524672}
+  m_Layer: 0
+  m_Name: DialogoColleghi5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &442524671
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442524670}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2042807871}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &442524672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442524670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57494661fff518f42bcbbed7c103aa14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogo:
+    name: Collega
+    sentences:
+    - Saliamo sull'elicottero e andiamo.
 --- !u!1 &447218263
 GameObject:
   m_ObjectHideFlags: 0
@@ -1763,7 +1807,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2042807871}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &447218265
 MonoBehaviour:
@@ -1780,8 +1824,7 @@ MonoBehaviour:
   dialogo:
     name: Collega
     sentences:
-    - "Dobbiamo trovare altre informazioni sul ragazzo scomparso...\t"
-    - Entriamo e chiediamo ai parenti.
+    - "Dai andiamo a mettere in sicurezza l'area cos\xEC l'elicottero pu\xF2 atterrare."
 --- !u!1 &458166842
 GameObject:
   m_ObjectHideFlags: 0
@@ -1812,6 +1855,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 942290450}
+  - {fileID: 737604909}
   m_Father: {fileID: 911519052}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2797,6 +2841,80 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 729895526}
+  m_CullTransparentMesh: 0
+--- !u!1 &737604908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 737604909}
+  - component: {fileID: 737604911}
+  - component: {fileID: 737604910}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &737604909
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737604908}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 458166843}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -103.8, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &737604910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737604908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 6587fa013e3164eccbc14e426e374094, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &737604911
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737604908}
   m_CullTransparentMesh: 0
 --- !u!1 &756156158
 GameObject:
@@ -5320,7 +5438,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 7.13e-43, y: 7.1e-44, z: 0, w: -0.0000000056314313}
+  m_BoundingSphereOverride: {x: 0, y: 5.723e-42, z: 0, w: NaN}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -5419,7 +5537,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1408354916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5544,7 +5662,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2042807871}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1453250675
 MonoBehaviour:
@@ -5561,7 +5679,12 @@ MonoBehaviour:
   dialogo:
     name: Collega
     sentences:
-    - "Hai gi\xE0 preso un oggetto del ragazzo? Ci serve per le nostre ricerche."
+    - 'Prendi il kit medico dall''elicottero.
+
+'
+    - 'E parla con il ferito in modo da verificare il suo stato di salute.
+
+'
 --- !u!1 &1476969455
 GameObject:
   m_ObjectHideFlags: 0
@@ -6147,6 +6270,7 @@ MonoBehaviour:
   _soccorso: 0
   _dialogo: 0
   inventory: {fileID: 105915826}
+  _NPC: {fileID: 1675350795}
 --- !u!143 &1625643306
 CharacterController:
   m_ObjectHideFlags: 0
@@ -6392,12 +6516,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 765a7570527fbab408cb3dc750a4b5d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animatable: 0
-  collectable: 0
+  animatable: 1
+  collectable: 1
   interact: 0
   collect: 0
   dialoguetrigger: {fileID: 1675350801}
   dialogue: 0
+  _ferito: {fileID: 2737656274766830183}
 --- !u!114 &1675350801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6410,7 +6535,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9189d20327c65f54780e64b448255e3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 94458102}
+  dialogue: {fileID: 447218263}
+--- !u!114 &1675350803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675350795}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4574614e09a74cb4f9f08f27627abab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatable: 1
+  collectable: 1
+  interact: 0
+  collect: 1
+  bende: {fileID: 0}
+  fissaggi: {fileID: 0}
+  stecca: {fileID: 0}
+  _player: {fileID: 0}
+  _NPC: {fileID: 0}
+  dialoguetrigger: {fileID: 1675350801}
+  dialogue: 0
 --- !u!1 &1682374741
 GameObject:
   m_ObjectHideFlags: 0
@@ -8887,6 +9035,10 @@ MonoBehaviour:
   bende: {fileID: 11400000, guid: 0ffa796c73553684bac72a8dd37dc42b, type: 2}
   fissaggi: {fileID: 11400000, guid: d08ddab9d5c24df4d9506e863f322a08, type: 2}
   stecca: {fileID: 11400000, guid: 9c9adc261bf1a764a9376089f0b3b9d4, type: 2}
+  _player: {fileID: 0}
+  _NPC: {fileID: 0}
+  dialoguetrigger: {fileID: 0}
+  dialogue: 0
 --- !u!64 &1866193520
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8992,7 +9144,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2042807871}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1900062482
 MonoBehaviour:
@@ -9009,8 +9161,8 @@ MonoBehaviour:
   dialogo:
     name: Collega
     sentences:
-    - Se siamo pronti torniamo alla jeep.
-    - "Non c'\xE8 tempo da perdere!"
+    - "Stecca la gamba e poi mettilo sulla barella, cos\xEC da poterlo trasportare
+      in sicurezza."
 --- !u!1 &1903552772
 GameObject:
   m_ObjectHideFlags: 0
@@ -9823,10 +9975,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 94458103}
-  - {fileID: 321685587}
   - {fileID: 447218264}
   - {fileID: 1453250674}
   - {fileID: 1900062481}
+  - {fileID: 260457478}
+  - {fileID: 442524671}
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12390,9 +12543,11 @@ GameObject:
   - component: {fileID: 2737656274766830188}
   - component: {fileID: 2737656274766830187}
   - component: {fileID: 2737656274766830186}
-  - component: {fileID: 2737656274766830185}
   - component: {fileID: 2737656274766830184}
+  - component: {fileID: 2737656274766830190}
   - component: {fileID: 2737656274766830191}
+  - component: {fileID: 2737656274766830185}
+  - component: {fileID: 2737656274766830192}
   m_Layer: 0
   m_Name: ferito
   m_TagString: Untagged
@@ -12422,13 +12577,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2737656274766830183}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9129279cccc856b409caee0a9161e4e1, type: 3}
+  m_Script: {fileID: 11500000, guid: 9189d20327c65f54780e64b448255e3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animatable: 0
-  collectable: 0
-  interact: 0
-  collect: 0
+  dialogue: {fileID: 94458102}
 --- !u!65 &2737656274766830186
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12588,6 +12740,29 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.005787879, y: 0.35252726, z: -0.11544983}
     m_Extent: {x: 0.691676, y: 1.3327856, z: 0.5639038}
   m_DirtyAABB: 0
+--- !u!114 &2737656274766830190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2737656274766830183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4574614e09a74cb4f9f08f27627abab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatable: 0
+  collectable: 0
+  interact: 0
+  collect: 0
+  bende: {fileID: 0}
+  fissaggi: {fileID: 0}
+  stecca: {fileID: 0}
+  _player: {fileID: 1625643303}
+  _NPC: {fileID: 1675350795}
+  dialoguetrigger: {fileID: 2737656274766830185}
+  dialogue: 0
 --- !u!65 &2737656274766830191
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12601,6 +12776,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.96272266, y: 0.7754757, z: 0.9567028}
   m_Center: {x: 0.010415538, y: 0.96841514, z: -1.1812181}
+--- !u!114 &2737656274766830192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2737656274766830183}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765a7570527fbab408cb3dc750a4b5d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatable: 1
+  collectable: 1
+  interact: 0
+  collect: 0
+  dialoguetrigger: {fileID: 2737656274766830185}
+  dialogue: 0
+  _ferito: {fileID: 2737656274766830183}
 --- !u!4 &2744505958257372259
 Transform:
   m_ObjectHideFlags: 0
