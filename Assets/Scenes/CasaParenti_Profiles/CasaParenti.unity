@@ -7553,7 +7553,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &872033044
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12512,6 +12512,7 @@ MonoBehaviour:
   itemsParent: {fileID: 10813020}
   inventoryUI: {fileID: 872033043}
   control: 0
+  dialogueText: {fileID: 0}
 --- !u!1 &1505667616
 GameObject:
   m_ObjectHideFlags: 0
