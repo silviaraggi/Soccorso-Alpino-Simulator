@@ -18,9 +18,9 @@ public class InventorySlot : MonoBehaviour
     private int scene;
     private GameObject _stivali;
 
-    private GameObject artva;
-    private GameObject sonda;
-    private GameObject pala;
+    public GameObject artva;
+    public GameObject sonda;
+    public GameObject pala;
 
     private void Start()
     {
@@ -47,7 +47,7 @@ public class InventorySlot : MonoBehaviour
 
             case 3:
                 artva = GameObject.Find("ARTVA");
-                sonda = GameObject.Find("Sonda_piegata");
+                sonda = GameObject.Find("Sonda_aperta");
                 pala = GameObject.Find("Pala");
                 break;
         }
@@ -164,7 +164,8 @@ public class InventorySlot : MonoBehaviour
                 case "Pala":
                     break;
             }
-                
+            GameObject.Find("Inventory").SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 }

@@ -12,12 +12,17 @@ public class GestoreScenaValanga : MonoBehaviour
     private GameObject player;
     public bool intro;
     public bool finale;
+    public Inventory inventario;
     // Start is called before the first frame update
     void Start()
     {
         intro = true;
         finale = false;
         player = GameObject.Find("Player");
+        inventario = GameObject.Find("Strumenti").GetComponent<InventoryUI>().GetInventory();
+        inventario.Add(GameObject.Find("ARTVA").GetComponent<InteractableClue>().GetItem());
+        inventario.Add(GameObject.Find("Sonda_aperta").GetComponent<InteractableClue>().GetItem());
+        inventario.Add(GameObject.Find("Pala").GetComponent<InteractableClue>().GetItem());
         //Timeline = GameObject.Find("Timeline");
         Disperso = GameObject.Find("Disperso");
         Soccorritore1 = GameObject.Find("SoccorritoreNeve1");
