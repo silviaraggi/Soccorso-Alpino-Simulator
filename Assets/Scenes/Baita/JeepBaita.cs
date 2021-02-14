@@ -70,6 +70,7 @@ public class JeepBaita : MonoBehaviour
                 if (scenario==1 && elicottero.GetComponent<LightUpInteractable>().GetInteract())
                 {
                     FinaleElicottero();
+
                 }
                 if (scenario == 2 && this.GetComponent<LightUpInteractable>().GetInteract())
                 {
@@ -145,10 +146,13 @@ public class JeepBaita : MonoBehaviour
 
     public void DisableCamera(int NumCamera)
     {
+
         GameObject.Find("GestoreCamere").GetComponent<GestoreCamereBaita>().DisableCamera(NumCamera);
     }
     public void CaricaScenaCasa()
     {
+        GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().entry_transition();
+
         GameObject.Find("GestoreScene").GetComponent<GestoreScene>().LoadSceneByID(3);
     }
 

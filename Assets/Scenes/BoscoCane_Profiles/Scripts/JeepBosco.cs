@@ -44,6 +44,7 @@ public class JeepBosco : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().exit_transition();
         if (scena.name == "BoscoCane")
         {
             if (!intro && !finale)
@@ -141,7 +142,8 @@ public class JeepBosco : MonoBehaviour
     public void LoadMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Menu");
+        GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().entry_transition();
+        SceneManager.LoadSceneAsync("Menu");
         Debug.Log("Loading menu...");
     }
 
