@@ -165,7 +165,7 @@ public class FPSInteractionManagerHelicopter : MonoBehaviour
             _target.color = Color.red;
     }
 
-    private void Drop()
+    public void Drop()
     {
         if (_grabbedObject == null)
             return;
