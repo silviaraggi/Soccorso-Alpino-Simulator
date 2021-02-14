@@ -39,7 +39,7 @@ public class FPSInteractionManager : MonoBehaviour
             IsDialogue = GameObject.FindObjectOfType<DialogueManager>().dialogue_bool;
 
         }
-        GameObject.Find("Mappa_On").GetComponent<Mappa_On>().LightUp(); //DA SPOSTARE
+        
         _rayOrigin = _fpsCameraT.position + _fpsController.radius * _fpsCameraT.forward;
 
         if (unlocked)

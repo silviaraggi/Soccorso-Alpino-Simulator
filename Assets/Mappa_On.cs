@@ -8,8 +8,15 @@ public class Mappa_On : MonoBehaviour
     // Update is called once per frame
 
 
-    public void LightUp()
+    public void Update()
     {
-        mappa_on.SetActive(true);
+        if (GameObject.Find("DialogueManager").GetComponent<DialogueManager>().dialogue_bool == false)
+        {
+            mappa_on.SetActive(true);
+        }
+        else
+        {
+            mappa_on.SetActive(false);
+        }
     }
 }
