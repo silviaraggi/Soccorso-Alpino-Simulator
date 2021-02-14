@@ -179,7 +179,7 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
                             Destroy(_ferito.GetComponent<Rigidbody>());
                             _ferito.transform.parent = _barella.transform;
                             _grabFerito = 2;
-                            _ferito.transform.localPosition = new Vector3(1.1f, -0.2f, -0.1f);
+                            _ferito.transform.localPosition = new Vector3(1.24f, -0.3f, 0f);
                             _targetDirection = _barella.transform.eulerAngles;
                             _direction = Quaternion.Euler(_barella.transform.eulerAngles);
                             _helicopter.transform.GetComponent<BoxCollider>().enabled = true;
@@ -190,7 +190,7 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
                         {
                             Quaternion b = Quaternion.Euler(_barella.transform.eulerAngles - new Vector3(0, 90, -90));
                             Quaternion a = _ferito.transform.rotation;
-                            a = Quaternion.Lerp(a, b, Time.deltaTime * 0.5f);
+                            a = Quaternion.Lerp(a, b, Time.deltaTime * 1f);
                             _ferito.transform.rotation = a;
                             /*_targetDirection = _barella.transform.forward.normalized;
                             Vector3 newDir = Vector3.RotateTowards(_ferito.transform.forward.normalized, _targetDirection, 1f * Time.deltaTime, 0f);
@@ -201,7 +201,7 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
                         {
                             _direction = Quaternion.Euler(_barella.transform.eulerAngles);
                             Quaternion finalDirection = Quaternion.Euler(new Vector3(0, 90, 270));
-                            _direction = Quaternion.Lerp(_direction, finalDirection, Time.deltaTime * 0.5f);
+                            _direction = Quaternion.Lerp(_direction, finalDirection, Time.deltaTime * 1f);
                             _barella.transform.rotation = _direction;
                             //_targetDirection = _helicopter.transform.forward.normalized;
                             //_targetDirection.x = _targetDirection.x - 0.5f;
