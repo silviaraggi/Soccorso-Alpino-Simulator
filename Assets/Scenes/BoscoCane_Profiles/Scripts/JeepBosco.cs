@@ -48,6 +48,10 @@ public class JeepBosco : MonoBehaviour
         {
             if (!intro && !finale)
             {
+                foreach(Light luce in GameObject.Find("Luci").GetComponentsInChildren<Light>())
+                {
+                    luce.enabled = false;
+                }
                 foreach (Renderer daAttivare in collega1.GetComponentsInChildren<Renderer>())
                 {
                     daAttivare.enabled = true;
@@ -74,13 +78,17 @@ public class JeepBosco : MonoBehaviour
                 giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
                 telecameraGiocatore.enabled = true;
                 giocatore.GetComponent<CharacterController>().enabled = true ;
-                if (GameObject.Find("Disperso").GetComponent<Disperso>().flag==2)
+                if (GameObject.Find("Disperso").GetComponent<Disperso>().flag==2&&GameObject.Find("Disperso").GetComponent<Disperso>().GetDispersoState()==Disperso.DispersoState.Found)
                     FineScenaBosco();
             }
         }
     }
     public void FineScenaBosco()
     {
+        foreach (Light luce in GameObject.Find("Luci").GetComponentsInChildren<Light>())
+        {
+            luce.enabled = true;
+        }
         Vector3 nuovarotazionejeep = new Vector3(-85.6f, 89.47f, 59.84f);
         this.gameObject.transform.rotation = Quaternion.Euler(nuovarotazionejeep);
         foreach (Renderer daAttivare in collega1.GetComponentsInChildren<Renderer>())
