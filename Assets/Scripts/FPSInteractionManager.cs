@@ -29,7 +29,7 @@ public class FPSInteractionManager : MonoBehaviour
     void Start()
     {
         _fpsController = GetComponent<CharacterController>();
-       
+        
     }
 
     void Update()
@@ -39,15 +39,19 @@ public class FPSInteractionManager : MonoBehaviour
             IsDialogue = GameObject.FindObjectOfType<DialogueManager>().dialogue_bool;
 
         }
+        
         _rayOrigin = _fpsCameraT.position + _fpsController.radius * _fpsCameraT.forward;
 
-        if(unlocked)
+        if (unlocked)
+            
+
             CheckInteraction();
+           
 
         /*if (_grabbedObject != null && Input.GetMouseButtonDown(0))
             Drop();*/
 
-        if(UIenabled)
+        if (UIenabled)
         UpdateUITarget();
 
         if (_debugRay)
@@ -56,7 +60,7 @@ public class FPSInteractionManager : MonoBehaviour
 
     private void CheckInteraction()
     {
-
+       
         Ray ray = new Ray(_rayOrigin, _fpsCameraT.forward);
         RaycastHit hit;
 
@@ -66,12 +70,15 @@ public class FPSInteractionManager : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 GameObject.FindObjectOfType<DialogueManager>().DisplayNextSentence();
-
+                
             }
+            
         }
         else
         {
             this.gameObject.GetComponent<FirstPersonCharacterController>().SetLocked(false);
+            
+
         }
         if (_grabbedObject != null && Input.GetMouseButtonDown(0))
         {

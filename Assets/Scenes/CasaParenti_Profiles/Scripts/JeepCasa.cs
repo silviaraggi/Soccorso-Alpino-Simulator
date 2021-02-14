@@ -28,7 +28,8 @@ public class JeepCasa : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            if (!intro)
+
+        if (!intro)
             {
                 if(!canStart)
                 GetComponent<LightUpInteractable>().SetAnimatable(false);
@@ -115,6 +116,7 @@ public class JeepCasa : MonoBehaviour
     }
     public void CaricaScenaBosco()
     {
+        GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().entry_transition();
         GameObject.Find("GestoreScene").GetComponent<GestoreScene>().LoadSceneByID(4);
     }
 }

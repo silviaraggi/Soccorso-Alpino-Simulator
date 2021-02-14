@@ -18,8 +18,10 @@ public class GestoreCamereCasa : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().exit_transition();
         if (jeep.GetCamera() >= 0)
         {
+            
             if (cameranow != telecamere[jeep.GetCamera()])
             {
                 telecamere[jeep.GetCamera()].enabled = true;
