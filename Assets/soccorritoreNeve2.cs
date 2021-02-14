@@ -34,11 +34,11 @@ public class soccorritoreNeve2 : MonoBehaviour
             ToFollow = GameObject.Find("Player").transform;
             if(GameObject.Find("SoccorritoreNeve2_cutscene").GetComponent<Animator>().GetBool("isStandingUp"))
             GameObject.Find("SoccorritoreNeve2_cutscene").GetComponent<Animator>().SetBool("isStandingUp", false);
-            UpdatePosition();
+            //UpdatePosition();
         }
     }
 
-    void UpdatePosition() {
+   /* void UpdatePosition() {
         agent.destination = ToFollow.transform.position;
         Vector3 GoHere = ToFollow.transform.position;
         Vector3 npcPos = gameObject.transform.position;
@@ -55,7 +55,7 @@ public class soccorritoreNeve2 : MonoBehaviour
             soccorsoNeve2.GetComponent<Animator>().SetBool("isWalking", true);
             soccorsoNeve2.GetComponent<Animator>().SetBool("isIdle", false);
         }
-    }
+    }*/
 
     public void SetWalking()
     {

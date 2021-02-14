@@ -17,6 +17,11 @@ public class InventorySlot : MonoBehaviour
     public GameObject sceneInfo;
     private int scene;
     private GameObject _stivali;
+
+    private GameObject artva;
+    private GameObject sonda;
+    private GameObject pala;
+
     private void Start()
     {
         sceneInfo = GameObject.Find("SceneInfo");
@@ -38,6 +43,12 @@ public class InventorySlot : MonoBehaviour
                 bende = GameObject.Find("bende");
                 fissaggi = GameObject.Find("fissaggi");
                 _stivali = GameObject.Find("stivali");
+                break;
+
+            case 3:
+                artva = GameObject.Find("ARTVA");
+                sonda = GameObject.Find("Sonda_piegata");
+                pala = GameObject.Find("Pala");
                 break;
         }
     }
@@ -92,7 +103,7 @@ public class InventorySlot : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-            if (item != null&&scene==2)
+        if (item != null&&scene==2)
         {
             if(GameObject.Find("Torcia"))
             switch (this.item.name)
@@ -140,6 +151,20 @@ public class InventorySlot : MonoBehaviour
             GameObject.Find("Inventory").SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
 
+        }
+        if(item!=null && scene == 3)
+        {
+            switch (this.item.name)
+            {
+                case "ARTVA":
+
+                    break;
+                case "Sonda_piegata":
+                    break;
+                case "Pala":
+                    break;
+            }
+                
         }
     }
 }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using System;
-
 public class CaneBosco : MonoBehaviour
 {
     GameObject ToFollow;
