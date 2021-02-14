@@ -42,4 +42,9 @@ public class MainMenu : MonoBehaviour
     }
 
 
+    void Update()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
+
 }
