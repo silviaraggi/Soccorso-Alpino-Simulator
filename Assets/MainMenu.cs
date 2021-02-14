@@ -5,28 +5,34 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
+  
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().entry_transition();
 
     }
 
     public void PlayElicopter()
     {
+        GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().entry_transition();
         GameObject.Find("SceneInfo").GetComponent<SceneInfo>().SetScene(1);
-        SceneManager.LoadScene("Baita");
+        SceneManager.LoadSceneAsync("Baita");
+        
     }
 
     public void PlayDog()
     {
+        GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().entry_transition();
         GameObject.Find("SceneInfo").GetComponent<SceneInfo>().SetScene(2);
-        SceneManager.LoadScene("Baita");
+        SceneManager.LoadSceneAsync("Baita");
+
     }
 
     public void PlaySnow()
     {
         SceneManager.LoadScene("montagna_elicottero");
+   
     }
 
     public void QuitGame()
@@ -35,9 +41,5 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

@@ -8,6 +8,9 @@ public class GestoreCamereBaita : MonoBehaviour
     Camera[] telecamere;
     Camera cameranow = null;
     public AudioClip telefonata;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +21,7 @@ public class GestoreCamereBaita : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().exit_transition();
         if (jeep.GetCamera() >= 0)
         {
             if (cameranow != telecamere[jeep.GetCamera()])

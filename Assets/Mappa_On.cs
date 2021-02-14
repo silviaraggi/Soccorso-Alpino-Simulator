@@ -6,9 +6,10 @@ public class Mappa_On : MonoBehaviour
 {
     public GameObject mappa_on;
     // Update is called once per frame
-    void Update()
+
+
+    public void LightUp()
     {
         mappa_on.SetActive(true);
-
     }
 }

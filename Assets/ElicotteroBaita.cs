@@ -6,6 +6,7 @@ public class ElicotteroBaita : MonoBehaviour
 {
     public void CaricaScenaElicottero()
     {
+
         GameObject.Find("GestoreScene").GetComponent<GestoreScene>().LoadSceneByID(2);
     }
 }
