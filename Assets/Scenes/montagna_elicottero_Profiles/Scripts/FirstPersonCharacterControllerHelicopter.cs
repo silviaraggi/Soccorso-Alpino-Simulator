@@ -173,8 +173,9 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
                             //_ferito.GetComponent<PhysicsGrabbable>().grab = false;
                             Destroy(_ferito.GetComponent<PhysicsGrabbable>());
                             //Destroy(_ferito.GetComponent<BoxCollider>());
-                            Destroy(_ferito.GetComponent<BoxCollider>());
-                            _ferito.transform.GetComponent<BoxCollider>().enabled = false;
+                            Component[] colliders = _ferito.GetComponents<BoxCollider>() as Component[];
+                            foreach (Component collider in colliders)
+                                Destroy(collider as BoxCollider);
                             Destroy(_ferito.GetComponent<Rigidbody>());
                             _ferito.transform.parent = _barella.transform;
                             _grabFerito = 2;

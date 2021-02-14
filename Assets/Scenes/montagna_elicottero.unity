@@ -183,7 +183,6 @@ MonoBehaviour:
   bende: {fileID: 0}
   fissaggi: {fileID: 0}
   sceneInfo: {fileID: 0}
-  text: {fileID: 425650716}
 --- !u!1 &65280007
 GameObject:
   m_ObjectHideFlags: 0
@@ -5741,7 +5740,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 6.29e-43, y: 9.4e-44, z: 0, w: 7.7799855e-10}
+  m_BoundingSphereOverride: {x: 7.9e-43, y: 7.1e-44, z: 0, w: -9.99886e+10}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -5821,7 +5820,6 @@ MonoBehaviour:
   bende: {fileID: 0}
   fissaggi: {fileID: 0}
   sceneInfo: {fileID: 0}
-  text: {fileID: 425650716}
 --- !u!1 &1408354915
 GameObject:
   m_ObjectHideFlags: 0
@@ -6387,7 +6385,6 @@ MonoBehaviour:
   bende: {fileID: 0}
   fissaggi: {fileID: 0}
   sceneInfo: {fileID: 0}
-  text: {fileID: 425650716}
 --- !u!224 &1534049590
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6546,7 +6543,6 @@ MonoBehaviour:
   bende: {fileID: 0}
   fissaggi: {fileID: 0}
   sceneInfo: {fileID: 0}
-  text: {fileID: 0}
 --- !u!1 &1537857007
 GameObject:
   m_ObjectHideFlags: 0
@@ -6697,6 +6693,8 @@ GameObject:
   - component: {fileID: 1567194465}
   - component: {fileID: 1567194466}
   - component: {fileID: 1567194463}
+  - component: {fileID: 1567194467}
+  - component: {fileID: 1567194461}
   m_Layer: 0
   m_Name: barella
   m_TagString: Untagged
@@ -6718,6 +6716,19 @@ Transform:
   m_Father: {fileID: 1903552777}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!114 &1567194461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567194459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60e173267e17824b99f9f90f24d9640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ferito: {fileID: 2737656274766830183}
 --- !u!33 &1567194462
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6808,6 +6819,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.24285358, y: 3.4841306, z: 1.8969283}
   m_Center: {x: 0.03765392, y: -0.0004704001, z: 0.00001525879}
+--- !u!65 &1567194467
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567194459}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 1, z: 0.5191868}
+  m_Center: {x: -0.5, y: -0.00048570486, z: 0}
 --- !u!1 &1604793596
 GameObject:
   m_ObjectHideFlags: 0
@@ -9930,7 +9954,6 @@ MonoBehaviour:
   bende: {fileID: 0}
   fissaggi: {fileID: 0}
   sceneInfo: {fileID: 0}
-  text: {fileID: 425650716}
 --- !u!1 &1900062480
 GameObject:
   m_ObjectHideFlags: 0
@@ -10806,7 +10829,6 @@ MonoBehaviour:
   bende: {fileID: 0}
   fissaggi: {fileID: 0}
   sceneInfo: {fileID: 0}
-  text: {fileID: 0}
 --- !u!1 &2063220787
 GameObject:
   m_ObjectHideFlags: 0
@@ -10869,7 +10891,6 @@ MonoBehaviour:
   bende: {fileID: 0}
   fissaggi: {fileID: 0}
   sceneInfo: {fileID: 0}
-  text: {fileID: 0}
 --- !u!1001 &2080180403
 PrefabInstance:
   m_ObjectHideFlags: 0
