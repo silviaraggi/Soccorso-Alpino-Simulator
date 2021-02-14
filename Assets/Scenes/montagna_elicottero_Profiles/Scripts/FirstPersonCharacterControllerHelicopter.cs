@@ -180,6 +180,7 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
                             _ferito.transform.parent = _barella.transform;
                             _grabFerito = 2;
                             _ferito.transform.localPosition = new Vector3(1.24f, -0.3f, 0f);
+                            _ferito.transform.localEulerAngles= new Vector3(90f, -80f, 10f);
                             _targetDirection = _barella.transform.eulerAngles;
                             _direction = Quaternion.Euler(_barella.transform.eulerAngles);
                             _helicopter.transform.GetComponent<BoxCollider>().enabled = true;
