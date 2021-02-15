@@ -7009,17 +7009,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ce8d571ee246e40b3b18329930cf22c1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 105.25
+      value: 104.01
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ce8d571ee246e40b3b18329930cf22c1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 34.62
+      value: 36.07
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ce8d571ee246e40b3b18329930cf22c1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 129.4
+      value: 129.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ce8d571ee246e40b3b18329930cf22c1,
         type: 3}
@@ -11306,8 +11306,8 @@ GameObject:
   - component: {fileID: 671149853}
   - component: {fileID: 671149852}
   - component: {fileID: 671149851}
-  - component: {fileID: 671149850}
   - component: {fileID: 671149854}
+  - component: {fileID: 671149850}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -11338,9 +11338,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 671149848}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e225bdbfdf80ecb47bc08c2a497884c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 399db6fc15917414c8f7f869c72bff91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animatable: 0
+  collectable: 0
+  interact: 0
+  collect: 0
 --- !u!135 &671149851
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11408,7 +11412,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671149848}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9129279cccc856b409caee0a9161e4e1, type: 3}
   m_Name: 
@@ -19468,8 +19472,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 14.646177, y: 5.98, z: 15.64}
-  m_Center: {x: -1.94, y: 3.15, z: -1.4}
+  m_Size: {x: 12.21, y: 5.98, z: 15.64}
+  m_Center: {x: -2.11, y: 3.15, z: -3.55}
 --- !u!65 &1878384277
 BoxCollider:
   m_ObjectHideFlags: 0

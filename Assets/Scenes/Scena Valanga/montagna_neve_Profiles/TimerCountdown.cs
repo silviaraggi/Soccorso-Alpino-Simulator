@@ -72,6 +72,8 @@ public class TimerCountdown : MonoBehaviour
     bool finale;
     GameObject timer;
 
+    Color red;
+
 
     void Start()
     {
@@ -80,7 +82,7 @@ public class TimerCountdown : MonoBehaviour
         finale = GameObject.Find("GestoreScena").GetComponent<GestoreScenaValanga>().finale;
         timer = GameObject.Find("Text_Timer");
         timer.SetActive(false);
-        
+        red = Color.red;
     }
 
     void Update()
@@ -94,8 +96,11 @@ public class TimerCountdown : MonoBehaviour
             takingAway = true;
             if (takingAway == true && tempoRimanente > 0)
             {
+
+                timer.GetComponent<Text>().color = Color.Lerp(timer.GetComponent<Text>().color, red, Time.deltaTime / tempoRimanente);
                 tempoRimanente -= Time.deltaTime;
                 DisplayTime(tempoRimanente);
+                
             }
             else
             {
