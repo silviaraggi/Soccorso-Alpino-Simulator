@@ -21,12 +21,12 @@ public class InventorySlot : MonoBehaviour
     public GameObject artva;
     public GameObject sonda;
     public GameObject pala;
-
+    private Inventory inventario;
     private void Start()
     {
         sceneInfo = GameObject.Find("SceneInfo");
         scene = sceneInfo.GetComponent<SceneInfo>().GetScene();
-        
+
         switch (scene)
         {
             case 2:
@@ -55,6 +55,7 @@ public class InventorySlot : MonoBehaviour
 
     private void Update()
     {
+        inventario = GameObject.Find("Strumenti").GetComponent<InventoryUI>().GetInventory();
         if (item != null)
         {
             icon.sprite = item.icon;
@@ -157,11 +158,20 @@ public class InventorySlot : MonoBehaviour
             switch (this.item.name)
             {
                 case "ARTVA":
-
+                    GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().SetArtvaActive(!GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().GetArtvaActive());
                     break;
-                case "Sonda_piegata":
+                case "Sonda":
+                    if (GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().GetCanUseSonda())
+                    {
+                        sonda.GetComponent<Renderer>().enabled = true;
+                        inventario.Remove(sonda.GetComponent<InteractableClue>().GetItem());
+                    }
                     break;
                 case "Pala":
+                    if (sonda.GetComponent<Renderer>().enabled)
+                    {
+
+                    }
                     break;
             }
             GameObject.Find("Inventory").SetActive(false);

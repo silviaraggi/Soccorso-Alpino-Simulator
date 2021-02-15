@@ -14,6 +14,7 @@ public class GestoreScenaValanga : MonoBehaviour
     public bool finale;
     bool inventarioStart;
     public Inventory inventario;
+    private GameObject sonda;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,12 +22,13 @@ public class GestoreScenaValanga : MonoBehaviour
         intro = true;
         finale = false;
         player = GameObject.Find("Player");
+        sonda = GameObject.Find("Sonda_aperta");
         /*inventario = GameObject.Find("Strumenti").GetComponent<InventoryUI>().GetInventory();
         inventario.Add(GameObject.Find("ARTVA").GetComponent<InteractableClue>().GetItem());
         inventario.Add(GameObject.Find("Sonda_aperta").GetComponent<InteractableClue>().GetItem());
         inventario.Add(GameObject.Find("Pala").GetComponent<InteractableClue>().GetItem());*/
         //Timeline = GameObject.Find("Timeline");
-        Disperso = GameObject.Find("Disperso");
+        Disperso = GameObject.Find("Disperso_gameplay");
         Soccorritore1 = GameObject.Find("SoccorritoreNeve1");
         Soccorritore2_CS = GameObject.Find("SoccorritoreNeve2_cutscene");
         Soccorritore2_GP = GameObject.Find("SoccorritoreNeve2_gameplay");
@@ -73,6 +75,15 @@ public class GestoreScenaValanga : MonoBehaviour
             Soccorritore2_GP.GetComponent<SC_NPCFollow>().enabled = true;
             Soccorritore2_GP.GetComponent<NavMeshAgent>().enabled = true;
             Soccorritore2_GP.GetComponent<soccorritoreNeve2>().enabled = true;
+            Soccorritore2_GP.GetComponent<DialogueTrigger>().dialogue = GameObject.Find("Dialogo1");
+            if (Disperso.GetComponent<Disperso_neve>().GetArtvaActive())
+                Soccorritore2_GP.GetComponent<DialogueTrigger>().dialogue = GameObject.Find("Dialogo2");
+            if (Disperso.GetComponent<Disperso_neve>().GetCanUseSonda())
+                Soccorritore2_GP.GetComponent<DialogueTrigger>().dialogue = GameObject.Find("Dialogo3");
+            if (sonda.GetComponent<Renderer>().enabled)
+            {
+                Soccorritore2_GP.GetComponent<DialogueTrigger>().dialogue = GameObject.Find("Dialogo4");
+            }
         }
             //do stuff
        // }
