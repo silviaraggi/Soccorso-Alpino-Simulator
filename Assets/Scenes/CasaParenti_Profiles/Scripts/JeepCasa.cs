@@ -22,6 +22,7 @@ public class JeepCasa : MonoBehaviour
         giocatore = GameObject.FindGameObjectWithTag("Player");
         maglia = GameObject.Find("magliasolida");
         maglia.GetComponent<Interactable>().SetCollectable(false);
+      
         IntroScenaCasa();
     }
 
@@ -64,6 +65,7 @@ public class JeepCasa : MonoBehaviour
     }
     public void FineScenaCasa()
     {
+
         foreach (Renderer daAttivare in GameObject.Find("Colleghi").GetComponentsInChildren<Renderer>())
         {
             daAttivare.enabled = false;
@@ -116,7 +118,6 @@ public class JeepCasa : MonoBehaviour
     }
     public void CaricaScenaBosco()
     {
-        GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().entry_transition();
         GameObject.Find("GestoreScene").GetComponent<GestoreScene>().LoadSceneByID(4);
     }
 }

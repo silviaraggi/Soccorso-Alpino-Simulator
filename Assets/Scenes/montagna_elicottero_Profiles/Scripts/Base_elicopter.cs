@@ -105,6 +105,7 @@ public class Base_elicopter : MonoBehaviour
 
     public void LoadMenu()
     {
+        GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().entry_transition();
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
         Debug.Log("Loading menu...");
