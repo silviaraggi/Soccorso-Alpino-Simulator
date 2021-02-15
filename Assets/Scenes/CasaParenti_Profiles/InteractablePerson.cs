@@ -11,11 +11,14 @@ public class InteractablePerson : Interactable
     public DialogueTrigger dialoguetrigger;
     public bool dialogue = false;
     Material[] mat;
+    AudioSource audio;
+    public AudioClip dialogo;
 
 
     // Start is called before the first frame update
     protected override void Start()
     {
+        audio = GetComponent<AudioSource>();
         if (GetComponent<SC_NPCFollow>())
             collectable = true;
         if (gameObject.GetComponent<Renderer>())
@@ -35,6 +38,10 @@ public class InteractablePerson : Interactable
         {
             dialogue = GameObject.Find("DialogueManager").GetComponent<DialogueManager>().dialogue_bool;
             interact = dialogue;
+        }
+        if (interact == false)
+        {
+            audio.Stop();
         }
     }
 
@@ -119,6 +126,8 @@ public class InteractablePerson : Interactable
         if (((collectable==true&&collect==true)&&!dialogue)||(collectable==false&&!dialogue))
         {
             dialoguetrigger.TriggerDialogue();
+            Debug.Log("dialogo");
+            audio.PlayOneShot(dialogo, 1f);
             //do dialogue
         }
         if(collectable==true&&collect==false)

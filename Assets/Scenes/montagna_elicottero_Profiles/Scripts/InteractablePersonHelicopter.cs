@@ -12,11 +12,14 @@ public class InteractablePersonHelicopter : Interactable
     public bool dialogue = false;
     Material[] mat;
     [SerializeField] private GameObject _ferito;
+    AudioSource audio;
+    public AudioClip dialogo;
 
 
     // Start is called before the first frame update
     protected override void Start()
     {
+        audio = GetComponent<AudioSource>();
         if (GetComponent<SC_NPCFollow>())
             collectable = true;
         if (gameObject.GetComponent<Renderer>())
@@ -36,6 +39,11 @@ public class InteractablePersonHelicopter : Interactable
         {
             dialogue = GameObject.Find("DialogueManager").GetComponent<DialogueManagerHelicopter>().dialogue_bool;
             interact = dialogue;
+        }
+        if (interact == false)
+        {
+            audio.Stop();
+            GameObject.Find("ferito").GetComponent<AudioSource>().Stop();
         }
     }
 
@@ -120,6 +128,7 @@ public class InteractablePersonHelicopter : Interactable
         if (((collectable == true && collect == true) && !dialogue) || (collectable == false && !dialogue))
         {
             dialoguetrigger.TriggerDialogue();
+            audio.PlayOneShot(dialogo, 1f);
             //do dialogue
         }
         if (collectable == true && collect == false)

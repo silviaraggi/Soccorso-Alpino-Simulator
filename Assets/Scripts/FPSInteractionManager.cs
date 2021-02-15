@@ -152,6 +152,14 @@ public class FPSInteractionManager : MonoBehaviour
         //If NOTHING is detected set all to null
         else
         {
+            if (_pointedInteractable != null)
+            {
+                _pointedInteractable.TurnOff();
+            }
+            if (_pointedGrabbable != null)
+            {
+                _pointedGrabbable.TurnOff();
+            }
             _pointingInteractable = null;
             _pointingGrabbable = null;
         }
@@ -234,8 +242,8 @@ public class FPSInteractionManager : MonoBehaviour
     {
         unlocked = valore;
         this.gameObject.GetComponent<FirstPersonCharacterController>().SetLocked(!valore);
-        if (this.gameObject.transform.Find("MainCamera")) 
-        this.gameObject.transform.Find("MainCamera").GetComponent<AudioListener>().enabled=!valore;
+        //if (this.gameObject.transform.Find("MainCamera")) 
+        //this.gameObject.transform.Find("MainCamera").GetComponent<AudioListener>().enabled=!valore;
     }
     public bool GetUnlocked()
     {

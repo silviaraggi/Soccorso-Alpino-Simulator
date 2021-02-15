@@ -17,12 +17,14 @@ public class LightUpInteractableHelicopter : Interactable
     [SerializeField] private GameObject _NPC;
     public DialogueTriggerHelicopter dialoguetrigger;
     public bool dialogue = false;
+    AudioSource audio;
+    public AudioClip dialogo;
 
 
     // Start is called before the first frame update
     protected override void Start()
     {
-
+        audio = GetComponent<AudioSource>();
         if (GetComponent<Renderer>())
         {
             gameObject.GetComponent<Renderer>().enabled = true;
@@ -103,6 +105,7 @@ public class LightUpInteractableHelicopter : Interactable
             {
                 dialoguetrigger.TriggerDialogue();
                 _player.transform.GetComponent<FirstPersonCharacterControllerHelicopter>()._dialogo = true;
+                audio.PlayOneShot(dialogo, 1f);
             }
             else
             {
