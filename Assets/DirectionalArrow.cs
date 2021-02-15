@@ -14,7 +14,7 @@ public class DirectionalArrow : MonoBehaviour
     {
         far = Color.black;
         near = Color.red;
-        MAX_DISTANCE = 4000.02f;
+        MAX_DISTANCE = 2000.02f;
     }
     void Update()
     {
