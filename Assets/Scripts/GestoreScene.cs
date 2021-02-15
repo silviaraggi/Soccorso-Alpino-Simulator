@@ -9,13 +9,13 @@ public class GestoreScene : MonoBehaviour
     public void LoadNextScene()
     {
 
-
+        GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().entry_transition();
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void LoadSceneByID(int ID)
     {
 
-
+        GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().entry_transition();
         SceneManager.LoadSceneAsync(ID);
     }
 }
