@@ -65,22 +65,22 @@ using UnityEngine.UI;
 public class TimerCountdown : MonoBehaviour
 {
     public GameObject textDisplay;
-    private float tempoRimanente = 600;
+    public float tempoRimanente = 600;
     public bool takingAway = false;
 
     bool intro;
     bool finale;
-    GameObject timer;
-
+    GameObject timerCanvas;
+    float tColor = 0;
 
     void Start()
     {
 
         intro = GameObject.Find("GestoreScena").GetComponent<GestoreScenaValanga>().intro;
         finale = GameObject.Find("GestoreScena").GetComponent<GestoreScenaValanga>().finale;
-        timer = GameObject.Find("Text_Timer");
-        timer.SetActive(false);
-        
+        timerCanvas = GameObject.Find("Timer").transform.GetChild(0).gameObject;
+        timerCanvas.SetActive(false);
+
     }
 
     void Update()
@@ -90,7 +90,7 @@ public class TimerCountdown : MonoBehaviour
 
         if (!intro && !finale)
         {
-            timer.SetActive(true);
+            timerCanvas.SetActive(true);
             takingAway = true;
             if (takingAway == true && tempoRimanente > 0)
             {
@@ -103,20 +103,25 @@ public class TimerCountdown : MonoBehaviour
                 tempoRimanente = 0;
                 takingAway = false;
             }
+            if (tColor <= 1)
+            { // if end color not reached yet...
+                tColor += Time.deltaTime / tempoRimanente; // advance timer at the right speed
+                GameObject.Find("Timer").transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().color = Color.Lerp(Color.white, Color.red, tColor);
+            }
+
+        }
+        void DisplayTime(float timeToDisplay)
+        {
+            timeToDisplay += 1;
+
+            float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+            float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+
+            textDisplay.GetComponent<Text>().text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
 
+
+
     }
-    void DisplayTime(float timeToDisplay)
-    {
-        timeToDisplay += 1;
-
-        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
-        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
-
-        textDisplay.GetComponent<Text>().text = string.Format("{0:00}:{1:00}", minutes, seconds);
-    }
-    
-
-
 }
 
