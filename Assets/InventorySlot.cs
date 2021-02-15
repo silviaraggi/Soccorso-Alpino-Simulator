@@ -159,6 +159,7 @@ public class InventorySlot : MonoBehaviour
             {
                 case "ARTVA":
                     GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().SetArtvaActive(!GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().GetArtvaActive());
+                    //inventario.Remove(artva.GetComponent<InteractableClue>().GetItem());
                     break;
                 case "Sonda":
                     if (GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().GetCanUseSonda())

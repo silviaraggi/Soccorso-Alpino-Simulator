@@ -7,9 +7,9 @@ using UnityEngine;
 
 public class Disperso_neve : MonoBehaviour
 {
-    private bool canUseSonda;
-    private bool ArtvaActive;
-    private bool isUsingPala;
+    public bool canUseSonda;
+    public bool ArtvaActive;
+    public bool isUsingPala;
     // Start is called before the first frame update
     void Start()
     {
