@@ -19917,7 +19917,7 @@ MonoBehaviour:
   collect: 0
   dialoguetrigger: {fileID: 919132148583453368}
   dialogue: 0
-  dialogo: {fileID: 8300000, guid: 5fbadd7457b020746b645f2949a39c69, type: 3}
+  dialogo: {fileID: 8300000, guid: 1f27ab532295d3c449fb15d0dd22baa3, type: 3}
 --- !u!65 &919132148583453370
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19941,7 +19941,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5fbadd7457b020746b645f2949a39c69, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1f27ab532295d3c449fb15d0dd22baa3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
