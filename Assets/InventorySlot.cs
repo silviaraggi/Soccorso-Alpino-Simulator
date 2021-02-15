@@ -165,12 +165,13 @@ public class InventorySlot : MonoBehaviour
                     {
                         sonda.GetComponent<Renderer>().enabled = true;
                         inventario.Remove(sonda.GetComponent<InteractableClue>().GetItem());
+                        GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().SetArtvaActive(false);
                     }
                     break;
                 case "Pala":
                     if (sonda.GetComponent<Renderer>().enabled)
                     {
-
+                        GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().SetIsUsingPala(!GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().GetisUsingPala());
                     }
                     break;
             }

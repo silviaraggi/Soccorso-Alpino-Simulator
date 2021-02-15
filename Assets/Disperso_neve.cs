@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -42,5 +43,10 @@ public class Disperso_neve : MonoBehaviour
     public void SetArtvaActive(bool valore)
     {
         ArtvaActive = valore;
+    }
+
+    internal void SetIsUsingPala(bool v)
+    {
+        isUsingPala = v;
     }
 }

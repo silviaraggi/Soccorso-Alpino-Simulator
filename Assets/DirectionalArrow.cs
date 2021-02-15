@@ -7,16 +7,18 @@ public class DirectionalArrow : MonoBehaviour
     [SerializeField]
     private Transform target;
     float dist;
-    Color colorStart;
-    Color colorAlpha;
+    Color far;
+    Color near;
+    float MAX_DISTANCE;
     private void Start()
     {
-        colorStart = Color.black;
-        colorAlpha = Color.red;
+        far = Color.black;
+        near = Color.red;
+        MAX_DISTANCE = 4000.02f;
     }
     void Update()
     {
-        Vector3 targetPosition = target.transform.position;
+    Vector3 targetPosition = target.transform.position;
         Vector3 signPosition = new Vector3(transform.position.x, 0, transform.position.z);
         // set the Y coordinate according to terrain Y at that point:
         signPosition.y = Terrain.activeTerrain.SampleHeight(signPosition) + Terrain.activeTerrain.GetPosition().y;
@@ -26,8 +28,22 @@ public class DirectionalArrow : MonoBehaviour
         //targetPosition.y = transform.position.y;
         targetPosition.y = transform.position.y;
         transform.LookAt(targetPosition);
-        dist = Vector3.Distance(targetPosition, this.transform.position);
-        GetComponentInChildren<Renderer>().material.color = Color.Lerp(colorStart, colorAlpha, dist);
+        float distanceApart = getSqrDistance(GameObject.Find("Player").transform.position, GameObject.Find("Disperso_gameplay").transform.position);
 
+        //Convert 0 and 200 distance range to 0f and 1f range
+        float lerp = mapValue(distanceApart, 0, MAX_DISTANCE, 0f, 1f);
+
+        //Lerp Color between near and far color
+        Color lerpColor = Color.Lerp(near, far, lerp);
+        this.GetComponentInChildren<Renderer>().material.color = lerpColor;
+
+    }
+    float mapValue(float mainValue, float inValueMin, float inValueMax, float outValueMin, float outValueMax)
+    {
+        return (mainValue - inValueMin) * (outValueMax - outValueMin) / (inValueMax - inValueMin) + outValueMin;
+    }
+    public float getSqrDistance(Vector3 v1, Vector3 v2)
+    {
+        return (v1 - v2).sqrMagnitude;
     }
 }
