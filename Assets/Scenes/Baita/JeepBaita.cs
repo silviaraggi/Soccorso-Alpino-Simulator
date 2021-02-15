@@ -151,7 +151,6 @@ public class JeepBaita : MonoBehaviour
     }
     public void CaricaScenaCasa()
     {
-        GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().entry_transition();
 
         GameObject.Find("GestoreScene").GetComponent<GestoreScene>().LoadSceneByID(3);
     }
