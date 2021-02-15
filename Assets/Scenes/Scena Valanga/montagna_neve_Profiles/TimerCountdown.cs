@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TimerCountdown : MonoBehaviour
+/*public class TimerCountdown : MonoBehaviour
 {
     public GameObject textDisplay;
     public int secondsLeft = 30;
@@ -58,6 +58,64 @@ public class TimerCountdown : MonoBehaviour
         takingAway = false;
         
     }
+
+
+}*/
+
+public class TimerCountdown : MonoBehaviour
+{
+    public GameObject textDisplay;
+    private float tempoRimanente = 600;
+    public bool takingAway = false;
+
+    bool intro;
+    bool finale;
+    GameObject timer;
+
+
+    void Start()
+    {
+
+        intro = GameObject.Find("GestoreScena").GetComponent<GestoreScenaValanga>().intro;
+        finale = GameObject.Find("GestoreScena").GetComponent<GestoreScenaValanga>().finale;
+        timer = GameObject.Find("Text_Timer");
+        timer.SetActive(false);
+        
+    }
+
+    void Update()
+    {
+        intro = GameObject.Find("GestoreScena").GetComponent<GestoreScenaValanga>().intro;
+        finale = GameObject.Find("GestoreScena").GetComponent<GestoreScenaValanga>().finale;
+
+        if (!intro && !finale)
+        {
+            timer.SetActive(true);
+            takingAway = true;
+            if (takingAway == true && tempoRimanente > 0)
+            {
+                tempoRimanente -= Time.deltaTime;
+                DisplayTime(tempoRimanente);
+            }
+            else
+            {
+                Debug.Log("Time is over");
+                tempoRimanente = 0;
+                takingAway = false;
+            }
+        }
+
+    }
+    void DisplayTime(float timeToDisplay)
+    {
+        timeToDisplay += 1;
+
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+
+        textDisplay.GetComponent<Text>().text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+    
 
 
 }

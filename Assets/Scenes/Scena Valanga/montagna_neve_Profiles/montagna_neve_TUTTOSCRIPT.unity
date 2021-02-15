@@ -10527,7 +10527,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textDisplay: {fileID: 630550744}
-  secondsLeft: 30
   takingAway: 0
 --- !u!4 &514559556
 Transform:
