@@ -138,12 +138,7 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
                 if (_soccorso == false&& _dialogo==true && _ferito.GetComponent<Interactable>().GetInteract() == true)
                 {
                     
-                    if (_ferito.transform.GetChild(2).GetComponent<SkinnedMeshRenderer>().enabled == true)
-                    {
-                        _ferito.GetComponent<Animator>().SetBool("soccorso", true);
-                        _soccorso = true;
-                        //_ferito.GetComponent<Interactable>().SetInteract(false);
-                    }
+                    
                     if (_ferito.transform.GetChild(4).GetComponent<SkinnedMeshRenderer>().enabled == true)
                     {
                         _ferito.transform.GetChild(4).GetComponent<SkinnedMeshRenderer>().enabled = false;
@@ -152,6 +147,15 @@ public class FirstPersonCharacterControllerHelicopter : MonoBehaviour
                         //_ferito.GetComponent<LightUpInteractable>().GetInteract();
                         //Cambio ferito
                     }
+                if(_soccorso==false && _dialogo == true)
+                {
+                    if (_ferito.transform.GetChild(2).GetComponent<SkinnedMeshRenderer>().enabled == true)
+                    {
+                        _ferito.GetComponent<Animator>().SetBool("soccorso", true);
+                        _soccorso = true;
+                        //_ferito.GetComponent<Interactable>().SetInteract(false);
+                    }
+                }
                 if (_barella.transform.parent == _helicopter.transform)
                     _barella.transform.parent = null;
                 if (_soccorso == true)

@@ -87,18 +87,23 @@ public class InventorySlot : MonoBehaviour
                     if (_stivali.GetComponent<SkinnedMeshRenderer>().enabled == false)
                     {
                         stecca.GetComponent<SkinnedMeshRenderer>().enabled = true;
+                        inventario.Remove(this.item);
                     }
                     break;
                 case "bende":
                     if (stecca.GetComponent<SkinnedMeshRenderer>().enabled == true)
                     {
                         bende.GetComponent<SkinnedMeshRenderer>().enabled = true;
+                        inventario.Remove(this.item);
                     }
                     break;
                 case "fissaggi":
                     if (bende.GetComponent<SkinnedMeshRenderer>().enabled == true)
+                    {
                         fissaggi.GetComponent<SkinnedMeshRenderer>().enabled = true;
-                    break;
+                        inventario.Remove(this.item);
+                    }
+                        break;
             }
             GameObject.Find("Inventory").SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
