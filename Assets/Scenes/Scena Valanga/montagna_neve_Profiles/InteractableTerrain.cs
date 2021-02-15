@@ -5,10 +5,6 @@ using UnityEngine;
 public class InteractableTerrain : LightUpInteractable
 {
     public int ClickToDeactivate;
-    public bool animatable;
-    public bool collectable;
-    public bool interact = false;
-    public bool collect = false;
     public override void GlowUp(GameObject changeColor)
     {
         {
@@ -55,26 +51,29 @@ public class InteractableTerrain : LightUpInteractable
 
     public override void Interact(GameObject interacter)
     {
-        if (ClickToDeactivate == 0)
+        if (GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().GetisUsingPala())
         {
-            if (gameObject.GetComponent<Renderer>())
+            if (ClickToDeactivate == 0)
             {
-                for (int i = 0; i < gameObject.GetComponentsInChildren<Renderer>().Length; i++)
+                if (gameObject.GetComponent<Renderer>())
                 {
-                    gameObject.GetComponentsInChildren<Renderer>()[i].enabled = false;
+                    for (int i = 0; i < gameObject.GetComponentsInChildren<Renderer>().Length; i++)
+                    {
+                        gameObject.GetComponentsInChildren<Renderer>()[i].enabled = false;
+                    }
+                    for (int i = 0; i < gameObject.GetComponentsInChildren<Collider>().Length; i++)
+                    {
+                        gameObject.GetComponentsInChildren<Collider>()[i].enabled = false;
+                    }
                 }
-                for (int i = 0; i < gameObject.GetComponentsInChildren<Collider>().Length; i++)
-                {
-                    gameObject.GetComponentsInChildren<Collider>()[i].enabled = false;
-                }
+                collect = true;
             }
-            collect = true;
+            else
+            {
+                ClickToDeactivate--;
+            }
+            TurnOff();
         }
-        else
-        {
-            ClickToDeactivate--;
-        }
-        TurnOff();
     }
 
     public override bool GetAnimatable()
