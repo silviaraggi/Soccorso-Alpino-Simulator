@@ -64,4 +64,8 @@ public class GestoreCamereBaita : MonoBehaviour
     {
         GameObject.Find("CamTitle").GetComponent<AudioSource>().enabled = true;
     }
+    public void SuonoTelefonoFalse()
+    {
+        GameObject.Find("CamTitle").GetComponent<AudioSource>().enabled = false;
+    }
 }
