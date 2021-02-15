@@ -12,8 +12,8 @@ public class SoccorritoreNeve1 : MonoBehaviour
     }
     public void SetStanding()
     {
-        GetComponent<Animator>().SetBool("isWalking", false);
-        GetComponent<Animator>().SetBool("isIdle", false);
-        GetComponent<Animator>().SetBool("isStandingUp", true);
+            GetComponent<Animator>().SetBool("isWalking", false);
+            GetComponent<Animator>().SetBool("isIdle", false);
+            GetComponent<Animator>().SetBool("isStandingUp", true);
     }
 }

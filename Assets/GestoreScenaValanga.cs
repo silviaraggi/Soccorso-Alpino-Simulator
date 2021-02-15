@@ -12,17 +12,19 @@ public class GestoreScenaValanga : MonoBehaviour
     private GameObject player;
     public bool intro;
     public bool finale;
+    bool inventarioStart;
     public Inventory inventario;
     // Start is called before the first frame update
     void Start()
     {
+        inventarioStart = false;
         intro = true;
         finale = false;
         player = GameObject.Find("Player");
-        inventario = GameObject.Find("Strumenti").GetComponent<InventoryUI>().GetInventory();
+        /*inventario = GameObject.Find("Strumenti").GetComponent<InventoryUI>().GetInventory();
         inventario.Add(GameObject.Find("ARTVA").GetComponent<InteractableClue>().GetItem());
         inventario.Add(GameObject.Find("Sonda_aperta").GetComponent<InteractableClue>().GetItem());
-        inventario.Add(GameObject.Find("Pala").GetComponent<InteractableClue>().GetItem());
+        inventario.Add(GameObject.Find("Pala").GetComponent<InteractableClue>().GetItem());*/
         //Timeline = GameObject.Find("Timeline");
         Disperso = GameObject.Find("Disperso");
         Soccorritore1 = GameObject.Find("SoccorritoreNeve1");
@@ -45,6 +47,14 @@ public class GestoreScenaValanga : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        inventario = GameObject.Find("Strumenti").GetComponent<InventoryUI>().GetInventory();
+        if (!inventarioStart)
+        {
+            inventario.Add(GameObject.Find("ARTVA").GetComponent<InteractableClue>().GetItem());
+            inventario.Add(GameObject.Find("Sonda_aperta").GetComponent<InteractableClue>().GetItem());
+            inventario.Add(GameObject.Find("Pala").GetComponent<InteractableClue>().GetItem());
+            inventarioStart = true;
+        }
         if (!intro && !finale)
         {
             foreach (Renderer daDisattivare in Soccorritore2_GP.GetComponentsInChildren<Renderer>())
