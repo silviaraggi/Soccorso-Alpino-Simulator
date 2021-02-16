@@ -55,17 +55,20 @@ public class InteractableTerrain : LightUpInteractable
         {
             if (ClickToDeactivate == 0)
             {
-                if (gameObject.GetComponent<Renderer>())
+                /*if (gameObject.GetComponentInChildren<Terrain>())
                 {
-                    for (int i = 0; i < gameObject.GetComponentsInChildren<Renderer>().Length; i++)
+                    for (int i = 0; i < gameObject.GetComponentsInChildren<Terrain>().Length; i++)
                     {
-                        gameObject.GetComponentsInChildren<Renderer>()[i].enabled = false;
+                        gameObject.GetComponentsInChildren<Terrain>()[i].enabled = false;
                     }
-                    for (int i = 0; i < gameObject.GetComponentsInChildren<Collider>().Length; i++)
+                    for (int i = 0; i < gameObject.GetComponentsInChildren<TerrainCollider>().Length; i++)
                     {
-                        gameObject.GetComponentsInChildren<Collider>()[i].enabled = false;
+                        gameObject.GetComponentsInChildren<TerrainCollider>()[i].enabled = false;
                     }
                 }
+                this.gameObject.GetComponent<Collider>().enabled=false;*/
+                if(this.transform.GetChild(0))
+                this.transform.GetChild(0).gameObject.SetActive(false);
                 collect = true;
             }
             else
