@@ -5,6 +5,7 @@ public class InventorySlot : MonoBehaviour
 {
     public Image icon;
     public Item item;
+    public Text text;
     public GameObject cane;
     public GameObject berretto;
     public GameObject zaino;
@@ -59,6 +60,7 @@ public class InventorySlot : MonoBehaviour
         if (item != null)
         {
             icon.sprite = item.icon;
+            text.text = item.name;
         }
     }
 
@@ -66,15 +68,18 @@ public class InventorySlot : MonoBehaviour
     {
         item = newItem;
         icon.sprite = item.icon;
+        text.text = item.name;
         icon.enabled = true;
+        text.enabled = true;
     }
 
     public void ClearSlot()
     {
         item = null;
-
+        text.text = null;
         icon.sprite = null;
         icon.enabled = false;
+        text.enabled = false;
     }
 
     public void UseItem()
@@ -94,6 +99,7 @@ public class InventorySlot : MonoBehaviour
                     if (stecca.GetComponent<SkinnedMeshRenderer>().enabled == true)
                     {
                         bende.GetComponent<SkinnedMeshRenderer>().enabled = true;
+                        
                         inventario.Remove(this.item);
                     }
                     break;
