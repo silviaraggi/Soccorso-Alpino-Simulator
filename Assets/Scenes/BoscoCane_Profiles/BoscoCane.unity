@@ -9177,10 +9177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatable: 1
   collectable: 0
-  interact: 0
-  collect: 0
   dialoguetrigger: {fileID: 974564171}
-  dialogue: 0
   dialogo: {fileID: 8300000, guid: 5fbadd7457b020746b645f2949a39c69, type: 3}
 --- !u!65 &974564174
 BoxCollider:
@@ -12420,6 +12417,8 @@ MonoBehaviour:
   _debugRay: 0
   _interactionDistance: 3
   _target: {fileID: 2067632253}
+  _pointingInteractable: {fileID: 0}
+  _pointedInteractable: {fileID: 0}
 --- !u!114 &1374794557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12955,10 +12954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatable: 1
   collectable: 0
-  interact: 0
-  collect: 0
   dialoguetrigger: {fileID: 1433503994}
-  dialogue: 0
   dialogo: {fileID: 8300000, guid: 5fbadd7457b020746b645f2949a39c69, type: 3}
 --- !u!114 &1433503994
 MonoBehaviour:
@@ -17500,10 +17496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatable: 1
   collectable: 0
-  interact: 0
-  collect: 0
   dialoguetrigger: {fileID: 1929159439}
-  dialogue: 0
   dialogo: {fileID: 8300000, guid: 5fbadd7457b020746b645f2949a39c69, type: 3}
 --- !u!65 &1929159441
 BoxCollider:
@@ -18566,7 +18559,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ac7c291e902e80c4d9cde33f97f5d595, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3b14ee40bf08e254184db8e78614f6d6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -20315,10 +20308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatable: 1
   collectable: 0
-  interact: 0
-  collect: 0
   dialoguetrigger: {fileID: 919132148583453368}
-  dialogue: 0
   dialogo: {fileID: 8300000, guid: 1f27ab532295d3c449fb15d0dd22baa3, type: 3}
 --- !u!65 &919132148583453370
 BoxCollider:
