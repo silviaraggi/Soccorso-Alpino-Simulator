@@ -120,8 +120,13 @@ public class GestoreScenaValanga : MonoBehaviour
                 }
             }
         }
-            //do stuff
-       // }
-
+        if (finale)
+        {
+            GameObject.Find("MainCamera").GetComponent<Camera>().enabled = false;
+            GameObject.Find("CamFinale").GetComponent<Camera>().enabled = true;
+            GameObject.Find("elicotterofinal4").GetComponent<elicotteroneve>().EnableElicottero();
+        }
+        if (Disperso.GetComponent<Disperso_neve>().flag == 2)
+            finale = true;
     }
 }
