@@ -69,5 +69,12 @@ public class soccorritoreNeve2 : MonoBehaviour
         GetComponent<Animator>().SetBool("isIdle", false);
         GetComponent<Animator>().SetBool("isStandingUp", true);
     }
+    public void SetValanga()
+    {
+        GetComponent<Animator>().SetBool("isWalking", false);
+        GetComponent<Animator>().SetBool("isIdle", false);
+        GetComponent<Animator>().SetBool("isStandingUp", false);
+        GetComponent<Animator>().SetBool("isValanga", true);
+    }
 
 }

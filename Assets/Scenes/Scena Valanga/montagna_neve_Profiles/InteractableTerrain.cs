@@ -73,6 +73,7 @@ public class InteractableTerrain : LightUpInteractable
             }
             else
             {
+                
                 ClickToDeactivate--;
             }
             TurnOff();
