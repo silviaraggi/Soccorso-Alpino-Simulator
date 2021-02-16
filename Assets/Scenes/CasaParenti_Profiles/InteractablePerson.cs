@@ -6,10 +6,10 @@ public class InteractablePerson : Interactable
 {
     public bool animatable; //dialogable
     public bool collectable; //follow
-    public bool interact = false; //dialog
-    public bool collect = false; //follow
+    private bool interact = false; //dialog
+    private bool collect = false; //follow
     public DialogueTrigger dialoguetrigger;
-    public bool dialogue = false;
+    private bool dialogue = false;
     Material[] mat;
     AudioSource audio;
     public AudioClip dialogo;
@@ -36,10 +36,10 @@ public class InteractablePerson : Interactable
     {
         if (this.animatable)
         {
-            dialogue = GameObject.Find("DialogueManager").GetComponent<DialogueManager>().dialogue_bool;
-            interact = dialogue;
+            SetDialogue(GameObject.Find("DialogueManager").GetComponent<DialogueManager>().dialogue_bool);
+            SetInteract(GetDialogue());
         }
-        if (interact == false)
+        if (GetInteract() == false)
         {
             audio.Stop();
         }
@@ -121,18 +121,18 @@ public class InteractablePerson : Interactable
     }
 
 
-    public override void Interact(GameObject interacter)
+    public override void Interact(GameObject interacter, Interactable interacted)
     {
-        if (((collectable==true&&collect==true)&&!dialogue)||(collectable==false&&!dialogue))
+        if (((collectable==true&&collect==true)&&!GetDialogue())||(collectable==false&&!GetDialogue()))
         {
             dialoguetrigger.TriggerDialogue();
             Debug.Log("dialogo");
             audio.PlayOneShot(dialogo, 1f);
             //do dialogue
         }
-        if(collectable==true&&collect==false)
+        if(collectable==true&&GetCollect()==false)
         {
-            collect = true;
+            SetCollect(true);
             GetComponent<SC_NPCFollow>().enabled = true;
         }
         TurnOff();
@@ -171,7 +171,14 @@ public class InteractablePerson : Interactable
     {
         collect = newvalue;
     }
-
+    public bool GetDialogue()
+    {
+        return dialogue;
+    }
+    public void SetDialogue(bool newvalue)
+    {
+        dialogue = newvalue;
+    }
 }
 
 

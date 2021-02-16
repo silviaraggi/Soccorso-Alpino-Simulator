@@ -60,7 +60,7 @@ public class InteractableClue : Interactable
 
     }
 
-    public override void Interact(GameObject interacter)
+    public override void Interact(GameObject interacter, Interactable interacted)
     {
         if (interacter.GetComponent<CaneBosco>()&&!interact)
         {

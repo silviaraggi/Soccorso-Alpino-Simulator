@@ -103,7 +103,7 @@ public class FPSInteractionManagerHelicopter : MonoBehaviour
                 _pointingInteractable.GlowUp(changeColor);
                 if (Input.GetMouseButtonDown(0))
                 {
-                    _pointingInteractable.Interact(gameObject);
+                    _pointingInteractable.Interact(gameObject, _pointingInteractable);
                     _pointingInteractable.TurnOff();
                 }
             }

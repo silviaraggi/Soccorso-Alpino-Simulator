@@ -79,7 +79,7 @@ public class LightUpInteractableNEVE : Interactable
 
     }
 
-    public override void Interact(GameObject interacter)
+    public override void Interact(GameObject interacter, Interactable interacted)
     {
         if (!collectable)
         {

@@ -63,7 +63,7 @@ public class JeepBaita : MonoBehaviour
             GameObject.Find("CamTitle").GetComponent<AudioListener>().enabled = false;
             giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(true);
             giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(true);
-            if (zaino.GetComponent<LightUpInteractable>().collect == true && collega1.GetComponent<InteractablePerson>().collect == true && collega2.GetComponent<InteractablePerson>().collect == true)
+            if (zaino.GetComponent<LightUpInteractable>().collect == true && collega1.GetComponent<InteractablePerson>().GetCollect() == true && collega2.GetComponent<InteractablePerson>().GetCollect() == true)
             {
                 AttivaScena();
 

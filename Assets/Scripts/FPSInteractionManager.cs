@@ -12,14 +12,14 @@ public class FPSInteractionManager : MonoBehaviour
 
     [SerializeField] private Image _target;
 
-    private Interactable _pointingInteractable;
+    public Interactable _pointingInteractable;
     private Grabbable _pointingGrabbable;
 
     private CharacterController _fpsController;
     private Vector3 _rayOrigin;
 
     private Grabbable _grabbedObject = null;
-    private Interactable _pointedInteractable=null;
+    public Interactable _pointedInteractable=null;
     private Grabbable _pointedGrabbable = null;
     private GameObject changeColor = null;
     private bool IsDialogue = false;
@@ -112,7 +112,7 @@ public class FPSInteractionManager : MonoBehaviour
                 _pointingInteractable.GlowUp(changeColor);
                 if (Input.GetMouseButtonDown(0))
                 {
-                    _pointingInteractable.Interact(gameObject);
+                    _pointingInteractable.Interact(gameObject, _pointingInteractable);
                     _pointingInteractable.TurnOff();
                    
                 }

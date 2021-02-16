@@ -24,21 +24,21 @@ public class Disperso_neve : InteractablePerson
     {
         GameObject.Find("FrecciaSolida").GetComponent<Renderer>().enabled = ArtvaActive;
 
-            dialogue = GameObject.Find("DialogueManager").GetComponent<DialogueManager>().dialogue_bool;
-            interact = dialogue;
-        if (interact == false)
+            SetDialogue(GameObject.Find("DialogueManager").GetComponent<DialogueManager>().dialogue_bool);
+            SetInteract(GetDialogue());
+        if (GetInteract() == false)
         {
             GetComponent<AudioSource>().Stop();
         }
-        if (this.GetComponent<Disperso_neve>().GetInteract() && this.GetComponent<Disperso_neve>().dialogue)
+        if (this.GetComponent<Disperso_neve>().GetInteract() && this.GetComponent<Disperso_neve>().GetDialogue())
             flag = 1;
-        if (flag == 1 && this.GetComponent<Disperso_neve>().dialogue == false)
+        if (flag == 1 && this.GetComponent<Disperso_neve>().GetDialogue() == false)
             flag = 2;
     }
 
     public override void GlowUp(GameObject changeColor)
     {
-        if (!interact)
+        if (!GetInteract())
         {
             {
                 /* if (mat != null)
@@ -112,9 +112,9 @@ public class Disperso_neve : InteractablePerson
     }
 
 
-    public override void Interact(GameObject interacter)
+    public override void Interact(GameObject interacter, Interactable interacted)
     {
-        if (((collectable == true && collect == true) && !dialogue) || (collectable == false && !dialogue))
+        if (((collectable == true && interacted.gameObject.GetComponent<Disperso_neve>().GetCollect()== true) && !interacted.gameObject.GetComponent<Disperso_neve>().GetDialogue()) || (collectable == false && !interacted.gameObject.GetComponent<Disperso_neve>().GetDialogue()))
         {
             dialoguetrigger.TriggerDialogue();
             Debug.Log("dialogo");

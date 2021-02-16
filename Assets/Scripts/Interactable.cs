@@ -8,7 +8,7 @@ public abstract class Interactable : MonoBehaviour
 
     /*protected abstract void Update();*/
 
-    public abstract void Interact(GameObject interacter);
+    public abstract void Interact(GameObject interacter, Interactable interacted);
 
     public abstract void GlowUp(GameObject gameObject);
 

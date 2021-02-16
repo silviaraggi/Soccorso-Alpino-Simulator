@@ -90,7 +90,7 @@ public class CaneBosco : MonoBehaviour
             {
                 if (ToFollow.GetComponent<InteractableClue>().GetInteract() == false)
                 {
-                    ToFollow.gameObject.GetComponent<InteractableClue>().Interact(this.gameObject);
+                    ToFollow.gameObject.GetComponent<InteractableClue>().Interact(this.gameObject, this.GetComponent<InteractableDog>());
                 }
                 if (ToFollow.GetComponent<Disperso>())
                 {

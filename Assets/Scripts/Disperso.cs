@@ -35,9 +35,9 @@ public class Disperso : MonoBehaviour
     {
         UpdateState();
         CheckTransition();
-        if (this.GetComponent<InteractablePerson>().GetInteract() && this.GetComponent<InteractablePerson>().dialogue&&this.GetDispersoState()==DispersoState.Found)
+        if (this.GetComponent<InteractablePerson>().GetInteract() && this.GetComponent<InteractablePerson>().GetDialogue()&&this.GetDispersoState()==DispersoState.Found)
             flag = 1;
-        if (flag == 1 && GameObject.Find("Disperso").GetComponent<InteractablePerson>().dialogue == false && this.GetDispersoState() == DispersoState.Found)
+        if (flag == 1 && GameObject.Find("Disperso").GetComponent<InteractablePerson>().GetDialogue() == false && this.GetDispersoState() == DispersoState.Found)
             flag = 2;
     }
 

@@ -73,7 +73,7 @@ public class InteractableDog : Interactable
 
     }
 
-    public override void Interact(GameObject interacter)
+    public override void Interact(GameObject interacter, Interactable interacted)
     {
              interact = true;
             //abilita sistema visibilità oggetto

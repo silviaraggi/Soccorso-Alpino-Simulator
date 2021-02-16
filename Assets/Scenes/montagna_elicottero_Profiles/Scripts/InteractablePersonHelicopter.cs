@@ -123,7 +123,7 @@ public class InteractablePersonHelicopter : Interactable
     }
 
 
-    public override void Interact(GameObject interacter)
+    public override void Interact(GameObject interacter, Interactable interacted)
     {
         if (((collectable == true && collect == true) && !dialogue) || (collectable == false && !dialogue))
         {

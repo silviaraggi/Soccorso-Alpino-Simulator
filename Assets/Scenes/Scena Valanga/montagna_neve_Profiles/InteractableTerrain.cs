@@ -49,7 +49,7 @@ public class InteractableTerrain : LightUpInteractable
 
     }
 
-    public override void Interact(GameObject interacter)
+    public override void Interact(GameObject interacter, Interactable interacted)
     {
         if (GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().GetisUsingPala())
         {
