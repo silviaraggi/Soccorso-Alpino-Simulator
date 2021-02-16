@@ -20,23 +20,23 @@ public class JeepBosco : MonoBehaviour
     bool canStart = false;
     GameObject torcia;
     Inventory inventario;
+    bool torciaAdded;
     [SerializeField] GameObject fine;
     // Start is called before the first frame update
     void Start()
     {
+        torciaAdded = false;
         torcia = GameObject.Find("Torcia");
-        inventario = GameObject.Find("Strumenti").GetComponent<InventoryUI>().GetInventory();
-        inventario.Add(torcia.GetComponent<InteractableClue>().GetItem());
         intro = true;
         finale = false;
         scena = gameObject.scene;
         maglia = GameObject.Find("magliasolida");
         cane = GameObject.Find("CaneUnity2");
         giocatore = GameObject.FindGameObjectWithTag("Player");
+        inventario = GameObject.Find("Strumenti").GetComponent<InventoryUI>().GetInventory();
         collega1 = GameObject.Find("Collega1");
         collega2 = GameObject.Find("Collega2");
         telecameraGiocatore = giocatore.transform.Find("Camera").GetComponent<Camera>();
-        GameObject.Find("Strumenti").GetComponent<InventoryUI>().GetInventory().Add(GameObject.Find("magliasolida").GetComponent<InteractableClue>().GetItem());
         if (scena.name == "BoscoCane")
             IntroScenaBosco();
     }
@@ -48,6 +48,13 @@ public class JeepBosco : MonoBehaviour
         {
             if (!intro && !finale)
             {
+                if (!torciaAdded)
+                {
+                    inventario = GameObject.Find("Strumenti").GetComponent<InventoryUI>().GetInventory();
+                    inventario.Add(torcia.GetComponent<InteractableClue>().GetItem());
+                    GameObject.Find("Strumenti").GetComponent<InventoryUI>().GetInventory().Add(GameObject.Find("magliasolida").GetComponent<InteractableClue>().GetItem());
+                    torciaAdded = true;
+                }
                 foreach(Light luce in GameObject.Find("Luci").GetComponentsInChildren<Light>())
                 {
                     luce.enabled = false;
