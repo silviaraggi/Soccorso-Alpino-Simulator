@@ -78,7 +78,7 @@ public class InventorySlot : MonoBehaviour
         item = null;
         icon.sprite = null;
         icon.enabled = false;
-        text.enabled = false;
+        
     }
 
     public void UseItem()
@@ -100,6 +100,7 @@ public class InventorySlot : MonoBehaviour
                         bende.GetComponent<SkinnedMeshRenderer>().enabled = true;
                         
                         inventario.Remove(this.item);
+                        
                     }
                     break;
                 case "fissaggi":

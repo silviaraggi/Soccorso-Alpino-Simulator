@@ -11,7 +11,7 @@ public class CompleteMission : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             Time.fixedDeltaTime = 0.02f * Time.timeScale; //SlowmotionEffect
             Debug.Log("Missione Complete");
