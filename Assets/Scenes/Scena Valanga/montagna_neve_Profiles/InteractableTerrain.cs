@@ -6,7 +6,7 @@ public class InteractableTerrain : LightUpInteractable
 {
     public int ClickToDeactivate;
     [SerializeField] ParticleSystem neve = null;
-
+    public AudioClip suono;
     public override void GlowUp(GameObject changeColor)
     {
         {
@@ -78,6 +78,7 @@ public class InteractableTerrain : LightUpInteractable
                 
                 ClickToDeactivate--;
                 neve.Play();
+                this.gameObject.GetComponent<AudioSource>().PlayOneShot(suono);
             }
             TurnOff();
         }
