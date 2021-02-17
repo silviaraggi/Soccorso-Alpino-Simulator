@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Playables;
+using UnityStandardAssets.Characters.FirstPerson;
+
 public class GestoreScenaValanga : MonoBehaviour
 {
     private GameObject Soccorritore1;
@@ -69,6 +71,7 @@ public class GestoreScenaValanga : MonoBehaviour
         }
         if (!intro && !finale)
         {
+            player.GetComponent<FirstPersonCharacterControllerSOUND>().isLocked = false;
             foreach (Renderer daDisattivare in Soccorritore2_GP.GetComponentsInChildren<Renderer>())
             {
                 daDisattivare.enabled = true;

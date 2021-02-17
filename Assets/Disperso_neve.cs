@@ -11,6 +11,7 @@ public class Disperso_neve : InteractablePerson
     public bool ArtvaActive;
     public bool isUsingPala;
     public int flag;
+    private GameObject Scavo5;
     // Start is called before the first frame update
     new void Start()
     {
@@ -22,6 +23,7 @@ public class Disperso_neve : InteractablePerson
 
     new private void Update()
     {
+        Scavo5 = GameObject.Find("Terrain_BUCA (4)");
         GameObject.Find("FrecciaSolida").GetComponent<Renderer>().enabled = ArtvaActive;
 
             SetDialogue(GameObject.Find("DialogueManager").GetComponent<DialogueManager>().dialogue_bool);
@@ -30,9 +32,9 @@ public class Disperso_neve : InteractablePerson
         {
             GetComponent<AudioSource>().Stop();
         }
-        if (this.GetComponent<Disperso_neve>().GetInteract() && this.GetComponent<Disperso_neve>().GetDialogue())
+        if (this.GetComponent<Disperso_neve>().GetInteract() && this.GetComponent<Disperso_neve>().GetDialogue()&&!Scavo5.activeInHierarchy)
             flag = 1;
-        if (flag == 1 && this.GetComponent<Disperso_neve>().GetDialogue() == false)
+        if (flag == 1 && this.GetComponent<Disperso_neve>().GetDialogue() == false && !Scavo5.activeInHierarchy)
             flag = 2;
     }
 

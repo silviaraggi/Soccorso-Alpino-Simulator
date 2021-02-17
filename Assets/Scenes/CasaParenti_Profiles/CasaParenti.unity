@@ -5216,10 +5216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatable: 1
   collectable: 0
-  interact: 0
-  collect: 0
   dialoguetrigger: {fileID: 485956640}
-  dialogue: 0
   dialogo: {fileID: 8300000, guid: 95392337a14fdf145a7f04bfa8f8bd59, type: 3}
 --- !u!4 &485956638
 Transform:
@@ -15145,10 +15142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatable: 1
   collectable: 0
-  interact: 0
-  collect: 0
   dialoguetrigger: {fileID: 1718867820}
-  dialogue: 0
   dialogo: {fileID: 8300000, guid: 5fbadd7457b020746b645f2949a39c69, type: 3}
 --- !u!4 &1718867818
 Transform:
@@ -16043,10 +16037,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatable: 1
   collectable: 0
-  interact: 0
-  collect: 0
   dialoguetrigger: {fileID: 1718867820}
-  dialogue: 0
   dialogo: {fileID: 8300000, guid: 1f27ab532295d3c449fb15d0dd22baa3, type: 3}
 --- !u!1 &1858317946
 GameObject:
@@ -18909,6 +18900,7 @@ GameObject:
   - component: {fileID: 1775760898}
   - component: {fileID: 2139497830}
   - component: {fileID: 2139497832}
+  - component: {fileID: 2139497833}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -18932,6 +18924,8 @@ MonoBehaviour:
   _debugRay: 1
   _interactionDistance: 3
   _target: {fileID: 1395787666}
+  _pointingInteractable: {fileID: 0}
+  _pointedInteractable: {fileID: 0}
 --- !u!1 &2139497831
 GameObject:
   m_ObjectHideFlags: 0
@@ -18959,7 +18953,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2139497829}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 877500d2398018a4c8b10fd138d74c11, type: 3}
   m_Name: 
@@ -18974,7 +18968,118 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _jumpHeight: 3
+  m_FootstepSounds: []
   isLocked: 0
+--- !u!114 &2139497833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139497829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98a40bb42d2746343bbd344e3d7424f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsWalking: 0
+  m_WalkSpeed: 2
+  m_RunSpeed: 4
+  m_RunstepLenghten: 0.188
+  m_JumpSpeed: 3
+  m_StickToGroundForce: 1
+  m_GravityMultiplier: 1
+  m_MouseLook:
+    XSensitivity: 2
+    YSensitivity: 2
+    clampVerticalRotation: 1
+    MinimumX: -90
+    MaximumX: 90
+    smooth: 0
+    smoothTime: 5
+    lockCursor: 1
+  m_UseFovKick: 0
+  m_FovKick:
+    Camera: {fileID: 0}
+    originalFov: 0
+    FOVIncrease: 3
+    TimeToIncrease: 1
+    TimeToDecrease: 1
+    IncreaseCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  m_UseHeadBob: 0
+  m_HeadBob:
+    HorizontalBobRange: 0.33
+    VerticalBobRange: 0.33
+    Bobcurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.5
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1.5
+        value: -1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    VerticaltoHorizontalRatio: 1
+  m_JumpBob:
+    BobDuration: 0
+    BobAmount: 0
+  m_StepInterval: 2.25
+  m_FootstepSounds:
+  - {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
+  - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
+  - {fileID: 8300000, guid: 5a9383dda6cabc047b7a297602e93eb4, type: 3}
+  - {fileID: 8300000, guid: e9714160ce34f2b4ab63ff8c27bd68e1, type: 3}
+  m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
+  m_LandSound: {fileID: 8300000, guid: 2ba1a2387d8d75a4890b62ef9fc4b64c, type: 3}
+  isLocked: 0
+  canJump: 0
 --- !u!20 &2140743493
 Camera:
   m_ObjectHideFlags: 0
@@ -20572,10 +20677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatable: 1
   collectable: 0
-  interact: 0
-  collect: 0
   dialoguetrigger: {fileID: 1718867820}
-  dialogue: 0
   dialogo: {fileID: 8300000, guid: 5fbadd7457b020746b645f2949a39c69, type: 3}
 --- !u!1 &919132149279012452
 GameObject:

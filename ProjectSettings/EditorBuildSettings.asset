@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BoscoCane_Profiles/BoscoCane.unity
     guid: 6c5afed758d9dde4d96232ce7a139e63
+  - enabled: 1
+    path: Assets/Scenes/Scena Valanga/montagna_neve_Profiles/montagna_neve_TUTTOSCRIPT.unity
+    guid: 09fdd8c5c594dd446a6399a79b5ccd3a
   m_configObjects: {}

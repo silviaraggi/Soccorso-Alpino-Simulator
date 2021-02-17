@@ -22,6 +22,7 @@ public class Disperso : MonoBehaviour
     private DispersoState _currentDispersoState;
     private NavMeshAgent _navMeshAgent;
     private int _currentWayPointIndex = 0;
+    private bool Howl = false;
 
     void Start()
     {
@@ -82,7 +83,9 @@ public class Disperso : MonoBehaviour
     {
         this.GetComponent<Animator>().SetBool("isFound", true);
         _navMeshAgent.isStopped = true;
-        //GameObject.Find("CaneUnity2").GetComponent<CaneBosco>().Howl();
+        if(!Howl)
+        GameObject.Find("CaneUnity2").GetComponent<CaneBosco>().Howl();
+        Howl = true;
         //playanimationfound
     }
 

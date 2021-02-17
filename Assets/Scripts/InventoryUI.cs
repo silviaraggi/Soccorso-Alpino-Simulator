@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -46,9 +47,11 @@ public class InventoryUI : MonoBehaviour
         }
         if (Cursor.lockState == CursorLockMode.Locked && (Input.GetButtonDown("Inventory"))|| (GameObject.Find("stivali") && (GameObject.Find("stivali").GetComponent<SkinnedMeshRenderer>().enabled == true) && (GameObject.Find("ferito")) && (GameObject.Find("ferito").GetComponent<LightUpInteractableHelicopter>())&&(GameObject.Find("ferito").GetComponent<LightUpInteractableHelicopter>().GetInteract()))||(GameObject.Find("stivali")&& (GameObject.Find("stivali").GetComponent<SkinnedMeshRenderer>().enabled==false)&& (GameObject.Find("ferito"))&& (GameObject.Find("ferito").GetComponent<LightUpInteractableHelicopter>())&&(GameObject.Find("ferito").GetComponent<LightUpInteractableHelicopter>().GetInteract())&&GameObject.Find("fissaggi") && (GameObject.Find("fissaggi").GetComponent<SkinnedMeshRenderer>().enabled == false)) || (GameObject.Find("CaneUnity2") && GameObject.Find("CaneUnity2").GetComponent<InteractableDog>() && GameObject.Find("CaneUnity2").GetComponent<InteractableDog>().GetInteract()))
         {
+            Cursor.lockState = CursorLockMode.None;
+            GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUND>().m_MouseLook.SetCursorLock(false);
             if (EventSystem.current.IsPointerOverGameObject())
                 return;
-            Cursor.lockState = CursorLockMode.None;
+
             control = true;
             if (GameObject.Find("CaneUnity2") && GameObject.Find("CaneUnity2").GetComponent<InteractableDog>())
                 GameObject.Find("CaneUnity2").GetComponent<InteractableDog>().SetInteract(false);
