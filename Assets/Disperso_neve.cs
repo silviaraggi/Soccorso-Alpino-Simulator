@@ -24,7 +24,8 @@ public class Disperso_neve : InteractablePerson
     new private void Update()
     {
         Scavo5 = GameObject.Find("Scavo5");
-        GameObject.Find("FrecciaSolida").GetComponent<Renderer>().enabled = ArtvaActive;
+        GameObject.Find("FrecciaSilvia").GetComponent<Renderer>().enabled = ArtvaActive;
+        Debug.Log("FRECCIA");
 
             SetDialogue(GameObject.Find("DialogueManager").GetComponent<DialogueManager>().dialogue_bool);
             SetInteract(GetDialogue());
