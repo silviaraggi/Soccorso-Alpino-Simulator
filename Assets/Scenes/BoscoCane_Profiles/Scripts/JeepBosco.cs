@@ -117,7 +117,7 @@ public class JeepBosco : MonoBehaviour
     public void IntroScenaBosco()
     {
         telecameraGiocatore.enabled = false;
-        giocatore.GetComponent<CharacterController>().enabled = false;
+        //giocatore.GetComponent<CharacterController>().enabled = false;
         giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(false);
         giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
         cane.gameObject.transform.Find("Cane.001").GetComponent<Renderer>().enabled = false;

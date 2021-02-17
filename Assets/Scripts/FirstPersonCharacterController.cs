@@ -13,7 +13,8 @@ public class FirstPersonCharacterController : MonoBehaviour
     [SerializeField] private float _groundDistance = 0.4f;
     [SerializeField] private LayerMask _groundMask;
     [SerializeField] private float _jumpHeight = 3f;
-
+    private AudioSource m_AudioSource;
+    [SerializeField] private AudioClip[] m_FootstepSounds;
     private Color pointerColor;
     private Color visible = new Color(1, 1, 1, 1);
     private Color invisible = new Color(0, 0, 0, 0);
@@ -26,6 +27,7 @@ public class FirstPersonCharacterController : MonoBehaviour
     private InventoryUI inventoryui;
     void Start()
     {
+        m_AudioSource = gameObject.GetComponent<AudioSource>();
         _characterController = GetComponent<CharacterController>();
         if (transform.Find("Spot Light"))
             Light = transform.Find("Spot Light").gameObject;
@@ -65,7 +67,6 @@ public class FirstPersonCharacterController : MonoBehaviour
             float v = Input.GetAxis("Vertical");
             Vector3 move = (transform.right * h + transform.forward * v).normalized;
             _characterController.Move(move * _speed * Time.deltaTime);
-
             //JUMPING
             if (Input.GetKey(KeyCode.Space) && _isGrounded)
             {
@@ -105,5 +106,22 @@ public class FirstPersonCharacterController : MonoBehaviour
     public void ShowPointer()
     {
         pointerColor = visible;
+    }
+
+    private void PlayFootStepAudio()
+    {
+        if (!_characterController.isGrounded)
+        {
+            return;
+        }
+        // pick & play a random footstep sound from the array,
+        // excluding sound at index 0
+        int n = Random.Range(1, m_FootstepSounds.Length);
+        m_AudioSource.clip = m_FootstepSounds[n];
+        if(!m_AudioSource.isPlaying)
+        m_AudioSource.PlayOneShot(m_AudioSource.clip);
+        // move picked sound to index 0 so it's not picked next time
+        m_FootstepSounds[n] = m_FootstepSounds[0];
+        m_FootstepSounds[0] = m_AudioSource.clip;
     }
 }

@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System;
 using UnityEngine.EventSystems;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class FPSInteractionManager : MonoBehaviour
 {
@@ -241,7 +242,7 @@ public class FPSInteractionManager : MonoBehaviour
     public void SetUnlocked(bool valore)
     {
         unlocked = valore;
-        this.gameObject.GetComponent<FirstPersonCharacterController>().SetLocked(!valore);
+        this.gameObject.GetComponent<FirstPersonCharacterControllerSOUND>().SetLocked(!valore);
         //if (this.gameObject.transform.Find("MainCamera")) 
         //this.gameObject.transform.Find("MainCamera").GetComponent<AudioListener>().enabled=!valore;
     }
