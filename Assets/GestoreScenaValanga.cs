@@ -65,8 +65,8 @@ public class GestoreScenaValanga : MonoBehaviour
         if (!inventarioStart)
         {
             inventario.Add(GameObject.Find("ARTVA").GetComponent<InteractableClue>().GetItem());
-            inventario.Add(GameObject.Find("Sonda_aperta").GetComponent<InteractableClue>().GetItem());
             inventario.Add(GameObject.Find("Pala").GetComponent<InteractableClue>().GetItem());
+            inventario.Add(GameObject.Find("Sonda_aperta").GetComponent<InteractableClue>().GetItem());
             inventarioStart = true;
         }
         if (!intro && !finale)

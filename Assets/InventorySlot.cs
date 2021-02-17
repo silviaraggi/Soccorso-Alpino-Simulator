@@ -48,8 +48,8 @@ public class InventorySlot : MonoBehaviour
 
             case 3:
                 artva = GameObject.Find("ARTVA");
-                sonda = GameObject.Find("Sonda_aperta");
                 pala = GameObject.Find("Pala");
+                sonda = GameObject.Find("Sonda_aperta");
                 break;
         }
     }
@@ -183,16 +183,19 @@ public class InventorySlot : MonoBehaviour
             {
                 case "ARTVA":
                     GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().SetArtvaActive(!GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().GetArtvaActive());
+                    if (GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().GetArtvaActive())
+                    {
+                        GameObject.Find("artva").GetComponent<Image>().color = Color.green;
+                    }
+                    if (!GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().GetArtvaActive())
+                    {
+                        GameObject.Find("artva").GetComponent<Image>().color = Color.white;
+                    }
+
+
                     //inventario.Remove(artva.GetComponent<InteractableClue>().GetItem());
                     break;
-                case "Sonda":
-                    if (GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().GetCanUseSonda())
-                    {
-                        sonda.GetComponent<Renderer>().enabled = true;
-                        inventario.Remove(sonda.GetComponent<InteractableClue>().GetItem());
-                        GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().SetArtvaActive(false);
-                    }
-                    break;
+                
                 case "Pala":
                     if (sonda.GetComponent<Renderer>().enabled)
                     {
@@ -205,6 +208,15 @@ public class InventorySlot : MonoBehaviour
                         {
                             GameObject.Find("button_pala").GetComponent<Image>().color = Color.white;
                         }
+                    }
+                    break;
+
+                case "Sonda":
+                    if (GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().GetCanUseSonda())
+                    {
+                        sonda.GetComponent<Renderer>().enabled = true;
+                        inventario.Remove(sonda.GetComponent<InteractableClue>().GetItem());
+                        GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().SetArtvaActive(false);
                     }
                     break;
             }
