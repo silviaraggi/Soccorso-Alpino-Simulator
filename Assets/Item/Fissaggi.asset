@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdcc56626a2c4994a9719f9abd417635, type: 3}
   m_Name: Fissaggi
   m_EditorClassIdentifier: 
-  name: fissaggi
+  name: Fissaggi
   icon: {fileID: 21300000, guid: ae9425ef29b18fe4f983527d864d47c3, type: 3}
   isDefaultItem: 0
   ID: 6

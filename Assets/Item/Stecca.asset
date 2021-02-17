@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdcc56626a2c4994a9719f9abd417635, type: 3}
   m_Name: Stecca
   m_EditorClassIdentifier: 
-  name: stecca
+  name: Stecca
   icon: {fileID: 21300000, guid: 2306722279003b64b8d1956edcadf869, type: 3}
   isDefaultItem: 0
   ID: 6

@@ -174,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 428509978}
   item: {fileID: 0}
-  text: {fileID: 387286673}
+  text: {fileID: 387286671}
   cane: {fileID: 0}
   berretto: {fileID: 0}
   zaino: {fileID: 0}
@@ -5503,7 +5503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 205355342}
   item: {fileID: 0}
-  text: {fileID: 2001566632}
+  text: {fileID: 2001566630}
   cane: {fileID: 0}
   berretto: {fileID: 0}
   zaino: {fileID: 0}
@@ -10353,7 +10353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 2080511223}
   item: {fileID: 0}
-  text: {fileID: 1145161980}
+  text: {fileID: 1145161978}
   cane: {fileID: 0}
   berretto: {fileID: 0}
   zaino: {fileID: 0}

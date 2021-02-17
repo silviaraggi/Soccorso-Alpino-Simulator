@@ -5,7 +5,7 @@ public class InventorySlot : MonoBehaviour
 {
     public Image icon;
     public Item item;
-    public Text text;
+    public GameObject text;
     public GameObject cane;
     public GameObject berretto;
     public GameObject zaino;
@@ -60,7 +60,8 @@ public class InventorySlot : MonoBehaviour
         if (item != null)
         {
             icon.sprite = item.icon;
-            text.text = item.name;
+            if (text.GetComponent<Text>())
+                text.GetComponent<Text>().text = item.name;
         }
     }
 
@@ -68,9 +69,11 @@ public class InventorySlot : MonoBehaviour
     {
         item = newItem;
         icon.sprite = item.icon;
-        text.text = item.name;
+        if(text.GetComponent<Text>())
+        text.GetComponent<Text>().text = item.name;
         icon.enabled = true;
-        text.enabled = true;
+        if (text.GetComponent<Text>())
+            text.GetComponent<Text>().enabled = true;
     }
 
     public void ClearSlot()
@@ -78,7 +81,9 @@ public class InventorySlot : MonoBehaviour
         item = null;
         icon.sprite = null;
         icon.enabled = false;
-        
+        if (text.GetComponent<Text>())
+            text.GetComponent<Text>().enabled = false;
+
     }
 
     public void UseItem()
@@ -138,6 +143,14 @@ public class InventorySlot : MonoBehaviour
                     break;
                     case "Torcia":
                         GameObject.Find("Player").GetComponent<FPSInteractionManager>().SetTorchStatus(!GameObject.Find("Player").GetComponent<FPSInteractionManager>().GetTorchStatus());
+                        if (GameObject.Find("Player").GetComponent<FPSInteractionManager>().GetTorchStatus())
+                        {
+                            GameObject.Find("button_torcia").GetComponent<Image>().color = Color.green;
+                        }
+                        if (!GameObject.Find("Player").GetComponent<FPSInteractionManager>().GetTorchStatus())
+                        {
+                            GameObject.Find("button_torcia").GetComponent<Image>().color = Color.white;
+                        }
                         break;
             }
             else
@@ -184,6 +197,14 @@ public class InventorySlot : MonoBehaviour
                     if (sonda.GetComponent<Renderer>().enabled)
                     {
                         GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().SetIsUsingPala(!GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().GetisUsingPala());
+                        if (GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().GetisUsingPala())
+                        {
+                            GameObject.Find("button_pala").GetComponent<Image>().color = Color.green;
+                        }
+                        if (!GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().GetisUsingPala())
+                        {
+                            GameObject.Find("button_pala").GetComponent<Image>().color = Color.white;
+                        }
                     }
                     break;
             }

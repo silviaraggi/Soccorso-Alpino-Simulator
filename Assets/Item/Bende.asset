@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdcc56626a2c4994a9719f9abd417635, type: 3}
   m_Name: Bende
   m_EditorClassIdentifier: 
-  name: bende
+  name: Bende
   icon: {fileID: 21300000, guid: aaa2148f988b2fe4cad609604664da27, type: 3}
   isDefaultItem: 0
   ID: 5

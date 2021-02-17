@@ -14992,7 +14992,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 346730750}
   item: {fileID: 0}
-  text: {fileID: 1286267256}
+  text: {fileID: 1286267254}
   cane: {fileID: 0}
   berretto: {fileID: 0}
   zaino: {fileID: 0}
@@ -26676,6 +26676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missionFailedUI: {fileID: 1703565039}
+  tempoScaduto: 0
 --- !u!114 &1124138417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28921,7 +28922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 1132493740}
   item: {fileID: 0}
-  text: {fileID: 481878210}
+  text: {fileID: 481878208}
   cane: {fileID: 0}
   berretto: {fileID: 0}
   zaino: {fileID: 0}
@@ -30556,7 +30557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 920272210}
   item: {fileID: 0}
-  text: {fileID: 497887767}
+  text: {fileID: 497887765}
   cane: {fileID: 0}
   berretto: {fileID: 0}
   zaino: {fileID: 0}
