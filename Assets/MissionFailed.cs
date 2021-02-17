@@ -2,24 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class MissionFailed : MonoBehaviour
 {
     public GameObject missionFailedUI;
+    public bool tempoScaduto;
     // Start is called before the first frame update
     void Start()
     {
-        
+        tempoScaduto = false;
     }
 
     // Update is called once per frame
     void Update()//prova
     {
-        if (Input.GetKeyDown(KeyCode.G))
+        if (tempoScaduto)
     {
         Time.fixedDeltaTime = 0.02f * Time.timeScale; //SlowmotionEffect
         Debug.Log("Missione Complete");
         missionFailedUI.SetActive(true);
+            this.gameObject.GetComponent<AudioSource>().enabled = true;
 
     }
     }

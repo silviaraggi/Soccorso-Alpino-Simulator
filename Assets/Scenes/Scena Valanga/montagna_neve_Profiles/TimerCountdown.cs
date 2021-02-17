@@ -101,6 +101,7 @@ public class TimerCountdown : MonoBehaviour
             {
                 Debug.Log("Time is over");
                 tempoRimanente = 0;
+                GameObject.Find("MissionFailed").GetComponent<MissionFailed>().tempoScaduto = true;
                 takingAway = false;
             }
             if (tColor <= 1)
