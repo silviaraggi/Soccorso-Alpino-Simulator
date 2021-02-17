@@ -76,10 +76,9 @@ public class InventorySlot : MonoBehaviour
     public void ClearSlot()
     {
         item = null;
-        //text.text = null;
         icon.sprite = null;
         icon.enabled = false;
-        //text.enabled = false;
+        text.enabled = false;
     }
 
     public void UseItem()
