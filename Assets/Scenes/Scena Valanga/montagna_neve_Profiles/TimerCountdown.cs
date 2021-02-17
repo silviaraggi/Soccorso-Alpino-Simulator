@@ -65,7 +65,7 @@ using UnityEngine.UI;
 public class TimerCountdown : MonoBehaviour
 {
     public GameObject textDisplay;
-    public float tempoRimanente = 600;
+    public float tempoRimanente = 300;
     public bool takingAway = false;
 
     bool intro;
