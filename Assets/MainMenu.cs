@@ -32,6 +32,7 @@ public class MainMenu : MonoBehaviour
     public void PlaySnow()
     {
         GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().entry_transition();
+        GameObject.Find("SceneInfo").GetComponent<SceneInfo>().SetScene(3);
         SceneManager.LoadSceneAsync("montagna_neve_TUTTOSCRIPT");
    
     }
