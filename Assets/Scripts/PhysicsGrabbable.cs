@@ -32,7 +32,7 @@ public class PhysicsGrabbable : Grabbable
     public override void LightUp(GameObject interacter)
     {
         mat.EnableKeyword("_EMISSION");
-        mat.SetColor("_EmissionColor", new Vector4(0.1f, 0.2f, 0, 0));
+        mat.SetColor("_EmissionColor", new Vector4(0.4f, 0.4f, 0.4f, 0));
 
     }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class LightUpInteractableHelicopter : Interactable
 {
@@ -101,10 +102,10 @@ public class LightUpInteractableHelicopter : Interactable
     {
         if (!collectable)
         {
-            if (_player.transform.GetComponent<FirstPersonCharacterControllerHelicopter>()._dialogo == false)
+            if (_player.transform.GetComponent<FirstPersonCharacterControllerSOUNDElicottero>()._dialogo == false)
             {
                 dialoguetrigger.TriggerDialogue();
-                _player.transform.GetComponent<FirstPersonCharacterControllerHelicopter>()._dialogo = true;
+                _player.transform.GetComponent<FirstPersonCharacterControllerSOUNDElicottero>()._dialogo = true;
                 audio.PlayOneShot(dialogo, 1f);
             }
             else

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class DialogueManagerHelicopter : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class DialogueManagerHelicopter : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonCharacterControllerHelicopter>().SetLocked(true);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonCharacterControllerSOUNDElicottero>().SetLocked(true);
         dialogue_bool = true;
         animator.SetBool("IsOpen", true);
         nameText.text = dialogue.name;

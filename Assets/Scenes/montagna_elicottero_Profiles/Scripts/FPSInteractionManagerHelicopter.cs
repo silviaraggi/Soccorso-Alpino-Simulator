@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System;
 using UnityEngine.EventSystems;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class FPSInteractionManagerHelicopter : MonoBehaviour
 {
@@ -58,7 +59,7 @@ public class FPSInteractionManagerHelicopter : MonoBehaviour
     {
         if (IsDialogue == true)
         {
-            this.gameObject.GetComponent<FirstPersonCharacterControllerHelicopter>().SetLocked(true);
+            this.gameObject.GetComponent<FirstPersonCharacterControllerSOUNDElicottero>().SetLocked(true);
             if (Input.GetMouseButtonDown(0))
             {
                 GameObject.FindObjectOfType<DialogueManagerHelicopter>().DisplayNextSentence();
@@ -67,7 +68,7 @@ public class FPSInteractionManagerHelicopter : MonoBehaviour
         }
         else
         {
-            this.gameObject.GetComponent<FirstPersonCharacterControllerHelicopter>().SetLocked(false);
+            this.gameObject.GetComponent<FirstPersonCharacterControllerSOUNDElicottero>().SetLocked(false);
         }
         Ray ray = new Ray(_rayOrigin, _fpsCameraT.forward);
         RaycastHit hit;
@@ -211,11 +212,11 @@ public class FPSInteractionManagerHelicopter : MonoBehaviour
         _target.enabled = valore;
         if (!UIenabled)
         {
-            gameObject.GetComponent<FirstPersonCharacterControllerHelicopter>().HidePointer();
+            gameObject.GetComponent<FirstPersonCharacterControllerSOUNDElicottero>().HidePointer();
         }
         if (UIenabled)
         {
-            gameObject.GetComponent<FirstPersonCharacterControllerHelicopter>().ShowPointer();
+            gameObject.GetComponent<FirstPersonCharacterControllerSOUNDElicottero>().ShowPointer();
         }
         UIenabled = valore;
     }
@@ -226,7 +227,7 @@ public class FPSInteractionManagerHelicopter : MonoBehaviour
     public void SetUnlocked(bool valore)
     {
         unlocked = valore;
-        this.gameObject.GetComponent<FirstPersonCharacterControllerHelicopter>().SetLocked(!valore);
+        this.gameObject.GetComponent<FirstPersonCharacterControllerSOUNDElicottero>().SetLocked(!valore);
         if (this.gameObject.transform.Find("MainCamera")) 
         this.gameObject.transform.Find("MainCamera").GetComponent<AudioListener>().enabled=!valore;
     }
