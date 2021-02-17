@@ -118,6 +118,7 @@ public class GestoreScenaValanga : MonoBehaviour
                         if (Buca5.GetComponent<InteractableTerrain>().ClickToDeactivate == 0)
                         {
                             Buca5.GetComponent<Collider>().enabled = false;
+                            Disperso.GetComponent<Disperso_neve>().SetAnimatable(true);
                         }
                     }
                 }

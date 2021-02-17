@@ -9660,7 +9660,7 @@ GameObject:
   - component: {fileID: 468774063}
   - component: {fileID: 468774062}
   m_Layer: 0
-  m_Name: Terrain_BUCA (4)
+  m_Name: TerrainDisattivareDisperso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21959,7 +21959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e362659dcedb5d34a8a24a73817c8e0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animatable: 1
+  animatable: 0
   collectable: 0
   dialoguetrigger: {fileID: 1878384279}
   dialogo: {fileID: 8300000, guid: 5fbadd7457b020746b645f2949a39c69, type: 3}

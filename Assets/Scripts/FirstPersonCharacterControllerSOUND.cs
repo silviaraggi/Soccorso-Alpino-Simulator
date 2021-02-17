@@ -98,6 +98,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
                 m_PreviouslyGrounded = m_CharacterController.isGrounded;
             }
+
         }
 
         private void UpdateCursor()
@@ -273,6 +274,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void RotateView()
         {
             m_MouseLook.LookRotation(transform, m_Camera.transform);
+            Vector3 RotazioneLuce;
+            RotazioneLuce.x = m_Camera.transform.localRotation.x;
+            RotazioneLuce.y = gameObject.transform.localRotation.y;
+            RotazioneLuce.z = gameObject.transform.localRotation.z;
+            if (Light != null)
+                Light.GetComponent<Transform>().localRotation = Quaternion.Euler(RotazioneLuce);
+                //Light.GetComponent<Transform>().localRotation = m_Camera.transform.localRotation;
         }
 
 

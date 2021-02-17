@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
-
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -19,6 +19,10 @@ public class PauseMenu : MonoBehaviour
         {
             Debug.Log("Sono in pausa");
             Cursor.lockState = CursorLockMode.None;
+            if(GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUNDElicottero>())
+            GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUNDElicottero>().m_MouseLook.SetCursorLock(false);
+            if (GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUND>())
+                GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUND>().m_MouseLook.SetCursorLock(false);
             if (GameIsPaused)
             {
                 Resume();
@@ -35,6 +39,10 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Debug.Log("Resume");
         Cursor.lockState = CursorLockMode.Locked;
+        if(GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUNDElicottero>())
+        GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUNDElicottero>().m_MouseLook.SetCursorLock(true);
+        if (GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUND>())
+            GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUND>().m_MouseLook.SetCursorLock(true);
         Time.timeScale = 1f;
         GameIsPaused = false;
         

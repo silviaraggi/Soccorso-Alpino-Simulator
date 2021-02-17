@@ -23,7 +23,7 @@ public class Disperso_neve : InteractablePerson
 
     new private void Update()
     {
-        Scavo5 = GameObject.Find("Terrain_BUCA (4)");
+        Scavo5 = GameObject.Find("Scavo5");
         GameObject.Find("FrecciaSolida").GetComponent<Renderer>().enabled = ArtvaActive;
 
             SetDialogue(GameObject.Find("DialogueManager").GetComponent<DialogueManager>().dialogue_bool);
@@ -32,9 +32,9 @@ public class Disperso_neve : InteractablePerson
         {
             GetComponent<AudioSource>().Stop();
         }
-        if (this.GetComponent<Disperso_neve>().GetInteract() && this.GetComponent<Disperso_neve>().GetDialogue()&&!Scavo5.activeInHierarchy)
+        if (this.GetComponent<Disperso_neve>().GetInteract() && this.GetComponent<Disperso_neve>().GetDialogue() && Scavo5.GetComponent<InteractableTerrain>().ClickToDeactivate==0)
             flag = 1;
-        if (flag == 1 && this.GetComponent<Disperso_neve>().GetDialogue() == false && !Scavo5.activeInHierarchy)
+        if (flag == 1 && this.GetComponent<Disperso_neve>().GetDialogue() == false && Scavo5.GetComponent<InteractableTerrain>().ClickToDeactivate == 0)
             flag = 2;
     }
 
