@@ -42,6 +42,10 @@ public class InventoryUI : MonoBehaviour
             }
             inventoryUI.SetActive(!inventoryUI.activeSelf);
             Cursor.lockState = CursorLockMode.Locked;
+            if (GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUND>())
+                GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUND>().m_MouseLook.SetCursorLock(true);
+            if (GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUNDElicottero>())
+                GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUNDElicottero>().m_MouseLook.SetCursorLock(true);
             /*if (GameObject.Find("CaneUnity2"))
                 GameObject.Find("CaneUnity2").GetComponent<InteractableDog>().SetInteract(false);*/
         }
@@ -52,7 +56,7 @@ public class InventoryUI : MonoBehaviour
             GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUND>().m_MouseLook.SetCursorLock(false);
             if (GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUNDElicottero>())
                 GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUNDElicottero>().m_MouseLook.SetCursorLock(false);
-            if (EventSystem.current.IsPointerOverGameObject())
+           if (EventSystem.current.IsPointerOverGameObject())
                 return;
 
             control = true;

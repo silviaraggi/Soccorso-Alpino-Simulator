@@ -22,6 +22,8 @@ public class JeepBosco : MonoBehaviour
     Inventory inventario;
     bool torciaAdded;
     [SerializeField] GameObject fine;
+    public AudioClip CarStart;
+    public AudioClip CarStop;
     // Start is called before the first frame update
     void Start()
     {
@@ -113,6 +115,7 @@ public class JeepBosco : MonoBehaviour
         this.GetComponent<Animator>().SetBool("finale", true);
         this.GetComponent<Animator>().SetBool("intro", false);
         GameObject.Find("Cam1").GetComponent<Camera>().enabled = true;
+        this.gameObject.GetComponent<AudioSource>().PlayOneShot(CarStart);
     }
     public void IntroScenaBosco()
     {
@@ -123,7 +126,7 @@ public class JeepBosco : MonoBehaviour
         cane.gameObject.transform.Find("Cane.001").GetComponent<Renderer>().enabled = false;
         cane.gameObject.transform.Find("Cane.002").GetComponent<Renderer>().enabled = false;
         cane.GetComponent<Animator>().enabled = false;
-
+        this.gameObject.GetComponent<AudioSource>().PlayOneShot(CarStop);
     }
 
     public void SetCamera(int number)

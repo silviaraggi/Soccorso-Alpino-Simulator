@@ -113,6 +113,7 @@ public class JeepBaita : MonoBehaviour
         {
             daAttivare.enabled = false;
         }
+        elicottero.gameObject.GetComponent<AudioSource>().enabled = true;
     }
 
     private void FinaleJeep()
@@ -133,6 +134,7 @@ public class JeepBaita : MonoBehaviour
         {
             daAttivare.enabled = false;
         }
+        this.GetComponent<AudioSource>().enabled = true;
     }
 
     public void SetCamera(int number)

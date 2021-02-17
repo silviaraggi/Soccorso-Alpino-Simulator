@@ -12703,6 +12703,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fine: {fileID: 1691952912}
+  CarStart: {fileID: 8300000, guid: 1fdf3683e244c2b4f971196ef0df33ae, type: 3}
+  CarStop: {fileID: 8300000, guid: 68b66a2062089564981d217bf79c2139, type: 3}
 --- !u!95 &1391492764
 Animator:
   serializedVersion: 3
@@ -12746,11 +12748,11 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391492759}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c4d8928c75c21af43998193f0f038429, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: bcaeb5a63121f074682aaf1f0e307802, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

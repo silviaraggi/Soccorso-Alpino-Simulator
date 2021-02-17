@@ -12,6 +12,7 @@ public class elicotteroneve : MonoBehaviour
             daAttivare.enabled = true;
         }
         this.gameObject.GetComponent<Animator>().enabled = true;
+        this.gameObject.GetComponent<AudioSource>().enabled = true;
     }
 
     public void LoadMenu()
