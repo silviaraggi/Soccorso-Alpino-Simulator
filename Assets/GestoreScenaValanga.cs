@@ -65,8 +65,8 @@ public class GestoreScenaValanga : MonoBehaviour
         if (!inventarioStart)
         {
             inventario.Add(GameObject.Find("ARTVA").GetComponent<InteractableClue>().GetItem());
-            inventario.Add(GameObject.Find("Pala").GetComponent<InteractableClue>().GetItem());
             inventario.Add(GameObject.Find("Sonda_aperta").GetComponent<InteractableClue>().GetItem());
+            inventario.Add(GameObject.Find("Pala").GetComponent<InteractableClue>().GetItem());
             inventarioStart = true;
         }
         if (!intro && !finale)
@@ -128,6 +128,7 @@ public class GestoreScenaValanga : MonoBehaviour
         {
             GameObject.Find("MainCamera").GetComponent<Camera>().enabled = false;
             GameObject.Find("CamFinale").GetComponent<Camera>().enabled = true;
+       
             GameObject.Find("elicotterofinal4").GetComponent<elicotteroneve>().EnableElicottero();
         }
         if (Disperso.GetComponent<Disperso_neve>().flag == 2)
