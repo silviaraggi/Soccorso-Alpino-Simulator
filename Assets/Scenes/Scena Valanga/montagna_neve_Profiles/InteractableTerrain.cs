@@ -7,6 +7,10 @@ public class InteractableTerrain : LightUpInteractable
     public int ClickToDeactivate;
     [SerializeField] ParticleSystem neve = null;
     public AudioClip suono;
+    public Terrain[] TuttiTerrain;
+    public int[] ClickPerTerrain;
+    private int ClickSoFar = 0;
+    private int index = 0;
     public override void GlowUp(GameObject changeColor)
     {
         {
@@ -55,22 +59,29 @@ public class InteractableTerrain : LightUpInteractable
     {
         if (GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().GetisUsingPala())
         {
-            if (ClickToDeactivate == 0)
+            if (index < TuttiTerrain.Length&&ClickPerTerrain[index] > 0)
             {
-                /*if (gameObject.GetComponentInChildren<Terrain>())
+                neve.Play();
+                ClickPerTerrain[index]--;
+                this.gameObject.GetComponent<AudioSource>().PlayOneShot(suono);
+            }
+            if (index < TuttiTerrain.Length&&ClickPerTerrain[index] == 0)
+            {
+                TuttiTerrain[index].enabled = false;
+                index++;
+                //neve.transform.localPosition = TuttiTerrain[index].gameObject.transform.localPosition;
+            }
+            if(index==TuttiTerrain.Length)
+            {
+                GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().SetAnimatable(true);
+            }
+            /*if (this.gameObject.GetComponent<InteractableTerrain>().ClickToDeactivate == 0)
+            {
+                if (this.transform.GetChild(0))
                 {
-                    for (int i = 0; i < gameObject.GetComponentsInChildren<Terrain>().Length; i++)
-                    {
-                        gameObject.GetComponentsInChildren<Terrain>()[i].enabled = false;
-                    }
-                    for (int i = 0; i < gameObject.GetComponentsInChildren<TerrainCollider>().Length; i++)
-                    {
-                        gameObject.GetComponentsInChildren<TerrainCollider>()[i].enabled = false;
-                    }
+                    this.transform.GetChild(0).gameObject.GetComponent<Terrain>().enabled = false;
+                    this.transform.GetChild(0).gameObject.GetComponent<TerrainCollider>().enabled = false;
                 }
-                this.gameObject.GetComponent<Collider>().enabled=false;*/
-                if(this.transform.GetChild(0))
-                this.transform.GetChild(0).gameObject.SetActive(false);
                 collect = true;
             }
             else
@@ -79,7 +90,7 @@ public class InteractableTerrain : LightUpInteractable
                 ClickToDeactivate--;
                 neve.Play();
                 this.gameObject.GetComponent<AudioSource>().PlayOneShot(suono);
-            }
+            }*/
             TurnOff();
         }
     }

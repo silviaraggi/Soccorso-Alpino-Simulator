@@ -23,14 +23,18 @@ public class MissionFailed : MonoBehaviour
         Debug.Log("Missione Complete");
         missionFailedUI.SetActive(true);
             this.gameObject.GetComponent<AudioSource>().enabled = true;
+            if (GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUND>())
+                GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUND>().m_MouseLook.SetCursorLock(false);
 
-    }
+        }
     }
     public void Fine()
     {
         Time.fixedDeltaTime = 0.02f * Time.timeScale; //SlowmotionEffect
         Debug.Log("Missione Complete");
         missionFailedUI.SetActive(true);
+        if (GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUND>())
+            GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUND>().m_MouseLook.SetCursorLock(false);
     }
 
     public void Ritenta()

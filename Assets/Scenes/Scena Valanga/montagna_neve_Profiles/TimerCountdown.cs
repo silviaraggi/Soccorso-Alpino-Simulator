@@ -88,6 +88,11 @@ public class TimerCountdown : MonoBehaviour
         intro = GameObject.Find("GestoreScena").GetComponent<GestoreScenaValanga>().intro;
         finale = GameObject.Find("GestoreScena").GetComponent<GestoreScenaValanga>().finale;
 
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            tempoRimanente = 10;
+        }
+
         if (!intro && !finale)
         {
             timerCanvas.SetActive(true);

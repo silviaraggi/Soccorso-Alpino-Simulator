@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class JeepCasa : MonoBehaviour
 {
+    public AudioClip CarStart;
     private int NumCamera = -1;
     GameObject giocatore = null;
     private bool intro;
@@ -80,6 +81,8 @@ public class JeepCasa : MonoBehaviour
         giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
         GameObject.Find("MainCamera").GetComponent<Camera>().enabled = false;
         GameObject.Find("Cube").GetComponent<BoxCollider>().enabled = false;
+        if(!gameObject.GetComponent<AudioSource>().isPlaying)
+        gameObject.GetComponent<AudioSource>().PlayOneShot(CarStart);
     }
     public void IntroScenaCasa()
     {

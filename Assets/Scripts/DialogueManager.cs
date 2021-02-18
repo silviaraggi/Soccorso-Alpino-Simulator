@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -21,7 +22,10 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonCharacterController>().SetLocked(true);
+        if(GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonCharacterControllerSOUND>())
+        GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonCharacterControllerSOUND>().SetLocked(true);
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonCharacterControllerSOUNDElicottero>())
+            GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonCharacterControllerSOUNDElicottero>().SetLocked(true);
         dialogue_bool = true;
         animator.SetBool("IsOpen", true);
         nameText.text = dialogue.name;

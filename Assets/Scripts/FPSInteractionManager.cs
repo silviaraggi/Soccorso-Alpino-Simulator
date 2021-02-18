@@ -67,7 +67,7 @@ public class FPSInteractionManager : MonoBehaviour
 
         if (IsDialogue == true)
         {
-            this.gameObject.GetComponent<FirstPersonCharacterController>().SetLocked(true);
+            this.gameObject.GetComponent<FirstPersonCharacterControllerSOUND>().SetLocked(true);
             if (Input.GetMouseButtonDown(0))
             {
                 GameObject.FindObjectOfType<DialogueManager>().DisplayNextSentence();
@@ -77,7 +77,7 @@ public class FPSInteractionManager : MonoBehaviour
         }
         else
         {
-            this.gameObject.GetComponent<FirstPersonCharacterController>().SetLocked(false);
+            this.gameObject.GetComponent<FirstPersonCharacterControllerSOUND>().SetLocked(false);
             
 
         }

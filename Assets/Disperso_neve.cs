@@ -11,7 +11,6 @@ public class Disperso_neve : InteractablePerson
     public bool ArtvaActive;
     public bool isUsingPala;
     public int flag;
-    private GameObject Scavo5;
     // Start is called before the first frame update
     new void Start()
     {
@@ -23,18 +22,25 @@ public class Disperso_neve : InteractablePerson
 
     new private void Update()
     {
-        Scavo5 = GameObject.Find("Scavo5");
         GameObject.Find("FrecciaSilvia").GetComponent<Renderer>().enabled = ArtvaActive;
-
+        if (this.GetAnimatable())
+        {
+            foreach (Collider daDisabilitare in this.gameObject.GetComponents<Collider>()){
+                if (daDisabilitare.isTrigger)
+                {
+                    daDisabilitare.enabled = false;
+                }
+            }
+        }
             SetDialogue(GameObject.Find("DialogueManager").GetComponent<DialogueManager>().dialogue_bool);
             SetInteract(GetDialogue());
         if (GetInteract() == false)
         {
             GetComponent<AudioSource>().Stop();
         }
-        if (this.GetComponent<Disperso_neve>().GetInteract() && this.GetComponent<Disperso_neve>().GetDialogue() && Scavo5.GetComponent<InteractableTerrain>().ClickToDeactivate==0)
+        if (this.GetComponent<Disperso_neve>().GetAnimatable()&& this.GetComponent<Disperso_neve>().GetInteract() && this.GetComponent<Disperso_neve>().GetDialogue())
             flag = 1;
-        if (flag == 1 && this.GetComponent<Disperso_neve>().GetDialogue() == false && Scavo5.GetComponent<InteractableTerrain>().ClickToDeactivate == 0)
+        if (this.GetComponent<Disperso_neve>().GetAnimatable()&& flag == 1 && this.GetComponent<Disperso_neve>().GetDialogue() == false)
             flag = 2;
     }
 
@@ -116,7 +122,7 @@ public class Disperso_neve : InteractablePerson
 
     public override void Interact(GameObject interacter, Interactable interacted)
     {
-        if (((collectable == true && interacted.gameObject.GetComponent<Disperso_neve>().GetCollect()== true) && !interacted.gameObject.GetComponent<Disperso_neve>().GetDialogue()) || (collectable == false && !interacted.gameObject.GetComponent<Disperso_neve>().GetDialogue()))
+        if ((!interacted.gameObject.GetComponent<Disperso_neve>().GetDialogue()))
         {
             dialoguetrigger.TriggerDialogue();
             Debug.Log("dialogo");

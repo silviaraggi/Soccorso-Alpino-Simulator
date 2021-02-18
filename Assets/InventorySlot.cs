@@ -92,14 +92,14 @@ public class InventorySlot : MonoBehaviour
         {
             switch (this.item.name)
             {
-                case "stecca":
+                case "Stecca":
                     if (_stivali.GetComponent<SkinnedMeshRenderer>().enabled == false)
                     {
                         stecca.GetComponent<SkinnedMeshRenderer>().enabled = true;
                         inventario.Remove(this.item);
                     }
                     break;
-                case "bende":
+                case "Bende":
                     if (stecca.GetComponent<SkinnedMeshRenderer>().enabled == true)
                     {
                         bende.GetComponent<SkinnedMeshRenderer>().enabled = true;
@@ -108,7 +108,7 @@ public class InventorySlot : MonoBehaviour
                         
                     }
                     break;
-                case "fissaggi":
+                case "Fissaggi":
                     if (bende.GetComponent<SkinnedMeshRenderer>().enabled == true)
                     {
                         fissaggi.GetComponent<SkinnedMeshRenderer>().enabled = true;
@@ -126,7 +126,7 @@ public class InventorySlot : MonoBehaviour
             switch (this.item.name)
             {
                 case "Maglia":
-                    if (berretto.GetComponent<InteractableClue>().GetCollect() == false)
+                    if (gameObject.scene.name=="BoscoCane"&&berretto.GetComponent<InteractableClue>().GetCollect() == false)
                         cane.GetComponent<CaneBosco>().GetNewClue(berretto);
                     break;
                 case "Cappello":

@@ -20826,6 +20826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c6a5628419800e4d93612ca68e54ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CarStart: {fileID: 8300000, guid: 1fdf3683e244c2b4f971196ef0df33ae, type: 3}
 --- !u!82 &919132149298826684
 AudioSource:
   m_ObjectHideFlags: 0

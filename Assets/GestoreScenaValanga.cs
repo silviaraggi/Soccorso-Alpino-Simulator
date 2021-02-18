@@ -99,36 +99,15 @@ public class GestoreScenaValanga : MonoBehaviour
             }
 
         }
-        if (Buca1.GetComponent<InteractableTerrain>().ClickToDeactivate == 0)
+        if (GameObject.Find("ScavoPala")&&GameObject.Find("ScavoPala").GetComponent<InteractableTerrain>().ClickPerTerrain[(GameObject.Find("ScavoPala").GetComponent<InteractableTerrain>().TuttiTerrain.Length) - 1] == 0)
         {
-            Buca1.GetComponent<Collider>().enabled = false;
-            Buca2.GetComponent<Collider>().enabled = true;
-            if (Buca2.GetComponent<InteractableTerrain>().ClickToDeactivate == 0)
-            {
-                Buca2.GetComponent<Collider>().enabled = false;
-                Buca3.GetComponent<Collider>().enabled = true;
-                if (Buca3.GetComponent<InteractableTerrain>().ClickToDeactivate == 0)
-                {
-                    Buca3.GetComponent<Collider>().enabled = false;
-                    Buca4.GetComponent<Collider>().enabled = true;
-                    if (Buca4.GetComponent<InteractableTerrain>().ClickToDeactivate == 0)
-                    {
-                        Buca4.GetComponent<Collider>().enabled = false;
-                        Buca5.GetComponent<Collider>().enabled = true;
-                        if (Buca5.GetComponent<InteractableTerrain>().ClickToDeactivate == 0)
-                        {
-                            Buca5.GetComponent<Collider>().enabled = false;
-                            Disperso.GetComponent<Disperso_neve>().SetAnimatable(true);
-                        }
-                    }
-                }
-            }
+            GameObject.Find("ScavoPala").SetActive(false);
         }
         if (finale)
         {
             GameObject.Find("MainCamera").GetComponent<Camera>().enabled = false;
             GameObject.Find("CamFinale").GetComponent<Camera>().enabled = true;
-       
+            GameObject.Find("CompleteMission").GetComponent<CompleteMission>().Fine();
             GameObject.Find("elicotterofinal4").GetComponent<elicotteroneve>().EnableElicottero();
         }
         if (Disperso.GetComponent<Disperso_neve>().flag == 2)
