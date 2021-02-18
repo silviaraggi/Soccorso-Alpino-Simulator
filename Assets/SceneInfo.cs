@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class SceneInfo : MonoBehaviour
 {
-    static int SceneNumber = 2;
+    static int SceneNumber = 3;
+
+    private void Update()
+    {
+        ToggleFullScreen();
+    }
 
     public void SetScene(int scena)
     {
@@ -15,5 +20,20 @@ public class SceneInfo : MonoBehaviour
     {
         return SceneNumber;
     }
-
+    private void ToggleFullScreen()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (Screen.fullScreenMode != FullScreenMode.ExclusiveFullScreen)
+            {
+                Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+                Debug.Log("Full Screen!");
+            }
+            else
+            {
+                Screen.fullScreenMode = FullScreenMode.Windowed;
+                Debug.Log("Windowed!");
+            }
+        }
+    }
 }
