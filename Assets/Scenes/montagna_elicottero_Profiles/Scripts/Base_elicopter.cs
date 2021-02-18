@@ -15,6 +15,7 @@ public class Base_elicopter : MonoBehaviour
     private bool intro;
     private GameObject _firstAidKit;
     private GameObject _ferito;
+    private AudioSource audio;
     [SerializeField] GameObject _NPC;
     [SerializeField] GameObject _copter;
     [SerializeField] GameObject _fine;
@@ -30,6 +31,7 @@ public class Base_elicopter : MonoBehaviour
         _ferito = GameObject.Find("ferito");
         _ferito.GetComponent<LightUpInteractableHelicopter>().SetCollectable(false);
         _NPC.transform.GetChild(0).GetComponent<Renderer>().enabled = false;
+        audio = GameObject.Find("Propeller").GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -110,7 +112,21 @@ public class Base_elicopter : MonoBehaviour
         SceneManager.LoadScene("Menu");
         Debug.Log("Loading menu...");
     }
+    public void Audio()
+    {
+            Debug.Log("prova");
+        StartCoroutine(ChangeVolumeCoroutine());
 
+
+    }
+    private IEnumerator ChangeVolumeCoroutine()
+    {
+        while (audio.volume >0f)
+        {
+            audio.volume -= 0.003f;
+            yield return null;
+        }
+    }
 }
 
 
