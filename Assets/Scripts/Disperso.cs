@@ -85,6 +85,11 @@ public class Disperso : MonoBehaviour
         if(!Howl)
         GameObject.Find("CaneUnity2").GetComponent<CaneBosco>().Howl();
         Howl = true;
+        Vector3 GoHere = GameObject.Find("CaneUnity2").transform.position;
+        Vector3 npcPos = gameObject.transform.position;
+        Vector3 delta = new Vector3(GoHere.x - npcPos.x, 0.0f, GoHere.z - npcPos.z);
+        Quaternion rotation = Quaternion.LookRotation(delta);
+        gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, rotation, 0.5f);
         //playanimationfound
     }
 
