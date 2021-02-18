@@ -304,6 +304,7 @@ public class FirstPersonCharacterControllerSOUND : MonoBehaviour
 
     public void SetLocked(bool newLock)
     {
+        Cursor.visible = !newLock;
         isLocked = newLock;
     }
     public void HidePointer()
