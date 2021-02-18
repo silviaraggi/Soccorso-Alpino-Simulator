@@ -52,6 +52,7 @@ public class JeepBaita : MonoBehaviour
         giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
         giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(false);
         giocatore.GetComponent<FirstPersonCharacterController>().SetLocked(true);
+        Cursor.visible = false;
     }
 
     // Update is called once per frame

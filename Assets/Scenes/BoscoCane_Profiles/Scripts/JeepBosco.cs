@@ -115,6 +115,7 @@ public class JeepBosco : MonoBehaviour
         this.GetComponent<Animator>().SetBool("finale", true);
         this.GetComponent<Animator>().SetBool("intro", false);
         GameObject.Find("Cam1").GetComponent<Camera>().enabled = true;
+        if(!this.gameObject.GetComponent<AudioSource>().isPlaying)
         this.gameObject.GetComponent<AudioSource>().PlayOneShot(CarStart);
     }
     public void IntroScenaBosco()

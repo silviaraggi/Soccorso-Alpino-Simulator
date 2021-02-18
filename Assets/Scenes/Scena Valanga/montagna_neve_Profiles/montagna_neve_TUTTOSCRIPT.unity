@@ -16027,7 +16027,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Resume
+  m_Text: 'Riprendi
 
 '
 --- !u!222 &249582199
@@ -16451,7 +16451,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Quit
+  m_Text: 'Esci
 
 '
 --- !u!222 &327174416
@@ -46104,7 +46104,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pause
+  m_Text: Pausa
 --- !u!222 &1624273627
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -48340,7 +48340,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 44, y: 68.698}
+  m_AnchoredPosition: {x: -16, y: 78}
   m_SizeDelta: {x: 871.37256, y: 353.39603}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1922629517
@@ -48388,7 +48388,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 100
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0

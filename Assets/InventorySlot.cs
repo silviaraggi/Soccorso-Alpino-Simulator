@@ -118,6 +118,7 @@ public class InventorySlot : MonoBehaviour
             }
             GameObject.Find("Inventory").SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
         if (item != null&&scene==2)
@@ -175,6 +176,7 @@ public class InventorySlot : MonoBehaviour
                 }
             GameObject.Find("Inventory").SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
 
         }
         if(item!=null && scene == 3)
@@ -222,6 +224,7 @@ public class InventorySlot : MonoBehaviour
             }
             GameObject.Find("Inventory").SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 }

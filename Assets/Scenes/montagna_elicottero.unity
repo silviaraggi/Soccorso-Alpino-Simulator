@@ -9840,6 +9840,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 3992e2b9ae1db2140a0a12fefab745f5, type: 2}
+    - target: {fileID: 5866666021909216657, guid: f7c53ba7b7badb9439e82e1cafa9583a,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6000407479487422213, guid: f7c53ba7b7badb9439e82e1cafa9583a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13008,7 +13013,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Resume
+  m_Text: 'Riprendi
 
 '
 --- !u!224 &2329948696636392123
@@ -13107,7 +13112,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Quit
+  m_Text: 'Esci
 
 '
 --- !u!222 &2329948696888377784
@@ -13370,7 +13375,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pause
+  m_Text: Pausa
 --- !u!224 &2329948697090087302
 RectTransform:
   m_ObjectHideFlags: 0
