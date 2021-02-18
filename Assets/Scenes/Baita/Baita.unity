@@ -10573,7 +10573,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Resume
+  m_Text: 'Riprendi
 
 '
 --- !u!222 &1629149847
@@ -12460,7 +12460,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pause
+  m_Text: Pausa
 --- !u!222 &1989881960
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13403,7 +13403,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Quit
+  m_Text: 'Esci
 
 '
 --- !u!222 &2068348153
