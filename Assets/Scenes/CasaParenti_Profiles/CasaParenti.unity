@@ -3488,7 +3488,7 @@ MonoBehaviour:
   dialogo:
     name: Signora e signor Strada
     sentences:
-    - grazie per essere venuti...
+    - Grazie per essere venuti...
     - "Vi abbiamo preparato la maglia di Francesco per portarla con voi, \xE8 in
       camera da letto..."
     - Vi prego, trovatelo!
