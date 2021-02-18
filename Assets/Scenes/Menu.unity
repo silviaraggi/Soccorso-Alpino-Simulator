@@ -1109,9 +1109,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Un ragazzo si \xE8 ferito ed ha bisogno nel nostro aiuto! L'unico modo
-    per raggiungerlo \xE8 usare l'elicottero ma prima bisogna mettere in sicurezza
-    l'area: sposta le pietre per permettere al mezzo di atterrare."
+  m_Text: "Un ragazzo si \xE8 ferito ed ha bisogno nel tuo aiuto! L'unico modo per
+    raggiungerlo \xE8 usare l'elicottero ma prima bisogna mettere in sicurezza l'area:
+    sposta le pietre per permettere al mezzo di atterrare."
 --- !u!222 &233228535
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1264,7 +1264,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Usa il Kit di prontosoccorso e prendi la barella per aiutare il ragazzo
+  m_Text: Usa il Kit di pronto soccorso e prendi la barella per aiutare il ragazzo
     ferito!
 --- !u!222 &253064109
 CanvasRenderer:
@@ -1422,7 +1422,7 @@ MonoBehaviour:
     In bocca al lupo!
 
 
-    STAFF ALPINE RESCUE'
+    LO STAFF DI ALPINE RESCUE'
 --- !u!222 &290303060
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2037,10 +2037,11 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "DISCLAIMER: La seguente applicazione \xE8 una semplificazione delle procedure
-    reali. Per maggior informazionii consigliamo di rivolgersi a chi di competenza
+    reali. Per maggiori informazioni consigliamo di rivolgersi a chi di competenza
     nella propria regione. Gli sviluppatori non si assumono nessuna responsabilit\xE0
-    di tipo legale delle procedure qui mostrate.\nTUTTI I RIFERIMENTI A COSE O PERSONE
-    SONO PURAMENTE CASUALI\n\nLO STAFF DI ALPINE RESCUE"
+    di tipo legale per eventuali conseguenze delle procedure qui mostrate.\nTUTTI
+    I RIFERIMENTI A FATTI O PERSONE REALI SONO PURAMENTE CASUALI\n\nLO STAFF DI ALPINE
+    RESCUE"
 --- !u!222 &407542966
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4538,7 +4539,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: Arriva una chiamata di aiuto. Devi correre a salvare un ragazzo disperso!
     Segui le Istruzioni e inizia le tue ricerche con la squadra cinofila! Una volta
-    arriavti nel bosco clicca sul tasto destro per interagira con il cane
+    arrivati nel bosco clicca col tasto sinistro per interagire con il cane.
 --- !u!222 &955468106
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7686,10 +7687,10 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Trasporta il ragazzo con l''elicottero e completa la tua missione! In
-    bocca al lupo Soccorritore!
+    bocca al lupo, soccorritore!
 
 
-    STAFF ALPINE RESCUE'
+    LO STAFF DI ALPINE RESCUE'
 --- !u!222 &1630232836
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8073,8 +8074,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Puoi attivare la torica per orientarti meglio nel bosco. In bocca al lupo
-    Soccorritore! \n\nSTAFF ALPINE RESCUE"
+  m_Text: "Puoi attivare la torcia per orientarti meglio nel bosco. In bocca al lupo,
+    soccorritore! \n\nLO STAFF DI ALPINE RESCUE"
 --- !u!222 &1787057921
 CanvasRenderer:
   m_ObjectHideFlags: 0
