@@ -123,7 +123,7 @@ public class Base_elicopter : MonoBehaviour
     {
         while (audio.volume >0f)
         {
-            audio.volume -= 0.003f;
+            audio.volume -= 0.004f;
             yield return null;
         }
     }
