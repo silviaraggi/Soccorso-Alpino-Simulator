@@ -33,6 +33,22 @@ public class CaneBosco : MonoBehaviour
     void Update()
     {
         CheckNewTarget();
+        ChangeSpeed();
+    }
+
+    private void ChangeSpeed()
+    {
+        bool isPlayerWalking = GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUND>().GetIsWalking();
+        if (isPlayerWalking)
+        {
+            this.gameObject.GetComponent<NavMeshAgent>().speed = GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUND>().GetWalkSpeed();
+            this.gameObject.GetComponent<Animator>().SetFloat("runMultiplier", 1f);
+        }
+        else
+        {
+            this.gameObject.GetComponent<NavMeshAgent>().speed = GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUND>().GetRunSpeed();
+            this.gameObject.GetComponent<Animator>().SetFloat("runMultiplier", 2f);
+        }
     }
 
     public void Howl()

@@ -6528,12 +6528,12 @@ MonoBehaviour:
     BobAmount: 0
   m_StepInterval: 2
   m_FootstepSounds:
-  - {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
-  - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
-  - {fileID: 8300000, guid: 5a9383dda6cabc047b7a297602e93eb4, type: 3}
-  - {fileID: 8300000, guid: e9714160ce34f2b4ab63ff8c27bd68e1, type: 3}
-  m_JumpSound: {fileID: 0}
-  m_LandSound: {fileID: 0}
+  - {fileID: 8300000, guid: ba38b1d6e233d24468b80beca1237eef, type: 3}
+  - {fileID: 8300000, guid: 6ae7cf0c1d8510f48b592742047c8d3b, type: 3}
+  - {fileID: 8300000, guid: 9685ced0d0fd9994fb4514a264da7f72, type: 3}
+  - {fileID: 8300000, guid: 0e23e3a416e9e5b41a8b59ee2d7668af, type: 3}
+  m_JumpSound: {fileID: 8300000, guid: ba38b1d6e233d24468b80beca1237eef, type: 3}
+  m_LandSound: {fileID: 8300000, guid: 9685ced0d0fd9994fb4514a264da7f72, type: 3}
   isLocked: 0
   canJump: 0
   _soccorso: 0
@@ -6585,7 +6585,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.734
   m_Pitch: 1
   Loop: 0
   Mute: 0

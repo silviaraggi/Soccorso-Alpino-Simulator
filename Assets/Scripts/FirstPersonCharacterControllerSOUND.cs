@@ -314,4 +314,16 @@ public class FirstPersonCharacterControllerSOUND : MonoBehaviour
     {
         pointerColor = visible;
     }
+    public bool GetIsWalking()
+    {
+        return m_IsWalking;
+    }
+    public float GetWalkSpeed()
+    {
+        return m_WalkSpeed;
+    }
+    public float GetRunSpeed()
+    {
+        return m_RunSpeed;
+    }
 }
