@@ -12742,8 +12742,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e647bd88deee8f14a8a53aca45556ba8, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: e647bd88deee8f14a8a53aca45556ba8, type: 3}
+  collega: {fileID: 1929159433}
   isLocked: 0
   canJump: 0
+  dialoguetrigger: {fileID: 0}
+  audio: {fileID: 0}
+  dialogo: {fileID: 0}
+  startDialogue: 0
 --- !u!1 &1382069732
 GameObject:
   m_ObjectHideFlags: 0
@@ -17767,7 +17772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3581fcfb88b4b4ae3a326aead2ae8999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 1590360411}
+  dialogue: {fileID: 1771917958}
 --- !u!114 &1929159440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20579,7 +20584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3581fcfb88b4b4ae3a326aead2ae8999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 1590360411}
+  dialogue: {fileID: 1771917958}
 --- !u!114 &919132148583453369
 MonoBehaviour:
   m_ObjectHideFlags: 0

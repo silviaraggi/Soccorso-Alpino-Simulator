@@ -24,6 +24,7 @@ public class JeepBosco : MonoBehaviour
     [SerializeField] GameObject fine;
     public AudioClip CarStart;
     public AudioClip CarStop;
+    private int dialogoAutomatico = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,8 +49,20 @@ public class JeepBosco : MonoBehaviour
     {
         if (scena.name == "BoscoCane")
         {
+            
             if (!intro && !finale)
             {
+                if (dialogoAutomatico == 0)
+                {
+                    giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().startDialogue = true;
+                    if (collega1.GetComponent<InteractablePerson>().GetInteract() == false)
+                    {
+                        collega1.GetComponent<DialogueTrigger>().TriggerDialogue();
+                        collega1.GetComponent<AudioSource>().PlayOneShot(collega1.GetComponent<InteractablePerson>().dialogo, 1f);
+                    }
+                    giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().RotateDialogue();
+                    dialogoAutomatico++;
+                }
                 if (!torciaAdded)
                 {
                     inventario = GameObject.Find("Strumenti").GetComponent<InventoryUI>().GetInventory();
@@ -73,11 +86,23 @@ public class JeepBosco : MonoBehaviour
                 {
                     GameObject.Find("Collega1").GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoColleghi2");
                     GameObject.Find("Collega2").GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoColleghi2");
+                    
                 }
                 else
                 {
                     GameObject.Find("Collega2").GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoColleghi1");
                     GameObject.Find("Collega1").GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoColleghi1");
+                    if (dialogoAutomatico == 1)
+                    {
+                        giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().startDialogue = true;
+                        if (collega1.GetComponent<InteractablePerson>().GetInteract() == false)
+                        {
+                            collega1.GetComponent<DialogueTrigger>().TriggerDialogue();
+                            collega1.GetComponent<AudioSource>().PlayOneShot(collega1.GetComponent<InteractablePerson>().dialogo, 1f);
+                        }
+                        giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().RotateDialogue();
+                        dialogoAutomatico++;
+                    }
                 }
                 cane.gameObject.transform.Find("Cane.001").GetComponent<Renderer>().enabled = true;
                 cane.gameObject.transform.Find("Cane.002").GetComponent<Renderer>().enabled = true;
