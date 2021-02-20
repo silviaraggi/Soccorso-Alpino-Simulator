@@ -22,6 +22,7 @@ public class GestoreScenaValanga : MonoBehaviour
     private GameObject Buca3;
     private GameObject Buca4;
     private GameObject Buca5;
+    private int dialogoAutomatico = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -89,13 +90,62 @@ public class GestoreScenaValanga : MonoBehaviour
             Soccorritore2_GP.GetComponent<NavMeshAgent>().enabled = true;
             Soccorritore2_GP.GetComponent<soccorritoreNeve2>().enabled = true;
             Soccorritore2_GP.GetComponent<DialogueTrigger>().dialogue = GameObject.Find("Dialogo1");
+            if (dialogoAutomatico == 0)
+            {
+                player.GetComponent<FirstPersonCharacterControllerSOUND>().startDialogue = true;
+                if (Soccorritore2_GP.GetComponent<InteractablePerson>().GetInteract() == false)
+                {
+                    Soccorritore2_GP.GetComponent<DialogueTrigger>().TriggerDialogue();
+                    Soccorritore2_GP.GetComponent<AudioSource>().PlayOneShot(Soccorritore2_GP.GetComponent<InteractablePerson>().dialogo, 1f);
+                }
+                player.GetComponent<FirstPersonCharacterControllerSOUND>().RotateDialogue();
+                dialogoAutomatico++;
+            }
             if (Disperso.GetComponent<Disperso_neve>().GetArtvaActive())
+            {
                 Soccorritore2_GP.GetComponent<DialogueTrigger>().dialogue = GameObject.Find("Dialogo2");
+                if (dialogoAutomatico == 1)
+                {
+                    player.GetComponent<FirstPersonCharacterControllerSOUND>().startDialogue = true;
+                    if (Soccorritore2_GP.GetComponent<InteractablePerson>().GetInteract() == false)
+                    {
+                        Soccorritore2_GP.GetComponent<DialogueTrigger>().TriggerDialogue();
+                        Soccorritore2_GP.GetComponent<AudioSource>().PlayOneShot(Soccorritore2_GP.GetComponent<InteractablePerson>().dialogo, 1f);
+                    }
+                    player.GetComponent<FirstPersonCharacterControllerSOUND>().RotateDialogue();
+                    dialogoAutomatico++;
+                }
+            }
+
             if (Disperso.GetComponent<Disperso_neve>().GetCanUseSonda())
+            {
                 Soccorritore2_GP.GetComponent<DialogueTrigger>().dialogue = GameObject.Find("Dialogo3");
-            if (sonda.GetComponent<Renderer>().enabled)
+                if (dialogoAutomatico == 2)
+                {
+                    player.GetComponent<FirstPersonCharacterControllerSOUND>().startDialogue = true;
+                    if (Soccorritore2_GP.GetComponent<InteractablePerson>().GetInteract() == false)
+                    {
+                        Soccorritore2_GP.GetComponent<DialogueTrigger>().TriggerDialogue();
+                        Soccorritore2_GP.GetComponent<AudioSource>().PlayOneShot(Soccorritore2_GP.GetComponent<InteractablePerson>().dialogo, 1f);
+                    }
+                    player.GetComponent<FirstPersonCharacterControllerSOUND>().RotateDialogue();
+                    dialogoAutomatico++;
+                }
+            }
+                if (sonda.GetComponent<Renderer>().enabled)
             {
                 Soccorritore2_GP.GetComponent<DialogueTrigger>().dialogue = GameObject.Find("Dialogo4");
+                if (dialogoAutomatico == 3)
+                {
+                    player.GetComponent<FirstPersonCharacterControllerSOUND>().startDialogue = true;
+                    if (Soccorritore2_GP.GetComponent<InteractablePerson>().GetInteract() == false)
+                    {
+                        Soccorritore2_GP.GetComponent<DialogueTrigger>().TriggerDialogue();
+                        Soccorritore2_GP.GetComponent<AudioSource>().PlayOneShot(Soccorritore2_GP.GetComponent<InteractablePerson>().dialogo, 1f);
+                    }
+                    player.GetComponent<FirstPersonCharacterControllerSOUND>().RotateDialogue();
+                    dialogoAutomatico++;
+                }
             }
 
         }

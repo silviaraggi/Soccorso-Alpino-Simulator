@@ -25,6 +25,7 @@ public class FirstPersonCharacterControllerSOUND : MonoBehaviour
     [SerializeField] private AudioClip[] m_FootstepSounds;    // an array of footstep sounds that will be randomly selected from.
     [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
     [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
+    [SerializeField] private GameObject collega;
 
     private Camera m_Camera;
     private bool m_Jump;
@@ -45,6 +46,10 @@ public class FirstPersonCharacterControllerSOUND : MonoBehaviour
     private Color visible = new Color(1, 1, 1, 1);
     private Color invisible = new Color(0, 0, 0, 0);
     public bool canJump;
+    public DialogueTrigger dialoguetrigger;
+    public AudioSource audio;
+    public AudioClip dialogo;
+    public bool startDialogue = false;
     // Use this for initialization
     private void Start()
     {
@@ -63,12 +68,24 @@ public class FirstPersonCharacterControllerSOUND : MonoBehaviour
             Light = transform.Find("Spot Light").gameObject;
         Cursor.lockState = CursorLockMode.Locked;
         isLocked = true;
+        dialoguetrigger = collega.GetComponent<DialogueTrigger>();
+        audio = collega.GetComponent<AudioSource>();
+        dialogo = collega.GetComponent<InteractablePerson>().dialogo;
     }
 
 
     // Update is called once per frame
     private void Update()
     {
+        if (startDialogue == true)
+        {
+            if (collega.GetComponent<InteractablePerson>().GetInteract() == false)
+            {
+                dialoguetrigger.TriggerDialogue();
+                audio.PlayOneShot(dialogo, 1f);
+            }
+            RotateDialogue();
+        }
         if (!isLocked)
         {
             UpdateCursor();
@@ -280,9 +297,17 @@ public class FirstPersonCharacterControllerSOUND : MonoBehaviour
             Light.GetComponent<Transform>().localRotation = Quaternion.Euler(RotazioneLuce);
         //Light.GetComponent<Transform>().localRotation = m_Camera.transform.localRotation;
     }
+    public void RotateDialogue()
+    {
+        Vector3 GoHere = collega.transform.position;
+        Vector3 npcPos = gameObject.transform.position;
+        Vector3 delta = new Vector3(GoHere.x - npcPos.x, 0.0f, GoHere.z - npcPos.z);
+        Quaternion rotation = Quaternion.LookRotation(delta);
+        gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, rotation, 0.5f);
+    }
 
 
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+        private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         Rigidbody body = hit.collider.attachedRigidbody;
         //dont move the rigidbody if the character is on top of it

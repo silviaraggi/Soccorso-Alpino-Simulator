@@ -42,6 +42,10 @@ public class InteractablePerson : Interactable
         if (GetInteract() == false)
         {
             audio.Stop();
+            if (GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUND>().startDialogue == true)
+            {
+                GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUND>().startDialogue = false;
+            }
         }
     }
 

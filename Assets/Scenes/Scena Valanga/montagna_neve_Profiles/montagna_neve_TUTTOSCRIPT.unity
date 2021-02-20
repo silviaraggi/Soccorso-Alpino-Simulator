@@ -38826,8 +38826,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2ba1a2387d8d75a4890b62ef9fc4b64c, type: 3}
   m_JumpSound: {fileID: 0}
   m_LandSound: {fileID: 8300000, guid: 4be0e0d0c5c1fd346b48a9068b0be32c, type: 3}
+  collega: {fileID: 1792637489}
   isLocked: 0
   canJump: 0
+  dialoguetrigger: {fileID: 0}
+  audio: {fileID: 0}
+  dialogo: {fileID: 0}
+  startDialogue: 0
 --- !u!1 &1408468410
 GameObject:
   m_ObjectHideFlags: 0
