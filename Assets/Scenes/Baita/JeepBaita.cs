@@ -17,6 +17,7 @@ public class JeepBaita : MonoBehaviour
     Material SkyboxGiorno;
     Material SkyboxPome;
     int NumCamera;
+    private int dialogoAutomatico =0;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,9 +65,21 @@ public class JeepBaita : MonoBehaviour
             GameObject.Find("CamTitle").GetComponent<AudioListener>().enabled = false;
             giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(true);
             giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(true);
+            if (dialogoAutomatico == 0)
+            {
+                giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().startDialogue = true;
+                if (collega1.GetComponent<InteractablePerson>().GetInteract() == false)
+                {
+                    collega1.GetComponent<DialogueTrigger>().TriggerDialogue();
+                    collega1.GetComponent<AudioSource>().PlayOneShot(collega1.GetComponent<InteractablePerson>().dialogo, 1f);
+                }
+                giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().RotateDialogue();
+                dialogoAutomatico++;
+            }
             if (zaino.GetComponent<LightUpInteractable>().collect == true && collega1.GetComponent<InteractablePerson>().GetCollect() == true && collega2.GetComponent<InteractablePerson>().GetCollect() == true)
             {
                 AttivaScena();
+                
 
                 if (scenario==1 && elicottero.GetComponent<LightUpInteractable>().GetInteract())
                 {
@@ -88,13 +101,28 @@ public class JeepBaita : MonoBehaviour
             elicottero.GetComponent<LightUpInteractable>().enabled = true;
             elicottero.GetComponent<LightUpInteractable>().SetAnimatable(true);
             GameObject.Find("Colleghi").GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoCollegaElicottero");
+            collega1.GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoCollegaElicottero");
+            collega2.GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoCollegaElicottero");
         }
         if (scenario == 2)
         {
             this.GetComponent<LightUpInteractable>().enabled = true;
             this.GetComponent<LightUpInteractable>().SetAnimatable(true);
             GameObject.Find("Colleghi").GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoCollegaJeep");
+            collega1.GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoCollegaJeep");
+            collega2.GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoCollegaJeep");
         }
+        if (dialogoAutomatico == 1)
+                {
+                    giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().startDialogue = true;
+                    if (collega1.GetComponent<InteractablePerson>().GetInteract() == false)
+                    {
+                        collega1.GetComponent<DialogueTrigger>().TriggerDialogue();
+                        collega1.GetComponent<AudioSource>().PlayOneShot(collega1.GetComponent<InteractablePerson>().dialogo, 1f);
+                    }
+                    giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().RotateDialogue();
+                    dialogoAutomatico++;
+                }
     }
 
     private void FinaleElicottero()

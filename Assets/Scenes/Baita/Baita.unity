@@ -5273,8 +5273,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e9714160ce34f2b4ab63ff8c27bd68e1, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 2ba1a2387d8d75a4890b62ef9fc4b64c, type: 3}
+  collega: {fileID: 8885965464906458147}
   isLocked: 0
   canJump: 0
+  dialoguetrigger: {fileID: 0}
+  audio: {fileID: 0}
+  dialogo: {fileID: 0}
+  startDialogue: 0
 --- !u!82 &720232852
 AudioSource:
   m_ObjectHideFlags: 0
