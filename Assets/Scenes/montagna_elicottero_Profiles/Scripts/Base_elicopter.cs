@@ -16,9 +16,11 @@ public class Base_elicopter : MonoBehaviour
     private GameObject _firstAidKit;
     private GameObject _ferito;
     private AudioSource audio;
+    private int _flag=0;
     [SerializeField] GameObject _NPC;
     [SerializeField] GameObject _copter;
     [SerializeField] GameObject _fine;
+    [SerializeField] private AudioClip[] audioElicottero;
 
     private void Start()
     {
@@ -114,16 +116,48 @@ public class Base_elicopter : MonoBehaviour
     }
     public void Audio()
     {
-            Debug.Log("prova");
-        StartCoroutine(ChangeVolumeCoroutine());
+        if (_flag == 0)
+        {
+            StartCoroutine(ChangeVolumeCoroutineLess()); 
+            audio.clip = audioElicottero[0];
+            audio.PlayOneShot(audio.clip);
+            _flag++;
+        }
+        if (_flag == 2)
+        {
+            audio.volume = 0.4f;
+            audio.clip = audioElicottero[0];
+            audio.PlayOneShot(audio.clip);
+            StartCoroutine(ChangeVolumeCoroutineMore());
+        }
 
 
     }
-    private IEnumerator ChangeVolumeCoroutine()
+    public void Audio1()
+    {
+        if (_flag == 1)
+        {
+            audio.volume = 0.7f;
+            audio.loop = false;
+            audio.clip = audioElicottero[1];
+            audio.PlayOneShot(audio.clip);
+            _flag++;
+        }
+
+    }
+    private IEnumerator ChangeVolumeCoroutineLess()
     {
         while (audio.volume >0f)
         {
             audio.volume -= 0.004f;
+            yield return null;
+        }
+    }
+    private IEnumerator ChangeVolumeCoroutineMore()
+    {
+        while (audio.volume < 0.7f)
+        {
+            audio.volume += 0.004f;
             yield return null;
         }
     }

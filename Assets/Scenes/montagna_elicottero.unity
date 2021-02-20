@@ -10475,6 +10475,9 @@ MonoBehaviour:
   _NPC: {fileID: 1675350795}
   _copter: {fileID: 3485900987591944810}
   _fine: {fileID: 943125845}
+  audioElicottero:
+  - {fileID: 8300000, guid: 83bf93b4f14e714419896d184cedf27c, type: 3}
+  - {fileID: 8300000, guid: 4a635a450bf09d14a85de96239d62d58, type: 3}
 --- !u!65 &1903552775
 BoxCollider:
   m_ObjectHideFlags: 0
