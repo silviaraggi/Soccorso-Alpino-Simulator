@@ -15950,6 +15950,7 @@ GameObject:
   - component: {fileID: 1832701963}
   - component: {fileID: 1832701966}
   - component: {fileID: 1832701964}
+  - component: {fileID: 1832701967}
   m_Layer: 0
   m_Name: Collega2
   m_TagString: Untagged
@@ -15964,15 +15965,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832701961}
-  m_LocalRotation: {x: -0, y: 0.85327953, z: -0, w: -0.52145386}
-  m_LocalPosition: {x: 3.667, y: -1.0738158, z: 3.382}
+  m_LocalRotation: {x: -0, y: -0.366501, z: 0, w: -0.93041766}
+  m_LocalPosition: {x: 3.7312317, y: -1.0738158, z: 5.6714478}
   m_LocalScale: {x: 0.5307678, y: 0.53076786, z: 0.5307678}
   m_Children:
   - {fileID: 1289028814}
   - {fileID: 659389140}
   m_Father: {fileID: 1718867818}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 242.85999, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 403, z: 0}
 --- !u!95 &1832701963
 Animator:
   serializedVersion: 3
@@ -16116,8 +16117,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatable: 1
   collectable: 0
-  dialoguetrigger: {fileID: 1718867820}
+  dialoguetrigger: {fileID: 0}
   dialogo: {fileID: 8300000, guid: 1f27ab532295d3c449fb15d0dd22baa3, type: 3}
+--- !u!114 &1832701967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832701961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3581fcfb88b4b4ae3a326aead2ae8999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 951527849}
 --- !u!1 &1858317946
 GameObject:
   m_ObjectHideFlags: 0
@@ -19157,8 +19171,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e9714160ce34f2b4ab63ff8c27bd68e1, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 2ba1a2387d8d75a4890b62ef9fc4b64c, type: 3}
+  collega: {fileID: 1832701961}
   isLocked: 0
   canJump: 0
+  dialoguetrigger: {fileID: 0}
+  audio: {fileID: 0}
+  dialogo: {fileID: 0}
+  startDialogue: 0
 --- !u!20 &2140743493
 Camera:
   m_ObjectHideFlags: 0
@@ -20148,15 +20167,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149172865041}
-  m_LocalRotation: {x: -0, y: 0.20874077, z: -0, w: 0.977971}
-  m_LocalPosition: {x: -0.134, y: -1.0738158, z: -3.174}
+  m_LocalRotation: {x: -0, y: 0.8386619, z: -0, w: 0.54465234}
+  m_LocalPosition: {x: -0.09246826, y: -1.0738158, z: -3.1417694}
   m_LocalScale: {x: 0.53076786, y: 0.53076786, z: 0.53076786}
   m_Children:
   - {fileID: 3745622628331309518}
   - {fileID: 5465940246504485439}
   m_Father: {fileID: 1718867818}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 24.097002, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 113.99801, z: 0}
 --- !u!4 &580336574612101116
 Transform:
   m_ObjectHideFlags: 0
@@ -20639,6 +20658,7 @@ GameObject:
   - component: {fileID: 440489513}
   - component: {fileID: 919132149172865043}
   - component: {fileID: 919132149172865042}
+  - component: {fileID: 919132149172865044}
   m_Layer: 0
   m_Name: Collega1
   m_TagString: Untagged
@@ -20756,8 +20776,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatable: 1
   collectable: 0
-  dialoguetrigger: {fileID: 1718867820}
+  dialoguetrigger: {fileID: 0}
   dialogo: {fileID: 8300000, guid: 5fbadd7457b020746b645f2949a39c69, type: 3}
+--- !u!114 &919132149172865044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149172865041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3581fcfb88b4b4ae3a326aead2ae8999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 951527849}
 --- !u!1 &919132149279012452
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,7 +25,7 @@ public class FirstPersonCharacterControllerSOUND : MonoBehaviour
     [SerializeField] private AudioClip[] m_FootstepSounds;    // an array of footstep sounds that will be randomly selected from.
     [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
     [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
-    [SerializeField] private GameObject collega;
+    public GameObject collega;
 
     private Camera m_Camera;
     private bool m_Jump;
@@ -79,11 +79,11 @@ public class FirstPersonCharacterControllerSOUND : MonoBehaviour
     {
         if (startDialogue == true)
         {
-            if (collega.GetComponent<InteractablePerson>().GetInteract() == false)
+            /*if (collega.GetComponent<InteractablePerson>().GetInteract() == false)
             {
                 dialoguetrigger.TriggerDialogue();
                 audio.PlayOneShot(dialogo, 1f);
-            }
+            }*/
             RotateDialogue();
         }
         if (!isLocked)

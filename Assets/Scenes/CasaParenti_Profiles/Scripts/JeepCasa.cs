@@ -14,6 +14,9 @@ public class JeepCasa : MonoBehaviour
     private bool canStart = false;
     GameObject maglia;
     Inventory inventario;
+    private int dialogoAutomatico=0;
+    GameObject collega1;
+    GameObject collega2;
     //GameObject cane;
     // Start is called before the first frame update
     void Start()
@@ -23,7 +26,9 @@ public class JeepCasa : MonoBehaviour
         giocatore = GameObject.FindGameObjectWithTag("Player");
         maglia = GameObject.Find("magliasolida");
         maglia.GetComponent<Interactable>().SetCollectable(false);
-      
+        collega1 = GameObject.Find("Collega1");
+        collega2 = GameObject.Find("Collega2");
+
         IntroScenaCasa();
     }
 
@@ -48,16 +53,47 @@ public class JeepCasa : MonoBehaviour
                 giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
                 GameObject.Find("MainCamera").GetComponent<Camera>().enabled = true;
                 giocatore.GetComponent<CharacterController>().enabled = true;
-                if (GameObject.Find("Parenti").GetComponent<InteractablePerson>().GetInteract())
+            if (dialogoAutomatico == 0)
+            {
+                giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().startDialogue = true;
+                if (collega2.GetComponent<InteractablePerson>().GetInteract() == false)
+                {
+                    collega2.GetComponent<DialogueTrigger>().TriggerDialogue();
+                    collega2.GetComponent<AudioSource>().PlayOneShot(collega2.GetComponent<InteractablePerson>().dialogo, 1f);
+                }
+                giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().RotateDialogue();
+                dialogoAutomatico++;
+
+            }
+
+            if (GameObject.Find("Parenti").GetComponent<InteractablePerson>().GetInteract())
                 {
                     maglia.GetComponent<Interactable>().SetCollectable(true);
                     GameObject.Find("Colleghi").GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoColleghi2");
-                }
+                    
+            }
             canStart = maglia.GetComponent<Interactable>().GetCollect();
             if (canStart)
             {
                 GameObject.Find("Parenti").GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoParenti2");
                 GameObject.Find("Colleghi").GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoColleghi3");
+                collega1.GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoColleghi3");
+                collega2.GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoColleghi3");
+                if (Vector3.Distance(giocatore.transform.position, collega1.transform.position) < 3f)
+                {
+                    if (dialogoAutomatico == 1)
+                    {
+                        giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().collega = collega1;
+                        giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().startDialogue = true;
+                        if (collega1.GetComponent<InteractablePerson>().GetInteract() == false)
+                        {
+                            collega1.GetComponent<DialogueTrigger>().TriggerDialogue();
+                            collega1.GetComponent<AudioSource>().PlayOneShot(collega1.GetComponent<InteractablePerson>().dialogo, 1f);
+                        }
+                        giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().RotateDialogue();
+                        dialogoAutomatico++;
+                    }
+                }
                 GetComponent<LightUpInteractable>().SetAnimatable(true);
                 if (GetComponent<LightUpInteractable>().GetInteract())
                     FineScenaCasa();
