@@ -12,7 +12,7 @@ public class InteractablePersonHelicopter : Interactable
     public bool dialogue = false;
     Material[] mat;
     [SerializeField] private GameObject _ferito;
-    AudioSource audio;
+    public AudioSource audio;
     public AudioClip dialogo;
 
 
@@ -44,6 +44,10 @@ public class InteractablePersonHelicopter : Interactable
         {
             audio.Stop();
             GameObject.Find("ferito").GetComponent<AudioSource>().Stop();
+            if (GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUNDElicottero>().startDialogue == true)
+            {
+                GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUNDElicottero>().startDialogue = false;
+            }
         }
     }
 

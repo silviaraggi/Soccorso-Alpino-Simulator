@@ -25,6 +25,7 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
     [SerializeField] private AudioClip[] m_FootstepSounds;    // an array of footstep sounds that will be randomly selected from.
     [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
     [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
+    [SerializeField] private GameObject collega;
 
 
     private Camera m_Camera;
@@ -63,6 +64,10 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
     private Transform _parent;
     private float dist;
     private CharacterController _characterController;
+    public DialogueTriggerHelicopter dialoguetrigger;
+    public AudioSource audio;
+    public AudioClip dialogo;
+    public bool startDialogue=false;
     // Use this for initialization
     private void Start()
     {
@@ -96,6 +101,9 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
         _dialogo = false;
         //_ferito.GetComponent<LightUpInteractableHelicopter>().SetInteract(true);
         _inventario = inventory.GetComponent<InventoryUI>().GetInventory();
+        dialoguetrigger = _NPC.GetComponent<DialogueTriggerHelicopter>();
+        audio = _NPC.GetComponent<AudioSource>();
+        dialogo = _NPC.GetComponent<InteractablePersonHelicopter>().dialogo;
     }
 
 
@@ -103,6 +111,15 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
     private void Update()
     {
         _inventario = inventory.GetComponent<InventoryUI>().GetInventory();
+        if (startDialogue == true)
+        {
+            if (_NPC.GetComponent<InteractablePersonHelicopter>().dialogue == false)
+            {
+                dialoguetrigger.TriggerDialogue();
+                audio.PlayOneShot(dialogo, 1f);
+            }
+            RotateDialogue();
+        }
         if (!isLocked)
         {
 
@@ -110,7 +127,6 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
             if (Cursor.lockState == CursorLockMode.None)
                 return;
             RotateView();
-            Debug.Log("ok");
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump && canJump)
             {
@@ -165,6 +181,13 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
                     _inventario.Add(_firstAidKit.GetComponent<LightUpInteractableHelicopter>().stecca);
                     _kitPreso = true;
                     _NPC.GetComponent<DialogueTriggerHelicopter>().dialogue = GameObject.Find("DialogoColleghi3");
+                    startDialogue = true;
+                    if (_NPC.GetComponent<InteractablePersonHelicopter>().dialogue == false)
+                    {
+                        dialoguetrigger.TriggerDialogue();
+                        audio.PlayOneShot(dialogo, 1f);
+                    }
+                    RotateDialogue();
                 }
                 if (_soccorso == false && _dialogo == true && _ferito.GetComponent<Interactable>().GetInteract() == true)
                 {
@@ -220,6 +243,13 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
                             _direction = Quaternion.Euler(_barella.transform.eulerAngles);
                             _helicopter.transform.GetComponent<BoxCollider>().enabled = true;
                             _NPC.GetComponent<DialogueTriggerHelicopter>().dialogue = GameObject.Find("DialogoColleghi4");
+                            startDialogue = true;
+                            if (_NPC.GetComponent<InteractablePersonHelicopter>().dialogue == false)
+                            {
+                                dialoguetrigger.TriggerDialogue();
+                                audio.PlayOneShot(dialogo, 1f);
+                            }
+                            RotateDialogue();
                             //_ferito.transform.position=_barella.transform.position+ new Vector3(0.1f, -0.2f, 0.1f);
                         }
                         if (_ferito.transform.IsChildOf(transform) && _grabFerito == 1)
@@ -435,6 +465,24 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
     private void RotateView()
     {
         m_MouseLook.LookRotation(transform, m_Camera.transform);
+        
+    }
+
+    public void RotateDialogue()
+    {
+        Vector3 GoHere = collega.transform.position;
+        Vector3 npcPos = gameObject.transform.position;
+        Vector3 delta = new Vector3(GoHere.x - npcPos.x, 0.0f, GoHere.z - npcPos.z);
+        Quaternion rotation = Quaternion.LookRotation(delta);
+        gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, rotation, 0.5f);
+        //Vector3 deltaCamera = new Vector3(GoHere.x - m_Camera.transform.position.x, 0.0f, GoHere.z - m_Camera.transform.position.z);
+        //Quaternion rotationCamera = Quaternion.LookRotation(deltaCamera);
+        //m_Camera.transform.rotation = gameObject.transform.rotation;// Quaternion.Slerp(m_Camera.transform.rotation, rotationCamera, 0.5f);
+        /*Vector3 RotazioneCamera;
+        RotazioneCamera.x = gameObject.transform.localRotation.x;
+        RotazioneCamera.y = gameObject.transform.localRotation.y;
+        RotazioneCamera.z = gameObject.transform.localRotation.z;
+        m_Camera.GetComponent<Transform>().localRotation = Quaternion.Euler(RotazioneCamera);*/
     }
 
 

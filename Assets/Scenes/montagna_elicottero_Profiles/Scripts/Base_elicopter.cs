@@ -55,6 +55,7 @@ public class Base_elicopter : MonoBehaviour
                 return;
 
             _NPC.transform.GetComponent<SC_NPCFollow>().enabled = true;
+            _child.GetComponent<FirstPersonCharacterControllerSOUNDElicottero>().startDialogue = true;
             _animator.SetBool("getOut", true);
             getOut = true;
 

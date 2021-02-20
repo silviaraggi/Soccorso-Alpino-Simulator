@@ -16,7 +16,10 @@ public class TriggerBarella : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (_ferito.GetComponent<BoxCollider>() == other)
+        {
             GameObject.Find("Player").GetComponent<FPSInteractionManagerHelicopter>().Drop();
+            GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUNDElicottero>().startDialogue = true;
+        }
     }
 
     

@@ -34,6 +34,7 @@ public class Trigger : MonoBehaviour
             _animator.SetBool("free", true);
             _collider.isTrigger = false;
             GameObject.Find("NPC").GetComponent<DialogueTriggerHelicopter>().dialogue = GameObject.Find("DialogoColleghi2");
+            GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUNDElicottero>().startDialogue = true;
         }
         else
         {

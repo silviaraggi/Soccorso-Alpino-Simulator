@@ -6534,12 +6534,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0e23e3a416e9e5b41a8b59ee2d7668af, type: 3}
   m_JumpSound: {fileID: 8300000, guid: ba38b1d6e233d24468b80beca1237eef, type: 3}
   m_LandSound: {fileID: 8300000, guid: 9685ced0d0fd9994fb4514a264da7f72, type: 3}
+  collega: {fileID: 1675350795}
   isLocked: 0
   canJump: 0
   _soccorso: 0
   _dialogo: 0
   inventory: {fileID: 105915826}
   _NPC: {fileID: 1675350795}
+  dialoguetrigger: {fileID: 0}
+  audio: {fileID: 0}
+  dialogo: {fileID: 0}
+  startDialogue: 0
 --- !u!143 &1625643306
 CharacterController:
   m_ObjectHideFlags: 0
@@ -7457,6 +7462,7 @@ MonoBehaviour:
   dialoguetrigger: {fileID: 1675350801}
   dialogue: 0
   _ferito: {fileID: 2737656274766830183}
+  audio: {fileID: 0}
   dialogo: {fileID: 8300000, guid: 5fbadd7457b020746b645f2949a39c69, type: 3}
 --- !u!114 &1675350801
 MonoBehaviour:
@@ -13909,6 +13915,7 @@ MonoBehaviour:
   dialoguetrigger: {fileID: 2737656274766830185}
   dialogue: 0
   _ferito: {fileID: 2737656274766830183}
+  audio: {fileID: 0}
   dialogo: {fileID: 0}
 --- !u!82 &2737656274766830193
 AudioSource:
