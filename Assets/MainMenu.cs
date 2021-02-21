@@ -37,6 +37,33 @@ public class MainMenu : MonoBehaviour
    
     }
 
+
+    public void PlayElicopterGame()
+    {
+        GameObject.Find("SceneInfo").GetComponent<SceneInfo>().SetPunti(true);
+        GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().entry_transition();
+        GameObject.Find("SceneInfo").GetComponent<SceneInfo>().SetScene(1);
+        SceneManager.LoadSceneAsync("Baita");
+
+    }
+
+    public void PlayDogGame()
+    {
+        GameObject.Find("SceneInfo").GetComponent<SceneInfo>().SetPunti(true);
+        GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().entry_transition();
+        GameObject.Find("SceneInfo").GetComponent<SceneInfo>().SetScene(2);
+        SceneManager.LoadSceneAsync("Baita");
+
+    }
+
+    public void PlaySnowGame()
+    {
+        GameObject.Find("SceneInfo").GetComponent<SceneInfo>().SetPunti(true);
+        GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().entry_transition();
+        GameObject.Find("SceneInfo").GetComponent<SceneInfo>().SetScene(3);
+        SceneManager.LoadSceneAsync("montagna_neve_TUTTOSCRIPT");
+
+    }
     public void QuitGame()
     {
         Debug.Log("QUIT!");

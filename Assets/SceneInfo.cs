@@ -4,17 +4,32 @@ using UnityEngine;
 
 public class SceneInfo : MonoBehaviour
 {
-    static int SceneNumber = 3;
-    static bool punti = true;
-    static int punteggio;
+    static int SceneNumber = 1;
+    static bool punti=false;
+    static int punteggio=50;
+    public GameObject monete;
+    
 
     private void Start()
     {
-        punteggio = 100;
+        
+        
     }
     private void Update()
     {
-        ToggleFullScreen();
+
+        if (punti)
+        {
+            if(GameObject.Find("Monete"))
+            monete.SetActive(true);
+            if (punteggio == 0)
+            {
+                FindObjectOfType<MissionFailed>().Fine_monete();
+            }
+            ToggleFullScreen();
+        }
+        
+        
     }
 
     public void SetScene(int scena)

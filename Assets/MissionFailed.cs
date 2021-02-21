@@ -28,6 +28,17 @@ public class MissionFailed : MonoBehaviour
 
         }
     }
+
+    public void Fine_monete()
+    {
+        Time.fixedDeltaTime = 0.02f * Time.timeScale; //SlowmotionEffect
+        Debug.Log("Missione Complete");
+        missionFailedUI.SetActive(true);
+        this.gameObject.GetComponent<AudioSource>().enabled = true;
+        if (GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUND>())
+            GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUND>().m_MouseLook.SetCursorLock(false);
+
+    }
     public void Fine()
     {
         Time.fixedDeltaTime = 0.02f * Time.timeScale; //SlowmotionEffect
@@ -42,6 +53,19 @@ public class MissionFailed : MonoBehaviour
         GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().entry_transition();
         SceneManager.LoadSceneAsync("montagna_neve_TUTTOSCRIPT");
     }
+
+    public void RitentaBaita()
+    {
+        GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().entry_transition();
+        SceneManager.LoadSceneAsync("Baita");
+    }
+
+    public void RitentaCasaParenti()
+    {
+        GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().entry_transition();
+        SceneManager.LoadSceneAsync("CasaParenti");
+    }
+
 
 }
 
