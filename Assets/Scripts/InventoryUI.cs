@@ -13,20 +13,25 @@ public class InventoryUI : MonoBehaviour
     Inventory inventory;
     InventorySlot[] slots;
     public Text dialogueText;
+    private bool punti;
+    private SceneInfo info;
+    public int aiuto;
     // Start is called before the first frame update
     void Start()
     {
         inventory = Inventory.instance;
         inventory.onItemChangeCallback += UpdateUI;
+        info = GameObject.Find("SceneInfo").GetComponent<SceneInfo>();
+        punti = info.GetPunti();
 
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
         if (Cursor.lockState == CursorLockMode.None && Input.GetButtonDown("Inventory"))//||(GameObject.Find("stivali")&& (GameObject.Find("stivali").GetComponent<SkinnedMeshRenderer>().enabled==false)&& (GameObject.Find("ferito"))&& (GameObject.Find("ferito").GetComponent<LightUpInteractableHelicopter>())&&(GameObject.Find("ferito").GetComponent<LightUpInteractableHelicopter>().GetInteract())&& GameObject.Find("fissaggi") && (GameObject.Find("fissaggi").GetComponent<SkinnedMeshRenderer>().enabled == false)) ||(GameObject.Find("CaneUnity2") && GameObject.Find("CaneUnity2").GetComponent<InteractableDog>()&&GameObject.Find("CaneUnity2").GetComponent<InteractableDog>().GetInteract()))
         {
             inventoryUI.SetActive(false);
@@ -39,7 +44,8 @@ public class InventoryUI : MonoBehaviour
         }
         else if (Cursor.lockState == CursorLockMode.Locked && (Input.GetButtonDown("Inventory"))|| (GameObject.Find("stivali") && (GameObject.Find("stivali").GetComponent<SkinnedMeshRenderer>().enabled == true) && (GameObject.Find("ferito")) && (GameObject.Find("ferito").GetComponent<LightUpInteractableHelicopter>())&&(GameObject.Find("ferito").GetComponent<LightUpInteractableHelicopter>().GetInteract()))||(GameObject.Find("stivali")&& (GameObject.Find("stivali").GetComponent<SkinnedMeshRenderer>().enabled==false)&& (GameObject.Find("ferito"))&& (GameObject.Find("ferito").GetComponent<LightUpInteractableHelicopter>())&&(GameObject.Find("ferito").GetComponent<LightUpInteractableHelicopter>().GetInteract())&&GameObject.Find("fissaggi") && (GameObject.Find("fissaggi").GetComponent<SkinnedMeshRenderer>().enabled == false)) || (GameObject.Find("CaneUnity2") && GameObject.Find("CaneUnity2").GetComponent<InteractableDog>() && GameObject.Find("CaneUnity2").GetComponent<InteractableDog>().GetInteract()))
         {
-            if (GameObject.Find("ferito"))
+            
+                if (GameObject.Find("ferito")&&(punti==false||aiuto>=2))
             {
                 if (Input.GetButtonDown("Inventory"))
                     dialogueText.text = "Aiuta il ferito!";
@@ -49,6 +55,10 @@ public class InventoryUI : MonoBehaviour
                     dialogueText.text = "Usa le bende!";
                 else if (GameObject.Find("fissaggi").GetComponent<SkinnedMeshRenderer>().enabled == false)
                     dialogueText.text = "Fissa il tutto";
+            }
+            else
+            {
+                dialogueText.text = "";
             }
             Cursor.lockState = CursorLockMode.None;
             inventoryUI.SetActive(true);

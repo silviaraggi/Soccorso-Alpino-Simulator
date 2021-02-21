@@ -47,7 +47,7 @@ public class Base_elicopter : MonoBehaviour
 
 
         }
-        if (_child.parent != null && Vector3.Distance(_child.position, transform.position) > 5f)
+        if (getOut==false && Vector3.Distance(_child.position, transform.position) > 5f)
         {
             
             _child.parent = null;

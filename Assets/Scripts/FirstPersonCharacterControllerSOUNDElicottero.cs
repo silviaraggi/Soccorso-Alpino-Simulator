@@ -115,9 +115,9 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
     private void Update()
     {
         _inventario = inventory.GetComponent<InventoryUI>().GetInventory();
-        if (startDialogue == true)
+        if (punti==false &&startDialogue == true)
         {
-            if (_NPC.GetComponent<InteractablePersonHelicopter>().dialogue == false && punti == false)
+            if (_NPC.GetComponent<InteractablePersonHelicopter>().dialogue == false)
             {
                 dialoguetrigger.TriggerDialogue();
                 int n = Random.Range(1, m_Sounds.Length);
@@ -162,6 +162,7 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
                 if (dist <= 1.5f)
                 {
                     _move = true;
+                    this.transform.parent = null;
                 }
             }
 
@@ -191,7 +192,7 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
                     _kitPreso = true;
                     _NPC.GetComponent<DialogueTriggerHelicopter>().dialogue = GameObject.Find("DialogoColleghi3");
                     startDialogue = true;
-                    if (_NPC.GetComponent<InteractablePersonHelicopter>().dialogue == false && punti == false)
+                    if (punti == false && _NPC.GetComponent<InteractablePersonHelicopter>().dialogue == false )
                     {
                         dialoguetrigger.TriggerDialogue();
                         int n = Random.Range(1, m_Sounds.Length);
@@ -201,7 +202,7 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
                         m_Sounds[n] = m_Sounds[0];
                         m_Sounds[0] = audio.clip;
                     }
-                    RotateDialogue();
+                    //RotateDialogue();
                 }
                 if (_soccorso == false && _dialogo == true && _ferito.GetComponent<Interactable>().GetInteract() == true)
                 {
@@ -258,7 +259,7 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
                             _helicopter.transform.GetComponent<BoxCollider>().enabled = true;
                             _NPC.GetComponent<DialogueTriggerHelicopter>().dialogue = GameObject.Find("DialogoColleghi4");
                             startDialogue = true;
-                            if (_NPC.GetComponent<InteractablePersonHelicopter>().dialogue == false && punti == false)
+                            if (punti == false&&_NPC.GetComponent<InteractablePersonHelicopter>().dialogue == false  )
                             {
                                 dialoguetrigger.TriggerDialogue();
                                 int n = Random.Range(1, m_Sounds.Length);
@@ -268,7 +269,7 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
                                 m_Sounds[n] = m_Sounds[0];
                                 m_Sounds[0] = audio.clip;
                             }
-                            RotateDialogue();
+                            //RotateDialogue();
                             //_ferito.transform.position=_barella.transform.position+ new Vector3(0.1f, -0.2f, 0.1f);
                         }
                         if (_ferito.transform.IsChildOf(transform) && _grabFerito == 1)

@@ -23,10 +23,14 @@ public class InventorySlot : MonoBehaviour
     public GameObject sonda;
     public GameObject pala;
     private Inventory inventario;
+    private bool punti;
+    public int aiuto;
     private void Start()
     {
         sceneInfo = GameObject.Find("SceneInfo");
         scene = sceneInfo.GetComponent<SceneInfo>().GetScene();
+        punti = sceneInfo.GetComponent<SceneInfo>().GetPunti();
+        aiuto = 0;
 
         switch (scene)
         {
@@ -95,26 +99,49 @@ public class InventorySlot : MonoBehaviour
                 case "Stecca":
                     if (_stivali.GetComponent<SkinnedMeshRenderer>().enabled == false)
                     {
+                        GameObject.Find("Strumenti").GetComponent<InventoryUI>().aiuto = 0;
                         stecca.GetComponent<SkinnedMeshRenderer>().enabled = true;
                         inventario.Remove(this.item);
+                        
+                    }
+                    else if(punti==true)
+                    {
+                        sceneInfo.GetComponent<SceneInfo>().SetPunteggio(sceneInfo.GetComponent<SceneInfo>().GetPunteggio() - 10);
+                        Debug.Log(sceneInfo.GetComponent<SceneInfo>().GetPunteggio());
+                        GameObject.Find("Strumenti").GetComponent<InventoryUI>().aiuto++;
                     }
                     break;
                 case "Bende":
                     if (stecca.GetComponent<SkinnedMeshRenderer>().enabled == true)
                     {
+                        GameObject.Find("Strumenti").GetComponent<InventoryUI>().aiuto = 0;
                         bende.GetComponent<SkinnedMeshRenderer>().enabled = true;
                         
                         inventario.Remove(this.item);
                         
                     }
+                    else if (punti == true)
+                    {
+                        sceneInfo.GetComponent<SceneInfo>().SetPunteggio(sceneInfo.GetComponent<SceneInfo>().GetPunteggio() - 10);
+                        Debug.Log(sceneInfo.GetComponent<SceneInfo>().GetPunteggio());
+                        GameObject.Find("Strumenti").GetComponent<InventoryUI>().aiuto++;
+                    }
                     break;
                 case "Fissaggi":
                     if (bende.GetComponent<SkinnedMeshRenderer>().enabled == true)
                     {
+                        GameObject.Find("Strumenti").GetComponent<InventoryUI>().aiuto = 0;
                         fissaggi.GetComponent<SkinnedMeshRenderer>().enabled = true;
                         inventario.Remove(this.item);
+                        
                     }
-                        break;
+                    else if (punti == true)
+                    {
+                        sceneInfo.GetComponent<SceneInfo>().SetPunteggio(sceneInfo.GetComponent<SceneInfo>().GetPunteggio() - 10);
+                        Debug.Log(sceneInfo.GetComponent<SceneInfo>().GetPunteggio());
+                        GameObject.Find("Strumenti").GetComponent<InventoryUI>().aiuto++;
+                    }
+                    break;
             }
             GameObject.Find("Inventory").SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
