@@ -156,19 +156,39 @@ public class InventorySlot : MonoBehaviour
                 case "Maglia":
                     if (gameObject.scene.name=="BoscoCane"&&berretto.GetComponent<InteractableClue>().GetCollect() == false)
                         cane.GetComponent<CaneBosco>().GetNewClue(berretto);
-                    break;
+                        else if (punti == true)
+                        {
+                            sceneInfo.GetComponent<SceneInfo>().SetPunteggio(sceneInfo.GetComponent<SceneInfo>().GetPunteggio() - 10);
+                            Debug.Log(sceneInfo.GetComponent<SceneInfo>().GetPunteggio());
+                        }
+                        break;
                 case "Cappello":
                     if (zaino.GetComponent<InteractableClue>().GetCollect() == false)
                         cane.GetComponent<CaneBosco>().GetNewClue(zaino);
-                    break;
+                    else if (punti == true)
+                        {
+                            sceneInfo.GetComponent<SceneInfo>().SetPunteggio(sceneInfo.GetComponent<SceneInfo>().GetPunteggio() - 10);
+                            Debug.Log(sceneInfo.GetComponent<SceneInfo>().GetPunteggio());
+                        }
+                        break;
                 case "Zaino":
                     if (guanti.GetComponent<InteractableClue>().GetCollect() == false)
                         cane.GetComponent<CaneBosco>().GetNewClue(guanti);
-                    break;
+                        else if (punti == true)
+                        {
+                            sceneInfo.GetComponent<SceneInfo>().SetPunteggio(sceneInfo.GetComponent<SceneInfo>().GetPunteggio() - 10);
+                            Debug.Log(sceneInfo.GetComponent<SceneInfo>().GetPunteggio());
+                        }
+                        break;
                 case "Guanti":
                     if (disperso.GetComponent<Disperso>().GetDispersoState() == Disperso.DispersoState.Wander)
                         cane.GetComponent<CaneBosco>().GetNewClue(disperso);
-                    break;
+                        else if (punti == true)
+                        {
+                            sceneInfo.GetComponent<SceneInfo>().SetPunteggio(sceneInfo.GetComponent<SceneInfo>().GetPunteggio() - 10);
+                            Debug.Log(sceneInfo.GetComponent<SceneInfo>().GetPunteggio());
+                        }
+                        break;
                     case "Torcia":
                         GameObject.Find("Player").GetComponent<FPSInteractionManager>().SetTorchStatus(!GameObject.Find("Player").GetComponent<FPSInteractionManager>().GetTorchStatus());
                         if (GameObject.Find("Player").GetComponent<FPSInteractionManager>().GetTorchStatus())
@@ -187,18 +207,38 @@ public class InventorySlot : MonoBehaviour
                     case "Maglia":
                         if (berretto.GetComponent<InteractableClue>().GetCollect() == false)
                             cane.GetComponent<CaneBosco>().GetNewClue(berretto);
+                        else if (punti == true)
+                        {
+                            sceneInfo.GetComponent<SceneInfo>().SetPunteggio(sceneInfo.GetComponent<SceneInfo>().GetPunteggio() - 10);
+                            Debug.Log(sceneInfo.GetComponent<SceneInfo>().GetPunteggio());
+                        }
                         break;
                     case "Cappello":
                         if (zaino.GetComponent<InteractableClue>().GetCollect() == false)
                             cane.GetComponent<CaneBosco>().GetNewClue(zaino);
+                        else if (punti == true)
+                        {
+                            sceneInfo.GetComponent<SceneInfo>().SetPunteggio(sceneInfo.GetComponent<SceneInfo>().GetPunteggio() - 10);
+                            Debug.Log(sceneInfo.GetComponent<SceneInfo>().GetPunteggio());
+                        }
                         break;
                     case "Zaino":
                         if (guanti.GetComponent<InteractableClue>().GetCollect() == false)
                             cane.GetComponent<CaneBosco>().GetNewClue(guanti);
+                        else if (punti == true)
+                        {
+                            sceneInfo.GetComponent<SceneInfo>().SetPunteggio(sceneInfo.GetComponent<SceneInfo>().GetPunteggio() - 10);
+                            Debug.Log(sceneInfo.GetComponent<SceneInfo>().GetPunteggio());
+                        }
                         break;
                     case "Guanti":
                         if (disperso.GetComponent<Disperso>().GetDispersoState() == Disperso.DispersoState.Wander)
                             cane.GetComponent<CaneBosco>().GetNewClue(disperso);
+                        else if (punti == true)
+                        {
+                            sceneInfo.GetComponent<SceneInfo>().SetPunteggio(sceneInfo.GetComponent<SceneInfo>().GetPunteggio() - 10);
+                            Debug.Log(sceneInfo.GetComponent<SceneInfo>().GetPunteggio());
+                        }
                         break;
                 }
             GameObject.Find("Inventory").SetActive(false);
@@ -211,7 +251,15 @@ public class InventorySlot : MonoBehaviour
             switch (this.item.name)
             {
                 case "ARTVA":
-                    GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().SetArtvaActive(!GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().GetArtvaActive());
+                    if (sonda.GetComponent<Renderer>().enabled == false && GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().GetCanUseSonda() == false)
+                    {
+                        GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().SetArtvaActive(!GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().GetArtvaActive());
+                    }
+                    else if (punti == true)
+                    {
+                        sceneInfo.GetComponent<SceneInfo>().SetPunteggio(sceneInfo.GetComponent<SceneInfo>().GetPunteggio() - 10);
+                        Debug.Log(sceneInfo.GetComponent<SceneInfo>().GetPunteggio());
+                    }
                     if (GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().GetArtvaActive())
                     {
                         GameObject.Find("artva").GetComponent<Image>().color = Color.green;
@@ -238,6 +286,11 @@ public class InventorySlot : MonoBehaviour
                             GameObject.Find("button_pala").GetComponent<Image>().color = Color.white;
                         }
                     }
+                    else if (punti == true)
+                    {
+                        sceneInfo.GetComponent<SceneInfo>().SetPunteggio(sceneInfo.GetComponent<SceneInfo>().GetPunteggio() - 10);
+                        Debug.Log(sceneInfo.GetComponent<SceneInfo>().GetPunteggio());
+                    }
                     break;
 
                 case "Sonda":
@@ -246,6 +299,11 @@ public class InventorySlot : MonoBehaviour
                         sonda.GetComponent<Renderer>().enabled = true;
                         inventario.Remove(sonda.GetComponent<InteractableClue>().GetItem());
                         GameObject.Find("Disperso_gameplay").GetComponent<Disperso_neve>().SetArtvaActive(false);
+                    }
+                    else if (punti == true)
+                    {
+                        sceneInfo.GetComponent<SceneInfo>().SetPunteggio(sceneInfo.GetComponent<SceneInfo>().GetPunteggio() - 10);
+                        Debug.Log(sceneInfo.GetComponent<SceneInfo>().GetPunteggio());
                     }
                     break;
             }

@@ -56,7 +56,7 @@ public class InventoryUI : MonoBehaviour
                 else if (GameObject.Find("fissaggi").GetComponent<SkinnedMeshRenderer>().enabled == false)
                     dialogueText.text = "Fissa il tutto";
             }
-            else
+            else if(GameObject.Find("ferito"))
             {
                 dialogueText.text = "";
             }
