@@ -66,8 +66,8 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
     private CharacterController _characterController;
     public DialogueTriggerHelicopter dialoguetrigger;
     public AudioSource audio;
-    public AudioClip dialogo;
     public bool startDialogue=false;
+    [SerializeField] private AudioClip[] m_Sounds;
     // Use this for initialization
     private void Start()
     {
@@ -103,7 +103,7 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
         _inventario = inventory.GetComponent<InventoryUI>().GetInventory();
         dialoguetrigger = _NPC.GetComponent<DialogueTriggerHelicopter>();
         audio = _NPC.GetComponent<AudioSource>();
-        dialogo = _NPC.GetComponent<InteractablePersonHelicopter>().dialogo;
+
     }
 
 
@@ -116,7 +116,12 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
             if (_NPC.GetComponent<InteractablePersonHelicopter>().dialogue == false)
             {
                 dialoguetrigger.TriggerDialogue();
-                audio.PlayOneShot(dialogo, 1f);
+                int n = Random.Range(1, m_Sounds.Length);
+                audio.clip = m_Sounds[n];
+                audio.PlayOneShot(audio.clip);
+                // move picked sound to index 0 so it's not picked next time
+                m_Sounds[n] = m_Sounds[0];
+                m_Sounds[0] = audio.clip;
             }
             RotateDialogue();
         }
@@ -185,7 +190,12 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
                     if (_NPC.GetComponent<InteractablePersonHelicopter>().dialogue == false)
                     {
                         dialoguetrigger.TriggerDialogue();
-                        audio.PlayOneShot(dialogo, 1f);
+                        int n = Random.Range(1, m_Sounds.Length);
+                        audio.clip = m_Sounds[n];
+                        audio.PlayOneShot(audio.clip);
+                        // move picked sound to index 0 so it's not picked next time
+                        m_Sounds[n] = m_Sounds[0];
+                        m_Sounds[0] = audio.clip;
                     }
                     RotateDialogue();
                 }
@@ -247,7 +257,12 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
                             if (_NPC.GetComponent<InteractablePersonHelicopter>().dialogue == false)
                             {
                                 dialoguetrigger.TriggerDialogue();
-                                audio.PlayOneShot(dialogo, 1f);
+                                int n = Random.Range(1, m_Sounds.Length);
+                                audio.clip = m_Sounds[n];
+                                audio.PlayOneShot(audio.clip);
+                                // move picked sound to index 0 so it's not picked next time
+                                m_Sounds[n] = m_Sounds[0];
+                                m_Sounds[0] = audio.clip;
                             }
                             RotateDialogue();
                             //_ferito.transform.position=_barella.transform.position+ new Vector3(0.1f, -0.2f, 0.1f);

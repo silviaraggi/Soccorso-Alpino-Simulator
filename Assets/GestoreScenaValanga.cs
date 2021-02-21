@@ -23,6 +23,8 @@ public class GestoreScenaValanga : MonoBehaviour
     private GameObject Buca4;
     private GameObject Buca5;
     private int dialogoAutomatico = 0;
+    [SerializeField] private AudioClip[] m_Sounds;
+    private AudioSource audio;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +47,7 @@ public class GestoreScenaValanga : MonoBehaviour
         Buca3 = GameObject.Find("Scavo3");
         Buca4 = GameObject.Find("Scavo4");
         Buca5 = GameObject.Find("Scavo5");
+        audio = Soccorritore2_GP.GetComponent<AudioSource>();
         foreach ( Renderer daDisattivare in Soccorritore2_GP.GetComponentsInChildren<Renderer>()){
             daDisattivare.enabled = false;
         }
@@ -96,7 +99,12 @@ public class GestoreScenaValanga : MonoBehaviour
                 if (Soccorritore2_GP.GetComponent<InteractablePerson>().GetInteract() == false)
                 {
                     Soccorritore2_GP.GetComponent<DialogueTrigger>().TriggerDialogue();
-                    Soccorritore2_GP.GetComponent<AudioSource>().PlayOneShot(Soccorritore2_GP.GetComponent<InteractablePerson>().dialogo, 1f);
+                    int n = Random.Range(1, m_Sounds.Length);
+                    audio.clip = m_Sounds[n];
+                    // move picked sound to index 0 so it's not picked next time
+                    m_Sounds[n] = m_Sounds[0];
+                    m_Sounds[0] = audio.clip;
+                    audio.PlayOneShot(audio.clip, 1f);
                 }
                 player.GetComponent<FirstPersonCharacterControllerSOUND>().RotateDialogue();
                 dialogoAutomatico++;
@@ -110,7 +118,12 @@ public class GestoreScenaValanga : MonoBehaviour
                     if (Soccorritore2_GP.GetComponent<InteractablePerson>().GetInteract() == false)
                     {
                         Soccorritore2_GP.GetComponent<DialogueTrigger>().TriggerDialogue();
-                        Soccorritore2_GP.GetComponent<AudioSource>().PlayOneShot(Soccorritore2_GP.GetComponent<InteractablePerson>().dialogo, 1f);
+                        int n = Random.Range(1, m_Sounds.Length);
+                        audio.clip = m_Sounds[n];
+                        // move picked sound to index 0 so it's not picked next time
+                        m_Sounds[n] = m_Sounds[0];
+                        m_Sounds[0] = audio.clip;
+                        audio.PlayOneShot(audio.clip, 1f);
                     }
                     player.GetComponent<FirstPersonCharacterControllerSOUND>().RotateDialogue();
                     dialogoAutomatico++;
@@ -126,7 +139,12 @@ public class GestoreScenaValanga : MonoBehaviour
                     if (Soccorritore2_GP.GetComponent<InteractablePerson>().GetInteract() == false)
                     {
                         Soccorritore2_GP.GetComponent<DialogueTrigger>().TriggerDialogue();
-                        Soccorritore2_GP.GetComponent<AudioSource>().PlayOneShot(Soccorritore2_GP.GetComponent<InteractablePerson>().dialogo, 1f);
+                        int n = Random.Range(1, m_Sounds.Length);
+                        audio.clip = m_Sounds[n];
+                        // move picked sound to index 0 so it's not picked next time
+                        m_Sounds[n] = m_Sounds[0];
+                        m_Sounds[0] = audio.clip;
+                        audio.PlayOneShot(audio.clip, 1f);
                     }
                     player.GetComponent<FirstPersonCharacterControllerSOUND>().RotateDialogue();
                     dialogoAutomatico++;
@@ -141,7 +159,12 @@ public class GestoreScenaValanga : MonoBehaviour
                     if (Soccorritore2_GP.GetComponent<InteractablePerson>().GetInteract() == false)
                     {
                         Soccorritore2_GP.GetComponent<DialogueTrigger>().TriggerDialogue();
-                        Soccorritore2_GP.GetComponent<AudioSource>().PlayOneShot(Soccorritore2_GP.GetComponent<InteractablePerson>().dialogo, 1f);
+                        int n = Random.Range(1, m_Sounds.Length);
+                        audio.clip = m_Sounds[n];
+                        // move picked sound to index 0 so it's not picked next time
+                        m_Sounds[n] = m_Sounds[0];
+                        m_Sounds[0] = audio.clip;
+                        audio.PlayOneShot(audio.clip, 1f);
                     }
                     player.GetComponent<FirstPersonCharacterControllerSOUND>().RotateDialogue();
                     dialogoAutomatico++;

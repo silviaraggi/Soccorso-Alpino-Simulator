@@ -13,8 +13,9 @@ public class InteractablePersonHelicopter : Interactable
     Material[] mat;
     [SerializeField] private GameObject _ferito;
     public AudioSource audio;
-    public AudioClip dialogo;
+    [SerializeField] private AudioClip[] m_Sounds;
 
+    
 
     // Start is called before the first frame update
     protected override void Start()
@@ -132,7 +133,12 @@ public class InteractablePersonHelicopter : Interactable
         if (((collectable == true && collect == true) && !dialogue) || (collectable == false && !dialogue))
         {
             dialoguetrigger.TriggerDialogue();
-            audio.PlayOneShot(dialogo, 1f);
+            int n = Random.Range(1, m_Sounds.Length);
+            audio.clip = m_Sounds[n];
+            audio.PlayOneShot(audio.clip);
+            // move picked sound to index 0 so it's not picked next time
+            m_Sounds[n] = m_Sounds[0];
+            m_Sounds[0] = audio.clip;
             //do dialogue
         }
         if (collectable == true && collect == false)

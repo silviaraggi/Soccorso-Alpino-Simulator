@@ -13,11 +13,13 @@ public class InteractablePerson : Interactable
     Material[] mat;
     AudioSource audio;
     public AudioClip dialogo;
+    [SerializeField] private AudioClip[] m_Sounds;
 
 
     // Start is called before the first frame update
     protected override void Start()
     {
+        dialoguetrigger = GetComponent<DialogueTrigger>();
         audio = GetComponent<AudioSource>();
         if (GetComponent<SC_NPCFollow>())
             collectable = true;
@@ -130,8 +132,20 @@ public class InteractablePerson : Interactable
         if (((collectable==true&&collect==true)&&!GetDialogue())||(collectable==false&&!GetDialogue()))
         {
             dialoguetrigger.TriggerDialogue();
-            Debug.Log("dialogo");
-            audio.PlayOneShot(dialogo, 1f);
+            int n = Random.Range(1, m_Sounds.Length);
+            if (n > 1)
+            {
+                audio.clip = m_Sounds[n];
+                audio.PlayOneShot(audio.clip);
+                // move picked sound to index 0 so it's not picked next time
+                m_Sounds[n] = m_Sounds[0];
+                m_Sounds[0] = audio.clip;
+            }
+            else
+            {
+                audio.clip = m_Sounds[0];
+                audio.PlayOneShot(audio.clip);
+            }
             //do dialogue
         }
         if(collectable==true&&GetCollect()==false)

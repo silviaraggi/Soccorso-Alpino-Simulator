@@ -15523,6 +15523,12 @@ MonoBehaviour:
   intro: 1
   finale: 0
   inventario: {fileID: 249626749}
+  m_Sounds:
+  - {fileID: 8300000, guid: 930bf274a73e3e045ac48d18b245f003, type: 3}
+  - {fileID: 8300000, guid: 5b257865f855409489fd962f6d65c4c8, type: 3}
+  - {fileID: 8300000, guid: 71ca39162cde0b44d8fd88c80a37232a, type: 3}
+  - {fileID: 8300000, guid: 82c6b9e868a322244a8ae3a35fe9fd71, type: 3}
+  - {fileID: 8300000, guid: cdef6a2d48b34e24e91b087acdacd9d9, type: 3}
 --- !u!4 &185649515
 Transform:
   m_ObjectHideFlags: 0
@@ -47468,6 +47474,12 @@ MonoBehaviour:
   collectable: 0
   dialoguetrigger: {fileID: 1792637497}
   dialogo: {fileID: 8300000, guid: 1f27ab532295d3c449fb15d0dd22baa3, type: 3}
+  m_Sounds:
+  - {fileID: 8300000, guid: 930bf274a73e3e045ac48d18b245f003, type: 3}
+  - {fileID: 8300000, guid: 5b257865f855409489fd962f6d65c4c8, type: 3}
+  - {fileID: 8300000, guid: 71ca39162cde0b44d8fd88c80a37232a, type: 3}
+  - {fileID: 8300000, guid: 82c6b9e868a322244a8ae3a35fe9fd71, type: 3}
+  - {fileID: 8300000, guid: cdef6a2d48b34e24e91b087acdacd9d9, type: 3}
 --- !u!114 &1792637497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47495,7 +47507,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.738
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -47943,6 +47955,7 @@ MonoBehaviour:
   collectable: 0
   dialoguetrigger: {fileID: 1878384279}
   dialogo: {fileID: 8300000, guid: 5fbadd7457b020746b645f2949a39c69, type: 3}
+  m_Sounds: []
   canUseSonda: 0
   ArtvaActive: 0
   isUsingPala: 0

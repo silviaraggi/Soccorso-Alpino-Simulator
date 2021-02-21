@@ -6543,8 +6543,13 @@ MonoBehaviour:
   _NPC: {fileID: 1675350795}
   dialoguetrigger: {fileID: 0}
   audio: {fileID: 0}
-  dialogo: {fileID: 0}
   startDialogue: 0
+  m_Sounds:
+  - {fileID: 8300000, guid: 1f8b7a73e649718429ccfbd62bde0322, type: 3}
+  - {fileID: 8300000, guid: 2b58148bffe4f13439d376d0ef47727d, type: 3}
+  - {fileID: 8300000, guid: d4954e445c9e4c1468e87363bc7f8256, type: 3}
+  - {fileID: 8300000, guid: dcaa5bf73f0077144b22bf31e329f879, type: 3}
+  - {fileID: 8300000, guid: 8ce17153bb40abe49bab3351c61c4df7, type: 3}
 --- !u!143 &1625643306
 CharacterController:
   m_ObjectHideFlags: 0
@@ -7463,7 +7468,12 @@ MonoBehaviour:
   dialogue: 0
   _ferito: {fileID: 2737656274766830183}
   audio: {fileID: 0}
-  dialogo: {fileID: 8300000, guid: 5fbadd7457b020746b645f2949a39c69, type: 3}
+  m_Sounds:
+  - {fileID: 8300000, guid: 1f8b7a73e649718429ccfbd62bde0322, type: 3}
+  - {fileID: 8300000, guid: 2b58148bffe4f13439d376d0ef47727d, type: 3}
+  - {fileID: 8300000, guid: d4954e445c9e4c1468e87363bc7f8256, type: 3}
+  - {fileID: 8300000, guid: dcaa5bf73f0077144b22bf31e329f879, type: 3}
+  - {fileID: 8300000, guid: 8ce17153bb40abe49bab3351c61c4df7, type: 3}
 --- !u!114 &1675350801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13916,7 +13926,7 @@ MonoBehaviour:
   dialogue: 0
   _ferito: {fileID: 2737656274766830183}
   audio: {fileID: 0}
-  dialogo: {fileID: 0}
+  m_Sounds: []
 --- !u!82 &2737656274766830193
 AudioSource:
   m_ObjectHideFlags: 0

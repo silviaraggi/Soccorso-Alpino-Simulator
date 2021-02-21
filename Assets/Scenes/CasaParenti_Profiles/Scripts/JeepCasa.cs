@@ -17,6 +17,10 @@ public class JeepCasa : MonoBehaviour
     private int dialogoAutomatico=0;
     GameObject collega1;
     GameObject collega2;
+    [SerializeField] private AudioClip[] m_SoundsM;
+    [SerializeField] private AudioClip[] m_SoundsF;
+    private AudioSource audioM;
+    private AudioSource audioF;
     //GameObject cane;
     // Start is called before the first frame update
     void Start()
@@ -28,6 +32,8 @@ public class JeepCasa : MonoBehaviour
         maglia.GetComponent<Interactable>().SetCollectable(false);
         collega1 = GameObject.Find("Collega1");
         collega2 = GameObject.Find("Collega2");
+        audioM = collega1.GetComponent<AudioSource>();
+        audioF = collega2.GetComponent<AudioSource>();
 
         IntroScenaCasa();
     }
@@ -59,7 +65,12 @@ public class JeepCasa : MonoBehaviour
                 if (collega2.GetComponent<InteractablePerson>().GetInteract() == false)
                 {
                     collega2.GetComponent<DialogueTrigger>().TriggerDialogue();
-                    collega2.GetComponent<AudioSource>().PlayOneShot(collega2.GetComponent<InteractablePerson>().dialogo, 1f);
+                    int n = UnityEngine.Random.Range(1, m_SoundsF.Length);
+                    audioF.clip = m_SoundsF[n];
+                    // move picked sound to index 0 so it's not picked next time
+                    m_SoundsF[n] = m_SoundsF[0];
+                    m_SoundsF[0] = audioF.clip;
+                    audioF.PlayOneShot(audioF.clip, 1f);
                 }
                 giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().RotateDialogue();
                 dialogoAutomatico++;
@@ -88,7 +99,12 @@ public class JeepCasa : MonoBehaviour
                         if (collega1.GetComponent<InteractablePerson>().GetInteract() == false)
                         {
                             collega1.GetComponent<DialogueTrigger>().TriggerDialogue();
-                            collega1.GetComponent<AudioSource>().PlayOneShot(collega1.GetComponent<InteractablePerson>().dialogo, 1f);
+                            int n = UnityEngine.Random.Range(1, m_SoundsM.Length);
+                            audioM.clip = m_SoundsM[n];
+                            // move picked sound to index 0 so it's not picked next time
+                            m_SoundsM[n] = m_SoundsM[0];
+                            m_SoundsM[0] = audioM.clip;
+                            audioM.PlayOneShot(audioM.clip, 1f);
                         }
                         giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().RotateDialogue();
                         dialogoAutomatico++;
