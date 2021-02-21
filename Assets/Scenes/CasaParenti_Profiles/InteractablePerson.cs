@@ -13,6 +13,7 @@ public class InteractablePerson : Interactable
     Material[] mat;
     AudioSource audio;
     public AudioClip dialogo;
+    private SceneInfo info;
     [SerializeField] private AudioClip[] m_Sounds;
 
 
@@ -21,6 +22,7 @@ public class InteractablePerson : Interactable
     {
         dialoguetrigger = GetComponent<DialogueTrigger>();
         audio = GetComponent<AudioSource>();
+        info = GameObject.Find("SceneInfo").GetComponent<SceneInfo>();
         if (GetComponent<SC_NPCFollow>())
             collectable = true;
         if (gameObject.GetComponent<Renderer>())
@@ -140,12 +142,15 @@ public class InteractablePerson : Interactable
                 // move picked sound to index 0 so it's not picked next time
                 m_Sounds[n] = m_Sounds[0];
                 m_Sounds[0] = audio.clip;
+                
             }
             else
             {
                 audio.clip = m_Sounds[0];
                 audio.PlayOneShot(audio.clip);
             }
+            info.SetPunteggio(info.GetPunteggio() - 10);
+            Debug.Log(info.GetPunteggio());
             //do dialogue
         }
         if(collectable==true&&GetCollect()==false)

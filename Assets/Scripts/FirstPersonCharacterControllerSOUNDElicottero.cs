@@ -68,6 +68,8 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
     public AudioSource audio;
     public bool startDialogue=false;
     [SerializeField] private AudioClip[] m_Sounds;
+    private bool punti;
+    private SceneInfo info;
     // Use this for initialization
     private void Start()
     {
@@ -103,6 +105,8 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
         _inventario = inventory.GetComponent<InventoryUI>().GetInventory();
         dialoguetrigger = _NPC.GetComponent<DialogueTriggerHelicopter>();
         audio = _NPC.GetComponent<AudioSource>();
+        info = GameObject.Find("SceneInfo").GetComponent<SceneInfo>();
+        punti = info.GetPunti();
 
     }
 
@@ -113,7 +117,7 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
         _inventario = inventory.GetComponent<InventoryUI>().GetInventory();
         if (startDialogue == true)
         {
-            if (_NPC.GetComponent<InteractablePersonHelicopter>().dialogue == false)
+            if (_NPC.GetComponent<InteractablePersonHelicopter>().dialogue == false && punti == false)
             {
                 dialoguetrigger.TriggerDialogue();
                 int n = Random.Range(1, m_Sounds.Length);
@@ -187,7 +191,7 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
                     _kitPreso = true;
                     _NPC.GetComponent<DialogueTriggerHelicopter>().dialogue = GameObject.Find("DialogoColleghi3");
                     startDialogue = true;
-                    if (_NPC.GetComponent<InteractablePersonHelicopter>().dialogue == false)
+                    if (_NPC.GetComponent<InteractablePersonHelicopter>().dialogue == false && punti == false)
                     {
                         dialoguetrigger.TriggerDialogue();
                         int n = Random.Range(1, m_Sounds.Length);
@@ -254,7 +258,7 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
                             _helicopter.transform.GetComponent<BoxCollider>().enabled = true;
                             _NPC.GetComponent<DialogueTriggerHelicopter>().dialogue = GameObject.Find("DialogoColleghi4");
                             startDialogue = true;
-                            if (_NPC.GetComponent<InteractablePersonHelicopter>().dialogue == false)
+                            if (_NPC.GetComponent<InteractablePersonHelicopter>().dialogue == false && punti == false)
                             {
                                 dialoguetrigger.TriggerDialogue();
                                 int n = Random.Range(1, m_Sounds.Length);

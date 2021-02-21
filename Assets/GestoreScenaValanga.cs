@@ -25,6 +25,8 @@ public class GestoreScenaValanga : MonoBehaviour
     private int dialogoAutomatico = 0;
     [SerializeField] private AudioClip[] m_Sounds;
     private AudioSource audio;
+    private bool punti;
+    private SceneInfo info;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +50,8 @@ public class GestoreScenaValanga : MonoBehaviour
         Buca4 = GameObject.Find("Scavo4");
         Buca5 = GameObject.Find("Scavo5");
         audio = Soccorritore2_GP.GetComponent<AudioSource>();
+        info = GameObject.Find("SceneInfo").GetComponent<SceneInfo>();
+        punti = info.GetPunti();
         foreach ( Renderer daDisattivare in Soccorritore2_GP.GetComponentsInChildren<Renderer>()){
             daDisattivare.enabled = false;
         }
@@ -96,7 +100,7 @@ public class GestoreScenaValanga : MonoBehaviour
             if (dialogoAutomatico == 0)
             {
                 player.GetComponent<FirstPersonCharacterControllerSOUND>().startDialogue = true;
-                if (Soccorritore2_GP.GetComponent<InteractablePerson>().GetInteract() == false)
+                if (Soccorritore2_GP.GetComponent<InteractablePerson>().GetInteract() == false && punti == false)
                 {
                     Soccorritore2_GP.GetComponent<DialogueTrigger>().TriggerDialogue();
                     int n = Random.Range(1, m_Sounds.Length);
@@ -115,7 +119,7 @@ public class GestoreScenaValanga : MonoBehaviour
                 if (dialogoAutomatico == 1)
                 {
                     player.GetComponent<FirstPersonCharacterControllerSOUND>().startDialogue = true;
-                    if (Soccorritore2_GP.GetComponent<InteractablePerson>().GetInteract() == false)
+                    if (Soccorritore2_GP.GetComponent<InteractablePerson>().GetInteract() == false && punti == false)
                     {
                         Soccorritore2_GP.GetComponent<DialogueTrigger>().TriggerDialogue();
                         int n = Random.Range(1, m_Sounds.Length);
@@ -136,7 +140,7 @@ public class GestoreScenaValanga : MonoBehaviour
                 if (dialogoAutomatico == 2)
                 {
                     player.GetComponent<FirstPersonCharacterControllerSOUND>().startDialogue = true;
-                    if (Soccorritore2_GP.GetComponent<InteractablePerson>().GetInteract() == false)
+                    if (Soccorritore2_GP.GetComponent<InteractablePerson>().GetInteract() == false && punti == false)
                     {
                         Soccorritore2_GP.GetComponent<DialogueTrigger>().TriggerDialogue();
                         int n = Random.Range(1, m_Sounds.Length);
@@ -156,7 +160,7 @@ public class GestoreScenaValanga : MonoBehaviour
                 if (dialogoAutomatico == 3)
                 {
                     player.GetComponent<FirstPersonCharacterControllerSOUND>().startDialogue = true;
-                    if (Soccorritore2_GP.GetComponent<InteractablePerson>().GetInteract() == false)
+                    if (Soccorritore2_GP.GetComponent<InteractablePerson>().GetInteract() == false && punti == false)
                     {
                         Soccorritore2_GP.GetComponent<DialogueTrigger>().TriggerDialogue();
                         int n = Random.Range(1, m_Sounds.Length);

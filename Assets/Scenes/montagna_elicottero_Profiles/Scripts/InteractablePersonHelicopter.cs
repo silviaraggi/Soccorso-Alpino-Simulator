@@ -14,13 +14,15 @@ public class InteractablePersonHelicopter : Interactable
     [SerializeField] private GameObject _ferito;
     public AudioSource audio;
     [SerializeField] private AudioClip[] m_Sounds;
+    private SceneInfo info;
 
-    
+
 
     // Start is called before the first frame update
     protected override void Start()
     {
         audio = GetComponent<AudioSource>();
+        info = GameObject.Find("SceneInfo").GetComponent<SceneInfo>();
         if (GetComponent<SC_NPCFollow>())
             collectable = true;
         if (gameObject.GetComponent<Renderer>())
@@ -139,6 +141,8 @@ public class InteractablePersonHelicopter : Interactable
             // move picked sound to index 0 so it's not picked next time
             m_Sounds[n] = m_Sounds[0];
             m_Sounds[0] = audio.clip;
+            info.SetPunteggio(info.GetPunteggio() - 10);
+            Debug.Log(info.GetPunteggio());
             //do dialogue
         }
         if (collectable == true && collect == false)

@@ -20,6 +20,8 @@ public class JeepBaita : MonoBehaviour
     private int dialogoAutomatico =0;
     [SerializeField] private AudioClip[] m_Sounds;
     private AudioSource audio;
+    private bool punti;
+    private SceneInfo info;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +59,8 @@ public class JeepBaita : MonoBehaviour
         giocatore.GetComponent<FPSInteractionManager>().SetUnlocked(false);
         giocatore.GetComponent<FirstPersonCharacterController>().SetLocked(true);
         Cursor.visible = false;
+        info = GameObject.Find("SceneInfo").GetComponent<SceneInfo>();
+        punti = info.GetPunti();
     }
 
     // Update is called once per frame
@@ -71,7 +75,7 @@ public class JeepBaita : MonoBehaviour
             if (dialogoAutomatico == 0)
             {
                 giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().startDialogue = true;
-                if (collega1.GetComponent<InteractablePerson>().GetInteract() == false)
+                if (collega1.GetComponent<InteractablePerson>().GetInteract() == false && punti == false)
                 {
                     collega1.GetComponent<DialogueTrigger>().TriggerDialogue();
                     int n = UnityEngine.Random.Range(1, m_Sounds.Length);
@@ -123,7 +127,7 @@ public class JeepBaita : MonoBehaviour
         if (dialogoAutomatico == 1)
                 {
                     giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().startDialogue = true;
-                    if (collega1.GetComponent<InteractablePerson>().GetInteract() == false)
+                    if (collega1.GetComponent<InteractablePerson>().GetInteract() == false && punti == false)
                     {
                         collega1.GetComponent<DialogueTrigger>().TriggerDialogue();
                 int n = UnityEngine.Random.Range(1, m_Sounds.Length);

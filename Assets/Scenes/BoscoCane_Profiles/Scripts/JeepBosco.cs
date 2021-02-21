@@ -27,6 +27,8 @@ public class JeepBosco : MonoBehaviour
     private int dialogoAutomatico = 0;
     [SerializeField] private AudioClip[] m_Sounds;
     private AudioSource audio;
+    private bool punti;
+    private SceneInfo info;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +45,8 @@ public class JeepBosco : MonoBehaviour
         collega2 = GameObject.Find("Collega2");
         audio = collega1.GetComponent<AudioSource>();
         telecameraGiocatore = giocatore.transform.Find("Camera").GetComponent<Camera>();
+        info = GameObject.Find("SceneInfo").GetComponent<SceneInfo>();
+        punti = info.GetPunti();
         if (scena.name == "BoscoCane")
             IntroScenaBosco();
     }
@@ -58,7 +62,7 @@ public class JeepBosco : MonoBehaviour
                 if (dialogoAutomatico == 0)
                 {
                     giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().startDialogue = true;
-                    if (collega1.GetComponent<InteractablePerson>().GetInteract() == false)
+                    if (collega1.GetComponent<InteractablePerson>().GetInteract() == false && punti == false)
                     {
                         collega1.GetComponent<DialogueTrigger>().TriggerDialogue();
                         int n = UnityEngine.Random.Range(1, m_Sounds.Length);
@@ -103,7 +107,7 @@ public class JeepBosco : MonoBehaviour
                     if (dialogoAutomatico == 1)
                     {
                         giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().startDialogue = true;
-                        if (collega1.GetComponent<InteractablePerson>().GetInteract() == false)
+                        if (collega1.GetComponent<InteractablePerson>().GetInteract() == false && punti == false)
                         {
                             collega1.GetComponent<DialogueTrigger>().TriggerDialogue();
                             int n = UnityEngine.Random.Range(1, m_Sounds.Length);
