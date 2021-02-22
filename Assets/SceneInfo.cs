@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class SceneInfo : MonoBehaviour
 {
-    static int SceneNumber = 1;
+    static int SceneNumber = 3;
     static bool punti = false;
     static int punteggio = 50;
     public GameObject monete;
-
 
     private void Start()
     {
@@ -26,6 +25,7 @@ public class SceneInfo : MonoBehaviour
             {
                 if (GameObject.Find("MissionFailed"))
                     FindObjectOfType<MissionFailed>().Fine_monete();
+
             }
             ToggleFullScreen();
         }
@@ -77,7 +77,7 @@ public class SceneInfo : MonoBehaviour
         }
     }
     public void Reload() {
-        SceneNumber = 1;
+        SceneNumber = 3;
         punti = false;
         punteggio = 50;
 
