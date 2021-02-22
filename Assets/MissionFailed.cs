@@ -37,6 +37,8 @@ public class MissionFailed : MonoBehaviour
         this.gameObject.GetComponent<AudioSource>().enabled = true;
         if (GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUND>())
             GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUND>().m_MouseLook.SetCursorLock(false);
+        if (GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUNDElicottero>())
+            GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUNDElicottero>().m_MouseLook.SetCursorLock(false);
 
     }
     public void Fine()
@@ -46,6 +48,8 @@ public class MissionFailed : MonoBehaviour
         missionFailedUI.SetActive(true);
         if (GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUND>())
             GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUND>().m_MouseLook.SetCursorLock(false);
+        if (GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUNDElicottero>())
+            GameObject.Find("Player").GetComponent<FirstPersonCharacterControllerSOUNDElicottero>().m_MouseLook.SetCursorLock(false);
     }
 
     public void Ritenta()

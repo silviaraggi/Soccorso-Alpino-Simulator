@@ -186,11 +186,11 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
             {
                 if (_kitPreso == false)
                 {
+                    _NPC.GetComponent<DialogueTriggerHelicopter>().dialogue = GameObject.Find("DialogoColleghi3");
                     _inventario.Add(_firstAidKit.GetComponent<LightUpInteractableHelicopter>().bende);
                     _inventario.Add(_firstAidKit.GetComponent<LightUpInteractableHelicopter>().fissaggi);
                     _inventario.Add(_firstAidKit.GetComponent<LightUpInteractableHelicopter>().stecca);
                     _kitPreso = true;
-                    _NPC.GetComponent<DialogueTriggerHelicopter>().dialogue = GameObject.Find("DialogoColleghi3");
                     startDialogue = true;
                     if (punti == false && _NPC.GetComponent<InteractablePersonHelicopter>().dialogue == false )
                     {
@@ -239,6 +239,7 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
                         }
                         if (_grabFerito == 1 && Vector3.Distance(_barella.transform.position, (_ferito.transform.position + new Vector3(0f, 1f, 0f))) < 1f && _ferito.transform.IsChildOf(transform) == false)
                         {
+                            _NPC.GetComponent<DialogueTriggerHelicopter>().dialogue = GameObject.Find("DialogoColleghi4");
                             if (_ferito.GetComponent<Interactable>() != null)
                                 _ferito.GetComponent<Interactable>().TurnOff();
                             //_ferito.GetComponent<LightUpInteractable>().enabled = false;
@@ -257,7 +258,6 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
                             _targetDirection = _barella.transform.eulerAngles;
                             _direction = Quaternion.Euler(_barella.transform.eulerAngles);
                             _helicopter.transform.GetComponent<BoxCollider>().enabled = true;
-                            _NPC.GetComponent<DialogueTriggerHelicopter>().dialogue = GameObject.Find("DialogoColleghi4");
                             startDialogue = true;
                             if (punti == false&&_NPC.GetComponent<InteractablePersonHelicopter>().dialogue == false  )
                             {

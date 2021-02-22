@@ -21,6 +21,8 @@ public class JeepCasa : MonoBehaviour
     [SerializeField] private AudioClip[] m_SoundsF;
     private AudioSource audioM;
     private AudioSource audioF;
+    private bool punti;
+    private SceneInfo info;
     //GameObject cane;
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,8 @@ public class JeepCasa : MonoBehaviour
         collega2 = GameObject.Find("Collega2");
         audioM = collega1.GetComponent<AudioSource>();
         audioF = collega2.GetComponent<AudioSource>();
+        info = GameObject.Find("SceneInfo").GetComponent<SceneInfo>();
+        punti = info.GetPunti();
 
         IntroScenaCasa();
     }
@@ -59,7 +63,7 @@ public class JeepCasa : MonoBehaviour
                 giocatore.GetComponent<FPSInteractionManager>().SetUIVisible(false);
                 GameObject.Find("MainCamera").GetComponent<Camera>().enabled = true;
                 giocatore.GetComponent<CharacterController>().enabled = true;
-            if (dialogoAutomatico == 0)
+            if (dialogoAutomatico == 0&& punti==false)
             {
                 giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().startDialogue = true;
                 if (collega2.GetComponent<InteractablePerson>().GetInteract() == false)
@@ -92,7 +96,7 @@ public class JeepCasa : MonoBehaviour
                 collega2.GetComponent<DialogueTrigger>().dialogue = GameObject.Find("DialogoColleghi3");
                 if (Vector3.Distance(giocatore.transform.position, collega1.transform.position) < 3f)
                 {
-                    if (dialogoAutomatico == 1)
+                    if (dialogoAutomatico == 1 && punti == false)
                     {
                         giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().collega = collega1;
                         giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().startDialogue = true;

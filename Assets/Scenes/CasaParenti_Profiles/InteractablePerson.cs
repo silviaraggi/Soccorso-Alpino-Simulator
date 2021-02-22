@@ -133,23 +133,28 @@ public class InteractablePerson : Interactable
     {
         if (((collectable==true&&collect==true)&&!GetDialogue())||(collectable==false&&!GetDialogue()))
         {
-            dialoguetrigger.TriggerDialogue();
-            int n = Random.Range(1, m_Sounds.Length);
-            if (n > 1)
-            {
-                audio.clip = m_Sounds[n];
-                audio.PlayOneShot(audio.clip);
-                // move picked sound to index 0 so it's not picked next time
-                m_Sounds[n] = m_Sounds[0];
-                m_Sounds[0] = audio.clip;
-                
-            }
-            else
-            {
-                audio.clip = m_Sounds[0];
-                audio.PlayOneShot(audio.clip);
-            }
             info.SetPunteggio(info.GetPunteggio() - 10);
+            if (info.GetPunteggio() > 0)
+            {
+                dialoguetrigger.TriggerDialogue();
+                dialoguetrigger.TriggerDialogue();
+                int n = Random.Range(1, m_Sounds.Length);
+                if (n > 1)
+                {
+                    audio.clip = m_Sounds[n];
+                    audio.PlayOneShot(audio.clip);
+                    // move picked sound to index 0 so it's not picked next time
+                    m_Sounds[n] = m_Sounds[0];
+                    m_Sounds[0] = audio.clip;
+
+                }
+                else
+                {
+                    audio.clip = m_Sounds[0];
+                    audio.PlayOneShot(audio.clip);
+                }
+            }
+
             Debug.Log(info.GetPunteggio());
             //do dialogue
         }
