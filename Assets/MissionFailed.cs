@@ -50,20 +50,16 @@ public class MissionFailed : MonoBehaviour
 
     public void Ritenta()
     {
+        GameObject.Find("SceneInfo").GetComponent<SceneInfo>().SetPunteggio(50);
         GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().entry_transition();
         SceneManager.LoadSceneAsync("montagna_neve_TUTTOSCRIPT");
     }
 
     public void RitentaBaita()
     {
+        GameObject.Find("SceneInfo").GetComponent<SceneInfo>().SetPunteggio(50);
         GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().entry_transition();
         SceneManager.LoadSceneAsync("Baita");
-    }
-
-    public void RitentaCasaParenti()
-    {
-        GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().entry_transition();
-        SceneManager.LoadSceneAsync("CasaParenti");
     }
 
 

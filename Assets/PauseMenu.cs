@@ -58,6 +58,7 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
+        GameObject.Find("SceneInfo").GetComponent<SceneInfo>().Reload();
         GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().entry_transition();
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");

@@ -5,31 +5,32 @@ using UnityEngine;
 public class SceneInfo : MonoBehaviour
 {
     static int SceneNumber = 1;
-    static bool punti=false;
-    static int punteggio=50;
+    static bool punti = false;
+    static int punteggio = 50;
     public GameObject monete;
-    
+
 
     private void Start()
     {
-        
-        
+
+
     }
     private void Update()
     {
 
         if (punti)
         {
-            if(GameObject.Find("Monete"))
-            monete.SetActive(true);
+            if (GameObject.Find("Monete"))
+                monete.SetActive(true);
             if (punteggio == 0)
             {
-                FindObjectOfType<MissionFailed>().Fine_monete();
+                if (GameObject.Find("MissionFailed"))
+                    FindObjectOfType<MissionFailed>().Fine_monete();
             }
             ToggleFullScreen();
         }
-        
-        
+
+
     }
 
     public void SetScene(int scena)
@@ -43,7 +44,7 @@ public class SceneInfo : MonoBehaviour
     }
     public void SetPunti(bool puntibool)
     {
-        punti=puntibool;
+        punti = puntibool;
     }
 
     public bool GetPunti()
@@ -74,5 +75,11 @@ public class SceneInfo : MonoBehaviour
                 Debug.Log("Windowed!");
             }
         }
+    }
+    public void Reload() {
+        SceneNumber = 1;
+        punti = false;
+        punteggio = 50;
+
     }
 }
