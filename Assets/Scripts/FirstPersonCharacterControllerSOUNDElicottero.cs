@@ -235,11 +235,12 @@ public class FirstPersonCharacterControllerSOUNDElicottero : MonoBehaviour
                         {
                             _ferito.GetComponent<Grabbable>().grab = true;
                             _grabFerito = 1;
+                            _NPC.GetComponent<DialogueTriggerHelicopter>().dialogue = GameObject.Find("DialogoColleghi4");
 
                         }
                         if (_grabFerito == 1 && Vector3.Distance(_barella.transform.position, (_ferito.transform.position + new Vector3(0f, 1f, 0f))) < 1f && _ferito.transform.IsChildOf(transform) == false)
                         {
-                            _NPC.GetComponent<DialogueTriggerHelicopter>().dialogue = GameObject.Find("DialogoColleghi4");
+                            
                             if (_ferito.GetComponent<Interactable>() != null)
                                 _ferito.GetComponent<Interactable>().TurnOff();
                             //_ferito.GetComponent<LightUpInteractable>().enabled = false;

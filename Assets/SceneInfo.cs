@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SceneInfo : MonoBehaviour
 {
-    static int SceneNumber = 2;
-    static bool punti = true;
+    static int SceneNumber = 1;
+    static bool punti = false;
     static int punteggio = 50;
     public GameObject monete;
 

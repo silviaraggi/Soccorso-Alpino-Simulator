@@ -1052,7 +1052,7 @@ MonoBehaviour:
   dialogo:
     name: Collega
     sentences:
-    - Forza trasportiamolo sull'elicottero.
+    - Forza trasportiamolo sull'elicottero con la barella.
 --- !u!1 &289479965
 GameObject:
   m_ObjectHideFlags: 0
@@ -11599,8 +11599,7 @@ MonoBehaviour:
   dialogo:
     name: Collega
     sentences:
-    - "Stecca la gamba e poi mettilo sulla barella, cos\xEC da poterlo trasportare
-      in sicurezza."
+    - "Stecca la gamba cos\xEC da poterlo trasportare in sicurezza con la barella."
 --- !u!1 &1903552772
 GameObject:
   m_ObjectHideFlags: 0
