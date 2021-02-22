@@ -148,7 +148,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2596100}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 523885695}
@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -457, y: 331}
+  m_AnchoredPosition: {x: -457, y: 347}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2596102
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9056604, g: 0.8287159, b: 0.72196513, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -24979,7 +24979,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &789453243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30799,7 +30799,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textDisplay: {fileID: 523885693}
   punteggio: 0
-  canvas: {fileID: 971081810}
 --- !u!4 &918120996
 Transform:
   m_ObjectHideFlags: 0
@@ -40389,6 +40388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98fe43d29ec482649bed9c5c2ea2b286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monete: {fileID: 971081810}
 --- !u!4 &1512563993
 Transform:
   m_ObjectHideFlags: 0
