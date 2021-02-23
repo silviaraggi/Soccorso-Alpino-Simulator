@@ -9866,7 +9866,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Sposta la telecamera muovendo il mause ed interagisci con personaggi ed
+  m_Text: Sposta la telecamera muovendo il mouse ed interagisci con personaggi ed
     oggetti cliccando sul tasto sinistro.
 --- !u!222 &1376576893
 CanvasRenderer:
