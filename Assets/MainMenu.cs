@@ -15,6 +15,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayElicopter()
     {
+        GameObject.Find("SceneInfo").GetComponent<SceneInfo>().SetPunti(false);
         GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().entry_transition();
         GameObject.Find("SceneInfo").GetComponent<SceneInfo>().SetScene(1);
         SceneManager.LoadSceneAsync("Baita");
@@ -23,6 +24,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayDog()
     {
+        GameObject.Find("SceneInfo").GetComponent<SceneInfo>().SetPunti(false);
         GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().entry_transition();
         GameObject.Find("SceneInfo").GetComponent<SceneInfo>().SetScene(2);
         SceneManager.LoadSceneAsync("Baita");
@@ -31,6 +33,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlaySnow()
     {
+        GameObject.Find("SceneInfo").GetComponent<SceneInfo>().SetPunti(false);
         GameObject.Find("TransizioneCanvas").GetComponent<Transition_animation>().entry_transition();
         GameObject.Find("SceneInfo").GetComponent<SceneInfo>().SetScene(3);
         SceneManager.LoadSceneAsync("montagna_neve_TUTTOSCRIPT");
