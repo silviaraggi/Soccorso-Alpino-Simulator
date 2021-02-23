@@ -134,7 +134,7 @@ public class InteractablePerson : Interactable
         if (((collectable==true&&collect==true)&&!GetDialogue())||(collectable==false&&!GetDialogue()))
         {
             info.SetPunteggio(info.GetPunteggio() - 10);
-            if (info.GetPunteggio() > 0)
+            if (info.GetPunti()==false||  info.GetPunteggio() > 0)
             {
                 dialoguetrigger.TriggerDialogue();
                 dialoguetrigger.TriggerDialogue();

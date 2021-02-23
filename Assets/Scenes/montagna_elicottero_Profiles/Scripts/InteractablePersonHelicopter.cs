@@ -135,7 +135,7 @@ public class InteractablePersonHelicopter : Interactable
         if (((collectable == true && collect == true) && !dialogue) || (collectable == false && !dialogue))
         {
             info.SetPunteggio(info.GetPunteggio() - 10);
-            if (info.GetPunteggio() > 0)
+            if (info.GetPunti()==false ||info.GetPunteggio() > 0)
             {
                 dialoguetrigger.TriggerDialogue();
                 int n = Random.Range(1, m_Sounds.Length);
