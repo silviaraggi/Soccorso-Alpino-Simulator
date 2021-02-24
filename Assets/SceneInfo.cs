@@ -19,8 +19,6 @@ public class SceneInfo : MonoBehaviour
 
         if (punti)
         {
-            if (GameObject.Find("Monete"))
-                monete.SetActive(true);
             if (punteggio == 0)
             {
                 if (GameObject.Find("MissionFailed"))
@@ -28,7 +26,8 @@ public class SceneInfo : MonoBehaviour
 
             }
             ToggleFullScreen();
-        }
+        }else if (GameObject.Find("Monete"))
+            GameObject.Find("Monete").SetActive(false);
 
 
     }

@@ -84,9 +84,11 @@ public class JeepBaita : MonoBehaviour
                     m_Sounds[n] = m_Sounds[0];
                     m_Sounds[0] = audio.clip;
                     audio.PlayOneShot(audio.clip, 1f);
+                    dialogoAutomatico++;
+                    giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().RotateDialogue();
                 }
-                giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().RotateDialogue();
-                dialogoAutomatico++;
+                
+                
             }
             if (zaino.GetComponent<LightUpInteractable>().collect == true && collega1.GetComponent<InteractablePerson>().GetCollect() == true && collega2.GetComponent<InteractablePerson>().GetCollect() == true)
             {

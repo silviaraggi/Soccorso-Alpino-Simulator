@@ -71,8 +71,9 @@ public class JeepBosco : MonoBehaviour
                         m_Sounds[n] = m_Sounds[0];
                         m_Sounds[0] = audio.clip;
                         audio.PlayOneShot(audio.clip, 1f);
+                        giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().RotateDialogue();
                     }
-                    giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().RotateDialogue();
+                    
                     dialogoAutomatico++;
                 }
                 if (!torciaAdded)
@@ -116,8 +117,9 @@ public class JeepBosco : MonoBehaviour
                             m_Sounds[n] = m_Sounds[0];
                             m_Sounds[0] = audio.clip;
                             audio.PlayOneShot(audio.clip, 1f);
+                            giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().RotateDialogue();
                         }
-                        giocatore.GetComponent<FirstPersonCharacterControllerSOUND>().RotateDialogue();
+
                         dialogoAutomatico++;
                     }
                 }
