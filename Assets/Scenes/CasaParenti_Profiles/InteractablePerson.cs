@@ -133,10 +133,10 @@ public class InteractablePerson : Interactable
     {
         if (((collectable==true&&collect==true)&&!GetDialogue())||(collectable==false&&!GetDialogue()))
         {
+            if(interacted.gameObject.name!="Parenti"&& interacted.gameObject.name != "Disperso")
             info.SetPunteggio(info.GetPunteggio() - 10);
             if (info.GetPunti()==false||  info.GetPunteggio() > 0)
             {
-                dialoguetrigger.TriggerDialogue();
                 dialoguetrigger.TriggerDialogue();
                 int n = Random.Range(1, m_Sounds.Length);
                 if (n > 1)
