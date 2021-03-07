@@ -4,5 +4,7 @@ Questa applicazione vuole introdurre l’utente in questa nuova esperienza, offr
 1. La prima prevede il soccorso di un individuo su terreno impervio, raggiungibile tramite elicottero. Una volta raggiunta la persona in pericolo, questa sarà caricata su una barella e trasportata in un luogo dove potrà ricevere le cure adeguate. 
 2. Il secondo scenario prevede la ricerca di una persona scomparsa, la quale avverrà di notte e con l’aiuto di un’unità cinofila.
 3. Il terzo si discosta dagli obiettivi degli altri due in quanto il “protagonista” non sarà un addetto al soccorso alpino ma una persona comune: l’obiettivo quindi in questo caso è di far conoscere una manovra di autosoccorso. Lo scenario si ambienta in alta quota, dove l’utente deve intervenire per salvare il suo collega travolto da una valanga. Attraverso un tutorial guidato e un’attrezzatura predisposta l’utente avrà un tempo limitato per poter trovare la persona dispersa nella neve, in attesa che arrivino i soccorsi per fornirgli le cure necessarie. 
+
+
 Una grafica Low Poly,  tre paesaggi colorati ed accattivanti e tanti personaggi con cui interagire ti invitano ad esplorare questo settore tanto affascinante quanto ancora poco conosciuto.
 Buon divertimento (e soprattutto apprendimento)!
