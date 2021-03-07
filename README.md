@@ -7,4 +7,4 @@ Questa applicazione vuole introdurre l’utente in questa nuova esperienza, offr
 
 
 Una grafica Low Poly,  tre paesaggi colorati ed accattivanti e tanti personaggi con cui interagire ti invitano ad esplorare questo settore tanto affascinante quanto ancora poco conosciuto.
-Buon divertimento (e soprattutto apprendimento)!
+Buon divertimento (e soprattutto buon apprendimento)!
